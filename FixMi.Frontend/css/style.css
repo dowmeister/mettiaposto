@@ -1,0 +1,419 @@
+﻿body
+{
+    background-color: #5BB1CA;
+    margin: 0 0 0 0;
+    font-size: 12px;
+    font-family: Verdana;
+}
+
+#wrapper
+{
+    padding: 0 60px 40px 60px;
+}
+
+#navbar
+{
+    height: 20px;
+    background-color: #117491;
+}
+
+#logo
+{
+    width: 202px;
+    float: left;
+    margin-left: 15px;
+}
+
+#logo a
+{
+    background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 84px;
+    line-height: 84px;
+    text-indent: -500em;
+    width: 201px;
+}
+
+#menu
+{
+    float: right;
+    margin-right: 30px;
+}
+
+#menu ul li
+{
+    list-style: none;
+    display: inline;
+    text-align: center;
+    float: left;
+    height: 84px;
+    margin-right: 5px;
+}
+
+#menu ul li a
+{
+    color: White;
+    display: block;
+    font-size: 20px;
+    height: 84px;
+    padding-top: 50px;
+    text-decoration: none;
+    width: 128px;
+}
+
+#menu ul li a.green
+{
+    background: url("../images/greentab.png") no-repeat scroll 0 38px transparent;
+}
+
+#menu ul li a.orange
+{
+    background: url("../images/orangetab.png") no-repeat scroll 0 38px transparent;
+}
+
+#menu ul li a.pink
+{
+    background: url("../images/pinktab.png") no-repeat scroll 0 38px transparent;
+}
+
+#content
+{
+    background-color: White;
+    background: White url(../images/vshadow.png) repeat-y right;
+    padding: 20px;
+}
+
+#hshadow
+{
+    height: 10px;
+    margin-right: 6px;
+    background: url(../images/hshadow.png) repeat-x;
+}
+
+#footer
+{
+    background: url(../images/skyline.png) no-repeat bottom;
+    height: 150px;
+    text-align: center;
+    color: White;
+}
+
+#content .presentation
+{
+    margin-top: 20px;
+    width: 1085px;
+    padding-left: 10px;
+}
+#content .home
+{
+    background: url(../images/searchbg.png) no-repeat;
+    float: left;
+    width: 570px;
+    background-color: #5BB1CA;
+    margin: 0 10px 0 10px;
+    height: 110px;
+}
+
+#content .home h2
+{
+    font-size: 12px;
+}
+
+#content .home .start
+{
+    text-align: center;
+}
+
+#content .home .start input.search
+{
+    width: 250px;
+    padding: 10px;
+    border: none;
+    color: Grey;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#content .home start input.searchButton
+{
+    width: 200px;
+}
+
+#content .statsBox
+{
+    width: 244px;
+    height: 109px;
+    float: left;
+    padding-top: 23px;
+}
+
+#content .statsBox div
+{
+    width: 155px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: White;
+}
+
+#content .statsBox div div
+{
+    font-size: 20px;
+}
+
+#content .totalSignals
+{
+    background: url(../images/brownbox.png) no-repeat;
+}
+
+#content .resolvedSignals
+{
+    background: url(../images/greenbox.png) no-repeat;
+}
+
+#content .claim
+{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#content .claim a
+{
+    background: url(../images/claimhome.png) no-repeat;
+    display: block;
+    width: 1083px;
+    height: 263px;
+    margin: 0 auto 0 auto;
+}
+
+
+#content h1.title
+{
+    width: 500px;
+    font-size: 16px;
+    height: 20px;
+    padding: 0 0 10px 0;
+    background: url(../images/blueline.png) no-repeat bottom;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.twocols .left
+{
+    display: inline;
+    float: left;
+    width: 530px;
+}
+
+.twocols .right
+{
+    float: left;
+    width: 550px;
+}
+
+.submitForm ol li
+{
+    list-style: none;
+    margin: 10px 5px 0 0px;
+}
+
+.submitForm ol li label
+{
+    display: inline-block;
+    line-height: 1.8;
+    vertical-align: top;
+    width: 120px;
+}
+
+.submitForm ol li input, .submitForm ol li select
+{
+    padding: 5px;
+    width: 250px;
+    border: solid 1px #5BB1CA;
+}
+
+.submitForm ol li input:focus, .submitForm ol li textarea:focus, .submitForm ol li select:focus
+{
+    border: solid 1px #5CCA69;
+}
+
+.submitForm ol li textarea
+{
+    width: 260px;
+    height: 150px;
+    border: solid 1px #5BB1CA;
+}
+
+.submitForm ol li div.legend
+{
+    font-size: 10px;
+    font-style: italic;
+    margin: 5px 0 5px 125px;
+}
+
+.submitForm ol li div.subfield
+{
+    margin: 5px 0 5px 125px;
+}
+
+.submitForm ol li span.checkbox input
+{
+    width: auto;
+}
+
+.submitForm ol li div.subfield label
+{
+    margin: 0 0 0 0;
+    width: auto;
+    display: inline;
+}
+
+.submitForm div.buttons
+{
+    width: 500px;
+    text-align: right;
+    margin: 10px 0 10px 0;
+    padding-top: 10px;
+    border-top: solid 1px #117493;
+}
+
+input.success
+{
+    background: transparent url(../images/greenbutton.png) no-repeat;
+}
+
+input.reset
+{
+    background: transparent url(../images/redbutton.png) no-repeat;
+}
+
+input[type=button], input[type=reset]
+{
+    height: 30px;
+    width: 120px;
+    border: none;
+    color: White;
+    font-weight: bold;
+}
+
+#content .mapTabs ul
+{
+    background: url(../images/minitabline.png) repeat-x bottom;
+}
+
+#content .map
+{
+    width: 510px;
+    height: 500px;
+}
+
+#content .details
+{
+    margin-top: 5px;
+}
+
+#content .details .info
+{
+    color: #5BB1CA;
+    font-size: 12px;
+}
+
+#content .details .info span
+{
+    font-weight: bold;
+}
+
+#content .details .description
+{
+    margin-top: 20px;
+    border: solid 1px #5BB1CA;
+    padding: 10px;
+    font-size: 12px;
+    width: 480px;
+}
+
+#content .details .tools
+{
+    padding: 1px 0 15px;
+    width: 490px;
+    margin-top: 20px;
+    background-color: #5BB1CA;
+}
+
+#content .details .tools ul li
+{
+    list-style: none;
+    float: left;    
+    margin-right: 10px;
+}
+
+#content .details .tools ul li a
+{
+    text-decoration: none;
+    color: White;
+    font-weight: bold;
+    display: block;
+    margin-right: 5px;
+    padding: 5px;
+    background-color: #117491;
+}
+
+#content .details .serviceBox
+{
+    display: none;
+    padding: 10px;
+    width: 400px;
+    margin-left: 15px;
+    border: solid 1px #5BB1CA;
+}
+
+#content .mapTabs
+{
+    width: 550px;
+    margin-top: 5px;
+}
+
+
+/* UTILS */
+.message
+{
+    border: solid 1px #E3E3E3;
+    width: 460px;
+    margin-left: 10px;
+    padding: 10px;
+    color: White;
+    font-weight: bold;
+    display: none;
+}
+
+.success
+{
+    background-color: #5CCA69;
+}
+
+.error
+{
+    background-color: #F3A29A;
+    border-color: Red;
+}
+
+.ajax
+{
+    background-color: #5BB1CA;
+    border-color: #117491;
+    text-align: center;
+}
+
+.message h2
+{
+    font-size: 16px;
+}
+
+.fieldError
+{
+    border-color: Red;
+}

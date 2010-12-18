@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixMi.Frontend", "FixMi.Frontend\FixMi.Frontend.csproj", "{BDEB39F2-81D4-4E73-A372-C0918196F610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixMi.Framework", "FixMi.Framework\FixMi.Framework.csproj", "{8F26021D-5623-4A31-A46D-7816E3FD1963}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDEB39F2-81D4-4E73-A372-C0918196F610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDEB39F2-81D4-4E73-A372-C0918196F610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDEB39F2-81D4-4E73-A372-C0918196F610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDEB39F2-81D4-4E73-A372-C0918196F610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F26021D-5623-4A31-A46D-7816E3FD1963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F26021D-5623-4A31-A46D-7816E3FD1963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F26021D-5623-4A31-A46D-7816E3FD1963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F26021D-5623-4A31-A46D-7816E3FD1963}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

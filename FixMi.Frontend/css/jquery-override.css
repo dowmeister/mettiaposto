@@ -1,0 +1,35 @@
+﻿#content .ui-tabs .ui-widget-header
+{
+    border: none;
+    padding-bottom: 3px;
+}
+
+.ui-widget-content
+{
+    border: none;
+}
+
+.ui-tabs .ui-tabs-nav li
+{
+    border: none;
+    background: url(../images/minitab.png) no-repeat;
+    width: 96px;
+    height: 26px;
+    text-align: center;
+    cursor: hand;
+}
+
+#content .ui-tabs .ui-tabs-selected, #content .ui-tabs .ui-state-hover
+{
+    background: url(../images/minitab-selected.png) no-repeat;
+}
+
+.ui-tabs .ui-tabs-nav li a
+{
+    color: White;
+    font-weight: bold;
+    padding:  5px 0 0 0;
+    display: block;
+    float: none;
+}
+
