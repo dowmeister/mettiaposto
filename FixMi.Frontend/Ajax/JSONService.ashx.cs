@@ -28,5 +28,12 @@ namespace FixMi.Frontend.Ajax
 
             return s.SignalID;
         }
+
+        [JsonRpcMethod("getSignalsNearby")]
+        public List<Signal> GetSignalsNearby(string zip)
+        {
+            SignalManager sm = new SignalManager();
+            return sm.SearchNearZip(zip);
+        }
     }
 }

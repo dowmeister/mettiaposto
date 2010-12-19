@@ -1,6 +1,23 @@
-﻿var map;
-var marker
+﻿var maps = new Array();
+var markers = new Array();
 var completeAddress;
+var currentMap;
+
+function getMap(id) {
+    for (var i = 0; i < maps.length; i++) {
+        if (maps[i].id == id)
+            return maps[i];
+    }
+    return false;
+}
+
+function getMarker(id) {
+    for (var i = 0; i < markers.length; i++) {
+        if (markers[i].id = id)
+            return markers[i].obj;
+    }
+    return false;
+}
 
 function initializeMap(mapDiv, lat, long) {
     var latlng = new google.maps.LatLng(lat, long);
@@ -14,57 +31,92 @@ function initializeMap(mapDiv, lat, long) {
     };
 
     map = new google.maps.Map(document.getElementById(mapDiv), myOptions);
+    var mgr = new MarkerManager(map);
+    maps.push({ id: mapDiv, obj: map, markerManager: mgr });
 }
 
-function geolocationByAddress(address) {
+function geolocationByAddress(address, mapId) {
+
+    var map = getMap(mapId);
+
     if (map) {
+        currentMap = map.id;
         var addr = address + ', Milano';
         var geoCoder = new google.maps.Geocoder();
         geoCoder.geocode({ address: addr }, function (response, status) { geolocation_response(response, status); });
+        /*$.ajax({
+            url: 'http://maps.googleapis.com/maps/api/geocode/json',
+            success: function (data, textStatus) { geolocation_response(response, status); },
+            data: { address: addr, region: 'it', sensor: true }
+        });*/
     }
 }
 
 function geolocation_response(r, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
+
+    if (checkGeolocationResult(status)) {
         var data = r[0];
 
-        map.setCenter(data.geometry.location);
+        var map = getMap(currentMap);
+
+        map.obj.setCenter(data.geometry.location);
 
         switch (data.types[0]) {
             case 'street_address':
-                map.setZoom(16);
-                setMarker(data.geometry.location);
+                map.obj.setZoom(16);
+                setMarker('geoLocatedMarker0', data.geometry.location, true, map.id, true, true);
                 break;
             case 'postal_code':
-                map.setZoom(14);
+                map.obj.setZoom(14);
                 break;
             case 'sublocality':
-                map.setZoom(13);
+                map.obj.setZoom(13);
                 break;
             case 'route':
-                map.setZoom(15);
-                setMarker(data.geometry.location);
+                map.obj.setZoom(15);
+                setMarker('geoLocatedMarker0', data.geometry.location, true, map.id, true, true);
                 break;
         }
     }
+    currentMap = null;
 }
 
-function setMarker(location) {
-    if (marker)
-        marker.setMap(null);
-
-    marker = new google.maps.Marker({
-        position: location,
+function createMarker(id, location, draggable, map) {
+     
+    var marker = new google.maps.Marker({
         map: map,
-        draggable: true
+        position: location,
+        draggable: draggable,
+        icon: new google.maps.MarkerImage('/images/alert.png', new google.maps.Size(32, 32))
     });
-    
-    geoLocationByLatLng(location);
 
-    google.maps.event.addListener(marker, 'dragend', function () { geoLocationByLatLng(marker.getPosition(), 'completeAddress'); });
+    markers.push({ id: id, obj: marker, map: map });
+    
+    return marker;
 }
 
-function geoLocationByLatLng(position) {
+function setMarker(id, location, draggable, mapId, localize, center) {
+
+    var map = getMap(mapId);
+
+    var marker = createMarker(id, location, draggable, map.obj);
+
+    //getMap(mapId).markerManager.addMarker(marker);
+    //getMap(mapId).markerManager.refresh();
+
+    if (center)
+        map.obj.setCenter(location);
+
+    if (draggable)
+        google.maps.event.addListener(marker, 'dragend', function () { geoLocationByLatLng(marker.getPosition(), 'completeAddress'); });
+
+    if (localize)
+        geoLocationByLatLng(location);
+
+    return marker;
+}
+
+function geoLocationByLatLng(position) {    
     var geoCoder = new google.maps.Geocoder();
     geoCoder.geocode({ latLng: position }, function (response, status) { geoLocationByLatLng_response(response, status); });
 }

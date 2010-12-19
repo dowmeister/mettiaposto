@@ -36,6 +36,7 @@ namespace FixMi.Framework.Signals
         public virtual string Address { get; set; }
         public virtual string City { get; set; }
         public virtual string Zip { get; set; }
+        public virtual int Zoom { get; set; }
         public virtual SignalAttachmentCollection Attachments { get; set; }
 
         #endregion

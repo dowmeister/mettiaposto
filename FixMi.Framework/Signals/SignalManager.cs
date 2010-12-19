@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using FixMi.Framework.Core.Base;
 using FixMi.Framework.Data;
+using NHibernate;
+using NHibernate.Criterion;
 
 namespace FixMi.Framework.Signals
 {
@@ -34,7 +36,25 @@ namespace FixMi.Framework.Signals
             }
             finally
             {
-                
+
+            }
+        }
+
+        public List<Signal> SearchNearZip(string zipCode)
+        {
+            try
+            {
+                OpenSession();
+                List<Signal> ret = (List<Signal>)session.CreateCriteria(typeof(Signal))
+                        .Add(Restrictions.Between("Zip", int.Parse(zipCode) - 2, int.Parse(zipCode) + 2))
+                        .SetMaxResults(20)
+                        .List<Signal>();
+                CloseSession();
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

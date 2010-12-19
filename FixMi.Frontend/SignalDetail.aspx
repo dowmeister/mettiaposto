@@ -13,9 +13,13 @@
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/signal.functions.js" type="text/javascript"></script>
+    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script>
-        $(document).ready(function () {
-        });
+        /*$(document).ready(function () {
+            document.write('<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markermanager/1.0/src/markermanager_packed.js"><' + '/script>');
+        });*/
+        document.write('<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markermanager/1.0/src/markermanager.js"><' + '/script>');
     </script>
 </head>
 <body>
@@ -34,9 +38,12 @@
                     <div class="info">
                         Inviato
                         <asp:Label ID="ltTimeFrame" runat="server"></asp:Label>
-                        fa da
+                        da
                         <asp:Label ID="ltAuthor" runat="server"></asp:Label>
                         nella categoria "<asp:Label ID="ltCategory" runat="server"></asp:Label>"
+                        <br />
+                        Indirizzo:
+                        <asp:Label ID="lblAddress" runat="server"></asp:Label>
                     </div>
                     <div class="description" id="divDescription" runat="server">
                     </div>
@@ -53,12 +60,62 @@
                         <div class="clear">
                         </div>
                     </div>
-                    <div>
+                    <div style="display: block">
                         <div id="comment" class="submitForm serviceBox">
+                            <ol>
+                                <li>
+                                    <label>
+                                        Commento</label>
+                                    <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                    * </li>
+                                <li>
+                                <li>
+                                    <label>
+                                        Nome</label>
+                                    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                    <div class="subfield">
+                                        <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel dettaglio della segnalazione?"
+                                            runat="server" /></div>
+                                    <div class="legend">
+                                        Nome ed indirizzo email non sono obbligatori ma ti consigliamo di inserirli per
+                                        maggiore trasparenza</div>
+                                </li>
+                                <li>
+                                    <label>
+                                        E-mail</label>
+                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                    <div class="legend">
+                                        Ricevi via email aggiornamenti su questa segnalazione</div>
+                                </li>
+                            </ol>
+                            <div class="buttons">
+                                <input class="success" type="button" value="Invia" onclick="saveSignal(); return false;" />
+                                <input class="reset" type="reset" value="Annulla" />
+                            </div>
                         </div>
-                        <div id="subscribe" class="serviceBox">
+                        <div id="subscribe" class="submitForm serviceBox">
+                            <ol>
+                                <li>
+                                    <label>
+                                        E-mail</label>
+                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                    <div class="legend">
+                                        Il tuo indirizzo email non verrà mai mostrato pubblicamente</div>
+                                </li>
+                            </ol>
+                            <div class="buttons">
+                                <input class="success" type="button" value="Iscriviti" onclick="saveSignal(); return false;" />
+                                <input class="reset" type="reset" value="Annulla" />
+                            </div>
                         </div>
-                        <div id="share" class="serviceBox">
+                        <div id="share" class="shareBox serviceBox">
+                            <ul>
+                                <li><a name="fb_share" type="button">Convidivi su Facebook</a> </li>
+                                <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">
+                                    Tweet</a> </li>
+                            </ul>
+                            <div class="clear">
+                            </div>
                         </div>
                         <div id="report" class="submitForm serviceBox">
                         </div>
@@ -68,13 +125,18 @@
             <div class="right">
                 <div id="tabs" class="mapTabs">
                     <ul>
-                        <li><a href="#map_canvas">Mappa</a></li>
+                        <li><a href="#map">Mappa</a></li>
+                        <li><a href="#nearby">Dintorni</a></li>
                     </ul>
-                    <div map="true" id="mapContainer">
-                        <div map="true" id="map_canvas" class="map">
+                    <div map="true" id="map" mapDiv="map_canvas">
+                        <div id="map_canvas" class="map">
                         </div>
                         <br />
                         <span id="completeAddress" style="display: none;">Indirizzo completo: </span>
+                    </div>
+                     <div map="true" runat="server" id="nearby" mapDiv="mapNearby">
+                        <div id="mapNearby" class="map">
+                        </div>
                     </div>
                 </div>
             </div>

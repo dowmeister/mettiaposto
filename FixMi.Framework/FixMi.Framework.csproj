@@ -58,6 +58,7 @@
     <Compile Include="Core\Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Core\Utility\JsUtils.cs" />
     <Compile Include="Data\NHibernateSessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Signals\Signal.cs" />

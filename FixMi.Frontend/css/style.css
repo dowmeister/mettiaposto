@@ -274,7 +274,6 @@
 
 .submitForm div.buttons
 {
-    width: 500px;
     text-align: right;
     margin: 10px 0 10px 0;
     padding-top: 10px;
@@ -314,6 +313,7 @@ input[type=button], input[type=reset]
 #content .details
 {
     margin-top: 5px;
+    width: 500px;
 }
 
 #content .details .info
@@ -333,13 +333,11 @@ input[type=button], input[type=reset]
     border: solid 1px #5BB1CA;
     padding: 10px;
     font-size: 12px;
-    width: 480px;
 }
 
 #content .details .tools
 {
     padding: 1px 0 15px;
-    width: 490px;
     margin-top: 20px;
     background-color: #5BB1CA;
 }
@@ -366,9 +364,24 @@ input[type=button], input[type=reset]
 {
     display: none;
     padding: 10px;
-    width: 400px;
-    margin-left: 15px;
+    margin: 10px 0 0 20px;
     border: solid 1px #5BB1CA;
+}
+
+#content .details .shareBox ul li
+{    
+    list-style: none;
+    float: left;
+}
+
+#content .details .shareBox ul li a
+{
+    margin-right: 10px;
+}
+
+#content .details .shareBox ul li a img
+{
+    vertical-align: middle;
 }
 
 #content .mapTabs

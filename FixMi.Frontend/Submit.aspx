@@ -13,9 +13,11 @@
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/signal.functions.js" type="text/javascript"></script>
-    <script>
-        $(document).ready(function () {
-        });
+   <script>
+       /*$(document).ready(function () {
+       document.write('<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markermanager/1.0/src/markermanager_packed.js"><' + '/script>');
+       });*/
+       document.write('<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markermanager/1.0/src/markermanager.js"><' + '/script>');
     </script>
 </head>
 <body>
@@ -26,14 +28,16 @@
             <div class="left">
                 <h1 class="title">
                     Segnala un problema</h1>
-                <div id="messages"></div>
+                <div class="message error" id="validationError"></div>
+                <div id="messages">
+                </div>
                 <a name="a"></a>
                 <div id="submitForm" class="submitForm">
                     <ol>
                         <li>
                             <label>
                                 Indirizzo</label>
-                            <asp:TextBox ID="txtAddress" runat="server" CssClass="address" onblur="geolocationByAddress(this.value);"></asp:TextBox>
+                            <asp:TextBox ID="txtAddress" runat="server" CssClass="address" onblur="geolocationByAddress(this.value, 'map_canvas');"></asp:TextBox>
                             *
                             <div class="legend">
                                 Digita un indirizzo, esempio: Via Ripamonti, 100</div>
@@ -105,9 +109,9 @@
             <div class="right">
                 <div id="tabs" class="mapTabs">
                     <ul>
-                        <li><a href="#map_canvas">Mappa</a></li>
+                        <li><a href="#map">Mappa</a></li>
                     </ul>
-                    <div map="true" id="mapContainer">
+                    <div map="true" id="map" mapDiv="map_canvas">
                         <div map="true" id="map_canvas" class="map">
                         </div>
                         <br />

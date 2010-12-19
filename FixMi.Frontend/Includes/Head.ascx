@@ -6,5 +6,4 @@
 <link href="/css/style.css" rel="stylesheet" type="text/css" />
 <script src="/js/json.js" type="text/javascript"></script>
 <script src="/js/functions.js" type="text/javascript"></script>
-<script src="/js/jquery/plugins/scrollTo.js" type="text/javascript"></script>
 <script src="/js/validation.js" type="text/javascript"></script>
