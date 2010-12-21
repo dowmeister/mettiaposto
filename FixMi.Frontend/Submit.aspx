@@ -25,7 +25,6 @@
                 <div class="message error" id="validationError"></div>
                 <div id="messages">
                 </div>
-                <a name="a"></a>
                 <div id="submitForm" class="submitForm">
                     <ol>
                         <li>

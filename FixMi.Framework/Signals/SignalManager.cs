@@ -57,5 +57,48 @@ namespace FixMi.Framework.Signals
                 throw ex;
             }
         }
+
+        public List<Signal> Search(string city, string address, string zip, int categoryID, int status, int offset)
+        {
+            try
+            {
+                OpenSession();
+                ICriteria criteria = session.CreateCriteria(typeof(Signal))
+                        .Add(Restrictions.Eq("City", city))
+                        .SetMaxResults(offset + 20)
+                        .SetFirstResult(offset);
+
+                if (!address.Equals(string.Empty))
+                    criteria.Add(Restrictions.Like("Address", address));
+
+                if (!address.Equals(string.Empty))
+                    criteria.Add(Restrictions.Like("Address", address));
+
+                if (!address.Equals(string.Empty))
+                    criteria.Add(Restrictions.Like("Address", address));
+
+                if (!address.Equals(string.Empty))
+                    criteria.Add(Restrictions.Like("Address", address));
+
+                if (!zip.Equals(string.Empty))
+                    criteria.Add(Restrictions.Eq("Zip", zip));
+
+                if (categoryID != -1)
+                    criteria.Add(Restrictions.Eq("CategoryID", categoryID));
+
+                if (status != -1)
+                    criteria.Add(Restrictions.Eq("Status", status));
+
+                List<Signal> ret = (List<Signal>)criteria.List<Signal>();
+
+                CloseSession();
+
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

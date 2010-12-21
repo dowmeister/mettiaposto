@@ -108,6 +108,7 @@
     <Content Include="js\jquery\plugins\scrollTo.js" />
     <Content Include="js\json.js" />
     <Content Include="js\map.js" />
+    <Content Include="js\search.functions.js" />
     <Content Include="js\signal.functions.js" />
     <Content Include="js\validation.js" />
     <Content Include="Search.aspx" />

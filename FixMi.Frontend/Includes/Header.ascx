@@ -8,9 +8,10 @@
         </div>
         <div id="menu">
             <ul>
-                <li><a class="green" href="/home">Home</a></li>
-                <li><a class="orange" href="/submit">Segnala</a></li>
-                <li><a class="pink" href="/info">Info</a></li>
+                <li><a class="green" href="/index.aspx">Home</a></li>
+                <li><a class="orange" href="/milano/cerca.aspx">Cerca</a></li>
+                <li><a class="orange" href="/milano/invia.aspx">Segnala</a></li>
+                <li><a class="pink" href="/info.aspx">Info</a></li>
             </ul>
         </div>
     </div>

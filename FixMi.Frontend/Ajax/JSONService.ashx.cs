@@ -50,6 +50,22 @@ namespace FixMi.Frontend.Ajax
             return ar;
         }
 
+        [JsonRpcMethod("searchSignals")]
+        public JsonArray GetSignalsNearby(JsonObject searchParams)
+        {
+            JsonArray ar = new JsonArray();
+
+            for (int i = 0; i < ret.Count; i++)
+            {
+                JsonObject obj = new JsonObject();
+                obj["signal"] = ret[i];
+                obj["description"] = GetSignalDescription(ret[i]);
+                ar.Push(obj);
+            }
+
+            return ar;
+        }
+
         private string GetSignalDescription(Signal s)
         {
             CategoryManager cm = new CategoryManager();
