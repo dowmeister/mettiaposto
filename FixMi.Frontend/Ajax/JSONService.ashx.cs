@@ -55,6 +55,9 @@ namespace FixMi.Frontend.Ajax
         {
             JsonArray ar = new JsonArray();
 
+            SignalManager sm = new SignalManager();
+            List<Signal> ret = sm.Search("", "", "", -1, -1, 0);
+
             for (int i = 0; i < ret.Count; i++)
             {
                 JsonObject obj = new JsonObject();

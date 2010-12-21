@@ -48,13 +48,13 @@
                         <li>
                             <label>
                                 C.A.P.</label>
-                            <asp:TextBox ID="TextBox1" runat="server" CssClass="address"></asp:TextBox>
+                            <asp:TextBox ID="txtZip" runat="server" CssClass="address"></asp:TextBox>
                         </li>
                         <li>
                             <label>
                                 Stato</label>
                             <asp:DropDownList DataTextField="Name" DataValueField="CategoryID" AppendDataBoundItems="true"
-                                ID="DropDownList1" runat="server">
+                                ID="ddlStatus" runat="server">
                                 <asp:ListItem Value="-1" Text="Risolte e non Risolte" />
                                 <asp:ListItem Value="1" Text="Risolte" />
                                 <asp:ListItem Value="1" Text="Non Risolte" />

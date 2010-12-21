@@ -163,8 +163,6 @@ function getSignalsNearby_callback(r)
         var map = getMap('mapNearby').obj;
 
         var bounds = new google.maps.LatLngBounds();
-        var sw = new google.maps.LatLng(0, 0);
-        var ne = new google.maps.LatLng(0, 0);
 
         for (var i = 0; i < r.result.length; i++)
         {
