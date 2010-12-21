@@ -7,6 +7,8 @@ using System.Web.SessionState;
 using Jayrock.Json;
 using Jayrock.JsonRpc;
 using FixMi.Framework.Signals;
+using FixMi.Framework.Categories;
+using System.Text;
 
 namespace FixMi.Frontend.Ajax
 {
@@ -16,7 +18,7 @@ namespace FixMi.Frontend.Ajax
     public class JSONService : JsonRpcHandler, IRequiresSessionState
     {
         [JsonRpcMethod("addSignal")]
-        public int AddSignal(Signal s)
+        public Signal AddSignal(Signal s)
         {
             SignalManager sm = new SignalManager();
             s.CreationDate = DateTime.Now;
@@ -26,14 +28,46 @@ namespace FixMi.Frontend.Ajax
             s.ResolutionDescription = string.Empty;
             sm.CreateSignal(s);
 
-            return s.SignalID;
+            return s;
         }
 
         [JsonRpcMethod("getSignalsNearby")]
-        public List<Signal> GetSignalsNearby(string zip)
+        public JsonArray GetSignalsNearby(string zip)
         {
+            JsonArray ar = new JsonArray();
+
             SignalManager sm = new SignalManager();
-            return sm.SearchNearZip(zip);
+            List<Signal> ret = sm.SearchNearZip(zip);
+
+            for (int i = 0; i < ret.Count; i++)
+            {
+                JsonObject obj = new JsonObject();
+                obj["signal"] = ret[i];
+                obj["description"] = GetSignalDescription(ret[i]);
+                ar.Push(obj);
+            }
+
+            return ar;
+        }
+
+        private string GetSignalDescription(Signal s)
+        {
+            CategoryManager cm = new CategoryManager();
+            string categoryName = cm.Load(s.CategoryID).Name;
+            StringBuilder sb = new StringBuilder();
+            sb.Append(s.Subject);
+            sb.Append("<br/>");
+            sb.Append("<br/>");
+            sb.Append("Inviato ");
+            sb.Append(SignalUtils.GetTimeframe(s.CreationDate));
+            sb.Append(" ");
+            sb.Append("nella categoria '");
+            sb.Append(categoryName);
+            sb.Append("'");
+            sb.Append(" - ");
+            sb.Append(s.Address);
+
+            return sb.ToString();
         }
     }
 }

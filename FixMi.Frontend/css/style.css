@@ -111,7 +111,7 @@
     float: left;
     width: 570px;
     background-color: #5BB1CA;
-    margin: 0 10px 0 10px;
+    margin: 0 12px 0 12px;
     height: 110px;
 }
 
@@ -388,6 +388,12 @@ input[type=button], input[type=reset]
 {
     width: 550px;
     margin-top: 5px;
+}
+
+#content .details .photo
+{
+    margin-top: 20px;
+    text-align: center;
 }
 
 

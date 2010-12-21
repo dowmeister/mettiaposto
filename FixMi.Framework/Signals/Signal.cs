@@ -37,32 +37,8 @@ namespace FixMi.Framework.Signals
         public virtual string City { get; set; }
         public virtual string Zip { get; set; }
         public virtual int Zoom { get; set; }
-        public virtual SignalAttachmentCollection Attachments { get; set; }
+        public virtual string Attachment { get; set; }
 
         #endregion
     }
-
-    public class SignalAttachment
-    {
-        public SignalAttachment() { }
-
-        #region Private variables
-
-        private int _attachmentID;
-        private int _signalID;
-        private string _fileName;
-
-        #endregion
-
-        #region Public Properties
-
-        public virtual int AttachmentID { get { return _attachmentID; } set { _attachmentID = value; } }
-        public virtual int SignalID { get { return _signalID; } set { _signalID = value; } }
-        public virtual string FileName { get { return _fileName; } set { _fileName = value; } }
-
-        #endregion
-    }
-
-    public class SignalAttachmentCollection : List<SignalAttachment> { }
-
 }

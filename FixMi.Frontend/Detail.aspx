@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignalDetail.aspx.cs" Inherits="FixMi.Frontend.SignalDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="FixMi.Frontend.SignalDetail" %>
 
 <%@ Register Src="Includes/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
@@ -15,12 +15,6 @@
     <script src="/js/signal.functions.js" type="text/javascript"></script>
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script>
-        /*$(document).ready(function () {
-            document.write('<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markermanager/1.0/src/markermanager_packed.js"><' + '/script>');
-        });*/
-        document.write('<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markermanager/1.0/src/markermanager.js"><' + '/script>');
-    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -47,21 +41,23 @@
                     </div>
                     <div class="description" id="divDescription" runat="server">
                     </div>
-                    <div class="phto" id="divPhoto" runat="server" visible="false">
+                    <div class="photo" id="divPhoto" runat="server" visible="false">
                         <asp:Image ID="imgPhoto" runat="server" />
                     </div>
                     <div class="tools">
                         <ul>
-                            <li><a class="serviceLink" href="#comment" class="button">Commenta</a></li>
-                            <li><a class="serviceLink" href="#subscribe" class="button">Tienimi informato</a></li>
+                            <li><a class="serviceLink" href=".comment" class="button">Commenti</a></li>
                             <li><a class="serviceLink" href="#share" class="button">Condividi</a></li>
+                            <li><a class="serviceLink" href="#subscribe" class="button">Tienimi informato</a></li>
                             <li><a class="serviceLink" href="#report" class="button">Segnala</a></li>
                         </ul>
                         <div class="clear">
                         </div>
                     </div>
                     <div style="display: block">
-                        <div id="comment" class="submitForm serviceBox">
+                        <div id="comments" class="serviceBox comment">
+                        </div>
+                        <div id="comment" class="submitForm serviceBox comment">
                             <ol>
                                 <li>
                                     <label>
@@ -85,7 +81,16 @@
                                         E-mail</label>
                                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                                     <div class="legend">
-                                        Ricevi via email aggiornamenti su questa segnalazione</div>
+                                        Il tuo indirizzo email non verrà mai mostrato pubblicamente
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>
+                                        Allega una foto</label>
+                                    <asp:FileUpload ID="fuFile" runat="server" />
+                                    <div class="legend">
+                                        Puoi caricare solo file di tipo IMMAGINE
+                                    </div>
                                 </li>
                             </ol>
                             <div class="buttons">
@@ -100,7 +105,7 @@
                                         E-mail</label>
                                     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                                     <div class="legend">
-                                        Il tuo indirizzo email non verrà mai mostrato pubblicamente</div>
+                                        Ricevi via email aggiornamenti su questa segnalazione</div>
                                 </li>
                             </ol>
                             <div class="buttons">
@@ -118,6 +123,19 @@
                             </div>
                         </div>
                         <div id="report" class="submitForm serviceBox">
+                        <ol>
+                                <li>
+                                    <label>
+                                        E-mail</label>
+                                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                    <div class="legend">
+                                        Ricevi via email aggiornamenti su questa segnalazione</div>
+                                </li>
+                            </ol>
+                            <div class="buttons">
+                                <input class="success" type="button" value="Iscriviti" onclick="saveSignal(); return false;" />
+                                <input class="reset" type="reset" value="Annulla" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -128,13 +146,13 @@
                         <li><a href="#map">Mappa</a></li>
                         <li><a href="#nearby">Dintorni</a></li>
                     </ul>
-                    <div map="true" id="map" mapDiv="map_canvas">
+                    <div map="true" id="map" mapdiv="map_canvas">
                         <div id="map_canvas" class="map">
                         </div>
                         <br />
                         <span id="completeAddress" style="display: none;">Indirizzo completo: </span>
                     </div>
-                     <div map="true" runat="server" id="nearby" mapDiv="mapNearby">
+                    <div map="true" runat="server" id="nearby" mapdiv="mapNearby">
                         <div id="mapNearby" class="map">
                         </div>
                     </div>

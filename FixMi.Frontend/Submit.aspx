@@ -13,12 +13,6 @@
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/signal.functions.js" type="text/javascript"></script>
-   <script>
-       /*$(document).ready(function () {
-       document.write('<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markermanager/1.0/src/markermanager_packed.js"><' + '/script>');
-       });*/
-       document.write('<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markermanager/1.0/src/markermanager.js"><' + '/script>');
-    </script>
 </head>
 <body>
     <form id="form1" runat="server">

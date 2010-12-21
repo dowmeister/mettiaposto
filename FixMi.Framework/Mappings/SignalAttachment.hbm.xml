@@ -1,7 +1,0 @@
-﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="FixMi.Framework.Signals.SignalAttachment, FixMi.Framework" table="signals_attachments">
-    <id name="AttachmentID" column="sa_attachment_id" type="int"></id>
-    <property name="SignalID" column="sa_signal_id" type="int"></property>
-    <property name="FileName" column="sa_file_name" type="String"></property>
-  </class>
-</hibernate-mapping>

@@ -31,8 +31,7 @@ function initializeMap(mapDiv, lat, long) {
     };
 
     map = new google.maps.Map(document.getElementById(mapDiv), myOptions);
-    var mgr = new MarkerManager(map);
-    maps.push({ id: mapDiv, obj: map, markerManager: mgr });
+    maps.push({ id: mapDiv, obj: map });
 }
 
 function geolocationByAddress(address, mapId) {

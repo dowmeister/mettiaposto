@@ -110,7 +110,8 @@
     <Content Include="js\map.js" />
     <Content Include="js\signal.functions.js" />
     <Content Include="js\validation.js" />
-    <Content Include="SignalDetail.aspx" />
+    <Content Include="Search.aspx" />
+    <Content Include="Detail.aspx" />
     <Content Include="Submit.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -163,12 +164,19 @@
       <DependentUpon>Header.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignalDetail.aspx.cs">
-      <DependentUpon>SignalDetail.aspx</DependentUpon>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SignalDetail.aspx.designer.cs">
-      <DependentUpon>SignalDetail.aspx</DependentUpon>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Submit.aspx.cs">
       <DependentUpon>Submit.aspx</DependentUpon>
@@ -180,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UsersFiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FixMi.Framework\FixMi.Framework.csproj">

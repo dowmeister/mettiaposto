@@ -9,6 +9,8 @@ using FixMi.Framework.Signals;
 using FixMi.Framework.Categories;
 using System.Globalization;
 using FixMi.Framework;
+using System.IO;
+using System.Configuration;
 
 namespace FixMi.Frontend
 {
@@ -31,14 +33,14 @@ namespace FixMi.Frontend
                 divTitle.InnerHtml = s.Subject;
                 divDescription.InnerHtml = s.Description;
 
-                if (s.ShowName)
+                if (!s.ShowName)
                     ltAuthor.Text = "Anonimo";
                 else
                     ltAuthor.Text = s.Name;
 
                 lblAddress.Text = s.Address;
 
-                GetTimeFrame(s.CreationDate);
+                ltTimeFrame.Text = SignalUtils.GetTimeframe(s.CreationDate);
 
                 CategoryManager cm = new CategoryManager();
                 ltCategory.Text = cm.Load(s.CategoryID).Name;
@@ -50,44 +52,13 @@ namespace FixMi.Frontend
                 RegisterDocumentReadyFunction("setmarker", func);
 
                 nearby.Attributes.Add("zip", s.Zip);
-            }
-        }
 
-        private void GetTimeFrame(DateTime creationDate)
-        {
-            TimeSpan ts = DateTime.Now.Subtract(creationDate);
-
-            if (ts.Days > 60)
-            {
-                ltTimeFrame.Text = "circa 1 mese fa (il " + creationDate.ToShortDateString() + ")";
-                return;
+                if (!s.Attachment.Equals(string.Empty))
+                {
+                    divPhoto.Visible = true;
+                    imgPhoto.ImageUrl = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], s.Attachment);
+                }
             }
-
-            if (ts.Days > 30)
-            {
-                ltTimeFrame.Text = "circa " + (ts.Days / 30).ToString() + " mesi fa (il " + creationDate.ToShortDateString() + ")";
-                return;
-            }
-
-            if (ts.Days > 1)
-            {
-                ltTimeFrame.Text = ts.Days.ToString() + " giorni fa alle " + creationDate.ToShortTimeString();
-                return;
-            }
-
-            if (ts.Days == 1)
-            {
-                ltTimeFrame.Text = "ieri alle " + creationDate.ToShortTimeString();
-                return;
-            }
-            
-            if (ts.Days == 0 && ts.Hours > 1)
-            {
-                ltTimeFrame.Text = ts.Hours.ToString() + " ore fa e " + ts.Minutes.ToString() + " fa";
-                return;
-            }
-
-            ltAuthor.Text = ts.Minutes.ToString() + " minuti fa";
         }
     }
 }

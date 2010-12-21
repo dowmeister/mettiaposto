@@ -63,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Signals\Signal.cs" />
     <Compile Include="Signals\SignalManager.cs" />
+    <Compile Include="Signals\SignalUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Signal.hbm.xml">
@@ -71,9 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Category.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\SignalAttachment.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -73,7 +73,6 @@ function saveSignal()
 
     if (validation.validationResult())
     {
-
         $('#submitForm').hide();
 
         writeAjax('#messages');
@@ -92,7 +91,7 @@ function addSignal()
     var s = new Object();
     s.subject = $('#txtSubject').val();
     s.description = $('#txtDescription').val();
-    s.showName = $('#chkShowName').val();
+    s.showName = document.getElementById('chkPublicName').checked;
     s.categoryID = $('#ddlCategories').val();
     s.email = $('#txtEmail').val();
     s.latitude = getMarker('geoLocatedMarker0').getPosition().lat();
@@ -101,9 +100,36 @@ function addSignal()
     s.address = $('#txtAddress').val();
     s.zip = getAddressComponent(completeAddress, 'postal_code').long_name;
     s.city = getAddressComponent(completeAddress, 'locality').long_name;
-    s.zoom = getMap('map_canvas').obj.getZoom();
+    s.zoom = getMap('map_canvas').obj.getZoom();  
+    s.attachment = '';
 
-    proxy.addSignal(s, addSignal_callback);
+    if ($('#fuFile').val() != '')
+    {
+        $.ajaxFileUpload
+        (
+            {
+                url: '/Ajax/Upload.aspx',
+                secureuri: false,
+                fileElementId: 'fuFile',
+                dataType: 'json',
+                success: function (data, status)
+                {
+                    if (data.error)
+                        alert(data.error);
+                    else
+                    {
+                        s.attachment = data.fileName;
+                        proxy.addSignal(s, addSignal_callback);
+                    }
+                },
+                error: function (data, status, e)
+                {
+                    alert(e);
+                }
+            });
+    }
+    else
+        proxy.addSignal(s, addSignal_callback);
 }
 
 function addSignal_callback(r)
@@ -114,8 +140,9 @@ function addSignal_callback(r)
     }
     else if (r.result)
     {
-        writeMessage('Segnalazione salvata correttamente',
-            'Segnalazione numero:' + r.result, '#messages');
+        var text = 'La segnalazione è stata salvata correttamente.<br/><a href="/' + r.result.city.toLowerCase()  + '/' + r.result.signalID + '/segnalazione.aspx">Clicca qui</a> per visualizzare la pagina di dettaglio.';
+
+        writeMessage('Segnalazione salvata correttamente', text, '#messages');
     }
 }
 
@@ -142,14 +169,15 @@ function getSignalsNearby_callback(r)
         for (var i = 0; i < r.result.length; i++)
         {
             var s = r.result[i];
+            var signal = s.signal;
 
-            var myLatLng = new google.maps.LatLng(s.latitude, s.longitude);
+            var myLatLng = new google.maps.LatLng(signal.latitude, signal.longitude);
 
             bounds.extend(myLatLng);
 
-            var m = createMarker('signalMarker' + s.signalID, myLatLng, false, map);
-            var w = new google.maps.InfoWindow({ content: 'xxxxxx' });
-            google.maps.event.addListener(m, 'click', function () { w.open(map, m); });
+            var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map);
+            var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
+            google.maps.event.addListener(getMarker('signalMarker' + signal.signalID), 'click', function () { w.open(map, getMarker('signalMarker' + signal.signalID)); });
         }
 
         map.fitBounds(bounds);

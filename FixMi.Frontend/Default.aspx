@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FixMi.Frontend._Default" %>
-.
+
 <%@ Register Src="Includes/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
 <%@ Register Src="Includes/Header.ascx" TagName="Header" TagPrefix="uc3" %>
