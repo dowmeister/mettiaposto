@@ -9,5 +9,5 @@
 });
 
 function search() {
-    window.location.href = '/Submit.aspx?address=' + $('#txtSearch').val();
+    window.location.href = '/milano/' + encodeURI($('#txtSearch').val()) + '/invia.aspx';
 }

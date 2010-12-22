@@ -8,6 +8,7 @@ using FixMi.Framework.Categories;
 using log4net;
 using log4net.Core;
 using FixMi.Framework.Core.Base;
+using FixMi.Framework;
 
 namespace FixMi.Frontend
 {
@@ -27,7 +28,7 @@ namespace FixMi.Frontend
 
             if (QueryStringContains("address"))
             {
-                RegisterDocumentReadyFunction("autogeo", "geolocationByAddress('" + GetFromQueryString("address") + "');");
+                RegisterDocumentReadyFunction("autogeo", JsUtils.CreateJsFunction("geolocationByAddress", false, GetFromQueryString("address"), "map_canvas"));
             }
         }
     }

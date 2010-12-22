@@ -20,15 +20,8 @@ D:\Progetti\FixMi\FixMi.Frontend\bin\FixMi.Framework.dll
 D:\Progetti\FixMi\FixMi.Frontend\bin\Intelligencia.UrlRewriter.dll
 D:\Progetti\FixMi\FixMi.Frontend\bin\log4net.dll
 D:\Progetti\FixMi\FixMi.Frontend\bin\NHibernate.dll
-D:\Progetti\FixMi\FixMi.Frontend\bin\Iesi.Collections.dll
-D:\Progetti\FixMi\FixMi.Frontend\bin\Antlr3.Runtime.dll
-D:\Progetti\FixMi\FixMi.Frontend\bin\Remotion.Data.Linq.dll
 D:\Progetti\FixMi\FixMi.Frontend\bin\FixMi.Framework.pdb
 D:\Progetti\FixMi\FixMi.Frontend\bin\Intelligencia.UrlRewriter.xml
-D:\Progetti\FixMi\FixMi.Frontend\bin\NHibernate.pdb
-D:\Progetti\FixMi\FixMi.Frontend\bin\NHibernate.xml
-D:\Progetti\FixMi\FixMi.Frontend\bin\Iesi.Collections.pdb
-D:\Progetti\FixMi\FixMi.Frontend\bin\Iesi.Collections.xml
 D:\Progetti\FixMi\FixMi.Frontend\obj\Debug\ResolveAssemblyReference.cache
 D:\Progetti\FixMi\FixMi.Frontend\obj\Debug\FixMi.Frontend.dll
 D:\Progetti\FixMi\FixMi.Frontend\obj\Debug\FixMi.Frontend.pdb

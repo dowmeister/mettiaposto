@@ -19,18 +19,14 @@ function getMarker(id) {
     return false;
 }
 
-function initializeMap(mapDiv, lat, long) {
+function initializeMap(mapDiv, lat, long, myOptions) {
     var latlng = new google.maps.LatLng(lat, long);
-    var myOptions = {
-        zoom: 8,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
-        scrollwheel: false
-        //click: function () { setMarker(); }
-    };
+
+    myOptions.mapTypeId = google.maps.MapTypeId.ROADMAP;
+    myOptions.center = latlng;
 
     map = new google.maps.Map(document.getElementById(mapDiv), myOptions);
+    
     maps.push({ id: mapDiv, obj: map });
 }
 
@@ -78,6 +74,20 @@ function geolocation_response(r, status) {
         }
     }
     currentMap = null;
+}
+
+function removeMarker(id)
+{
+    var marker = getMarker(id);
+    marker.setMap(null);
+}
+
+function removeAllMarkers()
+{
+    for (var i = 0; i < markers.length; i++)
+    {
+        removeMarker(markers[i].id);
+    }
 }
 
 function createMarker(id, location, draggable, map) {

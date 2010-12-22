@@ -9,6 +9,9 @@ using Jayrock.JsonRpc;
 using FixMi.Framework.Signals;
 using FixMi.Framework.Categories;
 using System.Text;
+using FixMi.Frontend.Includes;
+using FixMi.Framework.Core.Utility;
+using System.Web.UI;
 
 namespace FixMi.Frontend.Ajax
 {
@@ -51,13 +54,19 @@ namespace FixMi.Frontend.Ajax
         }
 
         [JsonRpcMethod("searchSignals")]
-        public JsonArray GetSignalsNearby(JsonObject searchParams)
+        public JsonObject SearchSignals(JsonObject searchParams)
         {
             JsonArray ar = new JsonArray();
-
+            JsonObject container = new JsonObject();
+ 
             SignalManager sm = new SignalManager();
-            List<Signal> ret = sm.Search("", "", "", -1, -1, 0);
+            List<Signal> ret = sm.Search(searchParams["city"].ToString(), searchParams["address"].ToString(), searchParams["zip"].ToString(),
+                Convert.ToInt32(searchParams["categoryID"]), Convert.ToInt32(searchParams["status"]), Convert.ToInt32(searchParams["start"]));
 
+            SingleSignal s = (SingleSignal)new UserControl().LoadControl("/Includes/SingleSignal.ascx");
+            s.Populate(ret);
+            container["html"] = WebUtils.RenderControlToString(s);
+            
             for (int i = 0; i < ret.Count; i++)
             {
                 JsonObject obj = new JsonObject();
@@ -66,7 +75,9 @@ namespace FixMi.Frontend.Ajax
                 ar.Push(obj);
             }
 
-            return ar;
+            container["signals"] = ar;
+
+            return container;
         }
 
         private string GetSignalDescription(Signal s)

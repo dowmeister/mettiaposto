@@ -6,12 +6,18 @@
         {
             if ($(ui.panel).attr('map'))
             {
+                var mapOpts = {
+                    zoom: 8,
+                    scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
+                    scrollwheel: false
+                };
+
                 var mapDiv = $(ui.panel).attr('mapDiv');
                 var map = getMap(mapDiv);
 
                 if (!map)
                 {
-                    initializeMap(mapDiv, 45.4636889, 9.1881408);
+                    initializeMap(mapDiv, 45.4636889, 9.1881408, mapOpts);
 
                     if (mapDiv == 'mapNearby')
                     {
@@ -160,26 +166,29 @@ function getSignalsNearby_callback(r)
     }
     else if (r.result)
     {
-        var map = getMap('mapNearby').obj;
-
-        var bounds = new google.maps.LatLngBounds();
-
-        for (var i = 0; i < r.result.length; i++)
+        if (r.result.length > 0)
         {
-            var s = r.result[i];
-            var signal = s.signal;
+            var map = getMap('mapNearby').obj;
 
-            var myLatLng = new google.maps.LatLng(signal.latitude, signal.longitude);
+            var bounds = new google.maps.LatLngBounds();
 
-            bounds.extend(myLatLng);
+            for (var i = 0; i < r.result.length; i++)
+            {
+                var s = r.result[i];
+                var signal = s.signal;
 
-            var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map);
-            var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
-            google.maps.event.addListener(getMarker('signalMarker' + signal.signalID), 'click', function () { w.open(map, getMarker('signalMarker' + signal.signalID)); });
+                var myLatLng = new google.maps.LatLng(signal.latitude, signal.longitude);
+
+                bounds.extend(myLatLng);
+
+                var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map);
+                var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
+                google.maps.event.addListener(getMarker('signalMarker' + signal.signalID), 'click', function () { w.open(map, getMarker('signalMarker' + signal.signalID)); });
+            }
+
+            map.fitBounds(bounds);
+            map.setCenter(bounds.getCenter());
         }
-
-        map.fitBounds(bounds);
-        map.setCenter(bounds.getCenter());
     }
 }
 

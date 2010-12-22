@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using FixMi.Framework.Core.Base;
 using System.Resources;
 using System.Globalization;
+using FixMi.Framework.Categories;
 
 namespace FixMi.Frontend
 {
@@ -15,6 +16,16 @@ namespace FixMi.Frontend
         protected void Page_Load(object sender, EventArgs e)
         {
             lblCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower());
+
+            if (!Page.IsPostBack)
+                RenderPage();
+        }
+
+        private void RenderPage()
+        {
+            CategoryManager cm = new CategoryManager();
+            ddlCategories.DataSource = cm.GetActive();
+            ddlCategories.DataBind();
         }
     }
 }

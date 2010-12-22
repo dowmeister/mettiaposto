@@ -396,6 +396,47 @@ input[type=button], input[type=reset]
     text-align: center;
 }
 
+#content .list ul
+{
+}
+
+#content .list .item
+{
+    background-color: #FFAB33;
+}
+
+#content .list .alt-item
+{
+    background-color: #CCFF33;
+}
+
+#content .list div
+{
+    float: left;
+}
+
+#content .list div.title
+{
+    width: 480px;
+    font-size: 12px;
+    font-weight: bold;    
+}
+
+#content .list div.title img
+{
+    vertical-align: middle;
+}
+
+#content .list div.legend 
+{
+    margin-bottom: 5px;
+    font-size: 10px;
+}
+
+#content .list div.legend span
+{
+    font-weight: bold;
+}
 
 /* UTILS */
 .message
@@ -431,6 +472,7 @@ input[type=button], input[type=reset]
 {
     font-size: 16px;
 }
+
 
 .fieldError
 {

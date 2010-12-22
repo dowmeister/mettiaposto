@@ -4,7 +4,7 @@
 <div id="wrapper">
     <div id="header">
         <div id="logo">
-            <a href="/home"></a>
+            <a href="/index.aspx"></a>
         </div>
         <div id="menu">
             <ul>

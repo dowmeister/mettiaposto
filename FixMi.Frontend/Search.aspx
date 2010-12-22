@@ -65,6 +65,9 @@
                         <input class="success" type="button" value="Cerca" onclick="searchSignals(); return false;" />
                     </div>
                 </div>
+                <div id="list" class="list">
+                    
+                </div>
             </div>
             <div class="right">
                 <div id="tabs" class="mapTabs">
