@@ -8,11 +8,11 @@
             </div>
             <div class="status">
                 <asp:Image ID="status" runat="server" /></div>
-        </div>
-        <div class="legend">
-            in
-            <asp:Label ID="category" runat="server"></asp:Label>, inviato
-            <asp:Label ID="timeframe" runat="server"></asp:Label>
+            <div class="legend">
+                in
+                <asp:Label ID="category" runat="server"></asp:Label>, inviato
+                <asp:Label ID="timeframe" runat="server"></asp:Label>
+            </div>
         </div>
     </ItemTemplate>
     <AlternatingItemTemplate>
@@ -22,11 +22,11 @@
             </div>
             <div class="status">
                 <asp:Image ID="status" runat="server" /></div>
-        </div>
-        <div class="legend">
-            in
-            <asp:Label ID="category" runat="server"></asp:Label>, inviato
-            <asp:Label ID="timeframe" runat="server"></asp:Label>
+            <div class="legend">
+                in
+                <asp:Label ID="category" runat="server"></asp:Label>, inviato
+                <asp:Label ID="timeframe" runat="server"></asp:Label>
+            </div>
         </div>
     </AlternatingItemTemplate>
     <SeparatorTemplate>
@@ -34,3 +34,7 @@
         </div>
     </SeparatorTemplate>
 </asp:Repeater>
+<div class="pagination" runat="server" id="pagination">
+</div>
+<div class="clear">
+</div>

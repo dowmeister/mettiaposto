@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Categories\Category.cs" />
     <Compile Include="Categories\CategoryManager.cs" />
+    <Compile Include="Comments\CommentManager.cs" />
     <Compile Include="Core\Base\BaseManager.cs" />
     <Compile Include="Core\Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -77,6 +78,7 @@
     <Compile Include="Signals\Signal.cs" />
     <Compile Include="Signals\SignalManager.cs" />
     <Compile Include="Signals\SignalUtils.cs" />
+    <Compile Include="Web\Global.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Signal.hbm.xml">

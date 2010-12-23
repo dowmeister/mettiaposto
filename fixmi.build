@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project name="FixMi" basedir="." default="package">
+	<tstamp property="system.date" pattern="yyyyMMdd_HHmm"></tstamp>
+	
+	<loadtasks assembly="D:\nant\bin\bin\NAnt.Contrib.Tasks.dll" />
+	
+	<property name="build.configuration" value="release"></property>
+	<property name="build.out" value="..\Temp"></property>
+	<property name="build.outDir" value="Temp"></property>
+	<property name="build.packageDir" value="Build/"></property>
+	
+	<fileset id="assemblies" basedir="${build.outDir}">
+		<include name="*.dll" />
+		<exclude name="*.pdb"></exclude>
+		<exclude name="*.config"></exclude>
+		<exclude name="*.exe" />
+		<exclude name="*.xml" />
+	</fileset>
+	
+	<target name="build">
+		<mkdir dir="${build.out}"></mkdir>
+		<echo level="Debug" message="Preparing to build solution file..."></echo>
+		<msbuild project="FixMi.sln" verbosity="Minimal">
+			<property name="Configuration" value="${build.configuration}" />
+			<property name="OutputPath" value="${build.out}"/>
+		</msbuild>
+	</target>
+	
+	<target name="clean">
+		<echo level="Debug" message="Cleaning files..."></echo>
+		<delete dir="${build.outDir}" />
+		<delete dir="${build.packageDir}" />
+	</target>
+  
+	<target name="package" depends="clean, build">
+		<echo level="Debug" message="Copying files..."></echo>
+		<mkdir dir="${build.packageDir}"></mkdir>
+		<mkdir dir="${build.packageDir}\bin"></mkdir>
+		<move todir="${build.packageDir}" overwrite="true">
+			<fileset basedir="${build.outDir}\_PublishedWebsites\FixMi.Frontend">
+				<exclude name="bin/**"></exclude>
+				<exclude name="web*.config"></exclude>
+				<exclude name="*.dll"></exclude>
+				<include name="**/*"></include>
+				<exclude name=".gitignore" />
+			</fileset>
+		</move>
+		<move todir="${build.packageDir}/bin" overwrite="true">
+			<fileset refid="assemblies" />
+		</move>
+		<delete dir="${build.outDir}" />
+	</target>
+</project>

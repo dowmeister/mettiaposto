@@ -3,6 +3,7 @@
 <%@ Register Src="Includes/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
 <%@ Register Src="Includes/Header.ascx" TagName="Header" TagPrefix="uc3" %>
+<%@ Register src="Includes/Analytics.ascx" tagname="Analytics" tagprefix="uc4" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -13,6 +14,7 @@
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/signal.functions.js" type="text/javascript"></script>
+    <uc4:Analytics ID="Analytics1" runat="server" />
 </head>
 <body>
     <form id="form1" runat="server">

@@ -26,7 +26,7 @@
 
 #logo a
 {
-    background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
+    background: url("../images/logo.jpg") no-repeat scroll 0 0 transparent;
     cursor: pointer;
     display: block;
     height: 84px;
@@ -100,12 +100,23 @@
     color: White;
 }
 
+#footer a
+{
+    color: White;
+    text-decoration: none;
+}
+
+#content .full
+{
+}
+
 #content .presentation
 {
     margin-top: 20px;
     width: 1085px;
     padding-left: 10px;
 }
+
 #content .home
 {
     background: url(../images/searchbg.png) no-repeat;
@@ -191,11 +202,10 @@
 
 #content h1.title
 {
-    width: 500px;
     font-size: 16px;
-    height: 20px;
+    min-height: 20px;
     padding: 0 0 10px 0;
-    background: url(../images/blueline.png) no-repeat bottom;
+    background: url(../images/blueline.png) repeat-x bottom;
 }
 
 .clear
@@ -207,7 +217,7 @@
 {
     display: inline;
     float: left;
-    width: 530px;
+    width: 520px;
 }
 
 .twocols .right
@@ -397,18 +407,28 @@ input[type=button], input[type=reset]
     text-align: center;
 }
 
-#content .list ul
+#content .list
 {
+    width: 510px;
+    margin-top: 20px;
 }
 
 #content .list .item
 {
-    background-color: #FFAB33;
+    width: 100%;
+    background-color: #E0E5F5;
+    padding: 5px;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 #content .list .alt-item
 {
-    background-color: #CCFF33;
+    width: 100%;
+    background-color: #D6DDEF;
+    padding: 5px;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 #content .list div
@@ -418,9 +438,15 @@ input[type=button], input[type=reset]
 
 #content .list div.title
 {
-    width: 480px;
+    width: 475px;
     font-size: 12px;
     font-weight: bold;    
+}
+
+#content .list div.title a
+{
+    text-decoration: none;
+    color: #117491;
 }
 
 #content .list div.title img
@@ -430,7 +456,6 @@ input[type=button], input[type=reset]
 
 #content .list div.legend 
 {
-    margin-bottom: 5px;
     font-size: 10px;
 }
 
@@ -439,12 +464,37 @@ input[type=button], input[type=reset]
     font-weight: bold;
 }
 
+#content .list .pagination
+{
+    width: 100%;
+    margin-right: 10px;
+}
+
+#content .list .pagination ul
+{
+    float: right;
+}
+
+#content .list .pagination li
+{
+    float: left;    
+    list-style-type: none;
+}
+
+#content .list .pagination li a
+{
+    text-decoration: none;
+    background-color: #5BB1CA;
+    padding: 6px;
+    margin-right: 5px;
+    color: White;
+}
+
 /* UTILS */
 .message
 {
     border: solid 1px #E3E3E3;
-    width: 460px;
-    margin-left: 10px;
+    width: 100%;
     padding: 10px;
     color: White;
     font-weight: bold;
@@ -472,8 +522,14 @@ input[type=button], input[type=reset]
 .message h2
 {
     font-size: 16px;
+    line-height: 0.4;
 }
 
+.message a 
+{
+    color: #E0E5F5;
+    text-decoration: none;
+}
 
 .fieldError
 {

@@ -3,19 +3,21 @@
 <%@ Register Src="Includes/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
 <%@ Register Src="Includes/Header.ascx" TagName="Header" TagPrefix="uc3" %>
+<%@ Register src="Includes/Analytics.ascx" tagname="Analytics" tagprefix="uc4" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
     <uc2:Head ID="ucHead" runat="server" />
     <script src="/js/index.functions.js" type="text/javascript"></script>
+    <uc4:Analytics ID="Analytics1" runat="server" />
 </head>
 <body>
     <form id="form1" runat="server">
     <uc3:Header ID="Header1" runat="server" />
     <div id="content">
         <div class="claim">
-            <a href="/submit"></a>
+            <a href="/milano/invia.aspx"></a>
         </div>
         <div class="presentation">
             <div class="statsBox totalSignals">
@@ -23,7 +25,7 @@
                     Segnalazioni<br />
                     totali:
                     <div>
-                        5786672</div>
+                        <asp:Literal ID="ltTotals" runat="server"></asp:Literal></div>
                 </div>
             </div>
             <div class="home">
@@ -39,7 +41,7 @@
                     Segnalazioni<br />
                     risolte:
                     <div>
-                        586732</div>
+                        <asp:Literal ID="ltResolved" runat="server"></asp:Literal></div>
                 </div>
             </div>
             <div class="clear">

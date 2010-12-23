@@ -22,6 +22,15 @@ namespace FixMi.Frontend {
         protected global::FixMi.Frontend.Includes.Head ucHead;
         
         /// <summary>
+        /// Analytics1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl Analytics1;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace FixMi.Frontend {
         protected global::FixMi.Frontend.Includes.Header Header1;
         
         /// <summary>
+        /// ltTotals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltTotals;
+        
+        /// <summary>
         /// txtSearch control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace FixMi.Frontend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
+        
+        /// <summary>
+        /// ltResolved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltResolved;
         
         /// <summary>
         /// Footer1 control.

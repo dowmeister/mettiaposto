@@ -6,6 +6,8 @@ using NHibernate;
 using NHibernate.Cfg;
 using System.Reflection;
 using FixMi.Framework.Core.Base;
+using FixMi.Framework.Web;
+using System.Web;
 
 namespace FixMi.Framework.Data
 {
@@ -19,8 +21,13 @@ namespace FixMi.Framework.Data
         {
             if (factory == null)
             {
-                NHibernate.Cfg.Configuration conf = new NHibernate.Cfg.Configuration();
-                factory = conf.Configure().BuildSessionFactory();
+                if (HttpContext.Current == null)
+                {
+                    NHibernate.Cfg.Configuration conf = new NHibernate.Cfg.Configuration();
+                    factory = conf.Configure().BuildSessionFactory();
+                }
+                else
+                    factory = Global.SessionFactory;
             }
         }
 

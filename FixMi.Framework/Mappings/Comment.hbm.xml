@@ -1,0 +1,7 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="FixMi.Framework.Comments.Comment, FixMi.Framework" table="signals_comments">
+    <id name="CommentID" column="sc_id" type="int"></id>
+    <property name="AuthorName" column="sc_name" type="String"></property>
+    <property name="AuthorEmail" column="sc_email" type="Boolean"></property>
+  </class>
+</hibernate-mapping>

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using FixMi.Framework.Signals;
 using FixMi.Framework.Categories;
 using System.Web.UI.HtmlControls;
+using FixMi.Framework.Core.Utility;
 
 namespace FixMi.Frontend.Includes
 {
@@ -17,10 +18,12 @@ namespace FixMi.Frontend.Includes
 
         }
 
-        public void Populate(List<Signal> Signals)
+        public void Populate(List<Signal> Signals, int totalRecords, int recordsPerPage)
         {
             rptList.DataSource = Signals;
             rptList.DataBind();
+
+            pagination.Controls.Add(WebUtils.CreatePagination(totalRecords, recordsPerPage, "searchSignals"));
         }
 
         protected void rptList_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -28,9 +31,12 @@ namespace FixMi.Frontend.Includes
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
                 ((HtmlAnchor)e.Item.FindControl("title")).InnerText = ((Signal)e.Item.DataItem).Subject;
+                ((HtmlAnchor)e.Item.FindControl("title")).HRef = "/" + ((Signal)e.Item.DataItem).City + "/" + ((Signal)e.Item.DataItem).SignalID + "/segnalazione.aspx";
 
-                if (((Signal)e.Item.DataItem).Status == 0)
+                if (((Signal)e.Item.DataItem).Status == 1)
                     ((Image)e.Item.FindControl("status")).ImageUrl = "/images/alert.png";
+                else
+                    ((Image)e.Item.FindControl("status")).ImageUrl = "/images/check.png";
 
                 ((Label)e.Item.FindControl("timeframe")).Text = SignalUtils.GetTimeframe(((Signal)e.Item.DataItem).CreationDate);
 

@@ -58,38 +58,19 @@ namespace FixMi.Framework.Signals
             }
         }
 
-        public List<Signal> Search(string city, string address, string zip, int categoryID, int status, int offset)
+        public List<Signal> Search(string city, string address, string zip, int categoryID, int status, int offset, out int totalRecords)
         {
             try
             {
                 OpenSession();
-                ICriteria criteria = session.CreateCriteria(typeof(Signal))
-                        .Add(Restrictions.Eq("City", city))
-                        .SetMaxResults(offset + 20)
-                        .SetFirstResult(offset);
 
-                if (!address.Equals(string.Empty))
-                    criteria.Add(Restrictions.Like("Address", address));
+                totalRecords = BuildCriteria(city, address, zip, categoryID, status, offset)
+                    .SetProjection(Projections.RowCount()).FutureValue<int>().Value;
 
-                if (!address.Equals(string.Empty))
-                    criteria.Add(Restrictions.Like("Address", address));
-
-                if (!address.Equals(string.Empty))
-                    criteria.Add(Restrictions.Like("Address", address));
-
-                if (!address.Equals(string.Empty))
-                    criteria.Add(Restrictions.Like("Address", address));
-
-                if (!zip.Equals(string.Empty))
-                    criteria.Add(Restrictions.Eq("Zip", zip));
-
-                if (categoryID != -1)
-                    criteria.Add(Restrictions.Eq("CategoryID", categoryID));
-
-                if (status != -1)
-                    criteria.Add(Restrictions.Eq("Status", status));
-
-                List<Signal> ret = (List<Signal>)criteria.List<Signal>();
+                List<Signal> ret = BuildCriteria(city, address, zip, categoryID, status, offset)
+                    .SetMaxResults(offset + 10)
+                    .SetFirstResult(offset)
+                    .Future<Signal>().ToList();
 
                 CloseSession();
 
@@ -99,6 +80,49 @@ namespace FixMi.Framework.Signals
             {
                 throw ex;
             }
+        }
+
+        private ICriteria BuildCriteria(string city, string address, string zip, int categoryID, int status, int offset)
+        {
+            ICriteria criteria = session.CreateCriteria(typeof(Signal))
+                        .Add(Restrictions.Eq("City", city))
+                        .AddOrder(Order.Desc("CreationDate"));
+
+            if (!address.Equals(string.Empty))
+                criteria.Add(Restrictions.Like("Address", "%" + address + "%"));
+
+            if (!zip.Equals(string.Empty))
+                criteria.Add(Restrictions.Eq("Zip", zip));
+
+            if (categoryID != -1)
+                criteria.Add(Restrictions.Eq("CategoryID", categoryID));
+
+            if (status == -1)
+                criteria.Add(Restrictions.Ge("Status", 1));
+            else
+                criteria.Add(Restrictions.Eq("Status", status));
+
+            return criteria;
+        }
+
+        public int GetCountByStatus(int status)
+        {
+            OpenSession();
+            int count = session.CreateCriteria(typeof(Signal))
+                .Add(Restrictions.Eq("Status", status))
+                .SetProjection(Projections.RowCount()).UniqueResult<int>();    
+            CloseSession();
+            return count;
+        }
+
+        public int GetCountAll()
+        {
+            OpenSession();
+            int count = session.CreateCriteria(typeof(Signal))
+                .Add(Restrictions.Ge("Status", 1))
+                .SetProjection(Projections.RowCount()).UniqueResult<int>();
+            CloseSession();
+            return count;
         }
     }
 }

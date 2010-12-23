@@ -12,6 +12,9 @@ namespace FixMi.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SignalManager sm = new SignalManager();
+            ltTotals.Text = sm.GetCountAll().ToString();
+            ltResolved.Text = sm.GetCountByStatus(Signal.SignalStatus.Resolved).ToString();
         }
     }
 }

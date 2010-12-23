@@ -26,7 +26,7 @@ namespace FixMi.Frontend.Ajax
             SignalManager sm = new SignalManager();
             s.CreationDate = DateTime.Now;
             s.UpdateDate = DateTime.Now;
-            s.Status = Signal.SignalStatus.NotApproved;
+            s.Status = Signal.SignalStatus.Approved; // FIX!!!!
             s.UpdateDate = DateTime.Now;
             s.ResolutionDescription = string.Empty;
             sm.CreateSignal(s);
@@ -59,12 +59,14 @@ namespace FixMi.Frontend.Ajax
             JsonArray ar = new JsonArray();
             JsonObject container = new JsonObject();
  
+            int totalRecords = 0;
+
             SignalManager sm = new SignalManager();
-            List<Signal> ret = sm.Search(searchParams["city"].ToString(), searchParams["address"].ToString(), searchParams["zip"].ToString(),
-                Convert.ToInt32(searchParams["categoryID"]), Convert.ToInt32(searchParams["status"]), Convert.ToInt32(searchParams["start"]));
+            List<Signal> ret = (List<Signal>)sm.Search(searchParams["city"].ToString(), searchParams["address"].ToString(), searchParams["zip"].ToString(),
+                Convert.ToInt32(searchParams["categoryID"]), Convert.ToInt32(searchParams["status"]), Convert.ToInt32(searchParams["start"]), out totalRecords);
 
             SingleSignal s = (SingleSignal)new UserControl().LoadControl("/Includes/SingleSignal.ascx");
-            s.Populate(ret);
+            s.Populate(ret, totalRecords, 10);
             container["html"] = WebUtils.RenderControlToString(s);
             
             for (int i = 0; i < ret.Count; i++)

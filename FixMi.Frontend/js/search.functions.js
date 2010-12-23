@@ -22,8 +22,19 @@
     });
 });
 
-function searchSignals()
+function showForm()
 {
+    $('#list').empty();
+    hideMessage('#searchMessages');
+    $('.submitForm').show();    
+}
+
+function searchSignals(start)
+{
+    $('.submitForm').hide();
+    writeAjax('#searchMessages');
+    $('#list').empty();
+
     var proxy = new JSONService();
     var params = new Object();
     params["address"] = $('#txtAddress').val();
@@ -31,16 +42,18 @@ function searchSignals()
     params["city"] = $('#lblCity').html();
     params["categoryID"] = parseInt($('#ddlCategories').val());
     params["status"] = parseInt($('#ddlStatus').val());
-    params["start"] = 0;
+    params["start"] = start;
 
     proxy.searchSignals(params, searchSignals_callback);
 }
 
 function searchSignals_callback(r)
 {
+    hideAjax('#searchMessages');
+
     if (r.error)
     {
-        alert(r.error.message);
+        writeError(r.error.message, '#searchMessages');
     }
     else if (r.result)
     {
@@ -48,6 +61,8 @@ function searchSignals_callback(r)
 
         if (r.result.signals.length > 0)
         {
+            writeMessage('Trovati ' + r.result.signals.length + ' risultati', '<a href="#" onclick="showForm();">Effettua una nuova ricerca</a>','#searchMessages');
+
             var map = getMap('map_canvas').obj;
             var bounds = new google.maps.LatLngBounds();
 
@@ -70,5 +85,7 @@ function searchSignals_callback(r)
             map.fitBounds(bounds);
             map.setCenter(bounds.getCenter());
         }
+        else
+            writeError('Nessuna segnalazione trovata con i parametri di ricerca specificati', '#searchMessages');
     }
 }
