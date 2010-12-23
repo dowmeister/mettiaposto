@@ -8,7 +8,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <uc2:Head ID="ucHead" runat="server" />
-    <script src="http://maps.google.com/maps/api/js?sensor=true&region=it" type="text/javascript"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="/js/map.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/search.functions.js" type="text/javascript"></script>

@@ -82,6 +82,7 @@
     background-color: White;
     background: White url(../images/vshadow.png) repeat-y right;
     padding: 20px;
+    width: 1100px;
 }
 
 #hshadow

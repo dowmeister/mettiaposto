@@ -8,7 +8,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <uc2:Head ID="ucHead" runat="server" />
-    <script src="http://maps.google.com/maps/api/js?sensor=true&region=it" type="text/javascript"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="/js/map.js" type="text/javascript"></script>
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
@@ -46,10 +46,10 @@
                     </div>
                     <div class="tools">
                         <ul>
-                            <li><a class="serviceLink" href=".comment" class="button">Commenti</a></li>
-                            <li><a class="serviceLink" href="#share" class="button">Condividi</a></li>
-                            <li><a class="serviceLink" href="#subscribe" class="button">Tienimi informato</a></li>
-                            <li><a class="serviceLink" href="#report" class="button">Segnala</a></li>
+                            <li><a class="serviceLink button" href=".comment">Commenti</a></li>
+                            <li><a class="serviceLink button" href="#share">Condividi</a></li>
+                            <li><a class="serviceLink button" href="#subscribe">Tienimi informato</a></li>
+                            <li><a class="serviceLink button" href="#report">Segnala</a></li>
                         </ul>
                         <div class="clear">
                         </div>
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                         <div id="report" class="submitForm serviceBox">
-                        <ol>
+                            <ol>
                                 <li>
                                     <label>
                                         E-mail</label>

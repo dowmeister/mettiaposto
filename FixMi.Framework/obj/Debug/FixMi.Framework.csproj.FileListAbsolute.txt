@@ -1,9 +1,11 @@
 D:\Progetti\FixMi\FixMi.Framework\bin\Debug\FixMi.Framework.dll
 D:\Progetti\FixMi\FixMi.Framework\bin\Debug\FixMi.Framework.pdb
+D:\Progetti\FixMi\FixMi.Framework\bin\Debug\Iesi.Collections.dll
+D:\Progetti\FixMi\FixMi.Framework\bin\Debug\LinFu.DynamicProxy.dll
 D:\Progetti\FixMi\FixMi.Framework\bin\Debug\log4net.dll
+D:\Progetti\FixMi\FixMi.Framework\bin\Debug\MySql.Data.dll
 D:\Progetti\FixMi\FixMi.Framework\bin\Debug\NHibernate.ByteCode.LinFu.dll
 D:\Progetti\FixMi\FixMi.Framework\bin\Debug\NHibernate.dll
-D:\Progetti\FixMi\FixMi.Framework\bin\Debug\LinFu.DynamicProxy.dll
 D:\Progetti\FixMi\FixMi.Framework\obj\Debug\ResolveAssemblyReference.cache
 D:\Progetti\FixMi\FixMi.Framework\obj\Debug\FixMi.Framework.dll
 D:\Progetti\FixMi\FixMi.Framework\obj\Debug\FixMi.Framework.pdb

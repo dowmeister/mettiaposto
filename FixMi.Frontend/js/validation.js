@@ -1,30 +1,37 @@
-﻿$.validateUtils = function (options) {
+﻿$.validateUtils = function (options)
+{
 
     var rules = new Array();
     var errors = new Array();
 
-    this.validationResult = function () {
+    this.validationResult = function ()
+    {
         return errors.length == 0;
     }
 
-    this.addRule = function (rule) {
+    this.addRule = function (rule)
+    {
 
         rules.push(rule);
     };
 
-    this.addRules = function (rs) {
+    this.addRules = function (rs)
+    {
         $.merge(rules, rs);
     }
 
-    this.validate = function () {
+    this.validate = function ()
+    {
         $(options.errorDiv).hide();
 
-        for (var i = 0; i < rules.length; i++) {
+        for (var i = 0; i < rules.length; i++)
+        {
 
             var res = false;
             var currentRule = rules[i];
 
-            switch (rules[i].validateFunction) {
+            switch (currentRule.validateFunction)
+            {
                 case 'notEmpty':
                     res = this.notEmpty($(currentRule.field));
                     break;
@@ -37,11 +44,15 @@
             }
             if (!res)
                 errors.push(currentRule);
+            else
+                $(currentRule.field).attr('style', '');
         }
     };
 
-    this.showErrorMessage = function () {
-        if (options.showAs == 'div') {
+    this.showErrorMessage = function ()
+    {
+        if (options.showAs == 'div')
+        {
             $(options.errorDiv).show();
 
             $(options.errorDiv).empty();
@@ -49,10 +60,12 @@
 
             var errorContainer = $('<ul></ul>');
 
-            for (var i = 0; i < errors.length; i++) {
+            for (var i = 0; i < errors.length; i++)
+            {
                 errorContainer.append($('<li></li>').html(errors[i].message));
 
-                if (options.errorStyle) {
+                if (options.errorStyle)
+                {
                     $(errors[i].field).attr('style', options.errorStyle);
                 }
             }
@@ -60,8 +73,10 @@
             $(options.errorDiv).append(errorContainer);
         }
 
-        if (options.errorClass) {
-            for (var i = 0; i < rules.length; i++) {
+        if (options.errorClass)
+        {
+            for (var i = 0; i < rules.length; i++)
+            {
                 $(rules[i].field).addClass(options.errorClass);
             }
         }
@@ -70,8 +85,10 @@
     /* rules */
     this.notEmpty = function (field) { return !($(field).val() == ''); };
     this.checkSelected = function (field, nullValue) { return !($(field).val() == nullValue); };
-    this.validRegex = function (field, regex) {
-        if (this.notEmpty(field)) {
+    this.validRegex = function (field, regex)
+    {
+        if (this.notEmpty(field))
+        {
             var r = new RegExp(regex);
             return r.test($(field).val());
         }
