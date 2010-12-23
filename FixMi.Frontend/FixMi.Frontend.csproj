@@ -63,6 +63,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Ajax\Upload.aspx" />
     <Content Include="css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="css\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
