@@ -202,7 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="UsersFiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FixMi.Framework\FixMi.Framework.csproj">
