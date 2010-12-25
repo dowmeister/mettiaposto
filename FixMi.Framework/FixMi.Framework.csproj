@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Categories\Category.cs" />
     <Compile Include="Categories\CategoryManager.cs" />
+    <Compile Include="Comments\Comment.cs" />
     <Compile Include="Comments\CommentManager.cs" />
     <Compile Include="Core\Base\BaseManager.cs" />
     <Compile Include="Core\Base\BasePage.cs">
@@ -87,6 +88,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Category.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Comment.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

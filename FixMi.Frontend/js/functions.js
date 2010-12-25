@@ -38,3 +38,9 @@ function getCode(e) {
     return (e.keyCode ? e.keyCode : e.which);
 }
 
+function addSessionKey(params)
+{
+    params["ajaxSessionKey"] = ajaxSessionKey;
+    return params;
+}
+

@@ -44,6 +44,8 @@ function searchSignals(start)
     params["status"] = parseInt($('#ddlStatus').val());
     params["start"] = start;
 
+    params = addSessionKey(params);
+
     proxy.searchSignals(params, searchSignals_callback);
 }
 
@@ -54,6 +56,7 @@ function searchSignals_callback(r)
     if (r.error)
     {
         writeError(r.error.message, '#searchMessages');
+        $('.submitForm').show();
     }
     else if (r.result)
     {

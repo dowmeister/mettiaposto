@@ -53,11 +53,6 @@
     {
         if (options.showAs == 'div')
         {
-            $(options.errorDiv).show();
-
-            $(options.errorDiv).empty();
-            $(options.errorDiv).html(options.headerMessage);
-
             var errorContainer = $('<ul></ul>');
 
             for (var i = 0; i < errors.length; i++)
@@ -70,7 +65,7 @@
                 }
             }
 
-            $(options.errorDiv).append(errorContainer);
+            writeError(options.headerMessage + errorContainer.html(), options.errorDiv);
         }
 
         if (options.errorClass)

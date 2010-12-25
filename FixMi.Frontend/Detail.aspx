@@ -3,7 +3,7 @@
 <%@ Register Src="Includes/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
 <%@ Register Src="Includes/Header.ascx" TagName="Header" TagPrefix="uc3" %>
-<%@ Register src="Includes/Analytics.ascx" tagname="Analytics" tagprefix="uc4" %>
+<%@ Register Src="Includes/Analytics.ascx" TagName="Analytics" TagPrefix="uc4" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -16,6 +16,7 @@
     <script src="/js/signal.functions.js" type="text/javascript"></script>
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="/js/comments.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
 </head>
 <body>
@@ -48,7 +49,7 @@
                     </div>
                     <div class="tools">
                         <ul>
-                            <li><a class="serviceLink button" href=".comment">Commenti</a></li>
+                            <li><a class="serviceLink button" href="#commentsBox">Commenti</a></li>
                             <li><a class="serviceLink button" href="#share">Condividi</a></li>
                             <li><a class="serviceLink button" href="#subscribe">Tienimi informato</a></li>
                             <li><a class="serviceLink button" href="#report">Segnala</a></li>
@@ -57,61 +58,70 @@
                         </div>
                     </div>
                     <div style="display: block">
-                        <div id="comments" class="serviceBox comment">
-                        </div>
-                        <div id="comment" class="submitForm serviceBox comment">
-                            <ol>
-                                <li>
-                                    <label>
-                                        Commento</label>
-                                    <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                    * </li>
-                                <li>
-                                <li>
-                                    <label>
-                                        Nome</label>
-                                    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-                                    <div class="subfield">
-                                        <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel dettaglio della segnalazione?"
-                                            runat="server" /></div>
-                                    <div class="legend">
-                                        Nome ed indirizzo email non sono obbligatori ma ti consigliamo di inserirli per
-                                        maggiore trasparenza</div>
-                                </li>
-                                <li>
-                                    <label>
-                                        E-mail</label>
-                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                                    <div class="legend">
-                                        Il tuo indirizzo email non verrà mai mostrato pubblicamente
-                                    </div>
-                                </li>
-                                <li>
-                                    <label>
-                                        Allega una foto</label>
-                                    <asp:FileUpload ID="fuFile" runat="server" />
-                                    <div class="legend">
-                                        Puoi caricare solo file di tipo IMMAGINE
-                                    </div>
-                                </li>
-                            </ol>
-                            <div class="buttons">
-                                <input class="success" type="button" value="Invia" onclick="saveSignal(); return false;" />
-                                <input class="reset" type="reset" value="Annulla" />
+                        <div id="commentsBox" class="serviceBox">
+                            <div id="commentsMessages">
+                            </div>
+                            <div id="comments" class="list">
+                            </div>
+                            <div class="clear"></div>
+                            <div id="commentForm" class="submitForm">
+                                <div id="submitCommentMessage">
+                                </div>
+                                <ol>
+                                    <li>
+                                        <label>
+                                            Commento</label>
+                                        <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                        * </li>
+                                    <li>
+                                    <li>
+                                        <label>
+                                            Nome</label>
+                                        <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                        <div class="subfield">
+                                            <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel dettaglio della segnalazione?"
+                                                runat="server" /></div>
+                                        <div class="legend">
+                                            Nome ed indirizzo email non sono obbligatori ma ti consigliamo di inserirli per
+                                            maggiore trasparenza</div>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            E-mail</label>
+                                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                        <div class="legend">
+                                            Il tuo indirizzo email non verrà mai mostrato pubblicamente
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            Allega una foto</label>
+                                        <asp:FileUpload ID="fuFile" runat="server" />
+                                        <div class="legend">
+                                            Puoi caricare solo file di tipo IMMAGINE
+                                        </div>
+                                    </li>
+                                </ol>
+                                <div class="buttons">
+                                    <input class="success" type="button" value="Invia" onclick="addComment(); return false;" />
+                                    <input class="reset" type="reset" value="Annulla" />
+                                </div>
                             </div>
                         </div>
                         <div id="subscribe" class="submitForm serviceBox">
+                            <div id="subscribeSignalMessages">
+                            </div>
                             <ol>
                                 <li>
                                     <label>
                                         E-mail</label>
-                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
                                     <div class="legend">
                                         Ricevi via email aggiornamenti su questa segnalazione</div>
                                 </li>
                             </ol>
                             <div class="buttons">
-                                <input class="success" type="button" value="Iscriviti" onclick="saveSignal(); return false;" />
+                                <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
                                 <input class="reset" type="reset" value="Annulla" />
                             </div>
                         </div>

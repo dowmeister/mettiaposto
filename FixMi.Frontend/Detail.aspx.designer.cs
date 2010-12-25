@@ -193,13 +193,13 @@ namespace FixMi.Frontend {
         protected global::System.Web.UI.WebControls.FileUpload fuFile;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtSubscribeEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtSubscribeEmail;
         
         /// <summary>
         /// TextBox2 control.

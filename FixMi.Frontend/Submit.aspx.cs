@@ -16,6 +16,8 @@ namespace FixMi.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            RegisterAjaxSessionKey();
+
             if (!Page.IsPostBack)
                 RenderPage();
         }

@@ -314,5 +314,12 @@ namespace FixMi.Framework.Core.Base
         {
             return Request.Form["__EVENTARGUMENT"];
         }
+
+        protected void RegisterAjaxSessionKey()
+        {
+            string ajaxSessionKey = Guid.NewGuid().ToString();
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "ajaxSessionKey", "ajaxSessionKey='" + ajaxSessionKey + "';", true);
+            AddToSession("AjaxSessionKey", ajaxSessionKey);
+        }
     }
 }

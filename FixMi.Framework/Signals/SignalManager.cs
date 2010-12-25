@@ -124,5 +124,27 @@ namespace FixMi.Framework.Signals
             CloseSession();
             return count;
         }
+
+        public bool CheckIfSubscribed(SignalSubscription ss)
+        {
+            OpenSession();
+
+            int rowcount = session.CreateCriteria(typeof(SignalSubscription))
+                .Add(Restrictions.Eq("SignalID", ss.SignalID))
+                .Add(Restrictions.Eq("Email", ss.Email))
+                .SetProjection(Projections.RowCount()).UniqueResult<int>();
+            
+            CloseSession();
+
+            return (rowcount == 0);
+        }
+
+        public void SubscribeSignal(SignalSubscription ss)
+        {
+            OpenSession();
+            session.Save(ss);
+            CloseSession();
+            
+        }
     }
 }

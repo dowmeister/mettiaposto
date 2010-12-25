@@ -10,7 +10,7 @@
 namespace FixMi.Frontend.Includes {
     
     
-    public partial class SingleSignal {
+    public partial class CommentsList {
         
         /// <summary>
         /// rptList control.

@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SingleSignal.ascx.cs"
-    Inherits="FixMi.Frontend.Includes.SingleSignal" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SignalsList.ascx.cs"
+    Inherits="FixMi.Frontend.Includes.SignalsList" %>
 <asp:Repeater ID="rptList" runat="server" OnItemDataBound="rptList_ItemDataBound">
     <ItemTemplate>
         <div class="item">

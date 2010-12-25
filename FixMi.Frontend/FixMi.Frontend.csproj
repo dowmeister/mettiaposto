@@ -84,6 +84,7 @@
     <Content Include="css\flick\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\flick\jquery-ui-1.8.7.custom.css" />
     <Content Include="css\jquery-override.css" />
+    <Content Include="css\main.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -108,16 +109,16 @@
     <Content Include="images\searchbg.png" />
     <Content Include="images\skyline.png" />
     <Content Include="images\vshadow.png" />
+    <Content Include="Includes\CommentsList.ascx" />
     <Content Include="Includes\Footer.ascx" />
     <Content Include="Includes\Head.ascx" />
     <Content Include="Includes\Header.ascx" />
-    <Content Include="Includes\SingleSignal.ascx" />
+    <Content Include="Includes\SignalsList.ascx" />
     <Content Include="Includes\Analytics.ascx" />
     <Content Include="js\comments.functions.js" />
     <Content Include="js\functions.js" />
     <Content Include="js\index.functions.js" />
     <Content Include="js\jquery\plugins\ajaxfileupload.js" />
-    <Content Include="js\jquery\plugins\scrollTo.js" />
     <Content Include="js\json.js" />
     <Content Include="js\map.js" />
     <Content Include="js\search.functions.js" />
@@ -162,6 +163,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Includes\CommentsList.ascx.cs">
+      <DependentUpon>CommentsList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\CommentsList.ascx.designer.cs">
+      <DependentUpon>CommentsList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Includes\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,12 +191,12 @@
     <Compile Include="Includes\Header.ascx.designer.cs">
       <DependentUpon>Header.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Includes\SingleSignal.ascx.cs">
-      <DependentUpon>SingleSignal.ascx</DependentUpon>
+    <Compile Include="Includes\SignalsList.ascx.cs">
+      <DependentUpon>SignalsList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Includes\SingleSignal.ascx.designer.cs">
-      <DependentUpon>SingleSignal.ascx</DependentUpon>
+    <Compile Include="Includes\SignalsList.ascx.designer.cs">
+      <DependentUpon>SignalsList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search.aspx.cs">

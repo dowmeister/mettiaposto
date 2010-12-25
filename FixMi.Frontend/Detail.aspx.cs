@@ -18,6 +18,8 @@ namespace FixMi.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            RegisterAjaxSessionKey();
+
             if (!Page.IsPostBack)
             {
                 RenderPage();
@@ -58,6 +60,8 @@ namespace FixMi.Frontend
                     divPhoto.Visible = true;
                     imgPhoto.ImageUrl = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], s.Attachment);
                 }
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "currentSignalID", "currentSignalID=" + GetFromQueryString("id"), true);
             }
         }
     }

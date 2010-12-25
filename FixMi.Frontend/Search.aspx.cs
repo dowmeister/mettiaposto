@@ -15,6 +15,8 @@ namespace FixMi.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            RegisterAjaxSessionKey();
+
             lblCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower());
 
             if (!Page.IsPostBack)

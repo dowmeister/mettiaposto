@@ -356,7 +356,7 @@ input[type=button], input[type=reset]
 #content .details .tools ul li
 {
     list-style: none;
-    float: left;    
+    float: left;
     margin-right: 10px;
 }
 
@@ -380,7 +380,7 @@ input[type=button], input[type=reset]
 }
 
 #content .details .shareBox ul li
-{    
+{
     list-style: none;
     float: left;
 }
@@ -440,7 +440,7 @@ input[type=button], input[type=reset]
 {
     width: 475px;
     font-size: 12px;
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 #content .list div.title a
@@ -454,7 +454,7 @@ input[type=button], input[type=reset]
     vertical-align: middle;
 }
 
-#content .list div.legend 
+#content .list div.legend
 {
     font-size: 10px;
 }
@@ -477,7 +477,7 @@ input[type=button], input[type=reset]
 
 #content .list .pagination li
 {
-    float: left;    
+    float: left;
     list-style-type: none;
 }
 
@@ -488,6 +488,12 @@ input[type=button], input[type=reset]
     padding: 6px;
     margin-right: 5px;
     color: White;
+}
+
+#content .list .comment
+{
+    float: none;
+    margin-bottom: 5px; 
 }
 
 /* UTILS */
@@ -525,7 +531,7 @@ input[type=button], input[type=reset]
     line-height: 0.4;
 }
 
-.message a 
+.message a
 {
     color: #E0E5F5;
     text-decoration: none;
@@ -534,4 +540,13 @@ input[type=button], input[type=reset]
 .fieldError
 {
     border-color: Red;
+}
+
+#content .serviceBox .message
+{
+    width: 450px;
+}
+#content .serviceBox .list .item, .serviceBox .list .alt-item, #content .serviceBox .list .pagination
+{
+    width: 450px;
 }

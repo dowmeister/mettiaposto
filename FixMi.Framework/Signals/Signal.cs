@@ -41,4 +41,10 @@ namespace FixMi.Framework.Signals
 
         #endregion
     }
+
+    public class SignalSubscription
+    {
+        public virtual int SignalID { get; set; }
+        public virtual string Email { get; set; }
+    }
 }

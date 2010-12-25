@@ -11,7 +11,7 @@ using FixMi.Framework.Core.Utility;
 
 namespace FixMi.Frontend.Includes
 {
-    public partial class SingleSignal : System.Web.UI.UserControl
+    public partial class SignalsList : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
