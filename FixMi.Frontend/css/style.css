@@ -499,8 +499,6 @@ input[type=button], input[type=reset]
 /* UTILS */
 .message
 {
-    border: solid 1px #E3E3E3;
-    width: 100%;
     padding: 10px;
     color: White;
     font-weight: bold;
@@ -525,13 +523,13 @@ input[type=button], input[type=reset]
     text-align: center;
 }
 
-.message h2
+.error h2, .success h2
 {
     font-size: 16px;
     line-height: 0.4;
 }
 
-.message a
+.error a, .success a
 {
     color: #E0E5F5;
     text-decoration: none;
@@ -542,11 +540,17 @@ input[type=button], input[type=reset]
     border-color: Red;
 }
 
+#content .serviceBox .list
+{
+    margin-top: 0;
+}
+
 #content .serviceBox .message
 {
-    width: 450px;
+    width: 435px;
 }
-#content .serviceBox .list .item, .serviceBox .list .alt-item, #content .serviceBox .list .pagination
+
+#content .serviceBox .list .item, #content .serviceBox .list .alt-item, #content .serviceBox .list .pagination
 {
     width: 450px;
 }

@@ -63,10 +63,11 @@
                             </div>
                             <div id="comments" class="list">
                             </div>
-                            <div class="clear"></div>
+                            <div class="clear">
+                            </div>
+                            <div id="submitCommentMessage">
+                            </div>
                             <div id="commentForm" class="submitForm">
-                                <div id="submitCommentMessage">
-                                </div>
                                 <ol>
                                     <li>
                                         <label>

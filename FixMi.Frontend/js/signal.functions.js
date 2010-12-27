@@ -145,7 +145,7 @@ function addSignal()
             });
     }
     else
-        proxy.addSignal(s, addSignal_callback);
+        proxy.addSignal(s, ajaxSessionKey, addSignal_callback);
 }
 
 function addSignal_callback(r)

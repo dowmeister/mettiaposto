@@ -26,7 +26,7 @@ function showForm()
 {
     $('#list').empty();
     hideMessage('#searchMessages');
-    $('.submitForm').show();    
+    $('.submitForm').show(); 
 }
 
 function searchSignals(start)

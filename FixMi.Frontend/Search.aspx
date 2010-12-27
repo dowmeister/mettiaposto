@@ -3,7 +3,7 @@
 <%@ Register Src="Includes/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
 <%@ Register Src="Includes/Header.ascx" TagName="Header" TagPrefix="uc3" %>
-<%@ Register src="Includes/Analytics.ascx" tagname="Analytics" tagprefix="uc4" %>
+<%@ Register Src="Includes/Analytics.ascx" TagName="Analytics" TagPrefix="uc4" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -23,10 +23,6 @@
             <div class="left">
                 <h1 class="title">
                     Cerca</h1>
-                <div class="message error" id="validationError">
-                </div>
-                <div id="messages">
-                </div>
                 <div id="submitForm" class="submitForm">
                     <ol>
                         <li>
@@ -67,8 +63,9 @@
                         <input class="success" type="button" value="Cerca" onclick="searchSignals(0); return false;" />
                     </div>
                 </div>
-                <div id="searchMessages"></div>
-                <div id="list" class="list">                    
+                <div id="searchMessages">
+                </div>
+                <div id="list" class="list">
                 </div>
             </div>
             <div class="right">

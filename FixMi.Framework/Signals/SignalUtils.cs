@@ -41,7 +41,10 @@ namespace FixMi.Framework.Signals
                 return "1 ora e " + ts.Minutes.ToString() + " minuti fa";
             }
 
-            if (ts.Minutes > 0)
+            if (ts.Minutes <= 1)
+                return "circa 1 minuto fa";
+
+            if (ts.Minutes > 1)
                 return ts.Minutes.ToString() + " minuti fa";
 
             return "pochi secondi fa";

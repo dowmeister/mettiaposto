@@ -43,6 +43,7 @@ namespace FixMi.Frontend.Ajax
             CheckRequest(ajaxSessionKey);
 
             SignalManager sm = new SignalManager();
+            s.Description = s.Description.Replace(Environment.NewLine, "<br/>");
             s.CreationDate = DateTime.Now;
             s.UpdateDate = DateTime.Now;
             s.Status = Signal.SignalStatus.Approved; // FIX!!!!

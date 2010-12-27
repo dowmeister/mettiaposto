@@ -102,17 +102,18 @@ function _addComment()
 
 function addComment_callback(r)
 {
-    hideAjax('#submitCommentMessages');
+    hideAjax('#submitCommentMessage');
 
     if (r.error)
-        writeError(r.error.message, '#submitCommentMessages');
+        writeError(r.error.message, '#submitCommentMessage');
     else
     {
         if (r.result != 0)
-            writeMessage('Grazie per il tuo commento!', '', '#submitCommentMessages');
+            writeMessage('Grazie per il tuo commento!', '#submitCommentMessage');
     }
 
-    $('#commentForm').hide();
+    $('#commentForm').show();
+    $('#commentForm > input, textarea').val('');
 
     getComments(0);
 }

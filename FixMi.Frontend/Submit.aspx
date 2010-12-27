@@ -24,7 +24,7 @@
             <div class="left">
                 <h1 class="title">
                     Segnala un problema</h1>
-                <div class="message error" id="validationError"></div>
+                <div id="validationError"></div>
                 <div id="messages">
                 </div>
                 <div id="submitForm" class="submitForm">

@@ -1,6 +1,5 @@
 ﻿$.validateUtils = function (options)
 {
-
     var rules = new Array();
     var errors = new Array();
 
@@ -22,7 +21,8 @@
 
     this.validate = function ()
     {
-        $(options.errorDiv).hide();
+        if (options.errorDiv)
+            hideError(options.errorDiv);
 
         for (var i = 0; i < rules.length; i++)
         {
@@ -65,7 +65,7 @@
                 }
             }
 
-            writeError(options.headerMessage + errorContainer.html(), options.errorDiv);
+            writeError($('<div></div>').append(options.headerMessage).append(errorContainer), options.errorDiv);
         }
 
         if (options.errorClass)

@@ -12,7 +12,7 @@
         </div>
     </ItemTemplate>
     <AlternatingItemTemplate>
-        <div class="item">
+        <div class="alt-item">
             <div class="comment" runat="server" id="comment">
             </div>
             <div class="legend">
