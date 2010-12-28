@@ -58,6 +58,15 @@ namespace FixMi.Frontend {
         protected global::FixMi.Frontend.Includes.Header Header1;
         
         /// <summary>
+        /// ltCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ltCity;
+        
+        /// <summary>
         /// txtAddress control.
         /// </summary>
         /// <remarks>

@@ -58,7 +58,10 @@ namespace FixMi.Frontend
                 if (!s.Attachment.Equals(string.Empty))
                 {
                     divPhoto.Visible = true;
+                    lnkPhoto.HRef = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], s.Attachment);
                     imgPhoto.ImageUrl = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], s.Attachment);
+
+                    RegisterDocumentReadyFunction("fancybox", "$('#lnkPhoto').fancybox(); ");
                 }
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "currentSignalID", "currentSignalID=" + GetFromQueryString("id"), true);

@@ -2,6 +2,7 @@
 var markers = new Array();
 var completeAddress;
 var currentMap;
+var currentCity = '';
 
 function getMap(id)
 {
@@ -10,6 +11,7 @@ function getMap(id)
         if (maps[i].id == id)
             return maps[i];
     }
+
     return false;
 }
 
@@ -42,13 +44,13 @@ function geolocationByAddress(address, mapId)
     if (m)
     {
         currentMap = m.id;
-        var addr = address + ', Milano';
+        var addr = address + ', ' + $('#ltCity').html();
         var geoCoder = new google.maps.Geocoder();
-        geoCoder.geocode({ address: addr }, function (response, status) { geolocation_response(response, status); });
+        geoCoder.geocode({ address: addr }, function (response, status) { geolocationByAddress_callback(response, status); });
     }
 }
 
-function geolocation_response(r, status)
+function geolocationByAddress_callback(r, status)
 {
     if (checkGeolocationResult(status))
     {
@@ -73,6 +75,9 @@ function geolocation_response(r, status)
             case 'route':
                 m.obj.setZoom(15);
                 setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true);
+                break;
+            case 'locality':
+                m.obj.setZoom(7);
                 break;
         }
     }
@@ -120,13 +125,9 @@ function createMarker(id, location, draggable, m)
 
 function setMarker(id, location, draggable, mapId, localize, center)
 {
-
     var m = getMap(mapId);
 
     var marker = createMarker(id, location, draggable, m.obj);
-
-    //getMap(mapId).markerManager.addMarker(marker);
-    //getMap(mapId).markerManager.refresh();
 
     if (center)
         m.obj.setCenter(location);
@@ -143,20 +144,22 @@ function setMarker(id, location, draggable, mapId, localize, center)
 function geoLocationByLatLng(position)
 {
     var geoCoder = new google.maps.Geocoder();
-    geoCoder.geocode({ latLng: position }, function (response, status) { geoLocationByLatLng_response(response, status); });
+    geoCoder.geocode({ latLng: position }, function (response, status) { geoLocationByLatLng_callback(response, status); });
 }
 
-function geoLocationByLatLng_response(response, status)
+function geoLocationByLatLng_callback(response, status)
 {
-
     if (checkGeolocationResult(status))
     {
         var data = getGeolocationData(response, 0);
 
         completeAddress = data.address_components;
 
-        $('#txtAddress').val(getAddressComponent(data.address_components, 'route').long_name + ', ' +
-            getAddressComponent(data.address_components, 'street_number').long_name);
+        var address = getAddressComponent(data.address_components, 'route').long_name;
+        if (getAddressComponent(data.address_components, 'street_number'))
+            address += ', ' + getAddressComponent(data.address_components, 'street_number').long_name;
+
+        $('#txtAddress').val(address);
 
         $('#completeAddress').show();
         $('#completeAddress').html('Indirizzo completo: ' + data.formatted_address);
@@ -186,5 +189,5 @@ function getAddressComponent(components, type)
                 return components[i];
         }
     }
-    return null;
+    return { long_name: '' };
 }

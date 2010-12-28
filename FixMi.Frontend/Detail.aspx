@@ -17,6 +17,9 @@
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script src="/js/comments.functions.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.css"
+        media="screen" />
+    <script type="text/javascript" src="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
 </head>
 <body>
@@ -45,7 +48,9 @@
                     <div class="description" id="divDescription" runat="server">
                     </div>
                     <div class="photo" id="divPhoto" runat="server" visible="false">
-                        <asp:Image ID="imgPhoto" runat="server" />
+                        <a runat="server" id="lnkPhoto" runat="server">
+                            <asp:Image ID="imgPhoto" runat="server" />
+                        </a>
                     </div>
                     <div class="tools">
                         <ul>

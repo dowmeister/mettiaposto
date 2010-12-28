@@ -9,6 +9,7 @@ using log4net;
 using log4net.Core;
 using FixMi.Framework.Core.Base;
 using FixMi.Framework;
+using System.Globalization;
 
 namespace FixMi.Frontend
 {
@@ -27,6 +28,8 @@ namespace FixMi.Frontend
             CategoryManager cm = new CategoryManager();
             ddlCategories.DataSource = cm.GetActive();
             ddlCategories.DataBind();
+
+            ltCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower());
 
             if (QueryStringContains("address"))
             {

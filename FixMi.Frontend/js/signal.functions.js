@@ -9,7 +9,7 @@ $(document).ready(function ()
             if ($(ui.panel).attr('map'))
             {
                 var mapOpts = {
-                    zoom: 8,
+                    zoom: 6,
                     scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
                     scrollwheel: false
                 };
@@ -19,7 +19,7 @@ $(document).ready(function ()
 
                 if (!map)
                 {
-                    initializeMap(mapDiv, 45.4636889, 9.1881408, mapOpts);
+                    initializeMap(mapDiv, 42.53, 13.66, mapOpts);
 
                     if (mapDiv == 'mapNearby')
                     {
@@ -29,6 +29,7 @@ $(document).ready(function ()
             }
         }
     });
+
     $('.serviceLink').click(function ()
     {
         $('.serviceBox').hide();

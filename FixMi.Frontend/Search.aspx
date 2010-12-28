@@ -28,7 +28,7 @@
                         <li>
                             <label>
                                 Città</label>
-                            <asp:Label ID="lblCity" runat="server"></asp:Label>
+                            <asp:Label CssClass="generic" ID="lblCity" runat="server"></asp:Label>
                         </li>
                         <li>
                             <label>

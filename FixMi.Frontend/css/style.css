@@ -232,6 +232,11 @@
     margin: 10px 5px 0 0px;
 }
 
+.submitForm ol li span.generic
+{
+    line-height: 1.8;
+}
+
 .submitForm ol li label
 {
     display: inline-block;
@@ -405,6 +410,11 @@ input[type=button], input[type=reset]
 {
     margin-top: 20px;
     text-align: center;
+}
+
+#content .details .photo img
+{
+    width: 350px;
 }
 
 #content .list
