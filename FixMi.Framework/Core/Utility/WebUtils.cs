@@ -5,11 +5,20 @@ using System.Text;
 using System.Web.UI;
 using System.IO;
 using System.Web.UI.HtmlControls;
+using System.Drawing;
 
 namespace FixMi.Framework.Core.Utility
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WebUtils
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public static string RenderControlToString(Control c)
         {
             StringBuilder sb = new StringBuilder();
@@ -19,6 +28,13 @@ namespace FixMi.Framework.Core.Utility
             return sb.ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="totalRecords"></param>
+        /// <param name="recordsPerPage"></param>
+        /// <param name="func"></param>
+        /// <returns></returns>
         public static HtmlGenericControl CreatePagination(int totalRecords, int recordsPerPage, string func)
         {
             int totalPages = Convert.ToInt32(Math.Ceiling((double)totalRecords / (double)recordsPerPage));
@@ -42,6 +58,48 @@ namespace FixMi.Framework.Core.Utility
 
                 return ul;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="OriginalFile"></param>
+        /// <param name="NewFile"></param>
+        /// <param name="NewWidth"></param>
+        /// <param name="MaxHeight"></param>
+        /// <param name="OnlyResizeIfWider"></param>
+        /// <seealso cref="http://snippets.dzone.com/posts/show/4336" />
+        public static Image ResizeImage(Image FullsizeImage, int NewWidth, int MaxHeight, bool OnlyResizeIfWider)
+        {
+            // Prevent using images internal thumbnail
+            FullsizeImage.RotateFlip(System.Drawing.RotateFlipType.Rotate180FlipNone);
+            FullsizeImage.RotateFlip(System.Drawing.RotateFlipType.Rotate180FlipNone);
+
+            if (OnlyResizeIfWider)
+            {
+                if (FullsizeImage.Width <= NewWidth)
+                {
+                    NewWidth = FullsizeImage.Width;
+                }
+            }
+
+            int NewHeight = FullsizeImage.Height * NewWidth / FullsizeImage.Width;
+
+            if (NewHeight > MaxHeight)
+            {
+                // Resize with height instead
+                NewWidth = FullsizeImage.Width * MaxHeight / FullsizeImage.Height;
+                NewHeight = MaxHeight;
+            }
+
+            System.Drawing.Image NewImage = FullsizeImage.GetThumbnailImage(NewWidth, NewHeight, null, IntPtr.Zero);
+
+            // Clear handle to original file so that we can overwrite it if necessary
+            //FullsizeImage.Dispose();
+
+            // Save resized picture
+            //NewImage.Save(NewFile);
+            return NewImage;
         }
     }
 }

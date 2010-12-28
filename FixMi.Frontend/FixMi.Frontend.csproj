@@ -107,6 +107,7 @@
     <Content Include="images\pinktab.png" />
     <Content Include="images\redbox.png" />
     <Content Include="images\searchbg.png" />
+    <Content Include="images\skyline.jpg" />
     <Content Include="images\skyline.png" />
     <Content Include="images\vshadow.png" />
     <Content Include="Includes\CommentsList.ascx" />

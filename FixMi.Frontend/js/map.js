@@ -58,27 +58,30 @@ function geolocationByAddress_callback(r, status)
 
         var m = getMap(currentMap);
 
-        m.obj.setCenter(data.geometry.location);
-
-        switch (data.types[0])
+        if (m)
         {
-            case 'street_address':
-                m.obj.setZoom(16);
-                setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true);
-                break;
-            case 'postal_code':
-                m.obj.setZoom(14);
-                break;
-            case 'sublocality':
-                m.obj.setZoom(13);
-                break;
-            case 'route':
-                m.obj.setZoom(15);
-                setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true);
-                break;
-            case 'locality':
-                m.obj.setZoom(7);
-                break;
+            m.obj.setCenter(data.geometry.location);
+
+            switch (data.types[0])
+            {
+                case 'street_address':
+                    m.obj.setZoom(16);
+                    setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true);
+                    break;
+                case 'postal_code':
+                    m.obj.setZoom(14);
+                    break;
+                case 'sublocality':
+                    m.obj.setZoom(13);
+                    break;
+                case 'route':
+                    m.obj.setZoom(15);
+                    setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true);
+                    break;
+                case 'locality':
+                    m.obj.setZoom(7);
+                    break;
+            }
         }
     }
 
