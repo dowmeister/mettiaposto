@@ -8,6 +8,8 @@ using FixMi.Framework.Comments;
 using FixMi.Framework.Core.Utility;
 using System.Web.UI.HtmlControls;
 using FixMi.Framework.Signals;
+using FixMi.Framework.Core;
+using System.IO;
 
 namespace FixMi.Frontend.Includes
 {
@@ -29,8 +31,22 @@ namespace FixMi.Frontend.Includes
         {
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
-                ((HtmlGenericControl)e.Item.FindControl("comment")).InnerHtml = ((Comment)e.Item.DataItem).Text;
-                ((Label)e.Item.FindControl("timeframe")).Text = SignalUtils.GetTimeframe(((Comment)e.Item.DataItem).CreationDate);
+                Comment c = (Comment)e.Item.DataItem;
+
+                ((HtmlGenericControl)e.Item.FindControl("comment")).InnerHtml = c.Text;
+                ((Label)e.Item.FindControl("timeframe")).Text = SignalUtils.GetTimeframe(c.CreationDate);
+
+                if (c.ShowAuthorName)
+                    ((Label)e.Item.FindControl("author")).Text = c.AuthorName;
+                else
+                    ((Label)e.Item.FindControl("author")).Text = "Anonimo";
+
+                if (!c.Attachment.Equals(string.Empty))
+                {
+                    ((HtmlGenericControl)e.Item.FindControl("divPhoto")).Visible = true;
+                    ((HtmlAnchor)e.Item.FindControl("lnkPhoto")).HRef = Path.Combine(Settings.UploadPath, c.Attachment);
+                    ((Image)e.Item.FindControl("imgPhoto")).ImageUrl = Path.Combine(Settings.UploadPath, c.Attachment);
+                }
             }
         }
     }

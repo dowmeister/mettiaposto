@@ -563,3 +563,14 @@ input[type=button], input[type=reset]
 {
     width: 450px;
 }
+
+#content .list .photo
+{
+    width: 100%;
+    text-align: center;
+}
+
+#content .list .photo img
+{
+    width: 300px;    
+}

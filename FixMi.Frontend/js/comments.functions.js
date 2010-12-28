@@ -23,6 +23,7 @@ function getComments_callback(r)
     else
     {
         $('#comments').html(r.result);
+        $('.photo > a').fancybox();
     }
 }
 

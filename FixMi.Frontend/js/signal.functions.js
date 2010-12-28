@@ -199,6 +199,9 @@ function getSignalsNearby_callback(r)
 
             map.fitBounds(bounds);
             map.setCenter(bounds.getCenter());
+
+            if (map.getZoom() < 15)
+                map.setZoom(15);
         }
     }
 }
