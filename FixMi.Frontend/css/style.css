@@ -1,6 +1,6 @@
 ﻿body
 {
-    background-color: #5BB1CA;
+    background: url("../images/skyline.jpg") repeat-x fixed left bottom #5BB1CA;
     margin: 0 0 0 0;
     font-size: 12px;
     font-family: Verdana;
@@ -94,7 +94,6 @@
 
 #footer
 {
-    background: url(../images/skyline.jpg) no-repeat bottom;
     height: 150px;
     text-align: center;
     color: White;
