@@ -1,6 +1,6 @@
 ﻿body
 {
-    background-color: #5BB1CA;
+    background: url("../images/skyline.jpg") repeat-x fixed left bottom #5BB1CA;
     margin: 0 0 0 0;
     font-size: 12px;
     font-family: Verdana;
@@ -13,7 +13,7 @@
 
 #navbar
 {
-    height: 20px;
+    height: 10px;
     background-color: #117491;
 }
 
@@ -21,7 +21,7 @@
 {
     width: 202px;
     float: left;
-    margin-left: 15px;
+    margin-top: 5px;
 }
 
 #logo a
@@ -94,7 +94,6 @@
 
 #footer
 {
-    background: url(../images/skyline.jpg) no-repeat bottom;
     height: 150px;
     text-align: center;
     color: White;
@@ -119,7 +118,7 @@
 
 #content .home
 {
-    background: url(../images/searchbg.png) no-repeat;
+    background: url(../images/searchbg.jpg) no-repeat;
     float: left;
     width: 570px;
     background-color: #5BB1CA;
