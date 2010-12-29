@@ -109,11 +109,12 @@
 {
 }
 
-#content .presentation
+#content .presentation 
 {
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 20px;
     width: 1085px;
-    padding-left: 10px;
 }
 
 #content .home
