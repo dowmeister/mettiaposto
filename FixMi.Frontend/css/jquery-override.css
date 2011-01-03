@@ -33,3 +33,8 @@
     float: none;
 }
 
+.ui-tabs .ui-tabs-panel
+{
+    padding: 10px 0 0 0;
+}
+

@@ -8,7 +8,8 @@
 
 #wrapper
 {
-    padding: 0 60px 40px 60px;
+    margin: 0 auto 0 auto;
+    width: 1000px;
 }
 
 #navbar
@@ -80,13 +81,14 @@
 #content
 {
     background-color: White;
-    background: White url(../images/vshadow.png) repeat-y right;
+    /*background: White url(../images/vshadow.png) repeat-y right;*/
     padding: 20px;
-    width: 1100px;
+    width: 960px;
 }
 
 #hshadow
 {
+    width: 1000px;
     height: 10px;
     margin-right: 6px;
     background: url(../images/hshadow.png) repeat-x;
@@ -105,16 +107,12 @@
     text-decoration: none;
 }
 
-#content .full
-{
-}
-
 #content .presentation 
 {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    width: 1085px;
+    width: 980px;
 }
 
 #content .home
@@ -217,13 +215,14 @@
 {
     display: inline;
     float: left;
-    width: 520px;
+    width: 450px;
+    margin-right: 20px;
 }
 
 .twocols .right
 {
     float: left;
-    width: 550px;
+    width: 450px;
 }
 
 .submitForm ol li
@@ -322,14 +321,13 @@ input[type=button], input[type=reset]
 
 #content .map
 {
-    width: 510px;
+    width: 440px;
     height: 500px;
 }
 
 #content .details
 {
     margin-top: 5px;
-    width: 500px;
 }
 
 #content .details .info
@@ -402,7 +400,6 @@ input[type=button], input[type=reset]
 
 #content .mapTabs
 {
-    width: 550px;
     margin-top: 5px;
 }
 
@@ -419,13 +416,16 @@ input[type=button], input[type=reset]
 
 #content .list
 {
-    width: 510px;
     margin-top: 20px;
+}
+
+#content .list div
+{
+    float: left;
 }
 
 #content .list .item
 {
-    width: 100%;
     background-color: #E0E5F5;
     padding: 5px;
     margin-bottom: 1px;
@@ -434,21 +434,14 @@ input[type=button], input[type=reset]
 
 #content .list .alt-item
 {
-    width: 100%;
     background-color: #D6DDEF;
     padding: 5px;
     margin-bottom: 1px;
     border-bottom: 1px solid #DDDDDD;
 }
 
-#content .list div
-{
-    float: left;
-}
-
 #content .list div.title
 {
-    width: 475px;
     font-size: 12px;
     font-weight: bold;
 }
@@ -472,6 +465,11 @@ input[type=button], input[type=reset]
 #content .list div.legend span
 {
     font-weight: bold;
+}
+
+#content .list div.status 
+{
+    margin-right: 10px;
 }
 
 #content .list .pagination
@@ -557,12 +555,12 @@ input[type=button], input[type=reset]
 
 #content .serviceBox .message
 {
-    width: 435px;
+    /*width: 435px;*/
 }
 
 #content .serviceBox .list .item, #content .serviceBox .list .alt-item, #content .serviceBox .list .pagination
 {
-    width: 450px;
+    /*width: 450px;*/
 }
 
 #content .list .photo
@@ -574,4 +572,9 @@ input[type=button], input[type=reset]
 #content .list .photo img
 {
     width: 300px;    
+}
+
+#content .full
+{
+    width: 960px;
 }
