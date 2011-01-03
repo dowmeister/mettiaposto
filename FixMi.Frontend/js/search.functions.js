@@ -25,13 +25,14 @@
 function showForm()
 {
     $('#list').empty();
-    hideMessage('#searchMessages');
-    $('.submitForm').show(); 
+    clearMessages('#searchMessages');
+    $('.submitForm').show();
 }
 
 function searchSignals(start)
 {
     $('.submitForm').hide();
+    clearMessages('#searchMessages');
     writeAjax('#searchMessages');
     $('#list').empty();
 
@@ -89,6 +90,6 @@ function searchSignals_callback(r)
             map.setCenter(bounds.getCenter());
         }
         else
-            writeError('Nessuna segnalazione trovata con i parametri di ricerca specificati', '#searchMessages');
+            writeError('Nessuna segnalazione trovata con i parametri di ricerca specificati<p><a href="#" onclick="showForm();">Effettua una nuova ricerca</a></p>', '#searchMessages');
     }
 }

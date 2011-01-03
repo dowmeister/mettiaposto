@@ -25,6 +25,11 @@ function writeError(error, container)
     $('<div class="message error"></div>').html('<h2>Ops! Errore!</h2>').html(error).appendTo(container).show();
 }
 
+function clearMessages(container)
+{
+    $(container + ' > .message').remove();
+}
+
 function hideError(container)
 {
     $(container + ' > .error').remove();

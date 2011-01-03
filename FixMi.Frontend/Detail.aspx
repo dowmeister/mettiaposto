@@ -78,7 +78,7 @@
                                         <label>
                                             Commento</label>
                                         <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                        * </li>
+                                    </li>
                                     <li>
                                     <li>
                                         <label>
@@ -114,21 +114,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="subscribe" class="submitForm serviceBox">
+                        <div id="subscribe" class="serviceBox">
                             <div id="subscribeSignalMessages">
                             </div>
-                            <ol>
-                                <li>
-                                    <label>
-                                        E-mail</label>
-                                    <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
-                                    <div class="legend">
-                                        Ricevi via email aggiornamenti su questa segnalazione</div>
-                                </li>
-                            </ol>
-                            <div class="buttons">
-                                <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
-                                <input class="reset" type="reset" value="Annulla" />
+                            <div class="submitForm">
+                                <ol>
+                                    <li>
+                                        <label>
+                                            E-mail</label>
+                                        <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
+                                        <div class="legend">
+                                            Ricevi via email aggiornamenti su questa segnalazione</div>
+                                    </li>
+                                </ol>
+                                <div class="buttons">
+                                    <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
+                                    <input class="reset" type="reset" value="Annulla" />
+                                </div>
                             </div>
                         </div>
                         <div id="share" class="shareBox serviceBox">
@@ -140,19 +142,19 @@
                             <div class="clear">
                             </div>
                         </div>
-                        <div id="report" class="submitForm serviceBox">
-                            <ol>
-                                <li>
-                                    <label>
-                                        E-mail</label>
-                                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                                    <div class="legend">
-                                        Ricevi via email aggiornamenti su questa segnalazione</div>
-                                </li>
-                            </ol>
-                            <div class="buttons">
-                                <input class="success" type="button" value="Iscriviti" onclick="saveSignal(); return false;" />
-                                <input class="reset" type="reset" value="Annulla" />
+                        <div id="report" class="serviceBox">
+                            <div class="submitForm">
+                                <ol>
+                                    <li>
+                                        <label>
+                                            E-mail</label>
+                                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                    </li>
+                                </ol>
+                                <div class="buttons">
+                                    <input class="success" type="button" value="Iscriviti" onclick="saveSignal(); return false;" />
+                                    <input class="reset" type="reset" value="Annulla" />
+                                </div>
                             </div>
                         </div>
                     </div>

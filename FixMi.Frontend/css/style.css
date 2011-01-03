@@ -7,6 +7,11 @@
     color: #333333;
 }
 
+textarea, input, select
+{
+    padding: 5px;
+}
+
 #wrapper
 {
     margin: 0 auto 0 auto;
@@ -120,7 +125,7 @@
 {
     background: url(../images/searchbg.jpg) no-repeat;
     float: left;
-    width: 570px;
+    width: 445px;
     background-color: #5BB1CA;
     margin: 0 12px 0 12px;
     height: 110px;
@@ -154,7 +159,7 @@
 #content .statsBox
 {
     width: 244px;
-    height: 109px;
+    height: 90px;
     float: left;
     padding-top: 23px;
 }
@@ -333,7 +338,7 @@ input[type=button], input[type=reset]
 #content .details .info
 {
     color: #5BB1CA;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 #content .details .info span
@@ -573,6 +578,7 @@ input[type=button], input[type=reset]
 
 #content .serviceBox .submitForm ol li textarea, #content .serviceBox .submitForm ol li input[type=text]
 {
+    width: 240px;
 }
 
 #content .list .photo

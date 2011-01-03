@@ -54,7 +54,7 @@
                             <asp:DropDownList DataTextField="Name" DataValueField="CategoryID" AppendDataBoundItems="true"
                                 ID="ddlStatus" runat="server">
                                 <asp:ListItem Value="-1" Text="Risolte e non Risolte" />
-                                <asp:ListItem Value="1" Text="Risolte" />
+                                <asp:ListItem Value="2" Text="Risolte" />
                                 <asp:ListItem Value="1" Text="Non Risolte" />
                             </asp:DropDownList>
                         </li>
