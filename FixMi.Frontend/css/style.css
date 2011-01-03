@@ -3,7 +3,8 @@
     background: url("../images/skyline.jpg") repeat-x scroll left bottom #5BB1CA;
     margin: 0 0 0 0;
     font-size: 12px;
-    font-family: Verdana;
+    font-family: verdana,arial,sans-serif;
+    color: #333333;
 }
 
 #wrapper
@@ -192,8 +193,7 @@
 {
     background: url(../images/claimhome.png) no-repeat;
     display: block;
-    width: 1083px;
-    height: 263px;
+    height: 233px;
     margin: 0 auto 0 auto;
 }
 
@@ -222,7 +222,7 @@
 .twocols .right
 {
     float: left;
-    width: 450px;
+    width: 480px;
 }
 
 .submitForm ol li
@@ -321,7 +321,7 @@ input[type=button], input[type=reset]
 
 #content .map
 {
-    width: 440px;
+    width: 470px;
     height: 500px;
 }
 
@@ -444,6 +444,8 @@ input[type=button], input[type=reset]
 {
     font-size: 12px;
     font-weight: bold;
+    width: 370px;
+    height: 25px;
 }
 
 #content .list div.title a
@@ -460,6 +462,7 @@ input[type=button], input[type=reset]
 #content .list div.legend
 {
     font-size: 10px;
+    margin-top: 5px;
 }
 
 #content .list div.legend span
@@ -561,6 +564,15 @@ input[type=button], input[type=reset]
 #content .serviceBox .list .item, #content .serviceBox .list .alt-item, #content .serviceBox .list .pagination
 {
     /*width: 450px;*/
+}
+
+#content .serviceBox .submitForm ol li label
+{
+    width: 100px;
+}
+
+#content .serviceBox .submitForm ol li textarea, #content .serviceBox .submitForm ol li input[type=text]
+{
 }
 
 #content .list .photo
