@@ -7,7 +7,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Mettiaposto.it - Segnala disservizi, problemi e malfunzionamenti della tua città!</title>
+    <meta property="og:title" content="Mettiaposto.it" />
+    <meta property="og:description" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
+    <meta property="og:image" content="" />
     <uc2:Head ID="ucHead" runat="server" />
     <script src="/js/index.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
