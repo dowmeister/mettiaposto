@@ -47,12 +47,13 @@
 				<exclude name="*.dll"></exclude>
 				<include name="**/*"></include>
 				<exclude name=".gitignore" />
-			</fileset>
+				<include name="favicon.ico" />
+				</fileset>
 		</move>
 		<move todir="${build.packageDir}/bin" overwrite="true">
 			<fileset refid="assemblies" />
 		</move>
-		<delete dir="${build.outDir}" />
+		<!-- <delete dir="${build.outDir}" /> -->
 		
 	</target>
 </project>

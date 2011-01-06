@@ -87,6 +87,7 @@
     <Content Include="css\main.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\alert.png" />
@@ -147,6 +148,7 @@
     <Content Include="js\search.functions.js" />
     <Content Include="js\signal.functions.js" />
     <Content Include="js\validation.js" />
+    <Content Include="robots.txt" />
     <Content Include="Search.aspx" />
     <Content Include="Detail.aspx" />
     <Content Include="Submit.aspx" />
