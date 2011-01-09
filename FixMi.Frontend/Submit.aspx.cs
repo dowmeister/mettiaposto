@@ -33,17 +33,19 @@ namespace FixMi.Frontend
             ddlCategories.DataSource = cm.GetActive();
             ddlCategories.DataBind();
 
-            string[] parts = GetFromQueryString("city").Split('/');
-            string city = parts[0];
-            string address = string.Empty;
-            if (parts.Length > 1)
-                address = parts[1];
+            //string[] parts = GetFromQueryString("city").Split('/');
+            //string city = parts[0];
+            //string address = string.Empty;
+            //if (parts.Length > 1)
+            //    address = parts[1];
 
-            ltCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(city.ToLower());
+            //ltCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(city.ToLower());
 
-            if (!address.Equals(string.Empty))
+            ltCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower());
+
+            if (QueryStringContains("address"))
             {
-                txtAddress.Text = address;
+                txtAddress.Text = GetFromQueryString("address");
                 RegisterDocumentReadyFunction("autogeo", JsUtils.CreateJsFunction("geolocationByAddress", false, txtAddress.Text, "map_canvas"));
             }
         }
