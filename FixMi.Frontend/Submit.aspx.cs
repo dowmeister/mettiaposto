@@ -19,6 +19,10 @@ namespace FixMi.Frontend
         {
             RegisterAjaxSessionKey();
 
+            metaOgDescription.Attributes["content"] = String.Format(metaOgDescription.Attributes["content"], CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower()));
+            ogTitle.Attributes["content"] = String.Format(ogTitle.Attributes["content"], CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower()));
+            this.Title = String.Format(this.Title, CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower()));
+
             if (!Page.IsPostBack)
                 RenderPage();
         }
@@ -29,11 +33,18 @@ namespace FixMi.Frontend
             ddlCategories.DataSource = cm.GetActive();
             ddlCategories.DataBind();
 
-            ltCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower());
+            string[] parts = GetFromQueryString("city").Split('/');
+            string city = parts[0];
+            string address = string.Empty;
+            if (parts.Length > 1)
+                address = parts[1];
 
-            if (QueryStringContains("address"))
+            ltCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(city.ToLower());
+
+            if (!address.Equals(string.Empty))
             {
-                RegisterDocumentReadyFunction("autogeo", JsUtils.CreateJsFunction("geolocationByAddress", false, GetFromQueryString("address"), "map_canvas"));
+                txtAddress.Text = address;
+                RegisterDocumentReadyFunction("autogeo", JsUtils.CreateJsFunction("geolocationByAddress", false, txtAddress.Text, "map_canvas"));
             }
         }
     }

@@ -67,6 +67,15 @@ namespace FixMi.Frontend {
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
         
         /// <summary>
+        /// ddlCities control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCities;
+        
+        /// <summary>
         /// ltResolved control.
         /// </summary>
         /// <remarks>

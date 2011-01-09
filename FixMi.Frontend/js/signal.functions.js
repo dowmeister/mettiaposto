@@ -54,7 +54,7 @@ function saveSignal()
         return false;
     }
 
-    if (!getMarker('geoLocatedMarker0'))
+    if (!getMarkerObject('geoLocatedMarker0'))
     {
         alert('Inserire un indirizzo o impostare correttamente il marker sulla mappa');
         return false;
@@ -111,9 +111,9 @@ function addSignal()
     s.showName = document.getElementById('chkPublicName').checked;
     s.categoryID = $('#ddlCategories').val();
     s.email = $('#txtEmail').val();
-    s.latitude = getMarker('geoLocatedMarker0').getPosition().lat();
+    s.latitude = getMarkerObject('geoLocatedMarker0').getPosition().lat();
     s.name = $('#txtName').val();
-    s.longitude = getMarker('geoLocatedMarker0').getPosition().lng();
+    s.longitude = getMarkerObject('geoLocatedMarker0').getPosition().lng();
     s.address = $('#txtAddress').val();
     s.zip = getAddressComponent(completeAddress, 'postal_code').long_name;
     s.city = getAddressComponent(completeAddress, 'locality').long_name;
@@ -193,8 +193,8 @@ function getSignalsNearby_callback(r)
                 bounds.extend(myLatLng);
 
                 var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map);
-                var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
-                google.maps.event.addListener(getMarker('signalMarker' + signal.signalID), 'click', function () { openInfoWindow(w, getMarker('signalMarker' + signal.signalID), map); });
+                var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300, maxHeight: 150 });
+                google.maps.event.addListener(m, 'click', function () { openInfoWindow(w, m, map) });
             }
 
             map.fitBounds(bounds);

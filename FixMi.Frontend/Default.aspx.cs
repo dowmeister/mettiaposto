@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using FixMi.Framework.Signals;
 using FixMi.Framework.Core.Base;
+using FixMi.Framework.Places;
 
 namespace FixMi.Frontend
 {
@@ -15,9 +16,19 @@ namespace FixMi.Frontend
         {
             RegisterAjaxSessionKey();
 
+            if (!Page.IsPostBack)
+                BuildPage();
+        }
+
+        private void BuildPage()
+        {
             SignalManager sm = new SignalManager();
             ltTotals.Text = sm.GetCountAll().ToString();
             ltResolved.Text = sm.GetCountByStatus(Signal.SignalStatus.Resolved).ToString();
+
+            PlaceManager pm = new PlaceManager();
+            ddlCities.DataSource = pm.GetActivePlaces();
+            ddlCities.DataBind();
         }
     }
 }

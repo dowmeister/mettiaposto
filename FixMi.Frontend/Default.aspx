@@ -12,7 +12,7 @@
     <uc2:Head ID="ucHead" runat="server" />
     <meta property="og:title" content="Mettiaposto.it" />
     <meta property="og:description" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
-    <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />    
+    <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />
     <meta name="description" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
     <meta name="keywords" content="segnala, disservizi, città, tua città, mia città, milano, comune, problemi, buche, graffiti, spazzatura" />
     <script src="/js/index.functions.js" type="text/javascript"></script>
@@ -35,11 +35,16 @@
                 </div>
             </div>
             <div class="home">
-                <div class="start">
-                    <h2>
-                        Inserisci un CAP, l'indirizzo o un quartiere di Milano per segnalare un problema</h2>
-                    <asp:TextBox ID="txtSearch" CssClass="search" runat="server" Text="CAP, indirizzo, quartiere..."></asp:TextBox>
-                    <input class="success" id="searchButton" type="button" value="Vai" onclick="search(); return false;"></input>
+                <h2>
+                    Inserisci l'indirizzo per iniziare la segnalazione</h2>
+                <div class="input">
+                    <asp:TextBox MaxLength="150" ID="txtSearch" CssClass="search" runat="server" Text="CAP, indirizzo, quartiere..."></asp:TextBox>
+                    a
+                    <asp:DropDownList ID="ddlCities" DataValueField="Name" DataTextField="Name" runat="server">
+                    </asp:DropDownList>
+                </div>
+                <div class="button" style="text-align: center;">
+                    <input class="gobutton" id="searchButton" type="button" value="Vai" onclick="search(); return false;"></input>
                 </div>
             </div>
             <div class="statsBox resolvedSignals">

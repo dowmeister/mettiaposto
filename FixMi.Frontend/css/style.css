@@ -134,26 +134,37 @@ textarea, input, select
 #content .home h2
 {
     font-size: 12px;
-}
-
-#content .home .start
-{
+    color: #FFFFFF;
     text-align: center;
 }
 
-#content .home .start input.search
+#content .home .input
 {
-    width: 250px;
-    padding: 10px;
+    background-color: #FFFFFF;
+    padding: 3px;
+    margin: 0 10px 0 10px;
+    color: Grey;
+}
+
+#content .home select
+{
+    width: 130px;
     border: none;
     color: Grey;
-    text-align: center;
-    margin-bottom: 15px;
 }
 
-#content .home start input.searchButton
+#content .home input.search
 {
-    width: 200px;
+    width: 250px;
+    padding: 2px;
+    border: none;
+    color: Grey;
+}
+
+#content .home input.gobutton
+{
+    margin-top: 5px;
+    background: url(../images/searchbutton.png) no-repeat;
 }
 
 #content .statsBox

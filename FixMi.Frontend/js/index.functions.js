@@ -9,5 +9,5 @@
 });
 
 function search() {
-    window.location.href = '/milano/' + encodeURI($('#txtSearch').val()) + '/invia.aspx';
+    window.location.href = '/' + $('#ddlCities').text() + '/' + encodeURI($('#txtSearch').val()) + '/invia.aspx';
 }

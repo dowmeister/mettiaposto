@@ -81,7 +81,7 @@ function searchSignals_callback(r)
 
                 var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map);
                 var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
-                google.maps.event.addListener(getMarker('signalMarker' + signal.signalID), 'click', function () { w.open(map, getMarker('signalMarker' + signal.signalID)); });
+                google.maps.event.addListener(getMarkerObject('signalMarker' + signal.signalID), 'click', function () { w.open(map, getMarkerObject('signalMarker' + signal.signalID)); });
             }
 
             $('#list').html(r.result.html);

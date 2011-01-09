@@ -31,6 +31,24 @@ namespace FixMi.Frontend {
         protected global::FixMi.Frontend.Includes.Head ucHead;
         
         /// <summary>
+        /// ogTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlMeta ogTitle;
+        
+        /// <summary>
+        /// metaOgDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlMeta metaOgDescription;
+        
+        /// <summary>
         /// Analytics1 control.
         /// </summary>
         /// <remarks>

@@ -15,15 +15,28 @@ function getMap(id)
     return false;
 }
 
+function getMarkerObject(id)
+{
+    for (var i = 0; i < markers.length; i++)
+    {
+        if (markers[i].id == id)
+            return markers[i].obj;
+    }
+
+    return false;
+}
+
 function getMarker(id)
 {
     for (var i = 0; i < markers.length; i++)
     {
         if (markers[i].id = id)
-            return markers[i].obj;
+            return markers[i];
     }
+
     return false;
 }
+
 
 function initializeMap(mapDiv, lat, long, myOptions)
 {
@@ -99,6 +112,18 @@ function removeMarker(index)
     markers.splice(index, 1);
 }
 
+function removeMarkerById(id)
+{
+    for (var i = markers.length - 1; i >= 0; i--)
+    {
+        if (markers[i].id == id)
+        {
+            removeMarker(i);
+            break;
+        }
+    }    
+}
+
 function removeAllMarkers()
 {
     for (var i = markers.length - 1; i >= 0; i--)
@@ -109,10 +134,7 @@ function removeAllMarkers()
 
 function createMarker(id, location, draggable, m)
 {
-    var existsMarker = getMarker(id);
-    
-    if (existsMarker)
-        removeMarkerFromMap(existsMarker);
+    removeMarkerById(id);
 
     var marker = new google.maps.Marker({
         map: m,
@@ -159,7 +181,7 @@ function geoLocationByLatLng_callback(response, status)
         completeAddress = data.address_components;
 
         var address = getAddressComponent(data.address_components, 'route').long_name;
-        if (getAddressComponent(data.address_components, 'street_number'))
+        if (getAddressComponent(data.address_components, 'street_number') != '')
             address += ', ' + getAddressComponent(data.address_components, 'street_number').long_name;
 
         $('#txtAddress').val(address);
