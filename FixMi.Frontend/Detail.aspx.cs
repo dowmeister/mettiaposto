@@ -11,6 +11,7 @@ using System.Globalization;
 using FixMi.Framework;
 using System.IO;
 using System.Configuration;
+using FixMi.Framework.Core;
 
 namespace FixMi.Frontend
 {
@@ -47,9 +48,13 @@ namespace FixMi.Frontend
                 CategoryManager cm = new CategoryManager();
                 ltCategory.Text = cm.Load(s.CategoryID).Name;
 
+                string markerImage = "MARKERIMAGE_ALERT";
+                if (s.Status == Signal.SignalStatus.Resolved)
+                    markerImage = "MARKERIMAGE_OK";
+
                 string func = JsUtils.CreateJsFunction("setMarker", false, "signalMarker" + GetFromQueryString("id"),
                     new JsUtils.JsFunction("new google.maps.LatLng(" + s.Latitude.ToString(new CultureInfo("en-US")) + "," + s.Longitude.ToString(new CultureInfo("en-US")) + ")"),
-                    false, "map_canvas", true, true) + "getMap('map_canvas').obj.setZoom(" + s.Zoom.ToString() + ");";
+                    false, "map_canvas", true, true, new JsUtils.JsConstant(markerImage)) + "getMap('map_canvas').obj.setZoom(" + s.Zoom.ToString() + ");";
 
                 RegisterDocumentReadyFunction("setmarker", func);
 
@@ -58,8 +63,8 @@ namespace FixMi.Frontend
                 if (!s.Attachment.Equals(string.Empty))
                 {
                     divPhoto.Visible = true;
-                    lnkPhoto.HRef = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], s.Attachment);
-                    imgPhoto.ImageUrl = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], s.Attachment);
+                    lnkPhoto.HRef = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], UploadPaths.Big + s.Attachment);
+                    imgPhoto.ImageUrl = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], UploadPaths.Small + s.Attachment);
 
                     RegisterDocumentReadyFunction("fancybox", "$('#lnkPhoto').fancybox(); ");
                 }

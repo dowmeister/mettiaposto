@@ -79,9 +79,16 @@ function searchSignals_callback(r)
 
                 bounds.extend(myLatLng);
 
-                var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map);
+                var image = '';
+
+                if (s.signal.status == 2)
+                    image = MARKERIMAGE_OK;
+                else
+                    image = MARKERIMAGE_ALERT;
+
+                var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map, image);
                 var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
-                google.maps.event.addListener(getMarkerObject('signalMarker' + signal.signalID), 'click', function () { w.open(map, getMarkerObject('signalMarker' + signal.signalID)); });
+                google.maps.event.addListener(m, 'click', function () { w.open(map, this) });
             }
 
             $('#list').html(r.result.html);

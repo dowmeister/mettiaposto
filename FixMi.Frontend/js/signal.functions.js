@@ -151,6 +151,8 @@ function addSignal()
 
 function addSignal_callback(r)
 {
+    hideAjax('#messages');
+
     if (r.error)
     {
         writeError(r.error.message, '#messages');
@@ -158,7 +160,7 @@ function addSignal_callback(r)
     else if (r.result)
     {
         var text = 'La segnalazione è stata salvata correttamente.<br/><a href="/' + r.result.city.toLowerCase() + '/' + r.result.signalID + '/segnalazione.aspx">Clicca qui</a> per visualizzare la pagina di dettaglio.';
-
+       
         writeMessage('Segnalazione salvata correttamente', text, '#messages');
     }
 }
@@ -192,9 +194,15 @@ function getSignalsNearby_callback(r)
 
                 bounds.extend(myLatLng);
 
-                var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map);
+                var image = '';
+                if (s.signal.status == 2)
+                    image = MARKERIMAGE_OK;
+                else
+                    image = MARKERIMAGE_ALERT;
+
+                var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map, image);
                 var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300, maxHeight: 150 });
-                google.maps.event.addListener(m, 'click', function () { openInfoWindow(w, m, map) });
+                google.maps.event.addListener(m, 'click', function () { w.open(map, this) });
             }
 
             map.fitBounds(bounds);
@@ -204,9 +212,4 @@ function getSignalsNearby_callback(r)
                 map.setZoom(15);
         }
     }
-}
-
-function openInfoWindow(w, marker, map)
-{
-    w.open(map, marker);
 }

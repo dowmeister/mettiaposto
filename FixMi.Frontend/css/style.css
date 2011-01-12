@@ -346,7 +346,7 @@ input[type=button], input[type=reset]
     margin-top: 5px;
 }
 
-#content .details .info
+#content .details .info, #infoWindowContainer .info
 {
     color: #5BB1CA;
     font-size: 10px;
@@ -433,6 +433,7 @@ input[type=button], input[type=reset]
 #content .list
 {
     margin-top: 20px;
+    padding-right: 10px;
 }
 
 #content .list div
@@ -446,6 +447,7 @@ input[type=button], input[type=reset]
     padding: 5px;
     margin-bottom: 1px;
     border-bottom: 1px solid #DDDDDD;
+    width: 100%;
 }
 
 #content .list .alt-item
@@ -454,6 +456,7 @@ input[type=button], input[type=reset]
     padding: 5px;
     margin-bottom: 1px;
     border-bottom: 1px solid #DDDDDD;
+    width: 100%;
 }
 
 #content .list div.title
@@ -607,3 +610,33 @@ input[type=button], input[type=reset]
 {
     width: 960px;
 }
+
+#infoWindowContainer
+{
+    min-height: 90px;
+}
+
+#infoWindowContainer h2
+{
+    font-size: 13px;
+    color: #5BB1CA;
+}
+
+#infoWindowContainer a
+{
+    margin-top: 5px;
+    text-decoration: none;
+    color: #117491;
+    font-weight: bold;
+    font-size: 11px;
+    display: block;
+}
+
+#infoWindowContainer .image
+{
+    text-align: center;
+    margin-top: 5px;
+
+}
+
+

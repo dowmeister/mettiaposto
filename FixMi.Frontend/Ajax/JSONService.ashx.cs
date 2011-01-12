@@ -13,6 +13,7 @@ using FixMi.Frontend.Includes;
 using FixMi.Framework.Core.Utility;
 using System.Web.UI;
 using FixMi.Framework.Comments;
+using System.Web.UI.WebControls;
 
 namespace FixMi.Frontend.Ajax
 {
@@ -43,7 +44,7 @@ namespace FixMi.Frontend.Ajax
             CheckRequest(ajaxSessionKey);
 
             SignalManager sm = new SignalManager();
-            s.Description = s.Description.Replace(Environment.NewLine, "<br/>");
+            s.Description = s.Description.Replace("\n", "<br/>");
             s.CreationDate = DateTime.Now;
             s.UpdateDate = DateTime.Now;
             s.Status = Signal.SignalStatus.Approved; // FIX!!!!
@@ -106,22 +107,29 @@ namespace FixMi.Frontend.Ajax
 
         private string GetSignalDescription(Signal s)
         {
-            CategoryManager cm = new CategoryManager();
-            string categoryName = cm.Load(s.CategoryID).Name;
-            StringBuilder sb = new StringBuilder();
-            sb.Append(s.Subject);
-            sb.Append("<br/>");
-            sb.Append("<br/>");
-            sb.Append("Inviato ");
-            sb.Append(SignalUtils.GetTimeframe(s.CreationDate));
-            sb.Append(" ");
-            sb.Append("nella categoria '");
-            sb.Append(categoryName);
-            sb.Append("'");
-            sb.Append(" - ");
-            sb.Append(s.Address);
+            //CategoryManager cm = new CategoryManager();
+            //string categoryName = cm.Load(s.CategoryID).Name;
+            //StringBuilder sb = new StringBuilder();
+            //sb.Append("<div id=\"");
+            //sb.Append("infoWindowContainer");
+            //sb.Append("\"");
+            //sb.Append(s.Subject);
+            //sb.Append("<br/>");
+            //sb.Append("<br/>");
+            //sb.Append("Inviato ");
+            //sb.Append(SignalUtils.GetTimeframe(s.CreationDate));
+            //sb.Append(" ");
+            //sb.Append("nella categoria '");
+            //sb.Append(categoryName);
+            //sb.Append("'");
+            //sb.Append(" - ");
+            //sb.Append(s.Address);
+            //sb.Append("</div>");
 
-            return sb.ToString();
+            //return sb.ToString();
+            Includes.SignalDetail sd = (Includes.SignalDetail)new UserControl().LoadControl("/Includes/SignalDetail.ascx");
+            sd.BuildSignalDescription(s);
+            return WebUtils.RenderControlToString(sd);
         }
 
         [JsonRpcMethod("getComments")]
@@ -148,6 +156,7 @@ namespace FixMi.Frontend.Ajax
 
             CommentManager cm = new CommentManager();
             c.CreationDate = DateTime.Now;
+            c.Text = c.Text.Replace("\n", "<br/>");
             c.Status = Comment.CommentStatus.Approved;
             int ret = cm.AddComment(c);
             

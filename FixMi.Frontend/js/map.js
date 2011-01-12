@@ -4,6 +4,9 @@ var completeAddress;
 var currentMap;
 var currentCity = '';
 
+var MARKERIMAGE_ALERT = '/images/alert.png';
+var MARKERIMAGE_OK = '/images/check.png';
+
 function getMap(id)
 {
     for (var i = 0; i < maps.length; i++)
@@ -79,7 +82,7 @@ function geolocationByAddress_callback(r, status)
             {
                 case 'street_address':
                     m.obj.setZoom(16);
-                    setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true);
+                    setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true, MARKERIMAGE_ALERT);
                     break;
                 case 'postal_code':
                     m.obj.setZoom(14);
@@ -89,7 +92,7 @@ function geolocationByAddress_callback(r, status)
                     break;
                 case 'route':
                     m.obj.setZoom(15);
-                    setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true);
+                    setMarker('geoLocatedMarker0', data.geometry.location, true, m.id, true, true, MARKERIMAGE_ALERT);
                     break;
                 case 'locality':
                     m.obj.setZoom(7);
@@ -132,7 +135,7 @@ function removeAllMarkers()
     }
 }
 
-function createMarker(id, location, draggable, m)
+function createMarker(id, location, draggable, m, image)
 {
     removeMarkerById(id);
 
@@ -140,7 +143,7 @@ function createMarker(id, location, draggable, m)
         map: m,
         position: location,
         draggable: draggable,
-        icon: new google.maps.MarkerImage('/images/alert.png', new google.maps.Size(32, 32))
+        icon: new google.maps.MarkerImage(image, new google.maps.Size(32, 32))
     });
 
     markers.push({ id: id, obj: marker, map: m });
@@ -148,11 +151,11 @@ function createMarker(id, location, draggable, m)
     return marker;
 }
 
-function setMarker(id, location, draggable, mapId, localize, center)
+function setMarker(id, location, draggable, mapId, localize, center, image)
 {
     var m = getMap(mapId);
 
-    var marker = createMarker(id, location, draggable, m.obj);
+    var marker = createMarker(id, location, draggable, m.obj, image);
 
     if (center)
         m.obj.setCenter(location);

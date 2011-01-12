@@ -10,6 +10,7 @@ using Jayrock.Json;
 using System.Configuration;
 using FixMi.Framework.Core;
 using FixMi.Framework.Core.Utility;
+using System.Threading;
 
 namespace FixMi.Frontend.Ajax
 {
@@ -34,7 +35,7 @@ namespace FixMi.Frontend.Ajax
 
                     HttpPostedFile file = GetFileFromRequest("fuFile");
 
-                    string fileName =  Guid.NewGuid() + Path.GetExtension(file.FileName);
+                    string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
 
                     System.Drawing.Image originalImage = System.Drawing.Image.FromStream(file.InputStream);
                     System.Drawing.Image smallImage = WebUtils.ResizeImage(originalImage, 350, 300, true);
@@ -43,11 +44,12 @@ namespace FixMi.Frontend.Ajax
                     System.Drawing.Image bigImage = WebUtils.ResizeImage(originalImage, 640, 480, true);
 
                     originalImage.Save(Path.Combine(originalPath, fileName));
+
                     bigImage.Save(Path.Combine(bigPath, fileName));
                     mobileImage.Save(Path.Combine(mobilePath, fileName));
                     commentsImage.Save(Path.Combine(commentsPath, fileName));
                     smallImage.Save(Path.Combine(smallPath, fileName));
-
+                
                     originalImage.Dispose();
                     smallImage.Dispose();
                     mobileImage.Dispose();
@@ -75,6 +77,12 @@ namespace FixMi.Frontend.Ajax
 
             if (!Directory.Exists(Path.Combine(path, UploadPaths.Small)))
                 Directory.CreateDirectory(Path.Combine(path, UploadPaths.Small));
+
+            if (!Directory.Exists(Path.Combine(path, UploadPaths.Big)))
+                Directory.CreateDirectory(Path.Combine(path, UploadPaths.Big));
+
+            if (!Directory.Exists(Path.Combine(path, UploadPaths.Comments)))
+                Directory.CreateDirectory(Path.Combine(path, UploadPaths.Comments));
         }
     }
 }

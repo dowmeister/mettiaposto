@@ -114,6 +114,7 @@
     <Content Include="Includes\Footer.ascx" />
     <Content Include="Includes\Head.ascx" />
     <Content Include="Includes\Header.ascx" />
+    <Content Include="Includes\SignalDetail.ascx" />
     <Content Include="Includes\SignalsList.ascx" />
     <Content Include="Includes\Analytics.ascx" />
     <Content Include="js\comments.functions.js" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="Includes\Header.ascx.designer.cs">
       <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Includes\SignalDetail.ascx.cs">
+      <DependentUpon>SignalDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\SignalDetail.ascx.designer.cs">
+      <DependentUpon>SignalDetail.ascx</DependentUpon>
     </Compile>
     <Compile Include="Includes\SignalsList.ascx.cs">
       <DependentUpon>SignalsList.ascx</DependentUpon>

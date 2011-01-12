@@ -19,8 +19,23 @@ namespace FixMi.Framework
             {
                 return _code;
             }
-
         }
+
+        public class JsConstant
+        {
+            private string _name = string.Empty;
+
+            public JsConstant(string name)
+            {
+                _name = name;
+            }
+
+            public override string ToString()
+            {
+                return _name;
+            }
+        }
+
         public static string CreateJsFunction(string funcName, bool appendReturnFalse)
         {
             return CreateJsFunction(funcName, appendReturnFalse, null);
@@ -49,6 +64,10 @@ namespace FixMi.Framework
                     if (parameters[i] != null)
                     {
                         if (parameters[i] is JsFunction)
+                        {
+                            sb.Append(parameters[i].ToString());
+                        }
+                        else if (parameters[i] is JsConstant)
                         {
                             sb.Append(parameters[i].ToString());
                         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using System.Configuration;
 
 namespace FixMi.Framework.Signals
 {
@@ -38,6 +39,19 @@ namespace FixMi.Framework.Signals
         public virtual string Zip { get; set; }
         public virtual int Zoom { get; set; }
         public virtual string Attachment { get; set; }
+
+        public virtual string Link
+        {
+            get
+            {
+                return "/" + this.City + "/" + this.SignalID.ToString() + "/segnalazione.aspx";
+            }
+        }
+
+        public virtual string GetImageUrl(string type)
+        {
+            return ConfigurationManager.AppSettings["UploadPath"] + type + this.Attachment;
+        }
 
         #endregion
     }
