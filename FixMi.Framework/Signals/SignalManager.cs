@@ -143,8 +143,7 @@ namespace FixMi.Framework.Signals
         {
             OpenSession();
             session.Save(ss);
-            CloseSession();
-            
+            CloseSession();            
         }
     }
 }

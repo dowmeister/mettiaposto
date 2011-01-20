@@ -21,9 +21,9 @@
     <property name="Longitude" column="s_longitude" type="decimal"></property>
     <property name="Zoom" column="s_zoom" type="int"></property>
     <property name="Attachment" column="s_attachment" type="String"></property>
-    <!--<set name="Attachments" lazy="true">
-      <key column="sa_signal_id"></key>
-      <one-to-many class="SignalAttachment" />
-    </set>-->
+    <bag name="Comments" table="signal_comments" lazy="false">
+      <key column="sc_signal_id"></key>
+      <one-to-many class="FixMi.Framework.Comments.Comment"></one-to-many>
+    </bag>
   </class>
 </hibernate-mapping>

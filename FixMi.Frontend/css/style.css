@@ -48,13 +48,17 @@ textarea, input, select
     margin-right: 30px;
 }
 
+#menu ul
+{
+    margin-top: 55px;
+}
+
 #menu ul li
 {
     list-style: none;
     display: inline;
     text-align: center;
     float: left;
-    height: 84px;
     margin-right: 5px;
 }
 
@@ -63,25 +67,30 @@ textarea, input, select
     color: White;
     display: block;
     font-size: 20px;
-    height: 84px;
-    padding-top: 50px;
     text-decoration: none;
     width: 128px;
+    height: 30px;
+    padding-top: 8px;
 }
 
 #menu ul li a.green
 {
-    background: url("../images/greentab.png") no-repeat scroll 0 38px transparent;
+    background: url("../images/1.jpg") no-repeat transparent;
 }
 
 #menu ul li a.orange
 {
-    background: url("../images/orangetab.png") no-repeat scroll 0 38px transparent;
+    background: url("../images/2.jpg") no-repeat scroll transparent;
 }
 
 #menu ul li a.pink
 {
-    background: url("../images/pinktab.png") no-repeat scroll 0 38px transparent;
+    background: url("../images/3.jpg") no-repeat scroll transparent;
+}
+
+#menu ul li a.pinkdark
+{
+    background: url("../images/4.jpg") no-repeat scroll transparent;
 }
 
 #content

@@ -140,7 +140,7 @@ function subscribeSignal()
 
         var proxy = new JSONService();
         var params = new Object();
-        
+
         params["signalID"] = currentSignalID;
         params["email"] = $('#txtSubscribeEmail').val();
         params = addSessionKey(params);
@@ -154,11 +154,12 @@ function subscribeSignal()
 function subscribeSignal_callback(r)
 {
     hideAjax('#subscribeSignalMessages');
+    clearMessages('#subscribeSignalMessages');
 
     if (r.error)
         writeError(r.error.message, '#subscribeSignalMessages');
     else
     {
-        writeMessage('Ti sei iscritto a questa segnalazione', "In questo modo potrai rimanere aggiornato sullo stato e i commenti della segnalazione", '#subscribeSignalMessages');s
+        writeMessage('Ti sei iscritto a questa segnalazione', "In questo modo potrai rimanere aggiornato sullo stato e i commenti della segnalazione", '#subscribeSignalMessages');
     }
 }

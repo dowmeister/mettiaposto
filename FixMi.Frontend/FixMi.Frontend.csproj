@@ -89,6 +89,10 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\alert.png" />
     <Content Include="images\blueline.png" />

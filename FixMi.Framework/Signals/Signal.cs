@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using System.Configuration;
+using FixMi.Framework.Comments;
 
 namespace FixMi.Framework.Signals
 {
@@ -39,6 +40,7 @@ namespace FixMi.Framework.Signals
         public virtual string Zip { get; set; }
         public virtual int Zoom { get; set; }
         public virtual string Attachment { get; set; }
+        public virtual IList<Comment> Comments { get; set; }
 
         public virtual string Link
         {
@@ -60,5 +62,15 @@ namespace FixMi.Framework.Signals
     {
         public virtual int SignalID { get; set; }
         public virtual string Email { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

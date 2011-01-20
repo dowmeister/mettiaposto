@@ -54,7 +54,7 @@
                     </div>
                     <div class="tools">
                         <ul>
-                            <li><a class="serviceLink button" href="#commentsBox">Commenti</a></li>
+                            <li><a class="serviceLink button" id="commentsLink" href="#commentsBox">Commenti</a></li>
                             <li><a class="serviceLink button" href="#share">Condividi</a></li>
                             <li><a class="serviceLink button" href="#subscribe">Tienimi informato</a></li>
                             <li><a class="serviceLink button" href="#report">Segnala</a></li>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div style="display: block">
-                        <div id="commentsBox" class="serviceBox">
+                        <div id="commentsBox" class="serviceBox" style="display:block;">
                             <div id="commentsMessages">
                             </div>
                             <div id="comments" class="list">

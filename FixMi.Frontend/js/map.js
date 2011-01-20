@@ -124,7 +124,7 @@ function removeMarkerById(id)
             removeMarker(i);
             break;
         }
-    }    
+    }
 }
 
 function removeAllMarkers()
@@ -183,14 +183,22 @@ function geoLocationByLatLng_callback(response, status)
 
         completeAddress = data.address_components;
 
-        var address = getAddressComponent(data.address_components, 'route').long_name;
-        if (getAddressComponent(data.address_components, 'street_number') != '')
-            address += ', ' + getAddressComponent(data.address_components, 'street_number').long_name;
+        if ($('#ltCity').html() != null)
+        {
+            if (getAddressComponent(data.address_components, 'locality').long_name == $('#ltCity').html())
+            {
+                var address = getAddressComponent(data.address_components, 'route').long_name;
+                if (getAddressComponent(data.address_components, 'street_number').long_name != '')
+                    address += ', ' + getAddressComponent(data.address_components, 'street_number').long_name;
 
-        $('#txtAddress').val(address);
+                $('#txtAddress').val(address);
 
-        $('#completeAddress').show();
-        $('#completeAddress').html('Indirizzo completo: ' + data.formatted_address);
+                $('#completeAddress').show();
+                $('#completeAddress').html('Indirizzo completo: ' + data.formatted_address);
+            }
+            else
+                alert("L'indirizzo che hai inserito non è a " + $('#ltCity').html());
+        }
     }
 }
 

@@ -38,7 +38,7 @@
                 <h2>
                     Inserisci l'indirizzo per iniziare la segnalazione</h2>
                 <div class="input">
-                    <asp:TextBox MaxLength="150" ID="txtSearch" CssClass="search" runat="server" Text="CAP, indirizzo, quartiere..."></asp:TextBox>
+                    <asp:TextBox MaxLength="150" ID="txtSearch" CssClass="search" runat="server"></asp:TextBox>
                     a
                     <asp:DropDownList ID="ddlCities" DataValueField="Name" DataTextField="Name" runat="server">
                     </asp:DropDownList>
