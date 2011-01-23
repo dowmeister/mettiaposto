@@ -645,7 +645,27 @@ input[type=button], input[type=reset]
 {
     text-align: center;
     margin-top: 5px;
+}
 
+dl
+{
+}
+
+dt
+{
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+dd
+{
+    line-height: 1.5
+}
+
+.full h2
+{
+    font-size: 14px;
+    border-bottom: 1px solid;
 }
 
 

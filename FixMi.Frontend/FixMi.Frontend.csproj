@@ -69,6 +69,7 @@
     <Content Include="Contents\howitworks.htm" />
     <Content Include="Contents\info.htm" />
     <Content Include="Contents\privacy.htm" />
+    <Content Include="Contents\info.xml" />
     <Content Include="css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="css\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
     <Content Include="css\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
@@ -268,7 +269,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Themes\Default\Default.skin" />
+    <Content Include="App_Themes\Default\Info.skin" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\redbutton.png" />

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <description>Segnala disservizi, problemi e malfunzionamenti della tua città</description>
+  <title>FAQ, Info, Come funziona</title>
+  <keywords>segnala, disservizi, città, tua città, mia città, milano, comune, problemi, buche, graffiti, spazzatura</keywords>
+  <content>
+    <![CDATA[ 
+    <h1 class="title">
+    Frequently Asked Questions</h1>
+<div class="pageContent">
+    <dl>
+        <dt>Cos'è Mettiaposto.it?</dt>
+        <dd>
+            Mettiaposto.it è un sito per aiutare le persone a riportare, controllare o discutere
+            problemi locali che hanno trovato nel loro quartiere o Zona comunale semplicemente
+            localizzandoli sulla mappa o inserendo l'indirizzo. E' stato aperto nel Febbraio
+            2011.</dd>
+        <dt>Quali tipi di problemi posso inviare tramite Mettiaposto.it?</dt>
+        <dd>
+            Mettiaposto.it è utile innanzitutto per segnalare problemi "cose" che sono <strong>rotte,
+                sporche, danneggiate, che richiedono la riparazione o la pulizia </strong>,
+            tipo:
+            <ul>
+                <li>
+                Veicoli abbandonati
+                <li>
+                Cani randagi
+                <li>
+                Graffiti o pubblicità abusiva
+                <li>Pulizia della strada</li>
+                <li>
+                Illuminazione stradale danneggiata o non funzionante
+                <li>
+                Buche o pavimentazione stradale danneggiata
+            </ul>
+        </dd>
+        <dt>Che cosa non è per Mettiaposto.it? </dt>
+        <dd>
+            Mettiaposto.it non è un modo per entrare in contatto con il vostro Consiglio di
+            Zona o la Circoscrizione per qualsiasi problema. L'utilizzo di Mettiaposto.it è
+            contemplato per le categorie di problemi che trovate nella pagina di segnalazione.
+            <strong>Dovrete contattare il Consiglio di Zona o la Circoscrizione per problemi come:</strong>:
+            <ul>
+                <li>
+                Comportamenti anti-sociali
+                <li>
+                Inquinamento acustico o cani che abbaiano
+                <li>
+                Cassonetti della spazzatura mancanti o zone di raccolta differenziata
+                <li>
+                Dossi, attraversamenti pedonali, percorsi di nuove strade e lavori stradali in genere
+                <li>
+                Lamentele dei vicini
+                <li>
+                Lamentele sull'operato del Consiglio di Zona o della Circoscrizione
+                <li>
+                Spaccio di droga, maltrattamento degli anali o altre attività criminali.
+            </ul>
+            <p>
+                Spesso i Consigli di Zona hanno numeri diretti o indirizzi email per comunicare.
+            </p>
+        </dd>
+        <dt>Come posso utilizzare il sito? </dt>
+        <dd>
+            Dopo aver inserito l'indirizzo (anche approssimativo) nella pagina di segnalazione,
+            apparirà la mappa della zona interessata e sarà possibile spostare il segnalino
+            per localizzare più precisamente la segnalazione. E' possibile visualizzare i problemi
+            già segnalati vicino ad un'altra segnalazione o cercarli tramite la pagina "Cerca"
+            scegliendo se inserire il CAP, una parte dell'indirizzo o la categoria.
+        </dd>
+        <dt>Come sono risolte le segnalazioni?</dt>
+        <dd>
+            La risoluzione delle segnalazioni è demandata completamente al Consiglio di Zona.
+            Mettiaposto.it permette esclusivamente di inserire la segnalazione e visualizzare
+            il suo stato nel corso del tempo. In alternativa, si può discutere il problema sul
+            sito web con gli altri utenti o correggere voi stessi il problema, se ne avete le
+            possibilità.
+        </dd>
+        <dt>È tutto gratuito?</dt>
+        <dd>
+            <strong>Il sito è utilizzabile liberamente e gratuitamente. </strong>
+        </dd>
+        <dt>Posso utilizzare Mettiaposto.it sul mio cellulare? </dt>
+        <dd>
+            Per ora questa funzionalità non è stata ancora implementata ma contiamo di permettere
+            agli utenti del mondo Mobile di inviare le segnalazioni tramite un'applicazione
+            iPhone e Android e attraverso un sito costruito appositamente per la navigazione
+            da cellulare.
+        </dd>
+        <dt>Perchè copre solo Milano?</dt>
+        <dd>
+            Milano è stata scelta come città pilota, in futuro il servizio sarà esteso a tutta
+            Italia.
+        </dd>
+    </dl>
+    <h2>
+        Questioni pratiche
+    </h2>
+    <dl>
+        <dt>Vuoi rimuovere un contenuto inappropriato, offensivo o illegale?</dt>
+        <dd>
+            Mettiaposto.it non è responsabile per il contenuto e l'accuratezza del materiale
+            inviato dai suoi utenti. Ci riserviamo il diritto di modificare o rimuovere qualunque
+            problema o aggiornamento che riteniamo inopportuno in seguito ad una segnalazione
+            di un utente del sito.
+        </dd>
+        <dt>Perché non c'è un pulsante di zoom sulla mappa? </dt>
+        <dd>
+            Non c'è lo zoom sulla mappa perchè si vuole mantenere le segnalazioni molto locali;
+            questo potrebbe significare che è necessario eseguire la panoramica per capire dove
+            il problema se non si ha familiarità con la zona. La e-mail che verrà inviata al
+            Consiglio di Zona conterrà l'indirizzo più vicino al punto preciso della segnalazione.
+        </dd>
+    </dl>
+    <h2>
+        Domande sulla privacy
+    </h2>
+    <dl>
+        <dt>Chi visualizza il mio indirizzo e-mail? </dt>
+        <dd>
+            Il tuo indirizzo e-mail viene inviato con il testo della segnalazione al Consiglio
+            di Zona o alla Circoscrizione per aumentare la veridicità della tua segnalazione.
+            Solo le altre persone addette all'interfaccia di amministrazione di Mettiaposto.it
+            possono vedere il tuo indirizzo e-mail ma non verrà mai usato per altro se non per
+            la stessa gestione del sito. Stessa cosa accade per gli indirizzi e-mail inseriti
+            nei commenti. Il tuo nome non verrà mai pubblicato se non su tua espressa richiesta
+            ma ti consigliamo di inserirlo ugualmente per aumentare la veridicità della segnalzione
+            poichè, come l'indirizzo e-mail, viene inviato al Consiglio di Zona in fase di segnalazione.
+        </dd>
+        <dt>Mi manderete spam o pubblicità non gradita via e-mail?</dt>
+        <dd>
+            Mai e poi mai. Il tuo indirizzo e-mail verrà usato per:
+            <ul>
+                <li>Avvisarti di un commento della tua segnalazione</li>
+                <li>Inviarti un reminder per ricordarti della tua segnalazione per aggiornarne lo stato
+                    se ce ne fosse bisogno</li>
+                <li>Avvisarti nel caso la tua segnalazione sia stata risolta da un altro utente</li>
+            </ul>
+        </dd>
+    </dl>
+    <h2>
+        Questioni tecniche
+    </h2>
+    <dl>
+        <dt>Chi ha scritto il software di Mettiaposto.it e perchè?</dt>
+        <dd>
+            Il software di questo portale è stato scritto per colmare la mancanza di un meccanismo di segnalazione
+            intelligente, strutturato e soprattutto via web delle segnalazioni di problemi e disservizi delle città italiane.
+            Il creatore di Mettiaposto.it è uno sviluppatore italiano che ha donato il suo tempo libero per lavorare a questo progetto.
+            Il progetto grafico è stato curato da un amico dello sviluppatore appassionato di grafica web e Photoshop.
+            Il software è basato su:
+            <ul>
+                <li>ASP.NET 3.5</li>
+                <li>MySQL 5.0</li>
+                <li>nHibernate</li>
+                <li>JQuery</li>
+            </ul>
+            ed è ospitato sullo spazio web fornito da Aruba.it
+            <br />
+            Mettiaposto.it è un progetto <strong>opensource</strong>: il codice sorgente è liberamente scaricabile
+            da Github.
+        </dd>
+    </dl>
+</div>
+]]>
+  </content>
+</page>

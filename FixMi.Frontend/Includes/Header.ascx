@@ -11,7 +11,7 @@
                 <li><a class="green" href="/index.aspx">Home</a></li>
                 <li><a class="orange" href="/milano/cerca.aspx">Cerca</a></li>
                 <li><a class="pink" href="/milano/invia.aspx">Segnala</a></li>
-                <li><a class="pinkdark" href="/pages/info.aspx">Info</a></li>
+                <li><a class="pinkdark" href="/pages/info.aspx">FAQ</a></li>
             </ul>
         </div>
     </div>

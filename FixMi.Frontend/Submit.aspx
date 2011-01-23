@@ -32,6 +32,9 @@
                 <div id="messages">
                 </div>
                 <div id="submitForm" class="submitForm">
+                    <div class="success message" style="display:block">
+                        Se hai qualche dubbio, prima di inviare la tua segnalazione leggi le <a href="/pages/info.aspx">FAQ</a>.
+                    </div>
                     <ol>
                         <li>
                             <label>
@@ -95,14 +98,14 @@
                         </li>
                     </ol>
                     <ul>
-                        <li>Le informazioni personali vengono utilizzate nel rispetto delle leggi sulla privacy.</a></li>
+                        <li>Le informazioni personali vengono utilizzate nel rispetto delle leggi sulla <a href="/pages/privacy.aspx">privacy</a>.</li>
                         <li>Per favore sii educato, preciso e vai dritto al punto.</li>
                         <li>Non abusare di questo servizio: l'abuso discredita la validità del servizio per
                             tutti gli utenti!</li>
                         <li>Non scrivere in maiuscolo</li>
-                        <li>Ricorda che FixMi ti permette di segnalare problemi fisici del tuo quartiere: se
+                        <li>Ricorda che Mettiaposto.it ti permette di segnalare problemi fisici del tuo quartiere: se
                             non trovi una categoria adatta probabilmente il tuo problema non è sottomissibile
-                            via FixMi. Prova ad usare il sito del Comune di Milano o altri canali</li>
+                            via mettiaposto.it Prova ad usare il sito del Comune di Milano o altri canali</li>
                     </ul>
                     <div class="buttons">
                         <input class="success" type="button" value="Invia" onclick="saveSignal(); return false;" />

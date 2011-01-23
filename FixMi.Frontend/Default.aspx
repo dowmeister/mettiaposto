@@ -22,6 +22,11 @@
     <form id="form1" runat="server">
     <uc3:Header ID="Header1" runat="server" />
     <div id="content">
+        <div class="success message" style="display:block; margin-bottom: 10px; text-align: center">
+                        Benvenuto! Questo sito ti permette di inviare segnalazioni riguardanti problemi o disservizi del tuo quartiere, come buche, spazzatura in strada, marciapiedi danneggiati o graffiti sui muri.
+                        <br />
+                        Se hai qualche dubbio prova a leggere le <a href="/pages/info.aspx">FAQ</a>.
+                    </div>
         <div class="claim">
             <a href="/milano/invia.aspx"></a>
         </div>
