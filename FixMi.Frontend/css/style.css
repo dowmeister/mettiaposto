@@ -160,12 +160,12 @@ textarea, input, select
     width: 130px;
     border: none;
     color: Grey;
+    float: right;
 }
 
 #content .home input.search
 {
     width: 250px;
-    padding: 2px;
     border: none;
     color: Grey;
 }
