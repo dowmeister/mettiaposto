@@ -546,7 +546,7 @@ input[type=button], input[type=reset]
 
 .success
 {
-    background-color: #5CCA69;
+    background: url("../images/homemsgbk.jpg") no-repeat scroll transparent;
 }
 
 .error
