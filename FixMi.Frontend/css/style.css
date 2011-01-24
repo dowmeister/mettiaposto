@@ -159,12 +159,12 @@ textarea, input, select
     width: 130px;
     border: none;
     color: Grey;
+    float: right;
 }
 
 #content .home input.search
 {
     width: 250px;
-    padding: 2px;
     border: none;
     color: Grey;
 }
@@ -340,7 +340,7 @@ input[type=button], input[type=reset]
 
 #content .mapTabs ul
 {
-    background: url(../images/minitabline.png) repeat-x bottom;
+    background: url(../images/minitabline.jpg) repeat-x bottom;
 }
 
 #content .map
@@ -545,7 +545,7 @@ input[type=button], input[type=reset]
 
 .success
 {
-    background-color: #5CCA69;
+    background: url("../images/homemsgbk.jpg") no-repeat scroll transparent;
 }
 
 .error
