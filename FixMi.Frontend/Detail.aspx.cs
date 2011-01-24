@@ -36,6 +36,10 @@ namespace FixMi.Frontend
                 divTitle.InnerHtml = s.Subject;
                 divDescription.InnerHtml = s.Description;
 
+                this.Title = String.Format(this.Title, s.Subject, s.Address, s.City);
+                metaOgDescription.Attributes["content"] = s.Excerpt;
+                ogTitle.Attributes["content"] = String.Format(ogTitle.Attributes["content"], s.Subject, s.Address, s.City);
+                
                 if (!s.ShowName)
                     ltAuthor.Text = "Anonimo";
                 else
@@ -54,7 +58,7 @@ namespace FixMi.Frontend
 
                 string func = JsUtils.CreateJsFunction("setMarker", false, "signalMarker" + GetFromQueryString("id"),
                     new JsUtils.JsFunction("new google.maps.LatLng(" + s.Latitude.ToString(new CultureInfo("en-US")) + "," + s.Longitude.ToString(new CultureInfo("en-US")) + ")"),
-                    false, "map_canvas", true, true, new JsUtils.JsConstant(markerImage)) + "getMap('map_canvas').obj.setZoom(" + s.Zoom.ToString() + ");";
+                    false, "map_canvas", true, true, new JsUtils.JsConstant(markerImage)) + "getMap('map_canvas').obj.setZoom(" + s.Zoom.ToString() + "); fbInit(); getComments(0); ";
 
                 RegisterDocumentReadyFunction("setmarker", func);
 
@@ -63,11 +67,16 @@ namespace FixMi.Frontend
                 if (!s.Attachment.Equals(string.Empty))
                 {
                     divPhoto.Visible = true;
-                    lnkPhoto.HRef = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], UploadPaths.Big + s.Attachment);
-                    imgPhoto.ImageUrl = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], UploadPaths.Small + s.Attachment);
+                    lnkPhoto.HRef = s.GetImageUrl( UploadPaths.Big);
+                    imgPhoto.ImageUrl = s.GetImageUrl(UploadPaths.Small);
 
                     RegisterDocumentReadyFunction("fancybox", "$('#lnkPhoto').fancybox(); ");
+
+                    ogImage.Attributes["content"] = s.GetImageUrl(UploadPaths.Small);
                 }
+
+                if (s.Status == Signal.SignalStatus.Resolved)
+                    divResolved.Visible = true;
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "currentSignalID", "currentSignalID=" + GetFromQueryString("id"), true);
             }

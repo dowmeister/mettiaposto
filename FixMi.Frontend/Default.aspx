@@ -13,8 +13,6 @@
     <meta property="og:title" content="Mettiaposto.it" />
     <meta property="og:description" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
     <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />
-    <meta name="description" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
-    <meta name="keywords" content="segnala, disservizi, città, tua città, mia città, milano, comune, problemi, buche, graffiti, spazzatura" />
     <script src="/js/index.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
 </head>
@@ -22,11 +20,13 @@
     <form id="form1" runat="server">
     <uc3:Header ID="Header1" runat="server" />
     <div id="content">
-        <div class="success message" style="display:block; margin-bottom: 10px; text-align: center">
-                        Benvenuto! Questo sito ti permette di inviare segnalazioni riguardanti problemi o disservizi del tuo quartiere, come buche, spazzatura in strada, marciapiedi danneggiati o graffiti sui muri.
-                        <br />
-                        Se hai qualche dubbio prova a leggere le <a href="/pages/info.aspx">FAQ</a>.
-                    </div>
+        <div class="success message" style="display: block; margin-bottom: 10px; text-align: center">
+            Benvenuto! Questo sito ti permette di inviare segnalazioni riguardanti problemi
+            o disservizi del tuo quartiere, come buche, spazzatura in strada, marciapiedi danneggiati
+            o graffiti sui muri.
+            <br />
+            Se hai qualche dubbio prova a leggere le <a href="/pages/info.aspx">FAQ</a>.
+        </div>
         <div class="claim">
             <a href="/milano/invia.aspx"></a>
         </div>

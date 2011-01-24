@@ -28,7 +28,7 @@ namespace FixMi.Frontend.Includes
             if (!currentSignal.Attachment.Equals(string.Empty))
             {
                 divImage.Visible = true;
-                imgImage.ImageUrl = currentSignal.GetImageUrl(UploadPaths.Small);
+                imgImage.ImageUrl = currentSignal.GetImageUrl(UploadPaths.Comments);
             }
         }
     }

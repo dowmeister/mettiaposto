@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections;
 using System.Configuration;
 using FixMi.Framework.Comments;
+using System.Web;
 
 namespace FixMi.Framework.Signals
 {
@@ -52,7 +53,18 @@ namespace FixMi.Framework.Signals
 
         public virtual string GetImageUrl(string type)
         {
-            return ConfigurationManager.AppSettings["UploadPath"] + type + this.Attachment;
+            return "http://" + HttpContext.Current.Request.Url.Host + ConfigurationManager.AppSettings["UploadPath"] + type + this.Attachment;
+        }
+
+        public virtual string Excerpt
+        {
+            get
+            {
+                if (this.Description.Length > 100)
+                    return this.Description.Substring(0, 99) + "...";
+                else
+                    return this.Description;
+            }
         }
 
         #endregion

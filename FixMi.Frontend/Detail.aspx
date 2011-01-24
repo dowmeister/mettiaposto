@@ -7,14 +7,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title></title>
+    <title>Mettiaposto.it - {0} in {1} a {2} - </title>
     <uc2:Head ID="ucHead" runat="server" />
+    <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - {0} in {1} a {2}" />
+    <meta property="og:description" runat="server" id="metaOgDescription" content="" />
+    <meta property="og:image" runat="server" id="ogImage" content="http://www.mettiaposto.it/images/logo.jpg" />
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="/js/map.js" type="text/javascript"></script>
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/signal.functions.js" type="text/javascript"></script>
+    <script src="http://connect.facebook.net/it_IT/all.js" type="text/javascript"></script>
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    <script src="/js/facebook.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script src="/js/comments.functions.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.css"
@@ -23,6 +28,8 @@
     <uc4:Analytics ID="Analytics1" runat="server" />
 </head>
 <body>
+    <div id="fb-root">
+    </div>
     <form id="form1" runat="server">
     <uc3:Header ID="Header1" runat="server" />
     <div id="content">
@@ -31,10 +38,6 @@
                 <h1 runat="server" id="divTitle" class="title">
                 </h1>
                 <div class="details">
-                    <div class="message success" id="divResolved" runat="server" visible="false">
-                        Segnalazione risolta</div>
-                    <div class="message error" id="divExpired" runat="server" visible="false">
-                        Segnalazione scaduta</div>
                     <div class="info">
                         Inviato
                         <asp:Label ID="ltTimeFrame" runat="server"></asp:Label>
@@ -45,6 +48,11 @@
                         Indirizzo:
                         <asp:Label ID="lblAddress" runat="server"></asp:Label>
                     </div>
+                    <div class="message success" style="display: block; margin-top: 10px;" id="divResolved"
+                        runat="server" visible="false">
+                        Segnalazione risolta</div>
+                    <div class="message error" id="divExpired" runat="server" visible="false">
+                        Segnalazione scaduta</div>
                     <div class="description" id="divDescription" runat="server">
                     </div>
                     <div class="photo" id="divPhoto" runat="server" visible="false">
@@ -63,7 +71,7 @@
                         </div>
                     </div>
                     <div style="display: block">
-                        <div id="commentsBox" class="serviceBox" style="display:block;">
+                        <div id="commentsBox" class="serviceBox" style="display: block;">
                             <div id="commentsMessages">
                             </div>
                             <div id="comments" class="list">
@@ -73,7 +81,17 @@
                             <div id="submitCommentMessage">
                             </div>
                             <div id="commentForm" class="submitForm">
+                                <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">Accedi con Facebook</button>
                                 <ol>
+                                    <li>
+                                        <label>
+                                            Segnalazione Risolta</label>
+                                        <asp:CheckBox ID="chkResolved" CssClass="checkbox" runat="server" />
+                                        <div class="legend">
+                                            Spuntando questa casella il tuo commento verrà usato per segnare questa segnalazione
+                                            come RISOLTA.
+                                        </div>
+                                    </li>
                                     <li>
                                         <label>
                                             Commento</label>
@@ -135,6 +153,9 @@
                         </div>
                         <div id="share" class="shareBox serviceBox">
                             <ul>
+                                <li>
+                                    <fb:like layout="button_count" show_faces="false"></fb:like>
+                                </li>
                                 <li><a name="fb_share" type="button">Convidivi su Facebook</a> </li>
                                 <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">
                                     Tweet</a> </li>

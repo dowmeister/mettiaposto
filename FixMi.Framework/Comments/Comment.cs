@@ -7,6 +7,14 @@ namespace FixMi.Framework.Comments
 {
     public class Comment
     {
+        private bool _setSignalResolved = false;
+
+        public virtual bool SetSignalResolved
+        {
+            get { return _setSignalResolved; }
+            set { _setSignalResolved = value; }
+        }
+
         public struct CommentStatus
         {
             public const int NotApproved = 0;
@@ -23,5 +31,6 @@ namespace FixMi.Framework.Comments
         public virtual int Status { get; set; }
         public virtual bool ShowAuthorName { get; set; }
         public virtual string Text { get; set; }
+       
     }
 }
