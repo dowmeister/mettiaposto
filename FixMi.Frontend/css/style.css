@@ -227,8 +227,8 @@ textarea, input, select
 {
     font-size: 16px;
     min-height: 20px;
-    padding: 0 0 10px 0;
-    background: url(../images/blueline.png) repeat-x bottom;
+    padding: 0 0 7px 0;
+    background: url(../images/minitabline.jpg) repeat-x bottom;
 }
 
 .clear
