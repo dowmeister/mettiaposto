@@ -66,10 +66,11 @@
     <Content Include=".gitignore" />
     <Content Include="Ajax\Upload.aspx" />
     <Content Include="Content.aspx" />
-    <Content Include="Contents\howitworks.htm" />
-    <Content Include="Contents\info.htm" />
-    <Content Include="Contents\privacy.htm" />
     <Content Include="Contents\info.xml" />
+    <Content Include="Contents\privacy.xml" />
+    <Content Include="Contents\XSL\Footer.xsl" />
+    <Content Include="Contents\XSL\SignalAlertBody.xsl" />
+    <Content Include="Contents\XSL\SignalApprovalBody.xsl" />
     <Content Include="css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="css\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
     <Content Include="css\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
@@ -123,6 +124,7 @@
     <Content Include="Includes\SignalsList.ascx" />
     <Content Include="Includes\Analytics.ascx" />
     <Content Include="js\comments.functions.js" />
+    <Content Include="js\facebook.js" />
     <Content Include="js\functions.js" />
     <Content Include="js\index.functions.js" />
     <Content Include="js\jquery\plugins\ajaxfileupload.js" />
@@ -259,17 +261,12 @@
       <DependentUpon>Submit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FixMi.Framework\FixMi.Framework.csproj">
       <Project>{8F26021D-5623-4A31-A46D-7816E3FD1963}</Project>
       <Name>FixMi.Framework</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Themes\Default\Info.skin" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\redbutton.png" />

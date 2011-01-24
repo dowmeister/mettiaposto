@@ -70,6 +70,12 @@
     <Compile Include="Categories\CategoryManager.cs" />
     <Compile Include="Comments\Comment.cs" />
     <Compile Include="Comments\CommentManager.cs" />
+    <Compile Include="Communications\BaseMessage.cs" />
+    <Compile Include="Communications\Messages\SignalAlertEmail.cs" />
+    <Compile Include="Communications\Messages\SignalApprovalEmail.cs" />
+    <Compile Include="Communications\Messages\SignalRejectionEmail.cs" />
+    <Compile Include="Communications\Messages\SignalReminderEmail.cs" />
+    <Compile Include="Communications\Messages\SignalToCouncilEmail.cs" />
     <Compile Include="Core\Base\BaseManager.cs" />
     <Compile Include="Core\Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>

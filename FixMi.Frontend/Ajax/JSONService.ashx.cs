@@ -63,10 +63,12 @@ namespace FixMi.Frontend.Ajax
             JsonArray ar = new JsonArray();
 
             SignalManager sm = new SignalManager();
-            List<Signal> ret = sm.SearchNearZip(param["zip"].ToString());
+            List<Signal> ret = sm.SearchNearZip(param["zip"].ToString(), Convert.ToInt32(param["signalID"]));
 
             for (int i = 0; i < ret.Count; i++)
             {
+                ret[i].Email = string.Empty;
+
                 JsonObject obj = new JsonObject();
                 obj["signal"] = ret[i];
                 obj["description"] = GetSignalDescription(ret[i]);
@@ -94,6 +96,8 @@ namespace FixMi.Frontend.Ajax
             
             for (int i = 0; i < ret.Count; i++)
             {
+                ret[i].Email = string.Empty;
+
                 JsonObject obj = new JsonObject();
                 obj["signal"] = ret[i];
                 obj["description"] = GetSignalDescription(ret[i]);
@@ -159,6 +163,12 @@ namespace FixMi.Frontend.Ajax
             c.Text = c.Text.Replace("\n", "<br/>");
             c.Status = Comment.CommentStatus.Approved;
             int ret = cm.AddComment(c);
+
+            if (c.SetSignalResolved)
+            {
+                SignalManager sm = new SignalManager();
+                sm.ResolveSignal(c.SignalID, c.Text);
+            }
             
             return ret;
         }

@@ -33,7 +33,7 @@ textarea, input, select
 
 #logo a
 {
-    background: url("../images/logo.jpg") no-repeat scroll 0 0 transparent;
+    background: url("../images/logo.jpg") no-repeat transparent;
     cursor: pointer;
     display: block;
     height: 84px;
@@ -95,8 +95,7 @@ textarea, input, select
 
 #content
 {
-    background-color: White;
-    /*background: White url(../images/vshadow.png) repeat-y right;*/
+    background-color: White; /*background: White url(../images/vshadow.png) repeat-y right;*/
     padding: 20px;
     width: 960px;
 }
@@ -122,7 +121,7 @@ textarea, input, select
     text-decoration: none;
 }
 
-#content .presentation 
+#content .presentation
 {
     margin-left: auto;
     margin-right: auto;
@@ -498,7 +497,7 @@ input[type=button], input[type=reset]
     font-weight: bold;
 }
 
-#content .list div.status 
+#content .list div.status
 {
     margin-right: 10px;
 }
@@ -532,7 +531,7 @@ input[type=button], input[type=reset]
 #content .list .comment
 {
     float: none;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 
 /* UTILS */
@@ -612,7 +611,7 @@ input[type=button], input[type=reset]
 
 #content .list .photo img
 {
-    width: 300px;    
+    width: 300px;
 }
 
 #content .full
@@ -659,7 +658,7 @@ dt
 
 dd
 {
-    line-height: 1.5
+    line-height: 1.5;
 }
 
 .full h2
@@ -667,5 +666,18 @@ dd
     font-size: 14px;
     border-bottom: 1px solid;
 }
+
+.facebook-button
+{
+    background: url("http://static.ak.fbcdn.net/rsrc.php/zL/r/FGFbc80dUKj.png") no-repeat left -188px #5F78AB;
+    border: none;
+    color: #FFFFFF;
+    display: block;
+    font-weight: bold;
+    margin: 1px 1px 0 21px;
+    padding: 2px 24px 2px;
+    cursor: pointer;
+}
+
 
 

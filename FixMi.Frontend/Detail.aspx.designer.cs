@@ -31,6 +31,33 @@ namespace FixMi.Frontend {
         protected global::FixMi.Frontend.Includes.Head ucHead;
         
         /// <summary>
+        /// ogTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlMeta ogTitle;
+        
+        /// <summary>
+        /// metaOgDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlMeta metaOgDescription;
+        
+        /// <summary>
+        /// ogImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlMeta ogImage;
+        
+        /// <summary>
         /// Analytics1 control.
         /// </summary>
         /// <remarks>
@@ -65,24 +92,6 @@ namespace FixMi.Frontend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTitle;
-        
-        /// <summary>
-        /// divResolved control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResolved;
-        
-        /// <summary>
-        /// divExpired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExpired;
         
         /// <summary>
         /// ltTimeFrame control.
@@ -121,6 +130,24 @@ namespace FixMi.Frontend {
         protected global::System.Web.UI.WebControls.Label lblAddress;
         
         /// <summary>
+        /// divResolved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResolved;
+        
+        /// <summary>
+        /// divExpired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExpired;
+        
+        /// <summary>
         /// divDescription control.
         /// </summary>
         /// <remarks>
@@ -155,6 +182,15 @@ namespace FixMi.Frontend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgPhoto;
+        
+        /// <summary>
+        /// chkResolved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkResolved;
         
         /// <summary>
         /// txtDescription control.

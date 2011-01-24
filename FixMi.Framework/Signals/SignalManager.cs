@@ -40,13 +40,14 @@ namespace FixMi.Framework.Signals
             }
         }
 
-        public List<Signal> SearchNearZip(string zipCode)
+        public List<Signal> SearchNearZip(string zipCode, int signalID)
         {
             try
             {
                 OpenSession();
                 List<Signal> ret = (List<Signal>)session.CreateCriteria(typeof(Signal))
                         .Add(Restrictions.Between("Zip", int.Parse(zipCode) - 2, int.Parse(zipCode) + 2))
+                        .Add(Expression.Not(Expression.Eq("SignalID", signalID)))
                         .SetMaxResults(20)
                         .List<Signal>();
                 CloseSession();
@@ -144,6 +145,19 @@ namespace FixMi.Framework.Signals
             OpenSession();
             session.Save(ss);
             CloseSession();            
+        }
+
+        public void ResolveSignal(int signalID, string comment)
+        {
+            OpenSession();
+            Signal s = new Signal();
+            s.SignalID = signalID;
+            s.Status = Signal.SignalStatus.Approved;
+            s.ResolutionDate = DateTime.Now;
+            s.ResolutionDescription = comment;
+            s.UpdateDate = DateTime.Now;
+            session.Update(s);
+            CloseSession();
         }
     }
 }

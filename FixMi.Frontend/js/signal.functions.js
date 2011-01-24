@@ -168,7 +168,7 @@ function addSignal_callback(r)
 function getSignalsNeraby(zipCode)
 {
     var proxy = new JSONService();
-    proxy.getSignalsNearby({ zip: zipCode, ajaxSessionKey: ajaxSessionKey }, getSignalsNearby_callback);
+    proxy.getSignalsNearby({ zip: zipCode, signalID: currentSignalID, ajaxSessionKey: ajaxSessionKey }, getSignalsNearby_callback);
 }
 
 function getSignalsNearby_callback(r)
@@ -207,9 +207,6 @@ function getSignalsNearby_callback(r)
 
             map.fitBounds(bounds);
             map.setCenter(bounds.getCenter());
-
-            if (map.getZoom() < 15)
-                map.setZoom(15);
         }
     }
 }
