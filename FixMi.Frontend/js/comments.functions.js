@@ -72,6 +72,9 @@ function _addComment()
     c.showAuthorName = document.getElementById('chkPublicName').checked;
     c.attachment = '';
 
+    if ($('#ddlStatus').val() == '2')
+        c.setSignalResolved = true;
+
     if ($('#fuFile').val() != '')
     {
         $.ajaxFileUpload

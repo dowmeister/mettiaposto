@@ -76,7 +76,11 @@ namespace FixMi.Frontend
                 }
 
                 if (s.Status == Signal.SignalStatus.Resolved)
+                {
+                    ddlStatus.Items.FindByValue(Signal.SignalStatus.Resolved.ToString()).Selected = true;
+                    ddlStatus.Enabled = false;
                     divResolved.Visible = true;
+                }
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "currentSignalID", "currentSignalID=" + GetFromQueryString("id"), true);
             }

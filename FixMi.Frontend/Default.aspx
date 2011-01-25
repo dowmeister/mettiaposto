@@ -20,7 +20,7 @@
     <form id="form1" runat="server">
     <uc3:Header ID="Header1" runat="server" />
     <div id="content">
-        <div class="success message" style="display: block; margin-bottom: 10px; text-align: center">
+        <div class="infoboxblu">
             Benvenuto! Questo sito ti permette di inviare segnalazioni riguardanti problemi
             o disservizi del tuo quartiere, come buche, spazzatura in strada, marciapiedi danneggiati
             o graffiti sui muri.

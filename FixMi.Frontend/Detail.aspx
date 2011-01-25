@@ -81,15 +81,18 @@
                             <div id="submitCommentMessage">
                             </div>
                             <div id="commentForm" class="submitForm">
-                                <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">Accedi con Facebook</button>
+                                <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">
+                                    Accedi con Facebook</button>
                                 <ol>
                                     <li>
                                         <label>
-                                            Segnalazione Risolta</label>
-                                        <asp:CheckBox ID="chkResolved" CssClass="checkbox" runat="server" />
+                                            Aggiorna stato</label>
+                                        <asp:DropDownList ID="ddlStatus" runat="server">                                            
+                                            <asp:ListItem Text="Segnalazione non risolta" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Segnalazione risolta" Value="2" />
+                                        </asp:DropDownList>
                                         <div class="legend">
-                                            Spuntando questa casella il tuo commento verrà usato per segnare questa segnalazione
-                                            come RISOLTA.
+                                            Se la segnalazione è stata risolta, seleziona dalla tendina "Segnalazione Risolta" e inserisci un commento.
                                         </div>
                                     </li>
                                     <li>
