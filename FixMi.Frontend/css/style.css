@@ -33,13 +33,13 @@ textarea, input, select
 
 #logo a
 {
-    background: url("../images/logo.jpg") no-repeat transparent;
+    background: url("../images/logo_beta.jpg") no-repeat transparent;
     cursor: pointer;
     display: block;
-    height: 84px;
+    height: 99px;
     line-height: 84px;
     text-indent: -500em;
-    width: 201px;
+    width: 218px;
 }
 
 #menu
@@ -50,7 +50,7 @@ textarea, input, select
 
 #menu ul
 {
-    margin-top: 55px;
+    margin-top: 66px;
 }
 
 #menu ul li
@@ -534,6 +534,22 @@ input[type=button], input[type=reset]
     margin-bottom: 5px;
 }
 
+.infoboxblu
+{
+    background: url("../images/homemsgbk.jpg") no-repeat scroll transparent;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.infoboxblu a
+{
+    color: #DFB054;
+    text-decoration: none;
+}
+
 /* UTILS */
 .message
 {
@@ -545,7 +561,7 @@ input[type=button], input[type=reset]
 
 .success
 {
-    background: url("../images/homemsgbk.jpg") no-repeat scroll transparent;
+    background-color: #5CCA69;
 }
 
 .error

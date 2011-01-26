@@ -22,9 +22,7 @@ $(document).ready(function ()
                     initializeMap(mapDiv, 42.53, 13.66, mapOpts);
 
                     if (mapDiv == 'mapNearby')
-                    {
                         getSignalsNeraby($(ui.panel).attr('zip'));
-                    }
                 }
             }
         }
@@ -160,7 +158,7 @@ function addSignal_callback(r)
     else if (r.result)
     {
         var text = 'La segnalazione è stata salvata correttamente.<br/><a href="/' + r.result.city.toLowerCase() + '/' + r.result.signalID + '/segnalazione.aspx">Clicca qui</a> per visualizzare la pagina di dettaglio.';
-       
+
         writeMessage('Segnalazione salvata correttamente', text, '#messages');
     }
 }

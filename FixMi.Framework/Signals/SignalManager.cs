@@ -150,13 +150,12 @@ namespace FixMi.Framework.Signals
         public void ResolveSignal(int signalID, string comment)
         {
             OpenSession();
-            Signal s = new Signal();
-            s.SignalID = signalID;
-            s.Status = Signal.SignalStatus.Approved;
+            Signal s = this.LoadSingnal(signalID);
+            s.Status = Signal.SignalStatus.Resolved;
             s.ResolutionDate = DateTime.Now;
             s.ResolutionDescription = comment;
             s.UpdateDate = DateTime.Now;
-            session.Update(s);
+            session.SaveOrUpdate(s);
             CloseSession();
         }
     }
