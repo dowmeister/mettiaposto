@@ -131,7 +131,7 @@ textarea, input, select
 
 #content .home
 {
-    background: url(../images/searchbg.jpg) no-repeat;
+    background: url(../images/bk_box_centre.jpg) no-repeat;
     float: left;
     width: 445px;
     background-color: #5BB1CA;
@@ -172,7 +172,7 @@ textarea, input, select
 #content .home input.gobutton
 {
     margin-top: 5px;
-    background: url(../images/searchbutton.png) no-repeat;
+    background: url(../images/segnala_button.jpg) no-repeat;
 }
 
 #content .statsBox
@@ -199,12 +199,12 @@ textarea, input, select
 
 #content .totalSignals
 {
-    background: url(../images/brownbox.png) no-repeat;
+    background: url(../images/bk_box_sx.jpg) no-repeat;
 }
 
 #content .resolvedSignals
 {
-    background: url(../images/greenbox.png) no-repeat;
+    background: url(../images/bk_box_dx.jpg) no-repeat;
 }
 
 #content .claim
