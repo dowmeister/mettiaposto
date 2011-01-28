@@ -133,9 +133,9 @@ textarea, input, select
 {
     background: url(../images/bk_box_centre.jpg) no-repeat;
     float: left;
-    width: 445px;
+    width: 450px;
     background-color: #5BB1CA;
-    margin: 0 12px 0 12px;
+    margin: 0 10px 0 10px;
     height: 110px;
 }
 
@@ -177,7 +177,7 @@ textarea, input, select
 
 #content .statsBox
 {
-    width: 244px;
+    width: 245px;
     height: 90px;
     float: left;
     padding-top: 23px;
