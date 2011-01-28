@@ -1,6 +1,6 @@
 ﻿body
 {
-    background: url("../images/skyline.jpg") repeat-x scroll left bottom #5BB1CA;
+    background: url("../images/skyline.jpg") repeat-x fixed left bottom #5BB1CA;
     margin: 0 0 0 0;
     font-size: 12px;
     font-family: verdana,arial,sans-serif;
@@ -66,10 +66,10 @@ textarea, input, select
 {
     color: White;
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
     width: 128px;
-    height: 30px;
+    height: 29px;
     padding-top: 8px;
 }
 
@@ -351,7 +351,7 @@ input.reset
 
 input[type=button], input[type=reset]
 {
-    height: 30px;
+    height: 32px;
     width: 120px;
     border: none;
     color: White;
@@ -422,7 +422,6 @@ input[type=button], input[type=reset]
 {
     display: none;
     padding: 10px;
-    margin: 10px 0 0 20px;
     border: solid 1px #5BB1CA;
 }
 
