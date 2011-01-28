@@ -11,7 +11,7 @@ $(document).ready(function ()
                 var mapOpts = {
                     zoom: 6,
                     scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
-                    scrollwheel: false
+                    scrollwheel: false, streetViewControl: false
                 };
 
                 var mapDiv = $(ui.panel).attr('mapDiv');
@@ -19,10 +19,15 @@ $(document).ready(function ()
 
                 if (!map)
                 {
-                    initializeMap(mapDiv, 42.53, 13.66, mapOpts);
-
                     if (mapDiv == 'mapNearby')
+                    {
+                        mapOpts.disableDoubleClickZoom = false;
+                        mapOpts.disableDefaultUI = false;
+                        initializeMap(mapDiv, 42.53, 13.66, mapOpts);
                         getSignalsNeraby($(ui.panel).attr('zip'));
+                    }
+                    else
+                        initializeMap(mapDiv, 42.53, 13.66, mapOpts);
                 }
             }
         }
@@ -206,5 +211,8 @@ function getSignalsNearby_callback(r)
             map.fitBounds(bounds);
             map.setCenter(bounds.getCenter());
         }
+
+        if (map.getZoom() > 15)
+            map.setZoom(15);
     }
 }

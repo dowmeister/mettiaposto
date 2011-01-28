@@ -75,14 +75,17 @@
     <Compile Include="Communications\Messages\SignalApprovalEmail.cs" />
     <Compile Include="Communications\Messages\SignalRejectionEmail.cs" />
     <Compile Include="Communications\Messages\SignalReminderEmail.cs" />
+    <Compile Include="Communications\Messages\SignalSubmissionEmail.cs" />
     <Compile Include="Communications\Messages\SignalToCouncilEmail.cs" />
     <Compile Include="Core\Base\BaseManager.cs" />
     <Compile Include="Core\Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Core\ConfigurationOptions.cs" />
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\Utility\JsUtils.cs" />
     <Compile Include="Core\Utility\WebUtils.cs" />
+    <Compile Include="Core\Utility\XmlUtils.cs" />
     <Compile Include="Data\NHibernateSessionManager.cs" />
     <Compile Include="Places\Place.cs" />
     <Compile Include="Places\PlaceManager.cs" />
@@ -110,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\SignalSubscription.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Option.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

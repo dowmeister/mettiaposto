@@ -65,12 +65,18 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Ajax\Upload.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Content.aspx" />
-    <Content Include="Contents\info.xml" />
-    <Content Include="Contents\privacy.xml" />
-    <Content Include="Contents\XSL\Footer.xsl" />
+    <Content Include="Contents\info.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Contents\privacy.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Contents\XSL\CommonTemplates.xsl" />
     <Content Include="Contents\XSL\SignalAlertBody.xsl" />
     <Content Include="Contents\XSL\SignalApprovalBody.xsl" />
+    <Content Include="Contents\XSL\SignalSubmissionBody.xsl" />
     <Content Include="css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="css\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
     <Content Include="css\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
@@ -97,6 +103,9 @@
     <Content Include="images\4.jpg" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\alert.png" />
+    <Content Include="images\bk_box_centre.jpg" />
+    <Content Include="images\bk_box_dx.jpg" />
+    <Content Include="images\bk_box_sx.jpg" />
     <Content Include="images\blueline.png" />
     <Content Include="images\brownbox.png" />
     <Content Include="images\check.png" />
@@ -108,6 +117,7 @@
     <Content Include="images\hshadow.png" />
     <Content Include="images\logo.jpg" />
     <Content Include="images\logo.png" />
+    <Content Include="images\logo_beta.jpg" />
     <Content Include="images\minitab-selected.png" />
     <Content Include="images\minitab.png" />
     <Content Include="images\minitabline.jpg" />
@@ -117,8 +127,17 @@
     <Content Include="images\redbox.png" />
     <Content Include="images\searchbg.jpg" />
     <Content Include="images\searchbg.png" />
+    <Content Include="images\segnala_button.jpg" />
     <Content Include="images\skyline.jpg" />
     <Content Include="images\skyline.png" />
+    <Content Include="images\tab_1_off.jpg" />
+    <Content Include="images\tab_1_on.jpg" />
+    <Content Include="images\tab_2_off.jpg" />
+    <Content Include="images\tab_2_on.jpg" />
+    <Content Include="images\tab_3_off.jpg" />
+    <Content Include="images\tab_3_on.jpg" />
+    <Content Include="images\tab_4_off.jpg" />
+    <Content Include="images\tab_4_on.jpg" />
     <Content Include="images\vshadow.png" />
     <Content Include="Includes\CommentsList.ascx" />
     <Content Include="Includes\Footer.ascx" />
@@ -185,6 +204,13 @@
     </Compile>
     <Compile Include="Ajax\Upload.aspx.designer.cs">
       <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content.aspx.cs">
       <DependentUpon>Content.aspx</DependentUpon>

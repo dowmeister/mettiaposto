@@ -7,24 +7,15 @@
       <xsl:call-template name="HtmlStyles"></xsl:call-template>
       <body>
         <div class="container">
-          <b>La segnalazione che stai controllando è stata aggiornata</b>
+          <b>Nuova segnalazione inserita</b>
           <br/>
-          Un utente ha commentato la segnalazione.
-          <br/>
-          Puoi trovare la segnalazione all'indirizzo:
+          URL:
           <xsl:element name="a">
             <xsl:attribute name="href">
-              http://www.mettiaposto.it/<xsl:value-of select="/SignalProxy/City"/>/<xsl:value-of select="/SignalProxy/SignalID"/>/segnalazione.aspx
+              http://www.mettiaposto.it/<xsl:value-of select="/Signal/City"/>/<xsl:value-of select="/Signal/SignalID"/>/segnalazione.aspx
             </xsl:attribute>
-            http://www.mettiaposto.it/<xsl:value-of select="/SignalProxy/City"/>/<xsl:value-of select="/SignalProxy/SignalID"/>/segnalazione.aspx
+            http://www.mettiaposto.it/<xsl:value-of select="/Signal/City"/>/<xsl:value-of select="/Signal/SignalID"/>/segnalazione.aspx
           </xsl:element>
-          <xsl:if test="/SignalProxy/Comment/SetSignalResolved = 'true'">
-            <br/>
-            <br/>
-            <b>La segnalazione è stata risolta.</b>
-            <br/>
-            Clicca sul link sopra per visualizzare la segnalazione e il messaggio di risoluzione.
-          </xsl:if>
         </div>
         <xsl:call-template name="Footer"></xsl:call-template>
       </body>

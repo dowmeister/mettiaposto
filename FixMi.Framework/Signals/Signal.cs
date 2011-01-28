@@ -6,6 +6,7 @@ using System.Collections;
 using System.Configuration;
 using FixMi.Framework.Comments;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace FixMi.Framework.Signals
 {
@@ -41,6 +42,8 @@ namespace FixMi.Framework.Signals
         public virtual string Zip { get; set; }
         public virtual int Zoom { get; set; }
         public virtual string Attachment { get; set; }
+
+        [XmlIgnore]
         public virtual IList<Comment> Comments { get; set; }
 
         public virtual string Link

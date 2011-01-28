@@ -140,6 +140,16 @@ namespace FixMi.Framework.Signals
             return (rowcount == 0);
         }
 
+        public List<SignalSubscription> GetSubscriptions(int signalID)
+        {
+            OpenSession();
+            List<SignalSubscription> ret = (List<SignalSubscription>)session.CreateCriteria(typeof(SignalSubscription))
+                .Add(Restrictions.Eq("SignalID", signalID))
+                .List<SignalSubscription>();
+            CloseSession();
+            return ret;
+        }
+
         public void SubscribeSignal(SignalSubscription ss)
         {
             OpenSession();

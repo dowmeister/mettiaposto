@@ -14,6 +14,7 @@ using FixMi.Framework.Core.Utility;
 using System.Web.UI;
 using FixMi.Framework.Comments;
 using System.Web.UI.WebControls;
+using FixMi.Framework.Communications.Messages;
 
 namespace FixMi.Frontend.Ajax
 {
@@ -51,6 +52,9 @@ namespace FixMi.Frontend.Ajax
             s.UpdateDate = DateTime.Now;
             s.ResolutionDescription = string.Empty;
             sm.CreateSignal(s);
+
+            SignalSubmissionEmail sse = new SignalSubmissionEmail();
+            sse.Send(s);
 
             return s;
         }
@@ -169,6 +173,9 @@ namespace FixMi.Frontend.Ajax
                 SignalManager sm = new SignalManager();
                 sm.ResolveSignal(c.SignalID, c.Text);
             }
+
+            SignalAlertEmail sae = new SignalAlertEmail();
+            sae.Send(c);
             
             return ret;
         }

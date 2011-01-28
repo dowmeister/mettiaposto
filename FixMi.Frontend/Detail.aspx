@@ -31,7 +31,7 @@
     <div id="fb-root">
     </div>
     <form id="form1" runat="server">
-    <uc3:Header ID="Header1" runat="server" />
+    <uc3:Header ID="Header1" runat="server" SelectedTab="2" />
     <div id="content">
         <div class="twocols">
             <div class="left">
@@ -65,7 +65,7 @@
                             <li><a class="serviceLink button" id="commentsLink" href="#commentsBox">Commenti</a></li>
                             <li><a class="serviceLink button" href="#share">Condividi</a></li>
                             <li><a class="serviceLink button" href="#subscribe">Tienimi informato</a></li>
-                            <li><a class="serviceLink button" href="#report">Segnala</a></li>
+                            <%-- <li><a class="serviceLink button" href="#report">Segnala</a></li> --%>
                         </ul>
                         <div class="clear">
                         </div>
@@ -166,7 +166,7 @@
                             <div class="clear">
                             </div>
                         </div>
-                        <div id="report" class="serviceBox">
+                        <%--<div id="report" class="serviceBox">
                             <div class="submitForm">
                                 <ol>
                                     <li>
@@ -180,7 +180,7 @@
                                     <input class="reset" type="reset" value="Annulla" />
                                 </div>
                             </div>
-                        </div>
+                        </div> --%>
                     </div>
                 </div>
             </div>

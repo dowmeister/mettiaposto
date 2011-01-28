@@ -16,8 +16,22 @@
             localizzandoli sulla mappa o inserendo l'indirizzo. Il servizio è stato lanciato nel Febbraio 2011.</dd>
          <dt>Mettiaposto.it è affiliato con il Comune o è parte di esso?</dt>
         <dd>
-            Assolutamente no. Questo sito è completamente distaccato dai servizi comunali ufficiali: inviamo le segnalazioni ricevute dagli utenti al Consiglio di Zona
-            o al servizio comunale competente: a questo punto la palla passa all'Ente che nei tempi e modi possibili prenderanno in carica la segnalazione.</dd>
+            Assolutamente no. Questo sito è completamente distaccato dai servizi comunali ufficiali. La risoluzione delle segnalazione è sempre demandata all'Ente competente.</dd>
+        <dt>Come sono risolte le segnalazioni?</dt>
+        <dd>
+            La risoluzione delle segnalazioni è demandata completamente all'Ente competente che sia parte del Comune o di una 
+            entità territoriale più ampia.
+            Mettiaposto.it permette esclusivamente di inserire la segnalazione e visualizzare
+            il suo stato nel corso del tempo. In alternativa, si può discutere il problema sul
+            sito web con gli altri utenti o correggere voi stessi il problema, se ne avete le
+            possibilità.
+            <br/>
+            Gli utenti possono segnalare che il problema è stato risolto aggiungendo un commento per valorizzare il messaggio di risoluzione.
+        </dd>
+                <dt>Perchè non inviate le segnalazioni al Comune?</dt>
+                <dd>Il servizio è ancora in BETA e non ci sono accordi con i Comuni che ci permettano di dialogare direttamente con gli URP (Uffici Relazioni con il Pubblico)</dd>
+        <dt>Cosa significa BETA?</dt>
+                <dd>Una buona definizione di BETA si può trovare su <a href="http://it.wikipedia.org/wiki/Versione_beta" target="_blank">Wikipedia</a></dd>
         <dt>Quali tipi di problemi posso inviare tramite Mettiaposto.it?</dt>
         <dd>
             Mettiaposto.it è utile innanzitutto per segnalare problemi "cose" che sono <strong>rotte,
@@ -42,7 +56,7 @@
             Mettiaposto.it non è un modo per entrare in contatto con il vostro Consiglio di
             Zona o la Circoscrizione per qualsiasi problema. L'utilizzo di Mettiaposto.it è
             contemplato per le categorie di problemi che trovate nella pagina di segnalazione.
-            <strong>Dovrete contattare il Consiglio di Zona o la Circoscrizione per problemi come:</strong>:
+            <strong>Dovrete contattare il Consiglio di Zona o la Circoscrizione per problemi</strong> come:
             <ul>
                 <li>
                 Comportamenti anti-sociali
@@ -71,23 +85,16 @@
             già segnalati vicino ad un'altra segnalazione o cercarli tramite la pagina "Cerca"
             scegliendo se inserire il CAP, una parte dell'indirizzo o la categoria.
         </dd>
-        <dt>Come sono risolte le segnalazioni?</dt>
-        <dd>
-            La risoluzione delle segnalazioni è demandata completamente al Consiglio di Zona.
-            Mettiaposto.it permette esclusivamente di inserire la segnalazione e visualizzare
-            il suo stato nel corso del tempo. In alternativa, si può discutere il problema sul
-            sito web con gli altri utenti o correggere voi stessi il problema, se ne avete le
-            possibilità.
-        </dd>
+        
         <dt>È tutto gratuito?</dt>
         <dd>
             <strong>Il sito è utilizzabile liberamente e gratuitamente. </strong>
         </dd>
         <dt>Posso utilizzare Mettiaposto.it sul mio cellulare? </dt>
         <dd>
-            Per ora questa funzionalità non è stata ancora implementata ma contiamo di permettere
+            Questa funzionalità non è stata ancora implementata ma contiamo di permettere
             agli utenti del mondo Mobile di inviare le segnalazioni tramite un'applicazione
-            iPhone e Android e attraverso un sito costruito appositamente per la navigazione
+            iPhone e Android o attraverso un sito costruito appositamente per la navigazione
             da cellulare.
         </dd>
         <dt>Perchè copre solo Milano?</dt>
@@ -161,7 +168,7 @@
             ed è ospitato sullo spazio web fornito da Aruba.it
             <br />
             Mettiaposto.it è un progetto <strong>opensource</strong>: il codice sorgente è liberamente scaricabile
-            da Github.
+            da <a href="http://github.com/shardick/mettiaposto" href="_target">Github</a>.
         </dd>
     </dl>
 </div>

@@ -73,24 +73,44 @@ textarea, input, select
     padding-top: 8px;
 }
 
-#menu ul li a.green
+#menu ul li a.greenOff:hover, #menu ul li a.green
 {
-    background: url("../images/1.jpg") no-repeat transparent;
+    background: url("../images/tab_1_on.jpg") no-repeat transparent;
 }
 
-#menu ul li a.orange
+#menu ul li a.greenOff
 {
-    background: url("../images/2.jpg") no-repeat scroll transparent;
+    background: url("../images/tab_1_off.jpg") no-repeat transparent;
 }
 
-#menu ul li a.pink
+#menu ul li a.orange, #menu ul li a.orangeOff:hover
 {
-    background: url("../images/3.jpg") no-repeat scroll transparent;
+    background: url("../images/tab_2_on.jpg") no-repeat scroll transparent;
 }
 
-#menu ul li a.pinkdark
+#menu ul li a.orangeOff
 {
-    background: url("../images/4.jpg") no-repeat scroll transparent;
+    background: url("../images/tab_2_off.jpg") no-repeat scroll transparent;
+}
+
+#menu ul li a.pink, #menu ul li a.pinkOff:hover
+{
+    background: url("../images/tab_3_on.jpg") no-repeat scroll transparent;
+}
+
+#menu ul li a.pinkOff
+{
+    background: url("../images/tab_3_off.jpg") no-repeat scroll transparent;
+}
+
+#menu ul li a.pinkdark, #menu ul li a.pinkdarkOff:hover
+{
+    background: url("../images/tab_4_on.jpg") no-repeat scroll transparent;
+}
+
+#menu ul li a.pinkdarkOff
+{
+    background: url("../images/tab_4_off.jpg") no-repeat scroll transparent;
 }
 
 #content

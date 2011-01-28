@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using FixMi.Framework.Signals;
 using FixMi.Framework.Core.Base;
 using FixMi.Framework.Places;
+using FixMi.Framework.Core;
 
 namespace FixMi.Frontend
 {

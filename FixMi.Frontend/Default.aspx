@@ -18,14 +18,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <uc3:Header ID="Header1" runat="server" />
+    <uc3:Header ID="Header1" runat="server"  TabSelected="1" />
     <div id="content">
         <div class="infoboxblu">
-            Benvenuto! Questo sito ti permette di inviare segnalazioni riguardanti problemi
+            Benvenuto! Mettiaposto.it ti permette di inviare segnalazioni riguardanti problemi
             o disservizi del tuo quartiere, come buche, spazzatura in strada, marciapiedi danneggiati
             o graffiti sui muri.
             <br />
-            Se hai qualche dubbio prova a leggere le <a href="/pages/info.aspx">FAQ</a>.
+            Per dubbi, chiarimenti, informazioni, per capire come funziona questo sito <a href="/pages/info.aspx">FAQ</a>.
         </div>
         <div class="claim">
             <a href="/milano/invia.aspx"></a>
@@ -49,7 +49,7 @@
                     </asp:DropDownList>
                 </div>
                 <div class="button" style="text-align: center;">
-                    <input class="gobutton" id="searchButton" type="button" value="Vai" onclick="search(); return false;"></input>
+                    <input class="gobutton" id="searchButton" type="button" value="Segnala" onclick="search(); return false;"></input>
                 </div>
             </div>
             <div class="statsBox resolvedSignals">

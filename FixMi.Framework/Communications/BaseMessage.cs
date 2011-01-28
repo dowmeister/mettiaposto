@@ -7,22 +7,30 @@ using System.Xml;
 using System.Xml.Xsl;
 using System.Web;
 using System.IO;
+using FixMi.Framework.Core;
 
 namespace FixMi.Framework.Communications
 {
     public class BaseMessage
     {
         private MailAddressCollection _receivers = new MailAddressCollection();
-        private MailAddress _sender = new MailAddress("info@mettiaposto.it", "Mettiaposto.it");
+        private MailAddressCollection _bccReceivers = new MailAddressCollection();
+        private MailAddress _sender = new MailAddress(ConfigurationOptions.Current.GetString("email_sender_address"), ConfigurationOptions.Current.GetString("email_sender_name"));
         private string _subject = string.Empty;
         private string body = string.Empty;
-        private string xslFileName = string.Empty;
-        private XmlDocument xmlDocument = new XmlDocument();
+        protected string xslFileName = string.Empty;
+        protected XmlDocument xmlDocument = new XmlDocument();
 
         public MailAddressCollection Receivers
         {
             get { return _receivers; }
             set { _receivers = value; }
+        }
+
+        public MailAddressCollection BccReceivers
+        {
+            get { return _bccReceivers; }
+            set { _bccReceivers = value; }
         }
 
         public MailAddress Sender
@@ -37,10 +45,8 @@ namespace FixMi.Framework.Communications
             set { _subject = value; }
         }
 
-        public void Send()
+        public virtual void Send()
         {
-            CreateXML();
-            Transform();
             _Send();
         }
 
@@ -48,7 +54,15 @@ namespace FixMi.Framework.Communications
         {
             MailMessage m = new MailMessage();
             m.Sender = _sender;
-            m.To.Concat(_receivers);
+            m.From = _sender;
+            foreach (MailAddress ma in _receivers)
+            {
+                m.To.Add(ma);
+            }
+            foreach (MailAddress ma in _bccReceivers)
+            {
+                m.Bcc.Add(ma);
+            }
             m.Subject = _subject;
             m.Body = body;
             m.IsBodyHtml = true;
@@ -56,7 +70,7 @@ namespace FixMi.Framework.Communications
             client.Send(m);
         }
 
-        private void Transform()
+        protected void Transform()
         {
             XslCompiledTransform t = new XslCompiledTransform();
             t.Load(HttpContext.Current.Server.MapPath(Path.Combine("/Contents/XSL/", this.xslFileName + ".xsl")));

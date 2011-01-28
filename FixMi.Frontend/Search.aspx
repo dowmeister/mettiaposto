@@ -20,7 +20,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <uc3:Header ID="Header1" runat="server" />
+    <uc3:Header ID="Header1" runat="server" SelectedTab="2" />
     <div id="content">
         <div class="twocols">
             <div class="left">
