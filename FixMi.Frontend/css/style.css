@@ -402,7 +402,6 @@ input[type=button], input[type=reset]
 {
     display: none;
     padding: 10px;
-    margin: 10px 0 0 20px;
     border: solid 1px #5BB1CA;
 }
 
