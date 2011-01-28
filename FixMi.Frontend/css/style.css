@@ -331,7 +331,7 @@ input.reset
 
 input[type=button], input[type=reset]
 {
-    height: 30px;
+    height: 32px;
     width: 120px;
     border: none;
     color: White;
