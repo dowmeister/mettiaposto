@@ -1,6 +1,6 @@
 ﻿body
 {
-    background: url("../images/skyline.jpg") repeat-x scroll left bottom #5BB1CA;
+    background: url("../images/skyline.jpg") repeat-x fixed left bottom #5BB1CA;
     margin: 0 0 0 0;
     font-size: 12px;
     font-family: verdana,arial,sans-serif;
@@ -66,7 +66,7 @@ textarea, input, select
 {
     color: White;
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
     width: 128px;
     height: 29px;
