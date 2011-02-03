@@ -8,7 +8,7 @@
 <link rel="image_src" href="http://www.mettiaposto.it/images/logo.jpg" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
-<link href="/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
 <script src="/js/json.js" type="text/javascript"></script>
 <script src="/js/functions.js" type="text/javascript"></script>
 <script src="/js/validation.js" type="text/javascript"></script>

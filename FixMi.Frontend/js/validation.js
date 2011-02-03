@@ -26,7 +26,6 @@
 
         for (var i = 0; i < rules.length; i++)
         {
-
             var res = false;
             var currentRule = rules[i];
 
@@ -67,12 +66,23 @@
 
             writeError($('<div></div>').append(options.headerMessage).append(errorContainer), options.errorDiv);
         }
-
-        if (options.errorClass)
+        else
         {
-            for (var i = 0; i < rules.length; i++)
+            var errorMessage = options.headerMessage + "\n\r";
+
+            for (var i = 0; i < errors.length; i++)
             {
-                $(rules[i].field).addClass(options.errorClass);
+                errorMessage += " - " + errors[i].message + "\n\r";
+            }
+
+            alert(errorMessage);
+        }
+
+        if (options.errorStyle)
+        {
+            for (var i = 0; i < errors.length; i++)
+            {
+                $(errors[i].field).attr('style', options.errorStyle);
             }
         }
     };

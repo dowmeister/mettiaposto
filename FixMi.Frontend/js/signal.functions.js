@@ -105,7 +105,6 @@ function saveSignal()
 
 function addSignal()
 {
-
     var proxy = new JSONService();
 
     var s = new Object();

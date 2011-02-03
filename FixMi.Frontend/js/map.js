@@ -51,6 +51,8 @@ function initializeMap(mapDiv, lat, long, myOptions)
     var m = new google.maps.Map(document.getElementById(mapDiv), myOptions);
 
     maps.push({ id: mapDiv, obj: m });
+
+    return m;
 }
 
 function geolocationByAddress(address, mapId)
@@ -70,7 +72,7 @@ function geolocationByAddress_callback(r, status)
 {
     if (checkGeolocationResult(status))
     {
-        var data = r[0];
+        var data = getgetGeolocationData(r, 0);
 
         var m = getMap(currentMap);
 

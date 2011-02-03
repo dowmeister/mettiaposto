@@ -150,7 +150,7 @@
                                 </ol>
                                 <div class="buttons">
                                     <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
-                                    <input class="reset" type="reset" value="Annulla" />
+                                    <!--<input class="reset" type="reset" value="Annulla" />-->
                                 </div>
                             </div>
                         </div>
@@ -193,8 +193,6 @@
                     <div map="true" id="map" mapdiv="map_canvas">
                         <div id="map_canvas" class="map">
                         </div>
-                        <br />
-                        <span id="completeAddress" style="display: none;">Indirizzo completo: </span>
                     </div>
                     <div map="true" runat="server" id="nearby" mapdiv="mapNearby">
                         <div id="mapNearby" class="map">

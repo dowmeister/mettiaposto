@@ -28,7 +28,7 @@
             Per dubbi, chiarimenti, informazioni, per capire come funziona questo sito <a href="/pages/info.aspx">FAQ</a>.
         </div>
         <div class="claim">
-            <a href="/milano/invia.aspx"></a>
+            <a href="#"></a>
         </div>
         <div class="presentation">
             <div class="statsBox totalSignals">

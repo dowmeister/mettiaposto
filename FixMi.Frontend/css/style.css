@@ -569,50 +569,6 @@ input[type=button], input[type=reset]
     text-decoration: none;
 }
 
-/* UTILS */
-.message
-{
-    padding: 10px;
-    color: White;
-    font-weight: bold;
-    display: none;
-}
-
-.success
-{
-    background-color: #5CCA69;
-}
-
-.error
-{
-    background-color: #F3A29A;
-    border-color: Red;
-}
-
-.ajax
-{
-    background-color: #5BB1CA;
-    border-color: #117491;
-    text-align: center;
-}
-
-.error h2, .success h2
-{
-    font-size: 16px;
-    line-height: 0.4;
-}
-
-.error a, .success a
-{
-    color: #E0E5F5;
-    text-decoration: none;
-}
-
-.fieldError
-{
-    border-color: Red;
-}
-
 #content .serviceBox .list
 {
     margin-top: 0;
