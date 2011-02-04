@@ -30,3 +30,4 @@ _ReSharper*/
 Build/
 Temp/
 *.properties
+*.suo
