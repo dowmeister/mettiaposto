@@ -1,0 +1,10 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="OpenSignals.Framework.Signals.SignalSubscription, OpenSignals.Framework" table="signals_subscriptions">
+    <composite-id>
+      <key-property column="ss_signal_id" name="SignalID" />
+      <key-property column="ss_email" name="Email" />
+    </composite-id>
+    <!--<property name="SignalID" column="ss_signal_id" type="int"></property>
+    <property name="Email" column="ss_email" type="String"></property>-->
+  </class>
+</hibernate-mapping>

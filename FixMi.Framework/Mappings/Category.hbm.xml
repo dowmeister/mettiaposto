@@ -1,9 +1,0 @@
-﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="FixMi.Framework.Categories.Category, FixMi.Framework" table="categories">
-    <id name="CategoryID" column="c_id" type="int">
-      <generator class="native"></generator>
-    </id>
-    <property name="Name" column="c_name" type="String"></property>
-    <property name="Status" column="c_status" type="Boolean"></property>
-  </class>
-</hibernate-mapping>

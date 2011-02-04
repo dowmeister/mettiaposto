@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="FixMi.Framework.Core.Option, FixMi.Framework" table="configuration_options">
-    <id name="Key" column="co_key" type="string">
-      <generator class="native"></generator>
-    </id>
-    <property name="Value" column="co_value" type="string"></property>
-  </class>
-</hibernate-mapping>
