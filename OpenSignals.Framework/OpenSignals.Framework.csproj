@@ -83,6 +83,7 @@
     </Compile>
     <Compile Include="Core\ConfigurationOptions.cs" />
     <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\URLRewrite.cs" />
     <Compile Include="Core\Utility\JsUtils.cs" />
     <Compile Include="Core\Utility\WebUtils.cs" />
     <Compile Include="Core\Utility\XmlUtils.cs" />

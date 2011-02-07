@@ -32,10 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Intelligencia.UrlRewriter, Version=2.0.0.6, Culture=neutral, PublicKeyToken=0573f3650687980d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\RequiredAssembly\Intelligencia.UrlRewriter.dll</HintPath>
-    </Reference>
     <Reference Include="Jayrock, Version=0.9.8316.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\RequiredAssembly\Jayrock.dll</HintPath>

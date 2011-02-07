@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using OpenSignals.Framework.Signals;
 using OpenSignals.Framework.Categories;
 using OpenSignals.Framework.Core;
+using OpenSignals.Framework.Core.Utility;
 
 namespace OpenSignals.Frontend.Includes
 {
@@ -28,7 +29,7 @@ namespace OpenSignals.Frontend.Includes
             if (!currentSignal.Attachment.Equals(string.Empty))
             {
                 divImage.Visible = true;
-                imgImage.ImageUrl = currentSignal.GetImageUrl(UploadPaths.Comments);
+                imgImage.ImageUrl = WebUtils.GetImageUrl(UploadPaths.Comments, currentSignal.Attachment);
             }
         }
     }

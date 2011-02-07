@@ -14,9 +14,4 @@ namespace OpenSignals.Framework.Core
         public const string Big = "b/";
         public const string Comments = "c/";
     }
-
-    public struct Settings
-    {
-        public static string UploadPath = ConfigurationManager.AppSettings["UploadPath"];
-    }
 }

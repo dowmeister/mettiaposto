@@ -44,8 +44,8 @@ namespace OpenSignals.Frontend.Includes
                 if (!c.Attachment.Equals(string.Empty))
                 {
                     ((HtmlGenericControl)e.Item.FindControl("divPhoto")).Visible = true;
-                    ((HtmlAnchor)e.Item.FindControl("lnkPhoto")).HRef = Path.Combine(Settings.UploadPath, UploadPaths.Big + c.Attachment);
-                    ((Image)e.Item.FindControl("imgPhoto")).ImageUrl = Path.Combine(Settings.UploadPath, UploadPaths.Comments + c.Attachment);
+                    ((HtmlAnchor)e.Item.FindControl("lnkPhoto")).HRef = WebUtils.GetImageUrl(UploadPaths.Big, c.Attachment);
+                    ((Image)e.Item.FindControl("imgPhoto")).ImageUrl = WebUtils.GetImageUrl(UploadPaths.Comments, c.Attachment);
                 }
             }
         }
