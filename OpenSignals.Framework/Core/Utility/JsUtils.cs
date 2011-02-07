@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OpenSignals.Framework
+namespace OpenSignals.Framework.Core.Utility
 {
     public class JsUtils
     {
