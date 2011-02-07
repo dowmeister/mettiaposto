@@ -1,0 +1,15 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="OpenSignals.Framework.Comments.Comment, OpenSignals.Framework" table="signals_comments">
+    <id name="CommentID" column="sc_id" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="SignalID" column="sc_signal_id" type="int"></property>
+    <property name="AuthorName" column="sc_name" type="String"></property>
+    <property name="AuthorEmail" column="sc_email" type="String"></property>
+    <property name="ShowAuthorName" column="sc_show_name" type="Boolean"></property>
+    <property name="Attachment" column="sc_attachment" type="String"></property>
+    <property name="CreationDate" column="sc_creation_date" type="DateTime"></property>
+    <property name="Status" column="sc_status" type="int"></property>
+    <property name="Text" column="sc_text" type="String"></property>
+  </class>
+</hibernate-mapping>
