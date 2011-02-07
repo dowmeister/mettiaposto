@@ -28,7 +28,6 @@ textarea, input, select
 {
     width: 202px;
     float: left;
-    margin-top: 5px;
 }
 
 #logo a
@@ -50,7 +49,7 @@ textarea, input, select
 
 #menu ul
 {
-    margin-top: 66px;
+    margin-top: 62px;
 }
 
 #menu ul li
@@ -115,9 +114,12 @@ textarea, input, select
 
 #content
 {
-    background-color: White; /*background: White url(../images/vshadow.png) repeat-y right;*/
+    background-color: #FFFFFF; /*background: White url(../images/vshadow.png) repeat-y right;*/
     padding: 20px;
-    width: 960px;
+    width: 956px;
+    border-left: solid 2px #E2E2E2;
+    border-right: solid 2px #E2E2E2;
+    border-top: solid 1px #E2E2E2;
 }
 
 #hshadow
