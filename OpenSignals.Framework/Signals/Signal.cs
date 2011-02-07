@@ -7,6 +7,7 @@ using System.Configuration;
 using OpenSignals.Framework.Comments;
 using System.Web;
 using System.Xml.Serialization;
+using OpenSignals.Framework.Core;
 
 namespace OpenSignals.Framework.Signals
 {
@@ -50,13 +51,8 @@ namespace OpenSignals.Framework.Signals
         {
             get
             {
-                return "/" + this.City + "/" + this.SignalID.ToString() + "/segnalazione.aspx";
+                return "/" + this.City.ToLower() + "/" + this.SignalID.ToString() + "/segnalazione.aspx";
             }
-        }
-
-        public virtual string GetImageUrl(string type)
-        {
-            return "http://" + HttpContext.Current.Request.Url.Host + ConfigurationManager.AppSettings["UploadPath"] + type + this.Attachment;
         }
 
         public virtual string Excerpt

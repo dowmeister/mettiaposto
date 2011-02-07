@@ -24,7 +24,7 @@ namespace OpenSignals.Frontend.Ajax
 
                 try
                 {
-                    string path = Server.MapPath(Settings.UploadPath);
+                    string path = Server.MapPath(ConfigurationOptions.Current.GetString("system_upload_path"));
                     string originalPath = Path.Combine(path, UploadPaths.Original);
                     string mobilePath = Path.Combine(path, UploadPaths.Mobile);
                     string bigPath = Path.Combine(path, UploadPaths.Big);

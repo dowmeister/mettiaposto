@@ -12,6 +12,7 @@ using OpenSignals.Framework;
 using System.IO;
 using System.Configuration;
 using OpenSignals.Framework.Core;
+using OpenSignals.Framework.Core.Utility;
 
 namespace OpenSignals.Frontend
 {
@@ -67,12 +68,12 @@ namespace OpenSignals.Frontend
                 if (!s.Attachment.Equals(string.Empty))
                 {
                     divPhoto.Visible = true;
-                    lnkPhoto.HRef = s.GetImageUrl( UploadPaths.Big);
-                    imgPhoto.ImageUrl = s.GetImageUrl(UploadPaths.Small);
+                    lnkPhoto.HRef = WebUtils.GetImageUrl( UploadPaths.Big, s.Attachment);
+                    imgPhoto.ImageUrl = WebUtils.GetImageUrl(UploadPaths.Small, s.Attachment);
 
                     RegisterDocumentReadyFunction("fancybox", "$('#lnkPhoto').fancybox(); ");
 
-                    ogImage.Attributes["content"] = s.GetImageUrl(UploadPaths.Small);
+                    ogImage.Attributes["content"] = WebUtils.GetImageUrl(UploadPaths.Small, s.Attachment);
                 }
 
                 if (s.Status == Signal.SignalStatus.Resolved)

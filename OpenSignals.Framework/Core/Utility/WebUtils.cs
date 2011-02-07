@@ -39,7 +39,7 @@ namespace OpenSignals.Framework.Core.Utility
         {
             int totalPages = Convert.ToInt32(Math.Ceiling((double)totalRecords / (double)recordsPerPage));
 
-            if (totalRecords <= 1)
+            if (totalRecords <= recordsPerPage)
                 return new HtmlGenericControl("ul");
             else
             {
@@ -100,6 +100,11 @@ namespace OpenSignals.Framework.Core.Utility
             // Save resized picture
             //NewImage.Save(NewFile);
             return NewImage;
+        }
+
+        public static string GetImageUrl(string type, string attachment)
+        {
+            return "http://" + ConfigurationOptions.Current.GetString("system_upload_path") + type + attachment;
         }
     }
 }

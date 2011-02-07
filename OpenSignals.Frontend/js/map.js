@@ -72,7 +72,7 @@ function geolocationByAddress_callback(r, status)
 {
     if (checkGeolocationResult(status))
     {
-        var data = getgetGeolocationData(r, 0);
+        var data = getGeolocationData(r, 0);
 
         var m = getMap(currentMap);
 

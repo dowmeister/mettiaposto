@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NHibernate;
 using NHibernate.Cfg;
+using OpenSignals.Framework.Core;
 
 namespace OpenSignals.Framework.Web
 {
@@ -16,6 +17,11 @@ namespace OpenSignals.Framework.Web
             var config = new Configuration();
             config.Configure();
             SessionFactory = config.BuildSessionFactory();
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            RewriteManager.RewriteUrl();
         }
     }
 }
