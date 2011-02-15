@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Web.UI;
-using OpenSignals.Framework;
 using OpenSignals.Framework.Categories;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Base;

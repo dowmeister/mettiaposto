@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Web.UI;
-using OpenSignals.Framework;
 using OpenSignals.Framework.Categories;
 using OpenSignals.Framework.Core.Base;
-<<<<<<< HEAD
-=======
-using OpenSignals.Framework;
-using System.Globalization;
 using OpenSignals.Framework.Core.Utility;
->>>>>>> 0262015e9758115d979fdd732ce59f951d8c5375
 
 namespace OpenSignals.Frontend
 {
