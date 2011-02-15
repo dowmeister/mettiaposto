@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenSignals.Framework.Signals;
-using OpenSignals.Framework.Comments;
+﻿using System.Collections.Generic;
 using System.Net.Mail;
-using OpenSignals.Framework.Core.Utility;
 using System.Xml;
+using OpenSignals.Framework.Comments;
 using OpenSignals.Framework.Core;
+using OpenSignals.Framework.Core.Utility;
+using OpenSignals.Framework.Signals;
 
 namespace OpenSignals.Framework.Communications.Messages
 {

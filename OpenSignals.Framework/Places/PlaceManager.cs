@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenSignals.Framework.Data;
+﻿using System.Collections.Generic;
 using NHibernate.Criterion;
+using OpenSignals.Framework.Data;
 
 namespace OpenSignals.Framework.Places
 {

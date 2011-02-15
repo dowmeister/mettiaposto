@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using OpenSignals.Framework.Core.Base;
-using OpenSignals.Framework.Data;
 using NHibernate;
 using NHibernate.Criterion;
+using OpenSignals.Framework.Data;
 
 namespace OpenSignals.Framework.Signals
 {

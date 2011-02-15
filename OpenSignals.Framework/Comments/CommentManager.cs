@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using OpenSignals.Framework.Data;
 using NHibernate.Criterion;
+using OpenSignals.Framework.Data;
 
 namespace OpenSignals.Framework.Comments
 {

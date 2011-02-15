@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections;
-using System.Configuration;
-using OpenSignals.Framework.Comments;
-using System.Web;
 using System.Xml.Serialization;
-using OpenSignals.Framework.Core;
+using OpenSignals.Framework.Comments;
 
 namespace OpenSignals.Framework.Signals
 {

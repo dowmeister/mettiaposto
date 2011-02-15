@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using OpenSignals.Framework.Core.Base;
 using System.IO;
+using System.Web;
 using Jayrock.Json;
-using System.Configuration;
 using OpenSignals.Framework.Core;
+using OpenSignals.Framework.Core.Base;
 using OpenSignals.Framework.Core.Utility;
-using System.Threading;
 
 namespace OpenSignals.Frontend.Ajax
 {

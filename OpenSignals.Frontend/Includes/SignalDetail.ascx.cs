@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using OpenSignals.Framework.Signals;
 using OpenSignals.Framework.Categories;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Utility;
+using OpenSignals.Framework.Signals;
 
 namespace OpenSignals.Frontend.Includes
 {
