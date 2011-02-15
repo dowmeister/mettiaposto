@@ -1,10 +1,28 @@
-﻿using System;
+﻿// Copyright (C) 2010-2011 Francesco 'ShArDiCk' Bramato
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
 using System.Threading;
 using System.Web;
 using log4net;
 
 namespace OpenSignals.Framework.Core.Base
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BasePage : System.Web.UI.Page
     {
         protected ILog _logger = null;
@@ -19,6 +37,11 @@ namespace OpenSignals.Framework.Core.Base
             }
         }
 
+        /// <summary>
+        /// Gets from request.
+        /// </summary>
+        /// <param name="szControl">The sz control.</param>
+        /// <returns></returns>
         protected virtual string GetFromRequest(string szControl)
         {
             if (Request[szControl] != null)
@@ -29,6 +52,11 @@ namespace OpenSignals.Framework.Core.Base
                 return string.Empty;
         }
 
+        /// <summary>
+        /// Requests the contains file.
+        /// </summary>
+        /// <param name="szControl">The sz control.</param>
+        /// <returns></returns>
         protected bool RequestContainsFile(string szControl)
         {
             if (Request.Files[szControl] != null)
@@ -37,6 +65,11 @@ namespace OpenSignals.Framework.Core.Base
                 return false;
         }
 
+        /// <summary>
+        /// Gets the file from request.
+        /// </summary>
+        /// <param name="szControl">The sz control.</param>
+        /// <returns></returns>
         protected HttpPostedFile GetFileFromRequest(string szControl)
         {
             if (RequestContainsFile(szControl))
@@ -50,6 +83,11 @@ namespace OpenSignals.Framework.Core.Base
                 return null;
         }
 
+        /// <summary>
+        /// Gets the check value from request.
+        /// </summary>
+        /// <param name="szControl">The sz control.</param>
+        /// <returns></returns>
         protected virtual bool GetCheckValueFromRequest(string szControl)
         {
             if (Request[szControl] != null)
@@ -92,6 +130,11 @@ namespace OpenSignals.Framework.Core.Base
                 return string.Empty;
         }
 
+        /// <summary>
+        /// Sessions the contains.
+        /// </summary>
+        /// <param name="szName">Name of the sz.</param>
+        /// <returns></returns>
         protected bool SessionContains(string szName)
         {
             if (Session != null)
@@ -132,6 +175,11 @@ namespace OpenSignals.Framework.Core.Base
                 Session.Add(szName, objObject);
         }
 
+        /// <summary>
+        /// Gets from cookie.
+        /// </summary>
+        /// <param name="szCookieName">Name of the sz cookie.</param>
+        /// <returns></returns>
         protected string GetFromCookie(string szCookieName)
         {
             if (CookieContains(szCookieName))
@@ -207,6 +255,12 @@ namespace OpenSignals.Framework.Core.Base
                 Context.Items.Add(szName, objObject);
         }
 
+        /// <summary>
+        /// Adds to cookie.
+        /// </summary>
+        /// <param name="szName">Name of the sz.</param>
+        /// <param name="objObject">The obj object.</param>
+        /// <param name="dtExpire">The dt expire.</param>
         protected void AddToCookie(string szName, object objObject, DateTime dtExpire)
         {
             HttpCookie objCookie = new HttpCookie(szName, objObject.ToString());
@@ -214,6 +268,13 @@ namespace OpenSignals.Framework.Core.Base
             Response.Cookies.Add(objCookie);
         }
 
+        /// <summary>
+        /// Adds to cookie.
+        /// </summary>
+        /// <param name="szName">Name of the sz.</param>
+        /// <param name="objObject">The obj object.</param>
+        /// <param name="dtExpire">The dt expire.</param>
+        /// <param name="isSecure">if set to <c>true</c> [is secure].</param>
         protected void AddToCookie(string szName, object objObject, DateTime dtExpire, bool isSecure)
         {
             HttpCookie objCookie = new HttpCookie(szName, objObject.ToString());
@@ -222,11 +283,20 @@ namespace OpenSignals.Framework.Core.Base
             Response.Cookies.Add(objCookie);
         }
 
+        /// <summary>
+        /// Removes from cookie.
+        /// </summary>
+        /// <param name="szName">Name of the sz.</param>
         protected void RemoveFromCookie(string szName)
         {
             Response.Cookies.Remove(szName);
         }
 
+        /// <summary>
+        /// Cookies the contains.
+        /// </summary>
+        /// <param name="szName">Name of the sz.</param>
+        /// <returns></returns>
         protected bool CookieContains(string szName)
         {
             if (Request.Cookies[szName] != null)
@@ -258,22 +328,44 @@ namespace OpenSignals.Framework.Core.Base
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + szMessage.Replace("'", "\\'") + "');", true);
         }
 
+        /// <summary>
+        /// Alerts the specified sz message.
+        /// </summary>
+        /// <param name="szMessage">The sz message.</param>
+        /// <param name="bGoBack">if set to <c>true</c> [b go back].</param>
+        /// <returns></returns>
         protected string Alert(string szMessage, bool bGoBack)
         {
             return "<script language='javascript'>alert('" + szMessage.Replace("'", "\\'") + "');history.back();</script>";
         }
 
+        /// <summary>
+        /// Registers the document ready function.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="function">The function.</param>
         public void RegisterDocumentReadyFunction(string key, string function)
         {
             string docReady = "$(document).ready(function() { " + function + " });";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "docReady_" + key, docReady, true);
         }
 
+        /// <summary>
+        /// Registers the startup script.
+        /// </summary>
+        /// <param name="scriptName">Name of the script.</param>
+        /// <param name="script">The script.</param>
         protected new void RegisterStartupScript(string scriptName, string script)
         {
             ClientScript.RegisterStartupScript(this.GetType(), scriptName, script, true);
         }
 
+        /// <summary>
+        /// Gets the option value from request.
+        /// </summary>
+        /// <param name="szGroupName">Name of the sz group.</param>
+        /// <param name="szOptionId">The sz option id.</param>
+        /// <returns></returns>
         protected virtual bool GetOptionValueFromRequest(string szGroupName, string szOptionId)
         {
             if (Request[szGroupName] != null)
@@ -288,6 +380,11 @@ namespace OpenSignals.Framework.Core.Base
                 return false;
         }
 
+        /// <summary>
+        /// Gets the option value from request.
+        /// </summary>
+        /// <param name="szGroupName">Name of the sz group.</param>
+        /// <returns></returns>
         protected virtual string GetOptionValueFromRequest(string szGroupName)
         {
             if (Request[szGroupName] != null)
@@ -296,22 +393,40 @@ namespace OpenSignals.Framework.Core.Base
                 return string.Empty;
         }
 
+        /// <summary>
+        /// Gets the version.
+        /// </summary>
+        /// <returns></returns>
         protected string GetVersion()
         {
             //return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.MinorRevision.ToString();
             return Session.SessionID;
         }
 
+        /// <summary>
+        /// Determines whether [is thread abort exception] [the specified ex].
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <returns>
+        ///   <c>true</c> if [is thread abort exception] [the specified ex]; otherwise, <c>false</c>.
+        /// </returns>
         protected bool IsThreadAbortException(Exception ex)
         {
             return ex is ThreadAbortException;
         }
 
+        /// <summary>
+        /// Gets the event arg.
+        /// </summary>
+        /// <returns></returns>
         protected object GetEventArg()
         {
             return Request.Form["__EVENTARGUMENT"];
         }
 
+        /// <summary>
+        /// Registers the ajax session key.
+        /// </summary>
         protected void RegisterAjaxSessionKey()
         {
             string ajaxSessionKey = Guid.NewGuid().ToString();

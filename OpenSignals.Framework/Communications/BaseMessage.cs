@@ -1,4 +1,19 @@
-﻿using System.IO;
+﻿// Copyright (C) 2010-2011 Francesco 'ShArDiCk' Bramato
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System.IO;
 using System.Net.Mail;
 using System.Text;
 using System.Web;
@@ -8,6 +23,9 @@ using OpenSignals.Framework.Core;
 
 namespace OpenSignals.Framework.Communications
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BaseMessage
     {
         private MailAddressCollection _receivers = new MailAddressCollection();
@@ -42,6 +60,9 @@ namespace OpenSignals.Framework.Communications
             set { _subject = value; }
         }
 
+        /// <summary>
+        /// Sends this instance.
+        /// </summary>
         public virtual void Send()
         {
             _Send();
@@ -67,6 +88,9 @@ namespace OpenSignals.Framework.Communications
             client.Send(m);
         }
 
+        /// <summary>
+        /// Transforms this instance.
+        /// </summary>
         protected void Transform()
         {
             XslCompiledTransform t = new XslCompiledTransform();
@@ -84,6 +108,9 @@ namespace OpenSignals.Framework.Communications
             xw.Close();
         }
 
+        /// <summary>
+        /// Creates the XML.
+        /// </summary>
         protected virtual void CreateXML()
         {
             this.xmlDocument = new XmlDocument();
