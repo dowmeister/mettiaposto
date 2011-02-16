@@ -1,4 +1,8 @@
-﻿function writeMessage(title, message, container)
+﻿/*
+* GENERAL PURPOSE FUNCTIONS
+*/
+
+function writeMessage(title, message, container)
 {
     hideMessage(container);
 

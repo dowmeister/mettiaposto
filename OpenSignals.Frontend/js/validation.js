@@ -1,4 +1,8 @@
-﻿$.validateUtils = function (options)
+﻿/*
+* VALIDATIONS UTILITY
+*/
+
+$.validateUtils = function (options)
 {
     var rules = new Array();
     var errors = new Array();

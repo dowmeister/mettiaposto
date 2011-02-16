@@ -1,4 +1,8 @@
-﻿$(document).ready(function ()
+﻿/*
+* SEARCH FUNCTIONS
+*/
+
+$(document).ready(function ()
 {
     $('#tabs').tabs({
         show: function (event, ui)
@@ -66,7 +70,7 @@ function searchSignals_callback(r)
 
         if (r.result.signals.length > 0)
         {
-            writeMessage('Trovati ' + r.result.signals.length + ' risultati', '<a href="#" onclick="showForm();">Effettua una nuova ricerca</a>','#searchMessages');
+            writeMessage('Trovati ' + r.result.signals.length + ' risultati', '<a href="#" onclick="showForm();">Effettua una nuova ricerca</a>', '#searchMessages');
 
             var map = getMap('map_canvas').obj;
             var bounds = new google.maps.LatLngBounds();

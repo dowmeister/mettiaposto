@@ -1,4 +1,8 @@
-﻿function getComments(offset)
+﻿/*
+* COMMENT FUNCTIONS
+*/
+
+function getComments(offset)
 {
     writeAjax('#commentsMessages');
     $('#comments').empty();

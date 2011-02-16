@@ -1,4 +1,8 @@
-﻿var currentSignalID = 0;
+﻿/*
+* SIGNALS FUNCTIONS
+*/
+
+var currentSignalID = 0;
 
 $(document).ready(function ()
 {

@@ -1,4 +1,8 @@
-﻿var initialLocation = new google.maps.LatLng(45.46265906981793, 9.187488555908203);
+﻿/*
+* MOBILE FUNCTIONS
+*/
+
+var initialLocation = new google.maps.LatLng(45.46265906981793, 9.187488555908203);
 var currentLocation = null;
 var completeAddress = null;
 var marker = null;
@@ -19,7 +23,7 @@ $(document).ready(function ()
             }
         }, function ()
         {
-            
+
         },
         { enableHighAccuracy: true }
         );
@@ -76,7 +80,7 @@ function addMarker()
 
     map.setCenter(currentLocation);
 
-    google.maps.event.addListener(marker, 'dragend', function () { geolocationOnMove(marker.getPosition()); });    
+    google.maps.event.addListener(marker, 'dragend', function () { geolocationOnMove(marker.getPosition()); });
 }
 
 function geolocationOnMove(position)
@@ -162,7 +166,7 @@ function addSignal()
         s.zoom = map.getZoom();
     else
         s.zoom = 16;
-    
+
     s.attachment = '';
 
     if ($('#fuFile').val() != '')

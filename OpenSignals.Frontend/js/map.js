@@ -1,4 +1,8 @@
-﻿var maps = new Array();
+﻿/*
+* MAP MANAGER
+*/
+
+var maps = new Array();
 var markers = new Array();
 var completeAddress;
 var currentMap;
@@ -41,9 +45,9 @@ function getMarker(id)
 }
 
 
-function initializeMap(mapDiv, lat, long, myOptions)
+function initializeMap(mapDiv, lat, longitude, myOptions)
 {
-    var latlng = new google.maps.LatLng(lat, long);
+    var latlng = new google.maps.LatLng(lat, longitude);
 
     myOptions.mapTypeId = google.maps.MapTypeId.ROADMAP;
     myOptions.center = latlng;

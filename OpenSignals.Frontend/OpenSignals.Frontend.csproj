@@ -169,7 +169,6 @@
     <Content Include="js\jquery\plugins\fancybox\fancy_title_main.png" />
     <Content Include="js\jquery\plugins\fancybox\fancy_title_over.png" />
     <Content Include="js\jquery\plugins\fancybox\fancy_title_right.png" />
-    <Content Include="js\jquery\plugins\fancybox\index.html" />
     <Content Include="js\jquery\plugins\fancybox\jquery.fancybox-1.3.4.css" />
     <Content Include="js\jquery\plugins\fancybox\jquery.fancybox-1.3.4.pack.js" />
     <Content Include="js\json.js" />

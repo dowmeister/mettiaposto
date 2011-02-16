@@ -1,4 +1,8 @@
-﻿var initial = 'CAP, indirizzo, quartiere...';
+﻿/*
+* HOME PAGE FUNCTIONS
+*/
+
+var initial = 'CAP, indirizzo, quartiere...';
 $(document).ready(function ()
 {
     $('#txtSearch').val(initial);

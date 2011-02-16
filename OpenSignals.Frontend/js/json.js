@@ -20,36 +20,43 @@ SOFTWARE.
 */
 
 /*
-    The global object JSON contains two methods.
+The global object JSON contains two methods.
 
-    JSON.stringify(value) takes a JavaScript value and produces a JSON text.
-    The value must not be cyclical.
+JSON.stringify(value) takes a JavaScript value and produces a JSON text.
+The value must not be cyclical.
 
-    JSON.parse(text) takes a JSON text and produces a JavaScript value. It will
-    return false if there is an error.
+JSON.parse(text) takes a JSON text and produces a JavaScript value. It will
+return false if there is an error.
 */
-var JSON = function () {
+var JSON = function ()
+{
     var m = {
-            '\b': '\\b',
-            '\t': '\\t',
-            '\n': '\\n',
-            '\f': '\\f',
-            '\r': '\\r',
-            '"' : '\\"',
-            '\\': '\\\\'
-        },
+        '\b': '\\b',
+        '\t': '\\t',
+        '\n': '\\n',
+        '\f': '\\f',
+        '\r': '\\r',
+        '"': '\\"',
+        '\\': '\\\\'
+    },
         s = {
-            'boolean': function (x) {
+            'boolean': function (x)
+            {
                 return String(x);
             },
-            number: function (x) {
+            number: function (x)
+            {
                 return isFinite(x) ? String(x) : 'null';
             },
-            string: function (x) {
-                if (/["\\\x00-\x1f]/.test(x)) {
-                    x = x.replace(/([\x00-\x1f\\"])/g, function(a, b) {
+            string: function (x)
+            {
+                if (/["\\\x00-\x1f]/.test(x))
+                {
+                    x = x.replace(/([\x00-\x1f\\"])/g, function (a, b)
+                    {
                         var c = m[b];
-                        if (c) {
+                        if (c)
+                        {
                             return c;
                         }
                         c = b.charCodeAt();
@@ -60,19 +67,26 @@ var JSON = function () {
                 }
                 return '"' + x + '"';
             },
-            object: function (x) {
-                if (x) {
+            object: function (x)
+            {
+                if (x)
+                {
                     var a = [], b, f, i, l, v;
-                    if (x instanceof Array) {
+                    if (x instanceof Array)
+                    {
                         a[0] = '[';
                         l = x.length;
-                        for (i = 0; i < l; i += 1) {
+                        for (i = 0; i < l; i += 1)
+                        {
                             v = x[i];
                             f = s[typeof v];
-                            if (f) {
+                            if (f)
+                            {
                                 v = f(v);
-                                if (typeof v == 'string') {
-                                    if (b) {
+                                if (typeof v == 'string')
+                                {
+                                    if (b)
+                                    {
                                         a[a.length] = ',';
                                     }
                                     a[a.length] = v;
@@ -81,33 +95,41 @@ var JSON = function () {
                             }
                         }
                         a[a.length] = ']';
-                    } else if (x instanceof Date) {
+                    } else if (x instanceof Date)
+                    {
                         function p(n) { return n < 10 ? '0' + n : n; };
                         var tz = x.getTimezoneOffset();
-                        if (tz != 0) {
+                        if (tz != 0)
+                        {
                             var tzh = Math.floor(Math.abs(tz) / 60);
                             var tzm = Math.abs(tz) % 60;
                             tz = (tz < 0 ? '+' : '-') + p(tzh) + ':' + p(tzm);
                         }
-                        else {
+                        else
+                        {
                             tz = 'Z';
                         }
-                        return '"' + 
+                        return '"' +
                                 x.getFullYear() + '-' +
                                 p(x.getMonth() + 1) + '-' +
                                 p(x.getDate()) + 'T' +
                                 p(x.getHours()) + ':' +
                                 p(x.getMinutes()) + ':' +
                                 p(x.getSeconds()) + tz + '"';
-                    } else if (x instanceof Object) {
+                    } else if (x instanceof Object)
+                    {
                         a[0] = '{';
-                        for (i in x) {
+                        for (i in x)
+                        {
                             v = x[i];
                             f = s[typeof v];
-                            if (f) {
+                            if (f)
+                            {
                                 v = f(v);
-                                if (typeof v == 'string') {
-                                    if (b) {
+                                if (typeof v == 'string')
+                                {
+                                    if (b)
+                                    {
                                         a[a.length] = ',';
                                     }
                                     a.push(s.string(i), ':', v);
@@ -116,7 +138,8 @@ var JSON = function () {
                             }
                         }
                         a[a.length] = '}';
-                    } else {
+                    } else
+                    {
                         return;
                     }
                     return a.join('');
@@ -127,38 +150,47 @@ var JSON = function () {
     return {
         copyright: '(c)2005 JSON.org',
         license: 'http://www.crockford.com/JSON/license.html',
-/*
-    Stringify a JavaScript value, producing a JSON text.
-*/
-        stringify: function (v) {
+        /*
+        Stringify a JavaScript value, producing a JSON text.
+        */
+        stringify: function (v)
+        {
             var f = s[typeof v];
-            if (f) {
+            if (f)
+            {
                 v = f(v);
-                if (typeof v == 'string') {
+                if (typeof v == 'string')
+                {
                     return v;
                 }
             }
             return null;
         },
-/*
-    Parse a JSON text, producing a JavaScript value.
-    It returns false if there is a syntax error.
-*/
-        eval: function (text) {
-            try {
-                if (/^("(\\.|[^"\\\n\r])*?"|[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t])+?$/.test(text)) {
+        /*
+        Parse a JSON text, producing a JavaScript value.
+        It returns false if there is a syntax error.
+        */
+        eval: function (text)
+        {
+            try
+            {
+                if (/^("(\\.|[^"\\\n\r])*?"|[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t])+?$/.test(text))
+                {
                     return eval('(' + text + ')');
                 }
-            } catch (e) {
+            } catch (e)
+            {
             }
             throw new SyntaxError("eval");
         },
 
-        parse: function (text) {
+        parse: function (text)
+        {
             var at = 0;
             var ch = ' ';
 
-            function error(m) {
+            function error(m)
+            {
                 throw {
                     name: 'JSONError',
                     message: m,
@@ -167,34 +199,46 @@ var JSON = function () {
                 };
             }
 
-            function next() {
+            function next()
+            {
                 ch = text.charAt(at);
                 at += 1;
                 return ch;
             }
 
-            function white() {
-                while (ch) {
-                    if (ch <= ' ') {
+            function white()
+            {
+                while (ch)
+                {
+                    if (ch <= ' ')
+                    {
                         next();
-                    } else if (ch == '/') {
-                        switch (next()) {
+                    } else if (ch == '/')
+                    {
+                        switch (next())
+                        {
                             case '/':
-                                while (next() && ch != '\n' && ch != '\r') {}
+                                while (next() && ch != '\n' && ch != '\r') { }
                                 break;
                             case '*':
                                 next();
-                                for (;;) {
-                                    if (ch) {
-                                        if (ch == '*') {
-                                            if (next() == '/') {
+                                for (; ; )
+                                {
+                                    if (ch)
+                                    {
+                                        if (ch == '*')
+                                        {
+                                            if (next() == '/')
+                                            {
                                                 next();
                                                 break;
                                             }
-                                        } else {
+                                        } else
+                                        {
                                             next();
                                         }
-                                    } else {
+                                    } else
+                                    {
                                         error("Unterminated comment");
                                     }
                                 }
@@ -202,52 +246,62 @@ var JSON = function () {
                             default:
                                 error("Syntax error");
                         }
-                    } else {
+                    } else
+                    {
                         break;
                     }
                 }
             }
 
-            function string() {
+            function string()
+            {
                 var i, s = '', t, u;
 
-                if (ch == '"') {
-    outer:          while (next()) {
-                        if (ch == '"') {
+                if (ch == '"')
+                {
+                    outer: while (next())
+                    {
+                        if (ch == '"')
+                        {
                             next();
                             return s;
-                        } else if (ch == '\\') {
-                            switch (next()) {
-                            case 'b':
-                                s += '\b';
-                                break;
-                            case 'f':
-                                s += '\f';
-                                break;
-                            case 'n':
-                                s += '\n';
-                                break;
-                            case 'r':
-                                s += '\r';
-                                break;
-                            case 't':
-                                s += '\t';
-                                break;
-                            case 'u':
-                                u = 0;
-                                for (i = 0; i < 4; i += 1) {
-                                    t = parseInt(next(), 16);
-                                    if (!isFinite(t)) {
-                                        break outer;
+                        } else if (ch == '\\')
+                        {
+                            switch (next())
+                            {
+                                case 'b':
+                                    s += '\b';
+                                    break;
+                                case 'f':
+                                    s += '\f';
+                                    break;
+                                case 'n':
+                                    s += '\n';
+                                    break;
+                                case 'r':
+                                    s += '\r';
+                                    break;
+                                case 't':
+                                    s += '\t';
+                                    break;
+                                case 'u':
+                                    u = 0;
+                                    for (i = 0; i < 4; i += 1)
+                                    {
+                                        t = parseInt(next(), 16);
+                                        if (!isFinite(t))
+                                        {
+                                            break outer;
+                                        }
+                                        u = u * 16 + t;
                                     }
-                                    u = u * 16 + t;
-                                }
-                                s += String.fromCharCode(u);
-                                break;
-                            default:
-                                s += ch;
+                                    s += String.fromCharCode(u);
+                                    break;
+                                default:
+                                    s += ch;
                             }
-                        } else {
+                        } else
+                        {
                             s += ch;
                         }
                     }
@@ -255,23 +309,29 @@ var JSON = function () {
                 error("Bad string");
             }
 
-            function array() {
+            function array()
+            {
                 var a = [];
 
-                if (ch == '[') {
+                if (ch == '[')
+                {
                     next();
                     white();
-                    if (ch == ']') {
+                    if (ch == ']')
+                    {
                         next();
                         return a;
                     }
-                    while (ch) {
+                    while (ch)
+                    {
                         a.push(value());
                         white();
-                        if (ch == ']') {
+                        if (ch == ']')
+                        {
                             next();
                             return a;
-                        } else if (ch != ',') {
+                        } else if (ch != ',')
+                        {
                             break;
                         }
                         next();
@@ -281,29 +341,36 @@ var JSON = function () {
                 error("Bad array");
             }
 
-            function object() {
+            function object()
+            {
                 var k, o = {};
 
-                if (ch == '{') {
+                if (ch == '{')
+                {
                     next();
                     white();
-                    if (ch == '}') {
+                    if (ch == '}')
+                    {
                         next();
                         return o;
                     }
-                    while (ch) {
+                    while (ch)
+                    {
                         k = string();
                         white();
-                        if (ch != ':') {
+                        if (ch != ':')
+                        {
                             break;
                         }
                         next();
                         o[k] = value();
                         white();
-                        if (ch == '}') {
+                        if (ch == '}')
+                        {
                             next();
                             return o;
-                        } else if (ch != ',') {
+                        } else if (ch != ',')
+                        {
                             break;
                         }
                         next();
@@ -313,59 +380,74 @@ var JSON = function () {
                 error("Bad object");
             }
 
-            function number() {
+            function number()
+            {
                 var n = '', v;
-                if (ch == '-') {
+                if (ch == '-')
+                {
                     n = '-';
                     next();
                 }
-                while (ch >= '0' && ch <= '9') {
+                while (ch >= '0' && ch <= '9')
+                {
                     n += ch;
                     next();
                 }
-                if (ch == '.') {
+                if (ch == '.')
+                {
                     n += '.';
-                    while (next() && ch >= '0' && ch <= '9') {
+                    while (next() && ch >= '0' && ch <= '9')
+                    {
                         n += ch;
                     }
                 }
-                if (ch == 'e' || ch == 'E') {
+                if (ch == 'e' || ch == 'E')
+                {
                     n += 'e';
                     next();
-                    if (ch == '-' || ch == '+') {
+                    if (ch == '-' || ch == '+')
+                    {
                         n += ch;
                         next();
                     }
-                    while (ch >= '0' && ch <= '9') {
+                    while (ch >= '0' && ch <= '9')
+                    {
                         n += ch;
                         next();
                     }
                 }
                 v = +n;
-                if (!isFinite(v)) {
+                if (!isFinite(v))
+                {
                     ////error("Bad number");
-                } else {
+                } else
+                {
                     return v;
                 }
             }
 
-            function word() {
-                switch (ch) {
+            function word()
+            {
+                switch (ch)
+                {
                     case 't':
-                        if (next() == 'r' && next() == 'u' && next() == 'e') {
+                        if (next() == 'r' && next() == 'u' && next() == 'e')
+                        {
                             next();
                             return true;
                         }
                         break;
                     case 'f':
                         if (next() == 'a' && next() == 'l' && next() == 's' &&
-                                next() == 'e') {
+                                next() == 'e')
+                        {
                             next();
                             return false;
                         }
                         break;
                     case 'n':
-                        if (next() == 'u' && next() == 'l' && next() == 'l') {
+                        if (next() == 'u' && next() == 'l' && next() == 'l')
+                        {
                             next();
                             return null;
                         }
@@ -374,9 +456,11 @@ var JSON = function () {
                 error("Syntax error");
             }
 
-            function value() {
+            function value()
+            {
                 white();
-                switch (ch) {
+                switch (ch)
+                {
                     case '{':
                         return object();
                     case '[':
@@ -393,4 +477,4 @@ var JSON = function () {
             return value();
         }
     };
-}();
+} ();
