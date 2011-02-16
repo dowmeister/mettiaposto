@@ -17,13 +17,14 @@ using System;
 using NHibernate;
 using NHibernate.Cfg;
 using OpenSignals.Framework.Core;
+using OpenSignals.Framework.Core.Base;
 
 namespace OpenSignals.Framework.Web
 {
     /// <summary>
     /// Common Global.asax class
     /// </summary>
-    public class Global : System.Web.HttpApplication
+    public class Global : BaseApplication
     {
         /// <summary>
         /// Gets the session factory.
@@ -37,9 +38,17 @@ namespace OpenSignals.Framework.Web
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Application_Start(object sender, EventArgs e)
         {
-            var config = new Configuration();
-            config.Configure();
-            SessionFactory = config.BuildSessionFactory();
+            try
+            {
+                var config = new Configuration();
+                config.Configure();
+                SessionFactory = config.BuildSessionFactory();
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error building NHibernate Session Factory", ex);
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -49,7 +58,15 @@ namespace OpenSignals.Framework.Web
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            RewriteManager.RewriteUrl();
+            try
+            {
+                RewriteManager.RewriteUrl();
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error rewriting url", ex);
+                throw ex;
+            }
         }
     }
 }

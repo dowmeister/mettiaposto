@@ -17,6 +17,8 @@ using System.Configuration;
 using System.Text.RegularExpressions;
 using System.Web;
 using OpenSignals.Framework.Core.Configuration;
+using System;
+using OpenSignals.Framework.Core.Base;
 
 namespace OpenSignals.Framework.Core.Configuration
 {
@@ -29,7 +31,7 @@ namespace OpenSignals.Framework.Core.Configuration
         /// Gets the rules.
         /// </summary>
         [ConfigurationProperty("rules", IsRequired = true),
-        ConfigurationCollection(typeof(RewriteRuleElement), AddItemName="rule")]
+        ConfigurationCollection(typeof(RewriteRuleElement), AddItemName = "rule")]
         public RewriteRuleCollection Rules
         {
             get { return (RewriteRuleCollection)this["rules"]; }
@@ -110,7 +112,7 @@ namespace OpenSignals.Framework.Core
     /// <summary>
     /// This class manage the rewrite engine
     /// </summary>
-    public class RewriteManager
+    public class RewriteManager : BaseManager
     {
         /// <summary>
         /// Rewrites the URL and redirect the request to destination page from rules in web.config
@@ -119,23 +121,33 @@ namespace OpenSignals.Framework.Core
         {
             RewriteConfigurationSection config = (RewriteConfigurationSection)ConfigurationManager.GetSection("rewrite");
 
-            foreach (RewriteRuleElement rule in config.Rules)
+            if (config != null)
             {
-                Regex r = new Regex(rule.Url, RegexOptions.Singleline|RegexOptions.IgnoreCase|RegexOptions.CultureInvariant);
-                Match m = r.Match(HttpContext.Current.Request.Url.AbsolutePath);
-                if (m.Success)
+                if (config.Rules != null)
                 {
-                    string destinationUrl = rule.Destination;
-
-                    for (int i = 0; i < m.Groups.Count; i++)
+                    foreach (RewriteRuleElement rule in config.Rules)
                     {
-                        if (m.Groups[i].Index > 0)
-                            destinationUrl = destinationUrl.Replace("$" + i.ToString(), m.Groups[i].Value);
-                    }
+                        Regex r = new Regex(rule.Url, RegexOptions.Singleline | RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+                        Match m = r.Match(HttpContext.Current.Request.Url.AbsolutePath);
+                        if (m.Success)
+                        {
+                            string destinationUrl = rule.Destination;
 
-                    HttpContext.Current.RewritePath(destinationUrl + HttpContext.Current.Request.Url.Query); 
+                            for (int i = 0; i < m.Groups.Count; i++)
+                            {
+                                if (m.Groups[i].Index > 0)
+                                    destinationUrl = destinationUrl.Replace("$" + i.ToString(), m.Groups[i].Value);
+                            }
+
+                            HttpContext.Current.RewritePath(destinationUrl + HttpContext.Current.Request.Url.Query);
+                        }
+                    }
                 }
+                else
+                    throw new Exception("Cannot find <rules> node in web.config");
             }
+            else
+                throw new Exception("Cannot find <rewrite> node in web.config");
         }
     }
 }

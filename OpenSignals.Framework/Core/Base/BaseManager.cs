@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using log4net;
+using System.Web;
 
 namespace OpenSignals.Framework.Core.Base
 {
@@ -21,6 +22,28 @@ namespace OpenSignals.Framework.Core.Base
     /// This class repesents the base class to inheritate from when using businnes logic classes. 
     /// </summary>
     public class BaseManager
+    {
+        private ILog _log = null;
+
+        /// <summary>
+        /// Gets the log.
+        /// </summary>
+        protected ILog log
+        {
+            get
+            {
+                if (_log == null)
+                    _log = LogManager.GetLogger("System");
+
+                return _log;
+            }
+        }
+    }
+
+    /// <summary>
+    /// This class is used by Global class
+    /// </summary>
+    public class BaseApplication : HttpApplication
     {
         private ILog _log = null;
 

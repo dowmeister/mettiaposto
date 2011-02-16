@@ -23,5 +23,5 @@ function search()
     if ($('#txtSearch').val() == '' || $('#txtSearch').val() == initial)
         alert('Inserire un indirizzo valido');
     else
-        window.location.href = '/' + $('#ddlCities').text() + '/' + encodeURI($('#txtSearch').val()) + '/invia.aspx';
+        window.location.href = '/' + $('#ddlCities').val() + '/' + encodeURI($('#txtSearch').val()) + '/invia.aspx';
 }
