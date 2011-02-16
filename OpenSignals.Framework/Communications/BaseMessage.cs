@@ -20,40 +20,73 @@ using System.Web;
 using System.Xml;
 using System.Xml.Xsl;
 using OpenSignals.Framework.Core;
+using OpenSignals.Framework.Core.Base;
+using System;
 
 namespace OpenSignals.Framework.Communications
 {
     /// <summary>
-    /// 
+    /// This class represents base class for communications. Implements common method and properties to configure each communication
     /// </summary>
-    public class BaseMessage
+    public class BaseMessage : BaseManager
     {
         private MailAddressCollection _receivers = new MailAddressCollection();
         private MailAddressCollection _bccReceivers = new MailAddressCollection();
         private MailAddress _sender = new MailAddress(ConfigurationOptions.Current.GetString("email_sender_address"), ConfigurationOptions.Current.GetString("email_sender_name"));
         private string _subject = string.Empty;
         private string body = string.Empty;
+
+        /// <summary>
+        /// XSL File name
+        /// </summary>
         protected string xslFileName = string.Empty;
+        /// <summary>
+        /// XML Document
+        /// </summary>
         protected XmlDocument xmlDocument = new XmlDocument();
 
+        /// <summary>
+        /// Gets or sets the receivers.
+        /// </summary>
+        /// <value>
+        /// The receivers.
+        /// </value>
         public MailAddressCollection Receivers
         {
             get { return _receivers; }
             set { _receivers = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the BCC receivers.
+        /// </summary>
+        /// <value>
+        /// The BCC receivers.
+        /// </value>
         public MailAddressCollection BccReceivers
         {
             get { return _bccReceivers; }
             set { _bccReceivers = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the sender.
+        /// </summary>
+        /// <value>
+        /// The sender.
+        /// </value>
         public MailAddress Sender
         {
             get { return _sender; }
             set { _sender = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the subject.
+        /// </summary>
+        /// <value>
+        /// The subject.
+        /// </value>
         public string Subject
         {
             get { return _subject; }
@@ -61,51 +94,65 @@ namespace OpenSignals.Framework.Communications
         }
 
         /// <summary>
-        /// Sends this instance.
+        /// Sends the communication.
         /// </summary>
-        public virtual void Send()
+        protected void Send()
         {
-            _Send();
-        }
+            try
+            {
+                MailMessage m = new MailMessage();
+                m.Sender = _sender;
+                m.From = _sender;
 
-        private void _Send()
-        {
-            MailMessage m = new MailMessage();
-            m.Sender = _sender;
-            m.From = _sender;
-            foreach (MailAddress ma in _receivers)
-            {
-                m.To.Add(ma);
+                foreach (MailAddress ma in _receivers)
+                {
+                    m.To.Add(ma);
+                }
+
+                foreach (MailAddress ma in _bccReceivers)
+                {
+                    m.Bcc.Add(ma);
+                }
+
+                m.Subject = _subject;
+                m.Body = body;
+                m.IsBodyHtml = true;
+
+                SmtpClient client = new SmtpClient();
+                client.Send(m);
             }
-            foreach (MailAddress ma in _bccReceivers)
+            catch (System.Exception ex)
             {
-                m.Bcc.Add(ma);
-            }
-            m.Subject = _subject;
-            m.Body = body;
-            m.IsBodyHtml = true;
-            SmtpClient client = new SmtpClient();
-            client.Send(m);
+                log.Error("Error sending communication", ex);
+            }            
         }
 
         /// <summary>
-        /// Transforms this instance.
+        /// Transforms XML via XSL to create the communication body
         /// </summary>
         protected void Transform()
         {
-            XslCompiledTransform t = new XslCompiledTransform();
-            t.Load(HttpContext.Current.Server.MapPath(Path.Combine("/Contents/XSL/", this.xslFileName + ".xsl")));
+            try
+            {
+                XslCompiledTransform t = new XslCompiledTransform();
+                t.Load(HttpContext.Current.Server.MapPath(Path.Combine("/Contents/XSL/", this.xslFileName + ".xsl")));
 
-            StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder();
 
-            XmlWriterSettings xws = new XmlWriterSettings();
-            xws.ConformanceLevel = ConformanceLevel.Auto;
-            xws.CheckCharacters = false;
+                XmlWriterSettings xws = new XmlWriterSettings();
+                xws.ConformanceLevel = ConformanceLevel.Auto;
+                xws.CheckCharacters = false;
 
-            XmlWriter xw = XmlWriter.Create(sb, xws);
-            t.Transform(xmlDocument, xw);
-            body = sb.ToString();
-            xw.Close();
+                XmlWriter xw = XmlWriter.Create(sb, xws);
+                t.Transform(xmlDocument, xw);
+                body = sb.ToString();
+                xw.Close();
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error transforming XML", ex);
+                throw ex;
+            }
         }
 
         /// <summary>

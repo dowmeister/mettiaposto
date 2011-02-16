@@ -21,7 +21,7 @@ using OpenSignals.Framework.Core.Configuration;
 namespace OpenSignals.Framework.Core.Configuration
 {
     /// <summary>
-    /// 
+    /// This class manage the rewrite configuration section from web.config
     /// </summary>
     public class RewriteConfigurationSection : ConfigurationSection
     {
@@ -49,7 +49,7 @@ namespace OpenSignals.Framework.Core.Configuration
         ///   </returns>
         ///   
         /// <exception cref="T:System.Configuration.ConfigurationErrorsException">
-        ///   <paramref name="prop"/> is read-only or locked.
+        ///   <paramref name="index"/> is read-only or locked.
         ///   </exception>
         public RewriteRuleElement this[int index]
         {
@@ -95,7 +95,7 @@ namespace OpenSignals.Framework.Core.Configuration
         }
 
         /// <summary>
-        /// Gets the destination.
+        /// Gets the destination page of rewrited URL
         /// </summary>
         [ConfigurationProperty("to", IsRequired = true)]
         public string Destination
@@ -108,12 +108,12 @@ namespace OpenSignals.Framework.Core.Configuration
 namespace OpenSignals.Framework.Core
 {
     /// <summary>
-    /// 
+    /// This class manage the rewrite engine
     /// </summary>
     public class RewriteManager
     {
         /// <summary>
-        /// Rewrites the URL.
+        /// Rewrites the URL and redirect the request to destination page from rules in web.config
         /// </summary>
         public static void RewriteUrl()
         {

@@ -16,28 +16,28 @@
 namespace OpenSignals.Framework.Core
 {
     /// <summary>
-    /// 
+    /// Constants for upload path
     /// </summary>
     public struct UploadPaths
     {
         /// <summary>
-        /// 
+        /// Original size
         /// </summary>
         public const string Original = "o/";
         /// <summary>
-        /// 
+        /// Mobile size
         /// </summary>
         public const string Mobile = "m/";
         /// <summary>
-        /// 
+        /// Small size
         /// </summary>
         public const string Small = "s/";
         /// <summary>
-        /// 
+        /// Big size
         /// </summary>
         public const string Big = "b/";
         /// <summary>
-        /// 
+        /// Comments size
         /// </summary>
         public const string Comments = "c/";
     }

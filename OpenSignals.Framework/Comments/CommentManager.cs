@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NHibernate.Criterion;
 using OpenSignals.Framework.Data;
+using System;
 
 namespace OpenSignals.Framework.Comments
 {
@@ -26,41 +27,51 @@ namespace OpenSignals.Framework.Comments
     public class CommentManager : NHibernateSessionManager
     {
         /// <summary>
-        /// Gets the comments.
+        /// Gets the comments of a given signal ID
         /// </summary>
         /// <param name="signalID">The signal ID.</param>
         /// <param name="offset">The offset.</param>
         /// <param name="totalCount">The total count.</param>
-        /// <returns></returns>
+        /// <returns>Comment collection</returns>
         public List<Comment> GetComments(int signalID, int offset, out int totalCount)
         {
-            OpenSession();
+            try
+            {
+                OpenSession();
 
-            totalCount = session.CreateCriteria(typeof(Comment))
-                .Add(Restrictions.Eq("SignalID", signalID))
-                .AddOrder(Order.Desc("CreationDate"))
-                .Add(Restrictions.Eq("Status", 1))
-                .SetProjection(Projections.RowCount())
-                .FutureValue<int>().Value;
+                totalCount = session.CreateCriteria(typeof(Comment))
+                    .Add(Restrictions.Eq("SignalID", signalID))
+                    .AddOrder(Order.Desc("CreationDate"))
+                    .Add(Restrictions.Eq("Status", 1))
+                    .SetProjection(Projections.RowCount())
+                    .FutureValue<int>().Value;
 
-            List<Comment> comments = session.CreateCriteria(typeof(Comment))
-                .Add(Restrictions.Eq("SignalID", signalID))
-                .Add(Restrictions.Eq("Status", 1))
-                .AddOrder(Order.Desc("CreationDate"))
-                .SetMaxResults(offset+5)
-                .SetFirstResult(offset)
-                .Future<Comment>().ToList();
+                List<Comment> comments = session.CreateCriteria(typeof(Comment))
+                    .Add(Restrictions.Eq("SignalID", signalID))
+                    .Add(Restrictions.Eq("Status", 1))
+                    .AddOrder(Order.Desc("CreationDate"))
+                    .SetMaxResults(offset + 5)
+                    .SetFirstResult(offset)
+                    .Future<Comment>().ToList();
 
-            CloseSession();
-
-            return comments;
+                return comments;
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error loading comments", ex);
+                throw ex;
+            }
+            finally
+            {
+                CloseSession();
+            }
         }
 
         /// <summary>
         /// Adds the comment.
         /// </summary>
         /// <param name="c">The c.</param>
-        /// <returns></returns>
+        /// <returns>Comment ID</returns>
         public int AddComment(Comment c)
         {
             OpenSession();

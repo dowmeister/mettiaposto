@@ -20,11 +20,21 @@ using OpenSignals.Framework.Comments;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Utility;
 using OpenSignals.Framework.Signals;
+using System;
 
 namespace OpenSignals.Framework.Communications.Messages
 {
+    /// <summary>
+    /// Alert communication: this email is sent to signal owner, admin and subscription users when an action is performed on signal (comment, set as resolved)
+    /// </summary>
     public class SignalAlertEmail : BaseMessage
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SignalAlertEmail"/> class.
+        /// </summary>
+        /// <remarks>
+        /// This communication is sent to signal owner, admin email and subscription users on signal comment.
+        /// </remarks>
         public SignalAlertEmail()
         {
             this.Receivers.Add(ConfigurationOptions.Current.GetString("email_sender_address"));
@@ -32,27 +42,43 @@ namespace OpenSignals.Framework.Communications.Messages
             this.Subject = "Mettiaposto.it: Segnalazione aggiornata";
         }
 
+        /// <summary>
+        /// Sends the specified c.
+        /// </summary>
+        /// <param name="c">The c.</param>
         public void Send(Comment c)
         {
-            SignalManager sm = new SignalManager();
-            Signal s = sm.LoadSingnal(c.SignalID);
-
-            this.BccReceivers.Add(new MailAddress(s.Email));
-
-            List<SignalSubscription> subscriptions = sm.GetSubscriptions(c.SignalID);
-            
-            foreach (SignalSubscription sc in subscriptions)
+            try
             {
-                MailAddress ma = new MailAddress(sc.Email);
-                if (!this.BccReceivers.Contains(ma))
-                    this.BccReceivers.Add(ma);
-            }
+                SignalManager sm = new SignalManager();
+                Signal s = sm.LoadSingnal(c.SignalID);
 
-            this.CreateXML(s, c);
-            base.Transform();
-            base.Send();
+                this.BccReceivers.Add(new MailAddress(s.Email));
+
+                List<SignalSubscription> subscriptions = sm.GetSubscriptions(c.SignalID);
+
+                foreach (SignalSubscription sc in subscriptions)
+                {
+                    MailAddress ma = new MailAddress(sc.Email);
+                    if (!this.BccReceivers.Contains(ma))
+                        this.BccReceivers.Add(ma);
+                }
+
+                this.CreateXML(s, c);
+                base.Transform();
+                base.Send();
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error sending alert communication", ex);
+            }
         }
 
+        /// <summary>
+        /// Creates the XML.
+        /// </summary>
+        /// <param name="s">The s.</param>
+        /// <param name="c">The c.</param>
         protected void CreateXML(Signal s, Comment c)
         {
             base.CreateXML();

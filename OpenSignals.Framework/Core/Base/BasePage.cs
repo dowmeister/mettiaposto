@@ -21,12 +21,18 @@ using log4net;
 namespace OpenSignals.Framework.Core.Base
 {
     /// <summary>
-    /// 
+    /// This class represents the base class for Web Pages, implements common methods and utilities to be used in asp.net pages
     /// </summary>
     public class BasePage : System.Web.UI.Page
     {
+        /// <summary>
+        /// Logger class
+        /// </summary>
         protected ILog _logger = null;
 
+        /// <summary>
+        /// Gets the log.
+        /// </summary>
         protected ILog log
         {
             get
@@ -53,10 +59,10 @@ namespace OpenSignals.Framework.Core.Base
         }
 
         /// <summary>
-        /// Requests the contains file.
+        /// Check if request the contains file.
         /// </summary>
-        /// <param name="szControl">The sz control.</param>
-        /// <returns></returns>
+        /// <param name="szControl">The control.</param>
+        /// <returns>True if request contains file otherwise false</returns>
         protected bool RequestContainsFile(string szControl)
         {
             if (Request.Files[szControl] != null)
@@ -68,8 +74,8 @@ namespace OpenSignals.Framework.Core.Base
         /// <summary>
         /// Gets the file from request.
         /// </summary>
-        /// <param name="szControl">The sz control.</param>
-        /// <returns></returns>
+        /// <param name="szControl">The html control.</param>
+        /// <returns>HttpPostedFile object</returns>
         protected HttpPostedFile GetFileFromRequest(string szControl)
         {
             if (RequestContainsFile(szControl))

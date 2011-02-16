@@ -23,7 +23,7 @@ using OpenSignals.Framework.Data;
 namespace OpenSignals.Framework.Signals
 {
     /// <summary>
-    /// 
+    /// This class manage signal operations and signal subscriptions
     /// </summary>
     public class SignalManager : NHibernateSessionManager
     {
@@ -57,20 +57,17 @@ namespace OpenSignals.Framework.Signals
             catch (Exception ex)
             {
                 RollbackTransaction();
+                CloseSession();
                 throw ex;
-            }
-            finally
-            {
-
             }
         }
 
         /// <summary>
-        /// Searches the near zip.
+        /// Searches signals nearby using the zip code
         /// </summary>
         /// <param name="zipCode">The zip code.</param>
         /// <param name="signalID">The signal ID.</param>
-        /// <returns></returns>
+        /// <returns>Signal collection</returns>
         public List<Signal> SearchNearZip(string zipCode, int signalID)
         {
             try
@@ -81,17 +78,20 @@ namespace OpenSignals.Framework.Signals
                         .Add(Expression.Not(Expression.Eq("SignalID", signalID)))
                         .SetMaxResults(20)
                         .List<Signal>();
-                CloseSession();
                 return ret;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            finally
+            {
+                CloseSession();
+            }
         }
 
         /// <summary>
-        /// Searches the specified city.
+        /// Searches for signals by given parameters
         /// </summary>
         /// <param name="city">The city.</param>
         /// <param name="address">The address.</param>
@@ -100,7 +100,7 @@ namespace OpenSignals.Framework.Signals
         /// <param name="status">The status.</param>
         /// <param name="offset">The offset.</param>
         /// <param name="totalRecords">The total records.</param>
-        /// <returns></returns>
+        /// <returns>Signal collection</returns>
         public List<Signal> Search(string city, string address, string zip, int categoryID, int status, int offset, out int totalRecords)
         {
             try
@@ -115,13 +115,15 @@ namespace OpenSignals.Framework.Signals
                     .SetFirstResult(offset)
                     .Future<Signal>().ToList();
 
-                CloseSession();
-
                 return ret;
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                CloseSession();
             }
         }
 
@@ -149,7 +151,7 @@ namespace OpenSignals.Framework.Signals
         }
 
         /// <summary>
-        /// Gets the count by status.
+        /// Gets the signal count by status.
         /// </summary>
         /// <param name="status">The status.</param>
         /// <returns></returns>
@@ -164,7 +166,7 @@ namespace OpenSignals.Framework.Signals
         }
 
         /// <summary>
-        /// Gets the count all.
+        /// Gets the count of all approved (not resolved) signals.
         /// </summary>
         /// <returns></returns>
         public int GetCountAll()
@@ -178,10 +180,10 @@ namespace OpenSignals.Framework.Signals
         }
 
         /// <summary>
-        /// Checks if subscribed.
+        /// Checks if email is subscribed to the signal
         /// </summary>
-        /// <param name="ss">The ss.</param>
-        /// <returns></returns>
+        /// <param name="ss">The signal subscription information</param>
+        /// <returns>True if already subscribed otherwise false</returns>
         public bool CheckIfSubscribed(SignalSubscription ss)
         {
             OpenSession();
@@ -197,10 +199,10 @@ namespace OpenSignals.Framework.Signals
         }
 
         /// <summary>
-        /// Gets the subscriptions.
+        /// Gets the signal subscriptions.
         /// </summary>
         /// <param name="signalID">The signal ID.</param>
-        /// <returns></returns>
+        /// <returns>Subscription collection</returns>
         public List<SignalSubscription> GetSubscriptions(int signalID)
         {
             OpenSession();
@@ -212,7 +214,7 @@ namespace OpenSignals.Framework.Signals
         }
 
         /// <summary>
-        /// Subscribes the signal.
+        /// Subscribes email to the signal.
         /// </summary>
         /// <param name="ss">The ss.</param>
         public void SubscribeSignal(SignalSubscription ss)
@@ -223,7 +225,7 @@ namespace OpenSignals.Framework.Signals
         }
 
         /// <summary>
-        /// Resolves the signal.
+        /// Set the signal as resolved
         /// </summary>
         /// <param name="signalID">The signal ID.</param>
         /// <param name="comment">The comment.</param>

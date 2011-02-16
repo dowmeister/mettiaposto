@@ -18,15 +18,18 @@ using System;
 namespace OpenSignals.Framework.Comments
 {
     /// <summary>
-    /// 
+    /// This class represents the signal comment. 
     /// </summary>
     public class Comment
     {
         private bool _setSignalResolved = false;
 
         /// <summary>
-        /// 
+        /// Gets or sets a value indicating whether [set signal resolved].
         /// </summary>
+        /// <value>
+        ///   <c>true</c> if [set signal resolved]; otherwise, <c>false</c>.
+        /// </value>
         public virtual bool SetSignalResolved
         {
             get { return _setSignalResolved; }
@@ -34,50 +37,86 @@ namespace OpenSignals.Framework.Comments
         }
 
         /// <summary>
-        /// 
+        /// Represents comment status
         /// </summary>
         public struct CommentStatus
         {
+            /// <summary>
+            /// Not Approved, still to approve.
+            /// </summary>
             public const int NotApproved = 0;
+            /// <summary>
+            /// Approved and published
+            /// </summary>
             public const int Approved = 1;
+            /// <summary>
+            /// Rejected
+            /// </summary>
             public const int Reject = -1;
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the comment ID.
         /// </summary>
+        /// <value>
+        /// The comment ID.
+        /// </value>
         public virtual int CommentID { get; set; }
         /// <summary>
-        /// 
+        /// Gets or sets the name of the author.
         /// </summary>
+        /// <value>
+        /// The name of the author.
+        /// </value>
         public virtual string AuthorName { get; set; }
         /// <summary>
-        /// 
+        /// Gets or sets the author email.
         /// </summary>
+        /// <value>
+        /// The author email.
+        /// </value>
         public virtual string AuthorEmail { get; set; }
         /// <summary>
-        /// 
+        /// Gets or sets the signal ID.
         /// </summary>
+        /// <value>
+        /// The signal ID.
+        /// </value>
         public virtual int SignalID { get; set; }
         /// <summary>
-        /// 
+        /// Gets or sets the attachment.
         /// </summary>
+        /// <value>
+        /// The attachment.
+        /// </value>
         public virtual string Attachment { get; set; }
         /// <summary>
-        /// 
+        /// Gets or sets the creation date.
         /// </summary>
+        /// <value>
+        /// The creation date.
+        /// </value>
         public virtual DateTime CreationDate { get; set; }
         /// <summary>
-        /// 
+        /// Gets or sets the status.
         /// </summary>
+        /// <value>
+        /// The status.
+        /// </value>
         public virtual int Status { get; set; }
         /// <summary>
-        /// 
+        /// Gets or sets a value indicating whether [show author name].
         /// </summary>
+        /// <value>
+        ///   <c>true</c> if [show author name]; otherwise, <c>false</c>.
+        /// </value>
         public virtual bool ShowAuthorName { get; set; }
         /// <summary>
-        /// 
+        /// Gets or sets the text.
         /// </summary>
+        /// <value>
+        /// The text.
+        /// </value>
         public virtual string Text { get; set; }
        
     }

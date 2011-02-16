@@ -21,25 +21,25 @@ using OpenSignals.Framework.Web;
 namespace OpenSignals.Framework.Data
 {
     /// <summary>
-    /// 
+    /// This class manage NHibernate session, db access, transactions
     /// </summary>
     public class NHibernateSessionManager : BaseManager
     {
         /// <summary>
-        /// 
+        /// Session Factory
         /// </summary>
         protected ISessionFactory factory = null;
         /// <summary>
-        /// 
+        /// NHibernate session
         /// </summary>
         protected ISession session = null;
         /// <summary>
-        /// 
+        /// Transaction object
         /// </summary>
         protected ITransaction transaction = null;
 
         /// <summary>
-        /// Creates the session.
+        /// Creates the NHibernate session.
         /// </summary>
         protected void CreateSession()
         {
@@ -56,7 +56,7 @@ namespace OpenSignals.Framework.Data
         }
 
         /// <summary>
-        /// Opens the session.
+        /// Opens the NHibernate session.
         /// </summary>
         public void OpenSession()
         {
@@ -70,7 +70,7 @@ namespace OpenSignals.Framework.Data
         }
 
         /// <summary>
-        /// Closes the session.
+        /// Closes the NHibernate session.
         /// </summary>
         public void CloseSession()
         {
@@ -88,16 +88,18 @@ namespace OpenSignals.Framework.Data
         }
 
         /// <summary>
-        /// Flushes this instance.
+        /// Flushes the NHibernate session.
         /// </summary>
         protected void Flush()
         {
-            session.Flush();
+            if (session != null)
+                session.Flush();
+
             CloseSession();
         }
 
         /// <summary>
-        /// Opens the transaction.
+        /// Opens the NHibernate transaction.
         /// </summary>
         public void OpenTransaction()
         {
@@ -117,7 +119,7 @@ namespace OpenSignals.Framework.Data
         }
 
         /// <summary>
-        /// Commits the transaction.
+        /// Commits the NHibernate transaction.
         /// </summary>
         public void CommitTransaction()
         {
@@ -135,7 +137,7 @@ namespace OpenSignals.Framework.Data
         }
 
         /// <summary>
-        /// Rollbacks the transaction.
+        /// Rollbacks the NHibernate transaction.
         /// </summary>
         public void RollbackTransaction()
         {

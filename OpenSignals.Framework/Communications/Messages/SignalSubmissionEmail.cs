@@ -19,8 +19,16 @@ using OpenSignals.Framework.Signals;
 
 namespace OpenSignals.Framework.Communications.Messages
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SignalSubmissionEmail : BaseMessage
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SignalSubmissionEmail"/> class.
+        /// <remarks>
+        /// This communication is sent to admin email when on signal submission</remarks>
+        /// </summary>
         public SignalSubmissionEmail()
         {
             this.Receivers.Add(ConfigurationOptions.Current.GetString("signal_submission_receiver_address"));
@@ -28,6 +36,10 @@ namespace OpenSignals.Framework.Communications.Messages
             this.Subject = "Mettiaposto.it: Nuova segnalazione inserita";
         }
 
+        /// <summary>
+        /// Sends the specified s.
+        /// </summary>
+        /// <param name="s">The s.</param>
         public void Send(Signal s)
         {
             this.CreateXML(s);
@@ -35,6 +47,10 @@ namespace OpenSignals.Framework.Communications.Messages
             base.Send();
         }
 
+        /// <summary>
+        /// Creates the XML.
+        /// </summary>
+        /// <param name="s">The s.</param>
         protected void CreateXML(Signal s)
         {
             base.CreateXML();

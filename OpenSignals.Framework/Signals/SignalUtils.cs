@@ -18,12 +18,12 @@ using System;
 namespace OpenSignals.Framework.Signals
 {
     /// <summary>
-    /// 
+    /// Utility class for signals
     /// </summary>
     public class SignalUtils
     {
         /// <summary>
-        /// Gets the timeframe.
+        /// Gets the timeframe respect to the creation date of a signal
         /// </summary>
         /// <param name="creationDate">The creation date.</param>
         /// <returns></returns>

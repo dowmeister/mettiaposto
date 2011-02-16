@@ -21,15 +21,15 @@ using System.Xml.Serialization;
 namespace OpenSignals.Framework.Core.Utility
 {
     /// <summary>
-    /// 
+    /// Utility class to mange XML, nodes and documents
     /// </summary>
     public class XmlUtils
     {
         /// <summary>
-        /// Serializes the specified o.
+        /// Serializes the specified object
         /// </summary>
-        /// <param name="o">The o.</param>
-        /// <returns></returns>
+        /// <param name="o">The object to serialize</param>
+        /// <returns>Object serialization</returns>
         public static XmlDocument Serialize(object o)
         {
             XmlDocument xDocument = null;

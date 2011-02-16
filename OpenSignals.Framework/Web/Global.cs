@@ -21,7 +21,7 @@ using OpenSignals.Framework.Core;
 namespace OpenSignals.Framework.Web
 {
     /// <summary>
-    /// 
+    /// Common Global.asax class
     /// </summary>
     public class Global : System.Web.HttpApplication
     {

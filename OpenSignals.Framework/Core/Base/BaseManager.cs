@@ -18,7 +18,7 @@ using log4net;
 namespace OpenSignals.Framework.Core.Base
 {
     /// <summary>
-    /// 
+    /// This class repesents the base class to inheritate from when using businnes logic classes. 
     /// </summary>
     public class BaseManager
     {

@@ -20,14 +20,14 @@ using OpenSignals.Framework.Data;
 namespace OpenSignals.Framework.Categories
 {
     /// <summary>
-    /// 
+    /// This class manage Categories.
     /// </summary>
     public class CategoryManager : NHibernateSessionManager
     {
         /// <summary>
         /// Gets the active.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Category collection</returns>
         public List<Category> GetActive()
         {
             try
@@ -35,7 +35,6 @@ namespace OpenSignals.Framework.Categories
                 OpenSession();
                 List<Category> cats = (List<Category>)session.CreateCriteria(typeof(Category))
                     .AddOrder(new NHibernate.Criterion.Order("Name", true)).List<Category>();
-                CloseSession();
                 return cats;
             }
             catch (Exception ex)
@@ -53,14 +52,13 @@ namespace OpenSignals.Framework.Categories
         /// Loads the specified id.
         /// </summary>
         /// <param name="id">The id.</param>
-        /// <returns></returns>
+        /// <returns>Category object</returns>
         public Category Load(int id)
         {
             try
             {
                 OpenSession();
                 Category ret = (Category)session.Load(typeof(Category), id);
-                CloseSession();
                 return ret;
             }
             catch (Exception ex)

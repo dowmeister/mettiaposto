@@ -21,14 +21,26 @@ using OpenSignals.Framework.Comments;
 namespace OpenSignals.Framework.Signals
 {
     /// <summary>
-    /// 
+    /// This class is the signal object
     /// </summary>
     public class Signal
     {
+        /// <summary>
+        /// Signal status
+        /// </summary>
         public struct SignalStatus
         {
+            /// <summary>
+            /// Not approved, to be approved
+            /// </summary>
             public const int NotApproved = 0;
+            /// <summary>
+            /// Approved and publisheds
+            /// </summary>
             public const int Approved = 1;
+            /// <summary>
+            /// Resolved
+            /// </summary>
             public const int Resolved = 2;            
         }
 
@@ -40,7 +52,7 @@ namespace OpenSignals.Framework.Signals
         #region Public Properties
 
         /// <summary>
-        /// Gets or sets the name.
+        /// Gets or sets the author name.
         /// </summary>
         /// <value>
         /// The name.
@@ -71,7 +83,7 @@ namespace OpenSignals.Framework.Signals
         /// Gets or sets a value indicating whether [show name].
         /// </summary>
         /// <value>
-        ///   <c>true</c> if [show name]; otherwise, <c>false</c>.
+        ///   <c>true</c> if [show author name]; otherwise, <c>false</c>.
         /// </value>
         public virtual bool ShowName { get; set; }
         /// <summary>
@@ -96,7 +108,7 @@ namespace OpenSignals.Framework.Signals
         /// </value>
         public virtual int CategoryID { get; set; }
         /// <summary>
-        /// Gets or sets the email.
+        /// Gets or sets the author email.
         /// </summary>
         /// <value>
         /// The email.
@@ -144,6 +156,12 @@ namespace OpenSignals.Framework.Signals
         /// The address.
         /// </value>
         public virtual string Address { get; set; }
+        /// <summary>
+        /// Gets or sets the city.
+        /// </summary>
+        /// <value>
+        /// The city.
+        /// </value>
         public virtual string City { get; set; }
         /// <summary>
         /// Gets or sets the zip.
@@ -153,7 +171,7 @@ namespace OpenSignals.Framework.Signals
         /// </value>
         public virtual string Zip { get; set; }
         /// <summary>
-        /// Gets or sets the zoom.
+        /// Gets or sets the map zoom.
         /// </summary>
         /// <value>
         /// The zoom.
@@ -177,7 +195,7 @@ namespace OpenSignals.Framework.Signals
         public virtual IList<Comment> Comments { get; set; }
 
         /// <summary>
-        /// Gets the link.
+        /// Gets the link to detail page
         /// </summary>
         public virtual string Link
         {
@@ -205,7 +223,7 @@ namespace OpenSignals.Framework.Signals
     }
 
     /// <summary>
-    /// 
+    /// This class represent the signal subscription
     /// </summary>
     public class SignalSubscription
     {

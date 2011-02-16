@@ -20,7 +20,7 @@ using OpenSignals.Framework.Data;
 namespace OpenSignals.Framework.Core
 {
     /// <summary>
-    /// 
+    /// This class represent a Configuration option organized in key pair values
     /// </summary>
     public class Option
     {
@@ -52,7 +52,7 @@ namespace OpenSignals.Framework.Core
     }
 
     /// <summary>
-    /// 
+    /// Configuration option collection
     /// </summary>
     public class OptionCollection : List<Option>
     {
@@ -78,15 +78,15 @@ namespace OpenSignals.Framework.Core
         }
 
         /// <summary>
-        /// Gets or sets the element at the specified index.
+        /// Gets or sets the element at the specified key.
         /// </summary>
         /// <returns>
-        /// The element at the specified index.
+        /// The element at the specified key.
         ///   </returns>
         ///   
-        /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is less than 0.
+        /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="key"/> is less than 0.
         /// -or-
-        ///   <paramref name="index"/> is equal to or greater than <see cref="P:System.Collections.Generic.List`1.Count"/>.
+        ///   <paramref name="key"/> is equal to or greater than <see cref="P:System.Collections.Generic.List`1.Count"/>.
         ///   </exception>
         public Option this[string key]
         {
@@ -98,7 +98,7 @@ namespace OpenSignals.Framework.Core
     }
 
     /// <summary>
-    /// 
+    /// Singleton class represeting configuration options stored in database
     /// </summary>
     public class ConfigurationOptions : NHibernateSessionManager
     {
@@ -112,7 +112,7 @@ namespace OpenSignals.Framework.Core
 
         private static ConfigurationOptions _objOptions = new ConfigurationOptions();
         /// <summary>
-        /// Gets the current.
+        /// Gets the current instance of this singleton class
         /// </summary>
         public static ConfigurationOptions Current { get { return _objOptions; } }
 
@@ -120,6 +120,9 @@ namespace OpenSignals.Framework.Core
 
         #region Constructor
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="ConfigurationOptions"/> class from being created.
+        /// </summary>
         private ConfigurationOptions()
         {
             Load();
@@ -129,6 +132,9 @@ namespace OpenSignals.Framework.Core
 
         #region Private Methods
 
+        /// <summary>
+        /// Loads the options from DB
+        /// </summary>
         private void Load()
         {
             OpenSession();
@@ -143,8 +149,8 @@ namespace OpenSignals.Framework.Core
         /// <summary>
         /// Gets the string.
         /// </summary>
-        /// <param name="szKey">The sz key.</param>
-        /// <returns></returns>
+        /// <param name="szKey">The key.</param>
+        /// <returns>String value</returns>
         public string GetString(string szKey)
         {
             if (_htOptions.Contains(szKey))
@@ -156,8 +162,8 @@ namespace OpenSignals.Framework.Core
         /// <summary>
         /// Gets the bool.
         /// </summary>
-        /// <param name="szKey">The sz key.</param>
-        /// <returns></returns>
+        /// <param name="szKey">The key.</param>
+        /// <returns>Bool value</returns>
         public bool GetBool(string szKey)
         {
             if (_htOptions.Contains(szKey))
@@ -167,10 +173,10 @@ namespace OpenSignals.Framework.Core
         }
 
         /// <summary>
-        /// Gets the int32.
+        /// Gets the int value.
         /// </summary>
-        /// <param name="szKey">The sz key.</param>
-        /// <returns></returns>
+        /// <param name="szKey">The key.</param>
+        /// <returns>Int value</returns>
         public int GetInt32(string szKey)
         {
             if (_htOptions.Contains(szKey))
@@ -180,7 +186,7 @@ namespace OpenSignals.Framework.Core
         }
 
         /// <summary>
-        /// Resets this instance.
+        /// Resets this instance reloading configuration options
         /// </summary>
         public void Reset()
         {
@@ -189,10 +195,10 @@ namespace OpenSignals.Framework.Core
         }
 
         /// <summary>
-        /// Gets the custom.
+        /// Gets the custom value from configuration
         /// </summary>
         /// <param name="key">The key.</param>
-        /// <returns></returns>
+        /// <returns>Generic object</returns>
         public object GetCustom(string key)
         {
             if (_htOptions.Contains(key))
@@ -202,11 +208,11 @@ namespace OpenSignals.Framework.Core
         }
 
         /// <summary>
-        /// Gets the array.
+        /// Gets the array splitting by char separator
         /// </summary>
         /// <param name="key">The key.</param>
-        /// <param name="sep">The sep.</param>
-        /// <returns></returns>
+        /// <param name="sep">The separator</param>
+        /// <returns>String array</returns>
         public string[] GetArray(string key, char sep)
         {
             if (_htOptions.Contains(key))

@@ -23,15 +23,15 @@ using System.Web.UI.HtmlControls;
 namespace OpenSignals.Framework.Core.Utility
 {
     /// <summary>
-    /// 
+    /// Utility class for web pages
     /// </summary>
     public class WebUtils
     {
         /// <summary>
-        /// Renders the control to string.
+        /// Invoke RenderControl method of a generic Control returning the content rendered
         /// </summary>
-        /// <param name="c">The c.</param>
-        /// <returns></returns>
+        /// <param name="c">The control to render</param>
+        /// <returns>Control rendered in string</returns>
         public static string RenderControlToString(Control c)
         {
             StringBuilder sb = new StringBuilder();
@@ -42,7 +42,7 @@ namespace OpenSignals.Framework.Core.Utility
         }
 
         /// <summary>
-        /// Creates the pagination.
+        /// Creates the pagination control.
         /// </summary>
         /// <param name="totalRecords">The total records.</param>
         /// <param name="recordsPerPage">The records per page.</param>
@@ -74,14 +74,13 @@ namespace OpenSignals.Framework.Core.Utility
         }
 
         /// <summary>
-        /// Resizes the image.
+        /// Resizes the image - Code from http://snippets.dzone.com/posts/show/4336
         /// </summary>
         /// <param name="FullsizeImage">The fullsize image.</param>
         /// <param name="NewWidth">The new width.</param>
         /// <param name="MaxHeight">Height of the max.</param>
         /// <param name="OnlyResizeIfWider">if set to <c>true</c> [only resize if wider].</param>
-        /// <returns></returns>
-        /// <seealso cref="http://snippets.dzone.com/posts/show/4336"/>
+        /// <returns>Imaged resized</returns>
         public static Image ResizeImage(Image FullsizeImage, int NewWidth, int MaxHeight, bool OnlyResizeIfWider)
         {
             // Prevent using images internal thumbnail

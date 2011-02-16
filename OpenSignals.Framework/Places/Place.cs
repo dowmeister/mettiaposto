@@ -16,7 +16,7 @@
 namespace OpenSignals.Framework.Places
 {
     /// <summary>
-    /// 
+    /// This class represent a Place (= City)
     /// </summary>
     public class Place
     {

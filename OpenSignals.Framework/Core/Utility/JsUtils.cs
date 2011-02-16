@@ -20,12 +20,12 @@ using System.Text;
 namespace OpenSignals.Framework.Core.Utility
 {
     /// <summary>
-    /// 
+    /// Utility class to manage javascript functions and objects
     /// </summary>
     public class JsUtils
     {
         /// <summary>
-        /// 
+        /// Utility class to create a JsFunction to be passed to CreateJsFunction method
         /// </summary>
         public class JsFunction
         {
@@ -53,7 +53,7 @@ namespace OpenSignals.Framework.Core.Utility
         }
 
         /// <summary>
-        /// 
+        /// Utility class to manage a javascript constant to be passed to CreateJsFunction method
         /// </summary>
         public class JsConstant
         {

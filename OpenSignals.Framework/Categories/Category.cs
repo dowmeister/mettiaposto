@@ -16,12 +16,12 @@
 namespace OpenSignals.Framework.Categories
 {
     /// <summary>
-    /// 
+    /// This class represents signal category
     /// </summary>
     public class Category
     {
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Category"/> class.
         /// </summary>
         public Category() { }
 
@@ -43,12 +43,18 @@ namespace OpenSignals.Framework.Categories
         /// </value>
         public virtual int CategoryID { get { return _categoryID; } set { _categoryID = value; } }
         /// <summary>
-        /// 
+        /// Gets or sets the name.
         /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public virtual string Name { get { return _name; } set { _name = value; } }
         /// <summary>
-        /// 
+        /// Gets or sets a value indicating whether this <see cref="Category"/> is status.
         /// </summary>
+        /// <value>
+        ///   <c>true</c> if active; otherwise, <c>false</c>.
+        /// </value>
         public virtual bool Status { get { return _status; } set { _status = value; } }
 
         #endregion

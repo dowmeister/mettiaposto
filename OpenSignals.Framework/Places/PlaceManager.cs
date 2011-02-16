@@ -20,7 +20,7 @@ using OpenSignals.Framework.Data;
 namespace OpenSignals.Framework.Places
 {
     /// <summary>
-    /// 
+    /// This class manage Places
     /// </summary>
     public class PlaceManager : NHibernateSessionManager
     {
