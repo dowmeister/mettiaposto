@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Login.aspx" />
     <Content Include="Ajax\Upload.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content.aspx" />
@@ -193,6 +195,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ajax\JSONService.ashx.cs">
       <DependentUpon>JSONService.ashx</DependentUpon>
       <SubType>Component</SubType>
@@ -297,7 +313,9 @@
       <DependentUpon>Submit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Admin\Includes\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenSignals.Framework\OpenSignals.Framework.csproj">
       <Project>{8F26021D-5623-4A31-A46D-7816E3FD1963}</Project>

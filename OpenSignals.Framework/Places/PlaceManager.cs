@@ -16,6 +16,7 @@
 using System.Collections.Generic;
 using NHibernate.Criterion;
 using OpenSignals.Framework.Data;
+using System;
 
 namespace OpenSignals.Framework.Places
 {
@@ -30,12 +31,23 @@ namespace OpenSignals.Framework.Places
         /// <returns></returns>
         public List<Place> GetActivePlaces()
         {
-            OpenSession();
-            List<Place> ret = (List<Place>)session.CreateCriteria(typeof(Place))
-                .Add(Restrictions.Eq("Status", true))
-                .List<Place>();
-            CloseSession();
-            return ret;
+            try
+            {
+                OpenSession();
+                List<Place> ret = (List<Place>)session.CreateCriteria(typeof(Place))
+                    .Add(Restrictions.Eq("Status", true))
+                    .List<Place>();
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error loading active places", ex);
+                throw ex;
+            }
+            finally
+            {
+                CloseSession();
+            }
         }
     }
 }

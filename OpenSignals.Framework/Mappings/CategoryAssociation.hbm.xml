@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="OpenSignals.Framework.Categories.CategoryAssociation, OpenSignals.Framework" table="categories_places">
+    <composite-id>
+      <key-property column="cp_category_id" name="CategoryID" />
+      <key-property column="cp_place_id" name="PlaceID" />
+    </composite-id>
+    <property name="ContactEmail" column="cp_contact_email" type="String"></property>
+    <property name="Open311ServiceCode" column="cp_open311_service_code" type="String"></property>
+  </class>
+</hibernate-mapping>

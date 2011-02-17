@@ -5,5 +5,9 @@
     </id>
     <property name="Name" column="c_name" type="String"></property>
     <property name="Status" column="c_status" type="Boolean"></property>
+    <bag name="Associations" table="category_places" lazy="false">
+      <key column="cp_category_id"></key>
+      <one-to-many class="OpenSignals.Framework.Categories.CategoryAssociation"></one-to-many>
+    </bag>
   </class>
 </hibernate-mapping>

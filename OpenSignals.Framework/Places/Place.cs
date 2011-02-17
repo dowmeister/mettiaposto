@@ -41,5 +41,26 @@ namespace OpenSignals.Framework.Places
         ///   <c>true</c> if status; otherwise, <c>false</c>.
         /// </value>
         public virtual bool Status { get; set; }
+        /// <summary>
+        /// Gets or sets the open311 URL.
+        /// </summary>
+        /// <value>
+        /// The open311 URL.
+        /// </value>
+        public virtual string Open311URL { get; set; }
+        /// <summary>
+        /// Gets or sets the open311 API key.
+        /// </summary>
+        /// <value>
+        /// The open311 API key.
+        /// </value>
+        public virtual string Open311ApiKey { get; set; }
+        /// <summary>
+        /// Gets or sets the open311 city ID.
+        /// </summary>
+        /// <value>
+        /// The open311 city ID.
+        /// </value>
+        public virtual string Open311CityID { get; set; }
     }
 }

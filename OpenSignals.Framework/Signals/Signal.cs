@@ -113,6 +113,7 @@ namespace OpenSignals.Framework.Signals
         /// <value>
         /// The email.
         /// </value>
+        [XmlIgnore]
         public virtual string Email { get; set; }
         /// <summary>
         /// Gets or sets the status.
@@ -184,6 +185,20 @@ namespace OpenSignals.Framework.Signals
         /// The attachment.
         /// </value>
         public virtual string Attachment { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether [sent to council].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [sent to council]; otherwise, <c>false</c>.
+        /// </value>
+        public virtual bool SentToCouncil { get; set; }
+        /// <summary>
+        /// Gets or sets the sent to council date.
+        /// </summary>
+        /// <value>
+        /// The sent to council date.
+        /// </value>
+        public virtual DateTime SentToCouncilDate { get; set; }
 
         /// <summary>
         /// Gets or sets the comments.
@@ -193,6 +208,15 @@ namespace OpenSignals.Framework.Signals
         /// </value>
         [XmlIgnore]
         public virtual IList<Comment> Comments { get; set; }
+
+        /// <summary>
+        /// Gets or sets the users subscriptions.
+        /// </summary>
+        /// <value>
+        /// The subscriptions.
+        /// </value>
+        [XmlIgnore]
+        public virtual IList<SignalSubscription> Subscriptions { get; set; }
 
         /// <summary>
         /// Gets the link to detail page

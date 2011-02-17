@@ -21,9 +21,15 @@
     <property name="Longitude" column="s_longitude" type="decimal"></property>
     <property name="Zoom" column="s_zoom" type="int"></property>
     <property name="Attachment" column="s_attachment" type="String"></property>
+    <property name="SentToCouncil" column="s_sent_to_council" type="bool"></property>
+    <property name="SentToCouncilDate" column="s_sent_to_council_date" type="DateTime"></property>
     <bag name="Comments" table="signal_comments" lazy="false">
       <key column="sc_signal_id"></key>
       <one-to-many class="OpenSignals.Framework.Comments.Comment"></one-to-many>
+    </bag>
+    <bag name="Subscriptions" table="signal_subscriptions" lazy="false">
+      <key column="ss_signal_id"></key>
+      <one-to-many class="OpenSignals.Framework.Signals.SignalSubscription"></one-to-many>
     </bag>
   </class>
 </hibernate-mapping>

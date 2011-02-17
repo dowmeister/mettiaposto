@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Open311\Classes.cs" />
+    <Compile Include="API\Open311\Open311Client.cs" />
     <Compile Include="Categories\Category.cs" />
     <Compile Include="Categories\CategoryManager.cs" />
     <Compile Include="Comments\Comment.cs" />
@@ -118,6 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Option.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CategoryAssociation.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

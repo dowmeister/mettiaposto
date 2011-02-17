@@ -5,5 +5,8 @@
     </id>
     <property name="Name" column="p_name" type="String"></property>
     <property name="Status" column="p_status" type="Boolean"></property>
+    <property name="Open311URL" column="p_open311_url" type="String"></property>
+    <property name="Open311ApiKey" column="p_open311_api_key" type="String"></property>
+    <property name="Open311CityID" column="p_open311_city_id" type="String"></property>
   </class>
 </hibernate-mapping>
