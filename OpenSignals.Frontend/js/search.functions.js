@@ -100,6 +100,9 @@ function searchSignals_callback(r)
 
             map.fitBounds(bounds);
             map.setCenter(bounds.getCenter());
+
+            if (map.getZoom() > 15)
+                map.setZoom(15);
         }
         else
             writeError('Nessuna segnalazione trovata con i parametri di ricerca specificati<p><a href="#" onclick="showForm();">Effettua una nuova ricerca</a></p>', '#searchMessages');

@@ -19,6 +19,7 @@ using System.IO;
 using System.Text;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.Web;
 
 namespace OpenSignals.Framework.Core.Utility
 {
@@ -122,7 +123,7 @@ namespace OpenSignals.Framework.Core.Utility
         /// <returns></returns>
         public static string GetImageUrl(string type, string attachment)
         {
-            return "http://" + ConfigurationOptions.Current.GetString("system_upload_path") + type + attachment;
+            return "http://" + HttpContext.Current.Request.Url.Host + "/" + ConfigurationOptions.Current.GetString("system_upload_path") + type + attachment;
         }
     }
 }
