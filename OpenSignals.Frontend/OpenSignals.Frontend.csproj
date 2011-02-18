@@ -180,6 +180,7 @@
     <Content Include="js\signal.functions.js" />
     <Content Include="js\validation.js" />
     <Content Include="m\Default.aspx" />
+    <Content Include="Open311Test.aspx" />
     <Content Include="robots.txt" />
     <Content Include="Search.aspx" />
     <Content Include="Detail.aspx" />
@@ -289,6 +290,13 @@
     </Compile>
     <Compile Include="m\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Open311Test.aspx.cs">
+      <DependentUpon>Open311Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Open311Test.aspx.designer.cs">
+      <DependentUpon>Open311Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search.aspx.cs">

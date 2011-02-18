@@ -67,8 +67,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\Open311\Classes.cs" />
-    <Compile Include="API\Open311\Open311Client.cs" />
+    <Compile Include="API\Open311\Services.cs" />
+    <Compile Include="API\Open311\Open311Base.cs" />
+    <Compile Include="API\Open311\Open311V1Client.cs" />
+    <Compile Include="API\Open311\Open311V2Client.cs" />
     <Compile Include="Categories\Category.cs" />
     <Compile Include="Categories\CategoryManager.cs" />
     <Compile Include="Comments\Comment.cs" />
