@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.IO;
 using System.Net.Mail;
 using System.Text;
@@ -21,7 +22,6 @@ using System.Xml;
 using System.Xml.Xsl;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Base;
-using System;
 
 namespace OpenSignals.Framework.Communications
 {

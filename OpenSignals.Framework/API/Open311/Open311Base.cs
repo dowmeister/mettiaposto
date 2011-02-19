@@ -1,13 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net;
+﻿// Copyright (C) 2010-2011 Francesco 'ShArDiCk' Bramato
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
 using System.Collections;
-using System.Web;
 using System.IO;
+using System.Net;
+using System.Text;
 using System.Xml;
-using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace OpenSignals.Framework.API.Open311
 {
@@ -113,6 +125,22 @@ namespace OpenSignals.Framework.API.Open311
             /// 
             /// </summary>
             public const string JuristicionID = "jurisdiction_id";
+            /// <summary>
+            /// 
+            /// </summary>
+            public const string Attributes = "attribute";
+            /// <summary>
+            /// 
+            /// </summary>
+            public const string StartDate = "start_date";
+            /// <summary>
+            /// 
+            /// </summary>
+            public const string EndDate = "end_date";
+            /// <summary>
+            /// 
+            /// </summary>
+            public const string Status = "status";
         }
 
         /// <summary>
@@ -278,14 +306,55 @@ namespace OpenSignals.Framework.API.Open311
         protected void SetRequestMethod(string method)
         {
             webClient.Method = method;
+
+            if (method.Equals("POST"))
+                webClient.ContentType = "application/x-www-form-urlencoded";
         }
 
-        protected void ClearNamespaces(XmlDocument xmlDocument)
+        /// <summary>
+        /// Sets the post data.
+        /// </summary>
+        protected void SetPostData()
         {
-            XmlNamespaceManager mg = new XmlNamespaceManager(xmlDocument.NameTable);
-            for (int i = xmlDocument.DocumentElement.Attributes.Count - 1; i >= 0; i--)
+            byte[] data = Encoding.UTF8.GetBytes(BuildRequestQueryString());
+            webClient.ContentLength = data.Length;
+            Stream stream = webClient.GetRequestStream();
+            stream.Write(data, 0, data.Length);
+            stream.Close();
+        }
+
+        /// <summary>
+        /// Deserializes the response.
+        /// </summary>
+        /// <param name="doc">The doc.</param>
+        /// <param name="castResponse">The cast response.</param>
+        /// <returns></returns>
+        protected object DeserializeResponse(XmlDocument doc, Type castResponse)
+        {
+            XmlSerializer xSerializer = new XmlSerializer(castResponse);
+            XmlNodeReader nReader = new XmlNodeReader(doc);
+            return xSerializer.Deserialize(nReader);
+        }
+
+        /// <summary>
+        /// Clears the parameters.
+        /// </summary>
+        protected void ClearParameters()
+        {
+            _parameters.Clear();
+        }
+
+        /// <summary>
+        /// Checks the error.
+        /// </summary>
+        /// <param name="doc">The doc.</param>
+        protected void CheckError(XmlDocument doc)
+        {
+            if (doc.DocumentElement.Name == "open311_error")
             {
-                mg.RemoveNamespace(xmlDocument.DocumentElement.Attributes[i].Name, xmlDocument.DocumentElement.Attributes[i].Value);
+                Open311Exception ex = new Open311Exception(doc.SelectSingleNode("/open311_error/errorDescription").InnerXml);
+                ex.ErrorCode = doc.SelectSingleNode("/open311_error/errorCode").InnerXml;
+                throw ex;
             }
         }
     }

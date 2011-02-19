@@ -13,11 +13,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NHibernate.Criterion;
 using OpenSignals.Framework.Data;
-using System;
 
 namespace OpenSignals.Framework.Comments
 {

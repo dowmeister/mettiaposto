@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Xml;
@@ -20,7 +21,6 @@ using OpenSignals.Framework.Comments;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Utility;
 using OpenSignals.Framework.Signals;
-using System;
 
 namespace OpenSignals.Framework.Communications.Messages
 {

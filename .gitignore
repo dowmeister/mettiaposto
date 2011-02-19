@@ -31,3 +31,4 @@ Build/
 Temp/
 *.properties
 *.suo
+OpenSignals.Frontend/OpenSignals.Frontend.csproj.vs10x

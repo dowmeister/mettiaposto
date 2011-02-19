@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Open311\Open311Exception.cs" />
+    <Compile Include="API\Open311\Request.cs" />
     <Compile Include="API\Open311\Services.cs" />
     <Compile Include="API\Open311\Open311Base.cs" />
     <Compile Include="API\Open311\Open311V1Client.cs" />

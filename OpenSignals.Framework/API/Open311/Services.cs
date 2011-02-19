@@ -12,10 +12,8 @@
 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace OpenSignals.Framework.API.Open311
@@ -136,8 +134,13 @@ namespace OpenSignals.Framework.API.Open311
     {
         private List<Service> _services = new List<Service>();
 
-        [XmlArray("services")]
-        [XmlArrayItem("service", typeof(Service))]
+        /// <summary>
+        /// Gets or sets the services.
+        /// </summary>
+        /// <value>
+        /// The services.
+        /// </value>
+        [XmlElement("service")]
         public List<Service> Services
         {
             get { return _services; }
