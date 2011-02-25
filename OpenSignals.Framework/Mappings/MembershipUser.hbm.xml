@@ -1,0 +1,21 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="OpenSignals.Framework.Profiles.MembershipProfile, OpenSignals.Framework" table="users" lazy="false">
+    <id name="UserID" column="userid" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="ProviderUserKey" column="guid" type="Guid" />
+    <property name="ApplicationName" column="applicationName" type="string"></property>
+    <property name="Password" column="password" type="string"></property>
+    <property name="Email" column="email" type="String"></property>
+    <property name="IsApproved" column="isApproved" type="Boolean"></property>
+    <property name="IsLockedOut" column="isLockedOut" type="Boolean"></property>
+    <property name="CreationDate" column="creationDate" type="DateTime"></property>
+    <property name="IsOnline" column="isOnline" type="Boolean"></property>
+    <property name="LastActivityDate" column="lastActivityDate" type="DateTime"></property>
+    <property name="LastLockoutDate" column="lastLockoutDate" type="DateTime"></property>
+    <property name="LastLoginDate" column="lastLoginDate" type="DateTime"></property>
+    <property name="LastPasswordChangeDate" column="lastPasswordChangeDate" type="DateTime"></property>
+    <property name="PasswordQuestion" column="passwordQuestion" type="string"></property>
+    <property name="UserName" column="username" type="string"></property>
+  </class>
+</hibernate-mapping>

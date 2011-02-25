@@ -26,47 +26,24 @@ namespace OpenSignals.Framework.Data
     public class NHibernateSessionManager : BaseManager
     {
         /// <summary>
-        /// Session Factory
+        /// Gets the session.
         /// </summary>
-        protected ISessionFactory factory = null;
-        /// <summary>
-        /// NHibernate session
-        /// </summary>
-        protected ISession session = null;
+        public ISession Session { get { return NHibernateSession.Current.Session; } }
+
         /// <summary>
         /// Transaction object
         /// </summary>
         protected ITransaction transaction = null;
 
         /// <summary>
-        /// Creates the NHibernate session.
-        /// </summary>
-        protected void CreateSession()
-        {
-            if (factory == null)
-            {
-                if (HttpContext.Current == null)
-                {
-                    NHibernate.Cfg.Configuration conf = new NHibernate.Cfg.Configuration();
-                    factory = conf.Configure().BuildSessionFactory();
-                }
-                else
-                    factory = Global.SessionFactory;
-            }
-        }
-
-        /// <summary>
         /// Opens the NHibernate session.
         /// </summary>
         public void OpenSession()
         {
-            if (factory == null)
-                CreateSession();
-
-            if (session == null)
-                session = factory.OpenSession();
-            else if (!session.IsOpen)
-                session = factory.OpenSession();
+            if (NHibernateSession.Current.Session == null)
+                NHibernateSession.Current.Session = NHibernateSession.Current.Factory.OpenSession();
+            else if (!NHibernateSession.Current.Session.IsOpen)
+                NHibernateSession.Current.Session = NHibernateSession.Current.Factory.OpenSession();
         }
 
         /// <summary>
@@ -74,16 +51,13 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         public void CloseSession()
         {
-            if (factory != null)
-            {
-                if (session.IsDirty())
-                    session.Flush();
+            if (NHibernateSession.Current.Session.IsDirty())
+                NHibernateSession.Current.Session.Flush();
 
-                if (session.IsOpen)
-                {
-                    factory.Close();
-                    factory.Dispose();
-                }
+            if (NHibernateSession.Current.Session.IsOpen)
+            {
+                NHibernateSession.Current.Factory.Close();
+                NHibernateSession.Current.Factory.Dispose();
             }
         }
 
@@ -92,8 +66,8 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         protected void Flush()
         {
-            if (session != null)
-                session.Flush();
+            if (NHibernateSession.Current.Factory != null)
+                NHibernateSession.Current.Session.Flush();
 
             CloseSession();
         }
@@ -103,17 +77,17 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         public void OpenTransaction()
         {
-            if (session != null)
+            if (NHibernateSession.Current.Session != null)
             {
-                if (session.IsOpen)
+                if (NHibernateSession.Current.Session.IsOpen)
                 {
                     if (transaction != null)
                     {
                         if (!transaction.IsActive)
-                            transaction = session.BeginTransaction();
+                            transaction = NHibernateSession.Current.Session.BeginTransaction();
                     }
                     else
-                        transaction = session.BeginTransaction();
+                        transaction = NHibernateSession.Current.Session.BeginTransaction();
                 }
             }
         }
@@ -123,9 +97,9 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         public void CommitTransaction()
         {
-            if (session != null)
+            if (NHibernateSession.Current.Session != null)
             {
-                if (session.IsOpen)
+                if (NHibernateSession.Current.Session.IsOpen)
                 {
                     if (transaction != null)
                     {
@@ -141,9 +115,9 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         public void RollbackTransaction()
         {
-            if (session != null)
+            if (NHibernateSession.Current.Session != null)
             {
-                if (session.IsOpen)
+                if (NHibernateSession.Current.Session.IsOpen)
                 {
                     if (transaction != null)
                     {

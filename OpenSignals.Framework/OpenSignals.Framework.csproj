@@ -94,14 +94,18 @@
     <Compile Include="Core\Utility\JsUtils.cs" />
     <Compile Include="Core\Utility\WebUtils.cs" />
     <Compile Include="Core\Utility\XmlUtils.cs" />
+    <Compile Include="Data\NHibernateSession.cs" />
     <Compile Include="Data\NHibernateSessionManager.cs" />
     <Compile Include="Places\Place.cs" />
     <Compile Include="Places\PlaceManager.cs" />
+    <Compile Include="Profiles\MembershipProfile.cs" />
+    <Compile Include="Profiles\ProfileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Signals\Signal.cs" />
     <Compile Include="Signals\SignalManager.cs" />
     <Compile Include="Signals\SignalUtils.cs" />
     <Compile Include="Web\Global.cs" />
+    <Compile Include="Web\StaticFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Signal.hbm.xml">
@@ -127,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CategoryAssociation.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\MembershipUser.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

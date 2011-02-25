@@ -341,25 +341,6 @@ textarea, input, select
     border-top: solid 1px #117493;
 }
 
-input.success
-{
-    background: transparent url(../images/greenbutton.png) no-repeat;
-}
-
-input.reset
-{
-    background: transparent url(../images/redbutton.png) no-repeat;
-}
-
-input[type=button], input[type=reset]
-{
-    height: 32px;
-    width: 120px;
-    border: none;
-    color: White;
-    font-weight: bold;
-}
-
 #content .mapTabs ul
 {
     background: url(../images/minitabline.jpg) repeat-x bottom;

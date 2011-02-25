@@ -138,7 +138,7 @@ namespace OpenSignals.Framework.Core
         private void Load()
         {
             OpenSession();
-            _htOptions = new OptionCollection(session.CreateCriteria(typeof(Option)).List<Option>());
+            _htOptions = new OptionCollection(Session.CreateCriteria(typeof(Option)).List<Option>());
             CloseSession();
         }
 

@@ -39,14 +39,14 @@ namespace OpenSignals.Framework.Comments
             {
                 OpenSession();
 
-                totalCount = session.CreateCriteria(typeof(Comment))
+                totalCount = Session.CreateCriteria(typeof(Comment))
                     .Add(Restrictions.Eq("SignalID", signalID))
                     .AddOrder(Order.Desc("CreationDate"))
                     .Add(Restrictions.Eq("Status", 1))
                     .SetProjection(Projections.RowCount())
                     .FutureValue<int>().Value;
 
-                List<Comment> comments = session.CreateCriteria(typeof(Comment))
+                List<Comment> comments = Session.CreateCriteria(typeof(Comment))
                     .Add(Restrictions.Eq("SignalID", signalID))
                     .Add(Restrictions.Eq("Status", 1))
                     .AddOrder(Order.Desc("CreationDate"))
@@ -76,7 +76,7 @@ namespace OpenSignals.Framework.Comments
         {
             OpenSession();
             OpenTransaction();
-            session.Save(c);
+            Session.Save(c);
             CommitTransaction();
             CloseSession();
             return c.CommentID;

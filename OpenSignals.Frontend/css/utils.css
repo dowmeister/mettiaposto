@@ -1,4 +1,24 @@
 ﻿/* UTILS */
+
+input.success
+{
+    background: transparent url(../images/greenbutton.png) no-repeat;
+}
+
+input.reset
+{
+    background: transparent url(../images/redbutton.png) no-repeat;
+}
+
+input[type=button], input[type=reset]
+{
+    height: 32px;
+    width: 120px;
+    border: none;
+    color: White;
+    font-weight: bold;
+}
+
 .message
 {
     padding: 10px;
@@ -40,4 +60,17 @@
 .fieldError
 {
     border-color: Red;
+}
+
+#feedback
+{
+    padding: 10px;
+    width: 250px;
+    background: #ffffff;
+    border: 1px solid #29216d;
+}
+
+#feedback .submitForm ol li input, #feedback  .submitForm ol li textarea
+{    
+    width: 200px;
 }

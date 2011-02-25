@@ -34,7 +34,7 @@ namespace OpenSignals.Framework.Places
             try
             {
                 OpenSession();
-                List<Place> ret = (List<Place>)session.CreateCriteria(typeof(Place))
+                List<Place> ret = (List<Place>)Session.CreateCriteria(typeof(Place))
                     .Add(Restrictions.Eq("Status", true))
                     .List<Place>();
                 return ret;

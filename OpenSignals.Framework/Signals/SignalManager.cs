@@ -35,7 +35,7 @@ namespace OpenSignals.Framework.Signals
         public Signal LoadSingnal(int id)
         {
             OpenSession();
-            Signal ret = (Signal)session.Load(typeof(Signal), id);
+            Signal ret = (Signal)Session.Load(typeof(Signal), id);
             CloseSession();
             return ret;
         }
@@ -50,7 +50,7 @@ namespace OpenSignals.Framework.Signals
             {
                 OpenSession();
                 OpenTransaction();
-                session.Save(s);
+                Session.Save(s);
                 CommitTransaction();
                 CloseSession();
             }
@@ -73,7 +73,7 @@ namespace OpenSignals.Framework.Signals
             try
             {
                 OpenSession();
-                List<Signal> ret = (List<Signal>)session.CreateCriteria(typeof(Signal))
+                List<Signal> ret = (List<Signal>)Session.CreateCriteria(typeof(Signal))
                         .Add(Restrictions.Between("Zip", int.Parse(zipCode) - 2, int.Parse(zipCode) + 2))
                         .Add(Expression.Not(Expression.Eq("SignalID", signalID)))
                         .SetMaxResults(20)
@@ -129,7 +129,7 @@ namespace OpenSignals.Framework.Signals
 
         private ICriteria BuildCriteria(string city, string address, string zip, int categoryID, int status, int offset)
         {
-            ICriteria criteria = session.CreateCriteria(typeof(Signal))
+            ICriteria criteria = Session.CreateCriteria(typeof(Signal))
                         .Add(Restrictions.Eq("City", city))
                         .AddOrder(Order.Desc("CreationDate"));
 
@@ -158,7 +158,7 @@ namespace OpenSignals.Framework.Signals
         public int GetCountByStatus(int status)
         {
             OpenSession();
-            int count = session.CreateCriteria(typeof(Signal))
+            int count = Session.CreateCriteria(typeof(Signal))
                 .Add(Restrictions.Eq("Status", status))
                 .SetProjection(Projections.RowCount()).UniqueResult<int>();    
             CloseSession();
@@ -172,7 +172,7 @@ namespace OpenSignals.Framework.Signals
         public int GetCountAll()
         {
             OpenSession();
-            int count = session.CreateCriteria(typeof(Signal))
+            int count = Session.CreateCriteria(typeof(Signal))
                 .Add(Restrictions.Ge("Status", 1))
                 .SetProjection(Projections.RowCount()).UniqueResult<int>();
             CloseSession();
@@ -188,7 +188,7 @@ namespace OpenSignals.Framework.Signals
         {
             OpenSession();
 
-            int rowcount = session.CreateCriteria(typeof(SignalSubscription))
+            int rowcount = Session.CreateCriteria(typeof(SignalSubscription))
                 .Add(Restrictions.Eq("SignalID", ss.SignalID))
                 .Add(Restrictions.Eq("Email", ss.Email))
                 .SetProjection(Projections.RowCount()).UniqueResult<int>();
@@ -206,7 +206,7 @@ namespace OpenSignals.Framework.Signals
         public List<SignalSubscription> GetSubscriptions(int signalID)
         {
             OpenSession();
-            List<SignalSubscription> ret = (List<SignalSubscription>)session.CreateCriteria(typeof(SignalSubscription))
+            List<SignalSubscription> ret = (List<SignalSubscription>)Session.CreateCriteria(typeof(SignalSubscription))
                 .Add(Restrictions.Eq("SignalID", signalID))
                 .List<SignalSubscription>();
             CloseSession();
@@ -220,7 +220,7 @@ namespace OpenSignals.Framework.Signals
         public void SubscribeSignal(SignalSubscription ss)
         {
             OpenSession();
-            session.Save(ss);
+            Session.Save(ss);
             CloseSession();            
         }
 
@@ -237,7 +237,7 @@ namespace OpenSignals.Framework.Signals
             s.ResolutionDate = DateTime.Now;
             s.ResolutionDescription = comment;
             s.UpdateDate = DateTime.Now;
-            session.SaveOrUpdate(s);
+            Session.SaveOrUpdate(s);
             CloseSession();
         }
     }

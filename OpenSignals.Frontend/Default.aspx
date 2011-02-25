@@ -4,6 +4,7 @@
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
 <%@ Register Src="Includes/Header.ascx" TagName="Header" TagPrefix="uc3" %>
 <%@ Register Src="Includes/Analytics.ascx" TagName="Analytics" TagPrefix="uc4" %>
+<%@ Register src="Includes/StaticFileManager.ascx" tagname="StaticFileManager" tagprefix="uc5" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -15,9 +16,11 @@
     <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />
     <script src="/js/index.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
+    <uc5:StaticFileManager ID="StaticFileManager1" runat="server">
+    </uc5:StaticFileManager>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server">    
     <uc3:Header ID="Header1" runat="server"  TabSelected="1" />
     <div id="content">
         <div class="infoboxblu">

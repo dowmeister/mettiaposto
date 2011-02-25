@@ -32,9 +32,11 @@ namespace OpenSignals.Frontend
 
            // List<ProblemRequest> probs = client.SearchRequests(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
 
-            ProblemRequest pr = client.LoadRequest("828665");
+            //ProblemRequest pr = client.LoadRequest("828665");
 
-            ProblemRequest pr2 = client.GetRequestByToken("1235");
+            //ProblemRequest pr2 = client.GetRequestByToken("1235");
+
+            
         }
     }
 }

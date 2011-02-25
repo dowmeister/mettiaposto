@@ -110,6 +110,8 @@
     <Content Include="images\brownbox.png" />
     <Content Include="images\check.png" />
     <Content Include="images\claimhome.png" />
+    <Content Include="images\contact_tab.gif" />
+    <Content Include="images\feedback_top_tab.gif" />
     <Content Include="images\greenbox.png" />
     <Content Include="images\greenbutton.png" />
     <Content Include="images\greentab.png" />
@@ -146,6 +148,7 @@
     <Content Include="Includes\SignalDetail.ascx" />
     <Content Include="Includes\SignalsList.ascx" />
     <Content Include="Includes\Analytics.ascx" />
+    <Content Include="Includes\StaticFileManager.ascx" />
     <Content Include="js\comments.functions.js" />
     <Content Include="js\facebook.js" />
     <Content Include="js\functions.js" />
@@ -173,6 +176,7 @@
     <Content Include="js\jquery\plugins\fancybox\fancy_title_right.png" />
     <Content Include="js\jquery\plugins\fancybox\jquery.fancybox-1.3.4.css" />
     <Content Include="js\jquery\plugins\fancybox\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="js\jquery\plugins\jquery.tabSlideOut.js" />
     <Content Include="js\json.js" />
     <Content Include="js\map.js" />
     <Content Include="js\mobile.js" />
@@ -284,6 +288,13 @@
     <Compile Include="Includes\SignalsList.ascx.designer.cs">
       <DependentUpon>SignalsList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Includes\StaticFileManager.ascx.cs">
+      <DependentUpon>StaticFileManager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\StaticFileManager.ascx.designer.cs">
+      <DependentUpon>StaticFileManager.ascx</DependentUpon>
+    </Compile>
     <Compile Include="m\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -337,6 +348,9 @@
     <Content Include="Ajax\JSONService.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="images\searchbutton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -33,7 +33,7 @@ namespace OpenSignals.Framework.Categories
             try
             {
                 OpenSession();
-                List<Category> cats = (List<Category>)session.CreateCriteria(typeof(Category))
+                List<Category> cats = (List<Category>)Session.CreateCriteria(typeof(Category))
                     .AddOrder(new NHibernate.Criterion.Order("Name", true)).List<Category>();
                 return cats;
             }
@@ -58,7 +58,7 @@ namespace OpenSignals.Framework.Categories
             try
             {
                 OpenSession();
-                Category ret = (Category)session.Load(typeof(Category), id);
+                Category ret = (Category)Session.Load(typeof(Category), id);
                 return ret;
             }
             catch (Exception ex)

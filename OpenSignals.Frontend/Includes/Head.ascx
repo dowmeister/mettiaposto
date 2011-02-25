@@ -12,3 +12,4 @@
 <script src="/js/json.js" type="text/javascript"></script>
 <script src="/js/functions.js" type="text/javascript"></script>
 <script src="/js/validation.js" type="text/javascript"></script>
+<script src="/js/jquery/plugins/jquery.tabSlideOut.js" type="text/javascript"></script>
