@@ -1,5 +1,155 @@
 ﻿/* UTILS */
+body
+{
+    margin: 0 0 0 0;
+    font-size: 12px;
+    font-family: verdana,arial,sans-serif;
+    color: #333333;
+}
 
+textarea, input, select
+{
+    padding: 5px;
+}
+
+#wrapper
+{
+    margin: 0 auto 0 auto;
+    width: 1000px;
+}
+
+#navbar
+{
+    height: 10px;
+    background-color: #117491;
+}
+
+#skyline
+{
+    background: url("../images/header_repeated.jpg") repeat-x transparent;
+    height: 158px;
+}
+
+#header
+{
+    width: 960px;
+    margin: 0 auto 0 auto;
+}
+
+#logo
+{
+    float: left;
+}
+
+#logo a
+{
+    background: url("../images/logo.png") no-repeat transparent;
+    cursor: pointer;
+    display: block;
+    height: 112px;
+    width: 219px;
+    margin-top: 30px;
+}
+
+#menu
+{
+    float: right;
+}
+
+#menu ul
+{
+    margin-top: 108px;
+}
+
+#menu ul li
+{
+    list-style: none;
+    display: inline;
+    text-align: center;
+    float: left;
+    margin-right: 5px;
+}
+
+#menu ul li a
+{
+    color: #236387;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    width: 132px;
+    height: 50px;
+}
+
+#menu ul li a span
+{
+    display: none;
+}
+
+#menu ul li a.homeOff:hover, #menu ul li a.homeOn
+{
+    background: url("../images/tabs/home_on.png") no-repeat transparent;
+}
+
+#menu ul li a.homeOff
+{
+    background: url("../images/tabs/home_off.png") no-repeat transparent;
+}
+
+#menu ul li a.tabOn, #menu ul li a.tabOff:hover
+{
+    background: url("../images/tabs/tab_on.png") no-repeat scroll transparent;
+}
+
+#menu ul li a.tabOff
+{
+    background: url("../images/tabs/tab_off.png") no-repeat scroll transparent;
+}
+
+#menu ul li a.small
+{
+    width: 59px;
+}
+
+#menu ul li a.twitter
+{
+    background: url("../images/tabs/twitter.png") no-repeat scroll transparent;
+}
+
+#menu ul li a.facebook
+{
+    background: url("../images/tabs/facebook.png") no-repeat scroll transparent;
+}
+
+#menu ul li a.rss
+{
+    background: url("../images/tabs/rss.png") no-repeat scroll transparent;
+}
+
+#content
+{
+    background-color: #FFFFFF;
+    padding: 20px;
+    width: 956px;
+    border-left: solid 1px #E2E2E2;
+    border-right: solid 1px #E2E2E2;
+}
+
+#footer
+{
+    height: 150px;
+    text-align: center;
+    color: White;
+    padding-top: 10px;
+    border-bottom: 1px solid #000000;
+    background: url(../images/footer.png) repeat-x #236388;
+}
+
+#footer a
+{
+    color: White;
+    text-decoration: none;
+    font-size: 10px
+}
 input.success
 {
     background: transparent url(../images/greenbutton.png) no-repeat;
@@ -67,10 +217,15 @@ input[type=button], input[type=reset]
     padding: 10px;
     width: 250px;
     background: #ffffff;
-    border: 1px solid #29216d;
+    border: 1px solid #236388;
 }
 
-#feedback .submitForm ol li input, #feedback  .submitForm ol li textarea
-{    
+#feedback .submitForm ol li input, #feedback .submitForm ol li textarea
+{
     width: 200px;
+}
+
+.clear
+{
+    clear: both;
 }

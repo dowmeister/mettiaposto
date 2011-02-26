@@ -1,149 +1,4 @@
-﻿body
-{
-    background: url("../images/skyline.jpg") repeat-x fixed left bottom #5BB1CA;
-    margin: 0 0 0 0;
-    font-size: 12px;
-    font-family: verdana,arial,sans-serif;
-    color: #333333;
-}
-
-textarea, input, select
-{
-    padding: 5px;
-}
-
-#wrapper
-{
-    margin: 0 auto 0 auto;
-    width: 1000px;
-}
-
-#navbar
-{
-    height: 10px;
-    background-color: #117491;
-}
-
-#logo
-{
-    width: 202px;
-    float: left;
-}
-
-#logo a
-{
-    background: url("../images/logo_beta.jpg") no-repeat transparent;
-    cursor: pointer;
-    display: block;
-    height: 99px;
-    line-height: 84px;
-    text-indent: -500em;
-    width: 218px;
-}
-
-#menu
-{
-    float: right;
-    margin-right: 30px;
-}
-
-#menu ul
-{
-    margin-top: 62px;
-}
-
-#menu ul li
-{
-    list-style: none;
-    display: inline;
-    text-align: center;
-    float: left;
-    margin-right: 5px;
-}
-
-#menu ul li a
-{
-    color: White;
-    display: block;
-    font-size: 18px;
-    text-decoration: none;
-    width: 128px;
-    height: 29px;
-    padding-top: 8px;
-}
-
-#menu ul li a.greenOff:hover, #menu ul li a.green
-{
-    background: url("../images/tab_1_on.jpg") no-repeat transparent;
-}
-
-#menu ul li a.greenOff
-{
-    background: url("../images/tab_1_off.jpg") no-repeat transparent;
-}
-
-#menu ul li a.orange, #menu ul li a.orangeOff:hover
-{
-    background: url("../images/tab_2_on.jpg") no-repeat scroll transparent;
-}
-
-#menu ul li a.orangeOff
-{
-    background: url("../images/tab_2_off.jpg") no-repeat scroll transparent;
-}
-
-#menu ul li a.pink, #menu ul li a.pinkOff:hover
-{
-    background: url("../images/tab_3_on.jpg") no-repeat scroll transparent;
-}
-
-#menu ul li a.pinkOff
-{
-    background: url("../images/tab_3_off.jpg") no-repeat scroll transparent;
-}
-
-#menu ul li a.pinkdark, #menu ul li a.pinkdarkOff:hover
-{
-    background: url("../images/tab_4_on.jpg") no-repeat scroll transparent;
-}
-
-#menu ul li a.pinkdarkOff
-{
-    background: url("../images/tab_4_off.jpg") no-repeat scroll transparent;
-}
-
-#content
-{
-    background-color: #FFFFFF; /*background: White url(../images/vshadow.png) repeat-y right;*/
-    padding: 20px;
-    width: 956px;
-    border-left: solid 2px #E2E2E2;
-    border-right: solid 2px #E2E2E2;
-    border-top: solid 1px #E2E2E2;
-}
-
-#hshadow
-{
-    width: 1000px;
-    height: 10px;
-    margin-right: 6px;
-    background: url(../images/hshadow.png) repeat-x;
-}
-
-#footer
-{
-    height: 150px;
-    text-align: center;
-    color: White;
-}
-
-#footer a
-{
-    color: White;
-    text-decoration: none;
-}
-
-#content .presentation
+﻿#content .presentation
 {
     margin-left: auto;
     margin-right: auto;
@@ -153,48 +8,46 @@ textarea, input, select
 
 #content .home
 {
-    background: url(../images/bk_box_centre.jpg) no-repeat;
     float: left;
-    width: 450px;
-    background-color: #5BB1CA;
-    margin: 0 10px 0 10px;
-    height: 110px;
+    width: 420px;
+    background-color: #236388;
+    padding: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
 }
 
-#content .home h2
+#content h2.homeclaim
 {
-    font-size: 12px;
-    color: #FFFFFF;
-    text-align: center;
+    font-size: 14px;
+    color: #000000;
+    text-align: right;
 }
 
 #content .home .input
 {
-    background-color: #FFFFFF;
-    padding: 3px;
-    margin: 0 10px 0 10px;
-    color: Grey;
+    margin-top: 10px;
 }
 
 #content .home select
 {
-    width: 130px;
+    width: 120px;
     border: none;
-    color: Grey;
+    color: #000000;
     float: right;
 }
 
 #content .home input.search
 {
-    width: 250px;
+    width: 230px;
     border: none;
     color: Grey;
 }
 
-#content .home input.gobutton
+#content input.gobutton
 {
-    margin-top: 5px;
-    background: url(../images/segnala_button.jpg) no-repeat;
+    background-color: #808080;
+    color: #FFFFFF;
+    margin-top: 10px;
 }
 
 #content .statsBox

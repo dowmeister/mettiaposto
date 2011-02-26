@@ -3,25 +3,82 @@
 */
 
 var initial = 'CAP, indirizzo, quartiere...';
-$(document).ready(function ()
-{
+var mapManager;
+
+$(document).ready(function () {
     $('#txtSearch').val(initial);
     $('#txtSearch').click(function () { $('#txtSearch').val(''); });
     $('#txtSearch').focus();
-    $(document).keypress(function (event)
-    {
-        if (event.which == 13)
-        {
+    $(document).keypress(function (event) {
+        if (event.which == 13) {
             search();
             return false;
         }
     });
+
+    var options = {
+        googleOptions: {
+            zoom: 6,
+            scaleControl: false, mapTypeControl: false, streetViewControl: false
+        }, container: 'map', lat: 42.53, lng: 13.66
+    }
+
+    mapManager = $.mapManager();
+    mapManager.createMap(options);
+
+    searchSignals();
 });
 
-function search()
-{
+function search() {
     if ($('#txtSearch').val() == '' || $('#txtSearch').val() == initial)
         alert('Inserire un indirizzo valido');
     else
         window.location.href = '/' + $('#ddlCities').val() + '/' + encodeURI($('#txtSearch').val()) + '/invia.aspx';
+}
+
+function searchSignals() {
+    var proxy = new JSONService();
+    var params = new Object();
+    params["address"] = '';
+    params["zip"] = '';
+    params["city"] = 'Milano';
+    params["categoryID"] = -1;
+    params["status"] = 1;
+    params["start"] = 0;
+
+    params = addSessionKey(params);
+
+    proxy.searchSignals(params, searchSignals_callback);
+}
+
+function searchSignals_callback(r) {
+    if (r.result) {
+        if (r.result.signals.length > 0) {
+
+            var bounds = new google.maps.LatLngBounds();
+
+            for (var i = 0; i < r.result.signals.length; i++) {
+                var s = r.result.signals[i];
+                var signal = s.signal;
+
+                var myLatLng = new google.maps.LatLng(signal.latitude, signal.longitude);
+
+                bounds.extend(myLatLng);
+
+                var image = '';
+
+                if (s.signal.status == 2)
+                    image = MARKERIMAGE_OK;
+                else
+                    image = MARKERIMAGE_ALERT;
+
+                var m = mapManager.addMarker({ mapID: 'map', id: 'signalMarker' + signal.signalID, position: myLatLng, draggable: false, image: image });
+                var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
+                google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('map').obj, this) });
+            }
+
+            mapManager.fitBounds({mapID: 'map', bounds: bounds, center: true});
+            mapManager.normalizeZoom({ mapID: 'map', zoomLimit: 15 });
+        }
+    }
 }

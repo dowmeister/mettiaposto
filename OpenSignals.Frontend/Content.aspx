@@ -20,8 +20,6 @@
         <div class="clear">
         </div>
     </div>
-    <div id="hshadow">
-    </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>
 </body>

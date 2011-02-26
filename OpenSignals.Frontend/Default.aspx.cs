@@ -18,9 +18,9 @@ namespace OpenSignals.Frontend
 
         private void BuildPage()
         {
-            SignalManager sm = new SignalManager();
-            ltTotals.Text = sm.GetCountAll().ToString();
-            ltResolved.Text = sm.GetCountByStatus(Signal.SignalStatus.Resolved).ToString();
+            //SignalManager sm = new SignalManager();
+            //ltTotals.Text = sm.GetCountAll().ToString();
+            //ltResolved.Text = sm.GetCountByStatus(Signal.SignalStatus.Resolved).ToString();
 
             PlaceManager pm = new PlaceManager();
             ddlCities.DataSource = pm.GetActivePlaces();

@@ -97,10 +97,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="images\1.jpg" />
-    <Content Include="images\2.jpg" />
-    <Content Include="images\3.jpg" />
-    <Content Include="images\4.jpg" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\alert.png" />
     <Content Include="images\bk_box_centre.jpg" />
@@ -108,6 +104,14 @@
     <Content Include="images\bk_box_sx.jpg" />
     <Content Include="images\blueline.png" />
     <Content Include="images\brownbox.png" />
+    <Content Include="images\footer.png" />
+    <Content Include="images\tabs\home_off.png" />
+    <Content Include="images\tabs\home_on.png" />
+    <Content Include="images\tabs\tab_off.png" />
+    <Content Include="images\tabs\tab_on.png" />
+    <Content Include="images\tabs\facebook.png" />
+    <Content Include="images\tabs\rss.png" />
+    <Content Include="images\tabs\twitter.png" />
     <Content Include="images\check.png" />
     <Content Include="images\claimhome.png" />
     <Content Include="images\contact_tab.gif" />
@@ -115,6 +119,7 @@
     <Content Include="images\greenbox.png" />
     <Content Include="images\greenbutton.png" />
     <Content Include="images\greentab.png" />
+    <Content Include="images\header_repeated.jpg" />
     <Content Include="images\homemsgbk.jpg" />
     <Content Include="images\hshadow.png" />
     <Content Include="images\logo.jpg" />
@@ -132,14 +137,6 @@
     <Content Include="images\segnala_button.jpg" />
     <Content Include="images\skyline.jpg" />
     <Content Include="images\skyline.png" />
-    <Content Include="images\tab_1_off.jpg" />
-    <Content Include="images\tab_1_on.jpg" />
-    <Content Include="images\tab_2_off.jpg" />
-    <Content Include="images\tab_2_on.jpg" />
-    <Content Include="images\tab_3_off.jpg" />
-    <Content Include="images\tab_3_on.jpg" />
-    <Content Include="images\tab_4_off.jpg" />
-    <Content Include="images\tab_4_on.jpg" />
     <Content Include="images\vshadow.png" />
     <Content Include="Includes\CommentsList.ascx" />
     <Content Include="Includes\Footer.ascx" />
@@ -179,6 +176,7 @@
     <Content Include="js\jquery\plugins\jquery.tabSlideOut.js" />
     <Content Include="js\json.js" />
     <Content Include="js\map.js" />
+    <Content Include="js\mapManager.js" />
     <Content Include="js\mobile.js" />
     <Content Include="js\search.functions.js" />
     <Content Include="js\signal.functions.js" />
