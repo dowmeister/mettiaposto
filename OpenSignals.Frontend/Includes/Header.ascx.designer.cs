@@ -19,7 +19,7 @@ namespace OpenSignals.Frontend.Includes {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor link1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl link1;
         
         /// <summary>
         /// link2 control.
@@ -28,7 +28,7 @@ namespace OpenSignals.Frontend.Includes {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor link2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl link2;
         
         /// <summary>
         /// link3 control.
@@ -37,7 +37,7 @@ namespace OpenSignals.Frontend.Includes {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor link3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl link3;
         
         /// <summary>
         /// link4 control.
@@ -46,33 +46,6 @@ namespace OpenSignals.Frontend.Includes {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor link4;
-        
-        /// <summary>
-        /// A1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
-        
-        /// <summary>
-        /// A2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A2;
-        
-        /// <summary>
-        /// A3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl link4;
     }
 }

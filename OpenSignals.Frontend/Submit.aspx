@@ -109,7 +109,7 @@
                     </ul>
                     <div class="buttons">
                         <input class="success" type="button" value="Invia" onclick="saveSignal(); return false;" />
-                        <input class="reset" type="reset" value="Annulla" />
+                        <%--<input class="reset" type="reset" value="Annulla" />--%>
                     </div>
                 </div>
             </div>

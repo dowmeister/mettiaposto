@@ -5,9 +5,9 @@
 $(function () {
     $('#feedback').tabSlideOut({
         tabHandle: '.handle',                     //class of the element that will become your tab
-        pathToTabImage: '/images/contact_tab.gif', //path to the image for the tab //Optionally can be set using css
-        imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
-        imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
+        pathToTabImage: '/images/feedback.png', //path to the image for the tab //Optionally can be set using css
+        imageHeight: '127px',                     //height of tab image           //Optionally can be set using css
+        imageWidth: '44px',                       //width of tab image            //Optionally can be set using css
         tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
         speed: 300,                               //speed of animation
         action: 'click',                          //options: 'click' or 'hover', action to trigger animation

@@ -41,7 +41,7 @@ namespace OpenSignals.Framework.Signals
             /// <summary>
             /// Resolved
             /// </summary>
-            public const int Resolved = 2;            
+            public const int Resolved = 2;
         }
 
         /// <summary>
@@ -241,6 +241,17 @@ namespace OpenSignals.Framework.Signals
                 else
                     return this.Description;
             }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance has image.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance has image; otherwise, <c>false</c>.
+        /// </value>
+        public virtual bool HasImage
+        {
+            get { return !this.Attachment.Equals(string.Empty); }
         }
 
         #endregion

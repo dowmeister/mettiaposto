@@ -130,8 +130,10 @@ namespace OpenSignals.Framework.Signals
         private ICriteria BuildCriteria(string city, string address, string zip, int categoryID, int status, int offset)
         {
             ICriteria criteria = Session.CreateCriteria(typeof(Signal))
-                        .Add(Restrictions.Eq("City", city))
                         .AddOrder(Order.Desc("CreationDate"));
+
+            if (!city.Equals(string.Empty))
+                criteria.Add(Restrictions.Eq("City", city));
 
             if (!address.Equals(string.Empty))
                 criteria.Add(Restrictions.Like("Address", "%" + address + "%"));
@@ -160,7 +162,7 @@ namespace OpenSignals.Framework.Signals
             OpenSession();
             int count = Session.CreateCriteria(typeof(Signal))
                 .Add(Restrictions.Eq("Status", status))
-                .SetProjection(Projections.RowCount()).UniqueResult<int>();    
+                .SetProjection(Projections.RowCount()).UniqueResult<int>();
             CloseSession();
             return count;
         }
@@ -192,7 +194,7 @@ namespace OpenSignals.Framework.Signals
                 .Add(Restrictions.Eq("SignalID", ss.SignalID))
                 .Add(Restrictions.Eq("Email", ss.Email))
                 .SetProjection(Projections.RowCount()).UniqueResult<int>();
-            
+
             CloseSession();
 
             return (rowcount == 0);
@@ -221,7 +223,7 @@ namespace OpenSignals.Framework.Signals
         {
             OpenSession();
             Session.Save(ss);
-            CloseSession();            
+            CloseSession();
         }
 
         /// <summary>

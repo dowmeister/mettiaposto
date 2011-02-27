@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI.HtmlControls;
 
 namespace OpenSignals.Frontend.Includes
 {
@@ -17,12 +18,10 @@ namespace OpenSignals.Frontend.Includes
             switch (_selectedTab)
             {
                 case 1:
-                    link1.Attributes["class"] = "small homeOn";
+                    link1.Attributes["class"] = "homeOn";
                     break;
                 case 2:
-                case 3:
-                case 4:
-                    link2.Attributes["class"] = "tabOn";
+                    ((HtmlGenericControl)FindControl("link" + _selectedTab.ToString())).Attributes["class"] = "tabOn";
                     break;
             }
         }
