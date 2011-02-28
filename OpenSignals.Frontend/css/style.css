@@ -200,7 +200,7 @@
     background: url(../images/minitabline.jpg) repeat-x bottom;
 }
 
-#content .map
+#content .map, #content #map
 {
     width: 470px;
     height: 500px;

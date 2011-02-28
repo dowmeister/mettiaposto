@@ -5,12 +5,15 @@
 var initial = 'CAP, indirizzo, quartiere...';
 var mapManager;
 
-$(document).ready(function () {
+$(document).ready(function ()
+{
     $('#txtSearch').val(initial);
     $('#txtSearch').click(function () { $('#txtSearch').val(''); });
     $('#txtSearch').focus();
-    $(document).keypress(function (event) {
-        if (event.which == 13) {
+    $(document).keypress(function (event)
+    {
+        if (event.which == 13)
+        {
             search();
             return false;
         }
@@ -29,14 +32,16 @@ $(document).ready(function () {
     searchSignals();
 });
 
-function search() {
+function search()
+{
     if ($('#txtSearch').val() == '' || $('#txtSearch').val() == initial)
         alert('Inserire un indirizzo valido');
     else
         window.location.href = '/' + $('#ddlCities').val() + '/' + encodeURI($('#txtSearch').val()) + '/invia.aspx';
 }
 
-function searchSignals() {
+function searchSignals()
+{
     var proxy = new JSONService();
     var params = new Object();
     params["address"] = '';
@@ -51,13 +56,17 @@ function searchSignals() {
     proxy.searchSignals(params, searchSignals_callback);
 }
 
-function searchSignals_callback(r) {
-    if (r.result) {
-        if (r.result.signals.length > 0) {
+function searchSignals_callback(r)
+{
+    if (r.result)
+    {
+        if (r.result.signals.length > 0)
+        {
 
             var bounds = new google.maps.LatLngBounds();
 
-            for (var i = 0; i < r.result.signals.length; i++) {
+            for (var i = 0; i < r.result.signals.length; i++)
+            {
                 var s = r.result.signals[i];
                 var signal = s.signal;
 
@@ -77,7 +86,7 @@ function searchSignals_callback(r) {
                 google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('map').obj, this) });
             }
 
-            mapManager.fitBounds({mapID: 'map', bounds: bounds, center: true});
+            mapManager.fitBounds({ mapID: 'map', bounds: bounds, center: true });
             mapManager.normalizeZoom({ mapID: 'map', zoomLimit: 15 });
         }
     }

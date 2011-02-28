@@ -11,9 +11,9 @@
     <uc2:Head ID="ucHead" runat="server" />
     <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - Cerca segnalazioni a {0}" />
     <meta property="og:description" runat="server" id="metaOgDescription" content="Cerca segnalazione di disservizi, problemi e malfunzionamenti a {0} riportati dai cittadini" />
-    <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />    
+    <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/map.js" type="text/javascript"></script>
+    <script src="/js/mapManager.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/search.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
@@ -77,8 +77,6 @@
                         <li><a href="#map">Mappa</a></li>
                     </ul>
                     <div map="true" id="map" mapdiv="map_canvas">
-                        <div map="true" id="map_canvas" class="map">
-                        </div>
                     </div>
                 </div>
             </div>

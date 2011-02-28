@@ -3,9 +3,12 @@
 */
 
 var currentSignalID = 0;
+var mapManager;
 
 $(document).ready(function ()
 {
+    mapManager = $.mapManager();
+
     $('#address').focus();
     $('#tabs').tabs({
         show: function (event, ui)
@@ -18,20 +21,13 @@ $(document).ready(function ()
                     scrollwheel: false, streetViewControl: false
                 };
 
-                var mapDiv = $(ui.panel).attr('mapDiv');
-                var map = getMap(mapDiv);
-
-                if (!map)
+                if ($(ui.panel).attr('id') == 'map')
+                    mapManager.createMap({ container: 'map', lat: 42.53, lng: 13.66, googleOptions: mapOpts });
+                else
                 {
-                    if (mapDiv == 'mapNearby')
-                    {
-                        mapOpts.disableDoubleClickZoom = false;
-                        mapOpts.disableDefaultUI = false;
-                        initializeMap(mapDiv, 42.53, 13.66, mapOpts);
-                        getSignalsNeraby($(ui.panel).attr('zip'));
-                    }
-                    else
-                        initializeMap(mapDiv, 42.53, 13.66, mapOpts);
+                    mapOpts.disableDoubleClickZoom = false;
+                    mapOpts.disableDefaultUI = false;
+                    mapManager.createMap({ container: 'mapNearby', lat: 42.53, lng: 13.66, googleOptions: mapOpts });
                 }
             }
         }
@@ -55,13 +51,13 @@ $(document).ready(function ()
 
 function saveSignal()
 {
-    if (!getMap('map_canvas'))
+    if (!mapManager.getMap('map'))
     {
         alert('Mappa non inizializzata');
         return false;
     }
 
-    if (!getMarkerObject('geoLocatedMarker0'))
+    if (!mapManager.getMarker('geoLocatedMarker0'))
     {
         alert('Inserire un indirizzo o impostare correttamente il marker sulla mappa');
         return false;
@@ -117,13 +113,13 @@ function addSignal()
     s.showName = document.getElementById('chkPublicName').checked;
     s.categoryID = $('#ddlCategories').val();
     s.email = $('#txtEmail').val();
-    s.latitude = getMarkerObject('geoLocatedMarker0').getPosition().lat();
+    s.latitude = mapManager.getMarker('geoLocatedMarker0').obj.getPosition().lat();
     s.name = $('#txtName').val();
-    s.longitude = getMarkerObject('geoLocatedMarker0').getPosition().lng();
+    s.longitude = mapManager.getMarker('geoLocatedMarker0').obj.getPosition().lng();
     s.address = $('#txtAddress').val();
-    s.zip = getAddressComponent(completeAddress, 'postal_code').long_name;
-    s.city = getAddressComponent(completeAddress, 'locality').long_name;
-    s.zoom = getMap('map_canvas').obj.getZoom();
+    s.zip = mapManager.getAddressComponent(completeAddress, 'postal_code').long_name;
+    s.city = mapManager.getAddressComponent(completeAddress, 'locality').long_name;
+    s.zoom = mapManager.getZoom('map');
     s.attachment = '';
 
     if ($('#fuFile').val() != '')
@@ -153,6 +149,96 @@ function addSignal()
     }
     else
         proxy.addSignal(s, ajaxSessionKey, addSignal_callback);
+}
+
+function geolocateByAddress()
+{
+    var options =
+    mapManager.geolocate(
+        { address: $('#txtAddress').val() + ", " + $('#ltCity').html(),
+            mapID: 'map',
+            callback: function (response, status)
+            {
+                geolocationByAddress_callback(response, status, { map: 'map' });
+            }
+        });
+}
+
+function geolocationByAddress_callback(r, status, options)
+{
+    if (mapManager.checkGeolocationResult(status))
+    {
+        var data = mapManager.getGeolocationData(r, 0);
+
+        mapManager.setCenter({ mapID: 'map', position: data.geometry.location });
+
+        switch (data.types[0])
+        {
+            case 'street_address':
+                mapManager.setZoom({ mapID: 'map', zoom: 16 });
+                break;
+            case 'postal_code':
+                mapManager.setZoom({ mapID: 'map', zoom: 14 });
+                break;
+            case 'sublocality':
+                mapManager.setZoom({ mapID: 'map', zoom: 13 });
+                break;
+            case 'route':
+                mapManager.setZoom({ mapID: 'map', zoom: 15 });
+                break;
+            case 'locality':
+                mapManager.setZoom({ mapID: 'map', zoom: 7 });
+                break;
+        }
+
+        switch (data.types[0])
+        {
+            case 'street_address':
+            case 'route':
+                mapManager.addMarker({
+                    managerInstance: mapManager,
+                    id: 'geoLocatedMarker0', position: data.geometry.location, draggable: true, mapID: 'map',
+                    image: MARKERIMAGE_ALERT, center: true, localize: true,
+                    goelocalizationCallback: 
+                        function (response, status) { geoLocationByLatLng_callback(response, status); },
+                    dragEnd: function (event)
+                    {
+                        mapManager.geolocate({ mapID: 'map', position: event.latLng, callback: 
+                            function (response, status) { geoLocationByLatLng_callback(response, status); } });
+                    }
+                });
+                break;
+        }
+    }
+
+    currentMap = null;
+}
+
+function geoLocationByLatLng_callback(response, status)
+{
+    if (mapManager.checkGeolocationResult(status))
+    {
+        var data = mapManager.getGeolocationData(response, 0);
+
+        completeAddress = data.address_components;
+
+        if ($('#ltCity').html() != null)
+        {
+            if (mapManager.getAddressComponent(data.address_components, 'locality').long_name == $('#ltCity').html())
+            {
+                var address = mapManager.getAddressComponent(data.address_components, 'route').long_name;
+                if (mapManager.getAddressComponent(data.address_components, 'street_number').long_name != '')
+                    address += ', ' + mapManager.getAddressComponent(data.address_components, 'street_number').long_name;
+
+                $('#txtAddress').val(address);
+
+                $('#completeAddress').show();
+                $('#completeAddress').html('Indirizzo completo: ' + data.formatted_address);
+            }
+            else
+                alert("L'indirizzo che hai inserito non è a " + $('#ltCity').html());
+        }
+    }
 }
 
 function addSignal_callback(r)

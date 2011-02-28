@@ -2,27 +2,22 @@
 * SEARCH FUNCTIONS
 */
 
+var mapManager;
+
 $(document).ready(function ()
 {
+    mapManager = $.mapManager();
+
     $('#tabs').tabs({
         show: function (event, ui)
         {
-            if ($(ui.panel).attr('map'))
-            {
-                var mapOpts = {
-                    zoom: 8, streetViewControl: false,
-                    mapTypeControl: false, scrollwheel: false
-                };
+            var mapOpts = {
+                zoom: 8, streetViewControl: false,
+                mapTypeControl: false, scrollwheel: false
+            };
 
-                var mapDiv = $(ui.panel).attr('mapDiv');
-                var map = getMap(mapDiv);
-
-                if (!map)
-                {
-                    initializeMap(mapDiv, 45.4636889, 9.1881408, mapOpts);
-                    searchSignals(0);
-                }
-            }
+            mapManager.createMap({ container: 'map', lat: 42.53, lng: 13.66, googleOptions: mapOpts });
+            searchSignals(0);
         }
     });
 });
@@ -66,13 +61,12 @@ function searchSignals_callback(r)
     }
     else if (r.result)
     {
-        removeAllMarkers();
+        mapManager.removeAllMarkers();
 
         if (r.result.signals.length > 0)
         {
             writeMessage('Trovati ' + r.result.signals.length + ' risultati', '<a href="#" onclick="showForm();">Effettua una nuova ricerca</a>', '#searchMessages');
 
-            var map = getMap('map_canvas').obj;
             var bounds = new google.maps.LatLngBounds();
 
             for (var i = 0; i < r.result.signals.length; i++)
@@ -91,18 +85,15 @@ function searchSignals_callback(r)
                 else
                     image = MARKERIMAGE_ALERT;
 
-                var m = createMarker('signalMarker' + signal.signalID, myLatLng, false, map, image);
+                var m = mapManager.createMarker({ id: 'signalMarker' + signal.signalID, position: myLatLng, draggable: false, mapID: 'map', image: image });
                 var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
-                google.maps.event.addListener(m, 'click', function () { w.open(map, this) });
+                google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('map').obj, this) });
             }
 
             $('#list').html(r.result.html);
 
-            map.fitBounds(bounds);
-            map.setCenter(bounds.getCenter());
-
-            if (map.getZoom() > 15)
-                map.setZoom(15);
+            mapManager.fitBounds({ mapID: 'mapDiv', bounds: bounds });
+            mapManager.normalizeZoom({ mapDiv: 'mapDiv', zoomLimit: 15 });
         }
         else
             writeError('Nessuna segnalazione trovata con i parametri di ricerca specificati<p><a href="#" onclick="showForm();">Effettua una nuova ricerca</a></p>', '#searchMessages');

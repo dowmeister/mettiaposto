@@ -13,7 +13,7 @@
     <meta property="og:description" runat="server" id="metaOgDescription" content="Invia una segnalazione di disservizi, problemi e malfunzionamenti a {0}" />
     <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/map.js" type="text/javascript"></script>
+    <script src="/js/mapManager.js" type="text/javascript"></script>
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/signal.functions.js" type="text/javascript"></script>
@@ -32,8 +32,9 @@
                 <div id="messages">
                 </div>
                 <div id="submitForm" class="submitForm">
-                    <div class="success message" style="display:block">
-                        Se hai qualche dubbio, prima di inviare la tua segnalazione leggi le <a href="/pages/info.aspx">FAQ</a>.
+                    <div class="success message" style="display: block">
+                        Se hai qualche dubbio, prima di inviare la tua segnalazione leggi le <a href="/pages/info.aspx">
+                            FAQ</a>.
                     </div>
                     <ol>
                         <li>
@@ -44,7 +45,7 @@
                         <li>
                             <label>
                                 Indirizzo</label>
-                            <asp:TextBox ID="txtAddress" runat="server" CssClass="address" onblur="geolocationByAddress(this.value, 'map_canvas');"></asp:TextBox>
+                            <asp:TextBox ID="txtAddress" runat="server" CssClass="address" onblur="geolocateByAddress();"></asp:TextBox>
                             *
                             <div class="legend">
                                 Digita un indirizzo, esempio: Via Ripamonti, 100</div>
@@ -98,13 +99,14 @@
                         </li>
                     </ol>
                     <ul>
-                        <li>Le informazioni personali vengono utilizzate nel rispetto delle leggi sulla <a href="/pages/privacy.aspx">privacy</a>.</li>
+                        <li>Le informazioni personali vengono utilizzate nel rispetto delle leggi sulla <a
+                            href="/pages/privacy.aspx">privacy</a>.</li>
                         <li>Per favore sii educato, preciso e vai dritto al punto.</li>
                         <li>Non abusare di questo servizio: l'abuso discredita la validità del servizio per
                             tutti gli utenti!</li>
                         <li>Non scrivere in maiuscolo</li>
-                        <li>Ricorda che Mettiaposto.it ti permette di segnalare problemi fisici del tuo quartiere: se
-                            non trovi una categoria adatta probabilmente il tuo problema non è sottomissibile
+                        <li>Ricorda che Mettiaposto.it ti permette di segnalare problemi fisici del tuo quartiere:
+                            se non trovi una categoria adatta probabilmente il tuo problema non è sottomissibile
                             via mettiaposto.it Prova ad usare il sito del Comune di Milano o altri canali</li>
                     </ul>
                     <div class="buttons">
@@ -119,12 +121,9 @@
                         <li><a href="#map">Mappa</a></li>
                     </ul>
                     <div map="true" id="map" mapdiv="map_canvas">
-                        <div map="true" id="map_canvas" class="map">
-                        </div>
-                        <br />
-                        <span id="completeAddress" style="display: none;">Indirizzo completo: </span>
                     </div>
                 </div>
+                <span id="completeAddress" style="display: none;">Indirizzo completo: </span>
             </div>
             <div class="clear">
             </div>
