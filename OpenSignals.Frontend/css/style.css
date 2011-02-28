@@ -103,7 +103,7 @@
     font-size: 16px;
     min-height: 20px;
     padding: 0 0 7px 0;
-    background: url(../images/minitabline.jpg) repeat-x bottom;
+    border-bottom: 1px solid #1c8dce;
 }
 
 .clear
@@ -197,7 +197,8 @@
 
 #content .mapTabs ul
 {
-    background: url(../images/minitabline.jpg) repeat-x bottom;
+    background: none repeat scroll 0 0 white;
+	border-bottom: 1px solid #1C8DCE;
 }
 
 #content .map, #content #map
