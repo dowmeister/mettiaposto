@@ -11,9 +11,9 @@
     <uc2:Head ID="ucHead" runat="server" />
     <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - {0} in {1} a {2}" />
     <meta property="og:description" runat="server" id="metaOgDescription" content="" />
-    <meta property="og:image" runat="server" id="ogImage" content="http://www.mettiaposto.it/images/logo.jpg" />
+    <meta property="og:image" runat="server" id="ogImage" content="http://www.mettiaposto.it/images/logo.png" />
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/map.js" type="text/javascript"></script>
+    <script src="/js/mapManager.js" type="text/javascript"></script>
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/signal.functions.js" type="text/javascript"></script>
@@ -26,6 +26,9 @@
         media="screen" />
     <script type="text/javascript" src="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
+        <script type="text/javascript">
+            $(document).ready(function () { initDetailPage(); });
+    </script>
 </head>
 <body>
     <div id="fb-root">
@@ -87,12 +90,13 @@
                                     <li>
                                         <label>
                                             Aggiorna stato</label>
-                                        <asp:DropDownList ID="ddlStatus" runat="server">                                            
+                                        <asp:DropDownList ID="ddlStatus" runat="server">
                                             <asp:ListItem Text="Segnalazione non risolta" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="Segnalazione risolta" Value="2" />
                                         </asp:DropDownList>
                                         <div class="legend">
-                                            Se la segnalazione è stata risolta, seleziona dalla tendina "Segnalazione Risolta" e inserisci un commento.
+                                            Se la segnalazione è stata risolta, seleziona dalla tendina "Segnalazione Risolta"
+                                            e inserisci un commento.
                                         </div>
                                     </li>
                                     <li>
@@ -100,7 +104,6 @@
                                             Commento</label>
                                         <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
                                     </li>
-                                    <li>
                                     <li>
                                         <label>
                                             Nome</label>
@@ -188,15 +191,11 @@
                 <div id="tabs" class="mapTabs">
                     <ul>
                         <li><a href="#map">Mappa</a></li>
-                        <li><a href="#nearby">Dintorni</a></li>
+                        <li><a href="#mapNearby">Dintorni</a></li>
                     </ul>
-                    <div map="true" id="map" mapdiv="map_canvas">
-                        <div id="map_canvas" class="map">
-                        </div>
+                    <div map="true" class="map" id="map" mapdiv="map">
                     </div>
-                    <div map="true" runat="server" id="nearby" mapdiv="mapNearby">
-                        <div id="mapNearby" class="map">
-                        </div>
+                    <div map="true" class="map" runat="server" id="mapNearby" mapdiv="mapNearby">
                     </div>
                 </div>
             </div>

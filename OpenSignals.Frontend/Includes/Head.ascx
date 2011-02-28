@@ -13,3 +13,6 @@
 <script src="/js/functions.js" type="text/javascript"></script>
 <script src="/js/validation.js" type="text/javascript"></script>
 <script src="/js/jquery/plugins/jquery.tabSlideOut.js" type="text/javascript"></script>
+<script src="/js/jquery/plugins/hoverIntent.js" type="text/javascript"></script>
+<link href="/js/jquery/plugins/superfish/superfish.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="/js/jquery/plugins/superfish/superfish.js" type="text/javascript"></script>

@@ -21,6 +21,8 @@ namespace OpenSignals.Frontend.Includes
                     link1.Attributes["class"] = "homeOn";
                     break;
                 case 2:
+                case 3:
+                case 4:
                     ((HtmlGenericControl)FindControl("link" + _selectedTab.ToString())).Attributes["class"] = "tabOn";
                     break;
             }

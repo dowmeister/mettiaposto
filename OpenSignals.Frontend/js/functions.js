@@ -15,6 +15,7 @@ $(function () {
         leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
         fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
     });
+    $('.sf-menu').superfish();
 
 });
 
@@ -64,7 +65,7 @@ function writeAjax(container)
 {
     hideAjax(container);
     var c = $('<div class="message ajax"></div>');
-    c.append('<img src="/images/ajax-loader.gif" />');
+    c.append('<img alt="Caricamento in corso.." src="/images/ajax-loader.gif" />');
     c.appendTo(container);
     c.show();
 }

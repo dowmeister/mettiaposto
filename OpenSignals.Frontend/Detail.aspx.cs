@@ -6,6 +6,7 @@ using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Base;
 using OpenSignals.Framework.Core.Utility;
 using OpenSignals.Framework.Signals;
+using Jayrock.Json;
 
 namespace OpenSignals.Frontend
 {
@@ -50,22 +51,23 @@ namespace OpenSignals.Frontend
                 if (s.Status == Signal.SignalStatus.Resolved)
                     markerImage = "MARKERIMAGE_OK";
 
-                string func = JsUtils.CreateJsFunction("setMarker", false, "signalMarker" + GetFromQueryString("id"),
-                    new JsUtils.JsFunction("new google.maps.LatLng(" + s.Latitude.ToString(new CultureInfo("en-US")) + "," + s.Longitude.ToString(new CultureInfo("en-US")) + ")"),
-                    false, "map_canvas", true, true, new JsUtils.JsConstant(markerImage)) + "getMap('map_canvas').obj.setZoom(" + s.Zoom.ToString() + "); fbInit(); getComments(0); ";
+                JsonObject currentMarker = new JsonObject();
+                currentMarker["id"] = s.SignalID.ToString();
+                currentMarker["lat"] = s.Latitude;//.ToString(new CultureInfo("en-US"));
+                currentMarker["lng"] = s.Longitude;//.ToString(new CultureInfo("en-US"));
+                currentMarker["zoom"] = s.Zoom;//.ToString();
+                currentMarker["image"] = new OpenSignals.Framework.Core.Utility.JsUtils.JsConstant(markerImage);
+                currentMarker["zip"] = s.Zip;
+                currentMarker["status"] = s.Status;
 
-                RegisterDocumentReadyFunction("setmarker", func);
-
-                nearby.Attributes.Add("zip", s.Zip);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "currentMarker", "currentMarker=" + currentMarker.ToString() + ";", true);
+                //RegisterDocumentReadyFunction("init", "initDetailPage");
 
                 if (!s.Attachment.Equals(string.Empty))
                 {
                     divPhoto.Visible = true;
                     lnkPhoto.HRef = WebUtils.GetImageUrl( UploadPaths.Big, s.Attachment);
                     imgPhoto.ImageUrl = WebUtils.GetImageUrl(UploadPaths.Small, s.Attachment);
-
-                    RegisterDocumentReadyFunction("fancybox", "$('#lnkPhoto').fancybox(); ");
-
                     ogImage.Attributes["content"] = WebUtils.GetImageUrl(UploadPaths.Small, s.Attachment);
                 }
 
@@ -75,8 +77,6 @@ namespace OpenSignals.Frontend
                     ddlStatus.Enabled = false;
                     divResolved.Visible = true;
                 }
-
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "currentSignalID", "currentSignalID=" + GetFromQueryString("id"), true);
             }
         }
     }

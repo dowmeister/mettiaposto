@@ -13,7 +13,7 @@
     <uc2:Head ID="ucHead" runat="server" />
     <meta property="og:title" content="Mettiaposto.it" />
     <meta property="og:description" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
-    <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />
+    <meta property="og:image" content="http://www.mettiaposto.it/images/logo.png" />
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="/js/mapManager.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
@@ -25,6 +25,7 @@
     <uc3:Header ID="Header1" runat="server" TabSelected="1" />
     <div id="content">
         <div style="float: left; width: 500px; height: 500px;" id="map">
+            <div class="message ajax" style="display:block;"><img style="margin-top:250px; margin-bottom:200px;" alt="Caricamento in corso.." src="/images/ajax-loader.gif" /></div>
         </div>
         <div style="float: right; width: 430px">
             <h2 class="homeclaim">

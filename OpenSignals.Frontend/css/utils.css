@@ -55,12 +55,17 @@ textarea, input, select
     float: right;
 }
 
-#menu ul
+#menu ul.cities
+{
+    margin: 40px 0 0 41px;
+}
+
+#menu ul.tabs
 {
     margin-top: 108px;
 }
 
-#menu ul li
+#menu ul.tabs li
 {
     list-style: none;
     display: inline;
@@ -68,7 +73,7 @@ textarea, input, select
     float: left;
 }
 
-#menu ul li a
+#menu ul.tabs li a
 {
     color: #236387;
     display: block;
@@ -79,47 +84,47 @@ textarea, input, select
     margin-top: 15px;
 }
 
-#menu ul li a span
+#menu ul.tabs li a span
 {
     display: none;
 }
 
-#menu ul li.homeOff:hover, #menu ul li.homeOn
+#menu ul.tabs li.homeOff:hover, #menu ul li.homeOn
 {
     background: url("../images/tabs/home_on.png") no-repeat transparent;
 }
 
-#menu ul li.homeOff
+#menu ul.tabs li.homeOff
 {
     background: url("../images/tabs/home_off.png") no-repeat transparent;
 }
 
-#menu ul li.tabOn, #menu ul li.tabOff:hover
+#menu ul.tabs li.tabOn, #menu ul.tabs li.tabOff:hover
 {
     background: url("../images/tabs/tab_on.png") no-repeat scroll transparent;
 }
 
-#menu ul li.tabOff
+#menu ul.tabs li.tabOff
 {
     background: url("../images/tabs/tab_off.png") no-repeat scroll transparent;
 }
 
-#menu ul li a.small
+#menu ul.tabs li a.small
 {
     width: 59px;
 }
 
-#menu ul li.twitter
+#menu ul.tabs li.twitter
 {
     background: url("../images/tabs/twitter.png") no-repeat scroll transparent;
 }
 
-#menu ul li.facebook
+#menu ul.tabs li.facebook
 {
     background: url("../images/tabs/facebook.png") no-repeat scroll transparent;
 }
 
-#menu ul li.rss
+#menu ul.tabs li.rss
 {
     background: url("../images/tabs/rss.png") no-repeat scroll transparent;
 }

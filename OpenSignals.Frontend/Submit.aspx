@@ -11,7 +11,7 @@
     <uc2:Head ID="ucHead" runat="server" />
     <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - Invia una segnalazione a {0}" />
     <meta property="og:description" runat="server" id="metaOgDescription" content="Invia una segnalazione di disservizi, problemi e malfunzionamenti a {0}" />
-    <meta property="og:image" content="http://www.mettiaposto.it/images/logo.jpg" />
+    <meta property="og:image" content="http://www.mettiaposto.it/images/logo.png" />
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="/js/mapManager.js" type="text/javascript"></script>
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
