@@ -71,6 +71,7 @@ textarea, input, select
     display: inline;
     text-align: center;
     float: left;
+	margin-right: -4px;
 }
 
 #menu ul.tabs li a
