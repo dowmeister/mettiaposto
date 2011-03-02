@@ -35,15 +35,13 @@
             sui muri.
             <br />
             Per dubbi, chiarimenti, informazioni, per capire come funziona questo sito <a href="/pages/info.aspx">
-                FAQ</a>.
+                leggi le FAQ</a>.
             <h2 class="homeclaim">
                 Segnala un poblema!</h2>
             <div class="home">
-                Inserisci l'indirizzo e seleziona la città
+                Inserisci l'indirizzo (compreso via, viale, piazza o altro)
                 <div class="input">
                     <asp:TextBox MaxLength="150" ID="txtSearch" CssClass="search" runat="server"></asp:TextBox>
-                    <asp:DropDownList ID="ddlCities" DataValueField="Name" DataTextField="Name" runat="server">
-                    </asp:DropDownList>
                 </div>
             </div>
             <div class="clear" style="text-align: right; width:430px">

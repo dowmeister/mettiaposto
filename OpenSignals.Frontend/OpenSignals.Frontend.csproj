@@ -173,7 +173,7 @@
     <Content Include="js\jquery\plugins\fancybox\jquery.fancybox-1.3.4.css" />
     <Content Include="js\jquery\plugins\fancybox\jquery.fancybox-1.3.4.pack.js" />
     <Content Include="js\jquery\plugins\hoverIntent.js" />
-    <Content Include="js\jquery\plugins\jquery.tabSlideOut.js" />
+    <Content Include="js\jquery\plugins\tabSlideOut.js" />
     <Content Include="js\jquery\plugins\superfish\superfish.js" />
     <Content Include="js\json.js" />
     <Content Include="js\mapManager.js" />

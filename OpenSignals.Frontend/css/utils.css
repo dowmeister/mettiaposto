@@ -57,7 +57,7 @@ textarea, input, select
 
 #menu ul.cities
 {
-    margin: 40px 0 0 41px;
+    margin: 70px 0 0 -200px;
 }
 
 #menu ul.tabs
@@ -141,6 +141,7 @@ textarea, input, select
 
 #footer
 {
+    font-size: 10px;
     height: 150px;
     text-align: center;
     color: White;

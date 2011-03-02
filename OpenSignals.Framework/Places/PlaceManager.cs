@@ -49,5 +49,31 @@ namespace OpenSignals.Framework.Places
                 CloseSession();
             }
         }
+
+        /// <summary>
+        /// Loads the place.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        public Place LoadPlace(string name)
+        {
+            try
+            {
+                OpenSession();
+                Place ret = Session.CreateCriteria(typeof(Place))
+                    .Add(Restrictions.Eq("Name", name))
+                    .UniqueResult<Place>();
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error loading place by name", ex);
+                throw ex;
+            }
+            finally
+            {
+                CloseSession();
+            }
+        }
     }
 }

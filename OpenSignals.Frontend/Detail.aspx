@@ -12,6 +12,7 @@
     <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - {0} in {1} a {2}" />
     <meta property="og:description" runat="server" id="metaOgDescription" content="" />
     <meta property="og:image" runat="server" id="ogImage" content="http://www.mettiaposto.it/images/logo.png" />
+    <meta property="fb:admins" content="1437896726"/>    
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="/js/mapManager.js" type="text/javascript"></script>
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>

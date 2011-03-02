@@ -12,6 +12,7 @@ namespace OpenSignals.Frontend
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterAjaxSessionKey();
+            GetCurrentCity();
 
             metaOgDescription.Attributes["content"] = String.Format(metaOgDescription.Attributes["content"], CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower()));
             ogTitle.Attributes["content"] = String.Format(ogTitle.Attributes["content"], CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower()));
@@ -40,7 +41,7 @@ namespace OpenSignals.Frontend
             if (QueryStringContains("address"))
             {
                 txtAddress.Text = GetFromQueryString("address");
-                RegisterDocumentReadyFunction("autogeo", JsUtils.CreateJsFunction("geolocationByAddress", false, txtAddress.Text, "map_canvas"));
+                RegisterDocumentReadyFunction("autogeo", JsUtils.CreateJsFunction("geolocateByAddress", false, txtAddress.Text, "map"));
             }
         }
     }

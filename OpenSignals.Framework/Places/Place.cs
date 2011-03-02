@@ -62,5 +62,35 @@ namespace OpenSignals.Framework.Places
         /// The open311 city ID.
         /// </value>
         public virtual string Open311CityID { get; set; }
+
+        /// <summary>
+        /// Gets the link.
+        /// </summary>
+        public virtual string Link
+        {
+            get { return "/" + this.Name.ToLower() + "/"; }
+        }
+
+        /// <summary>
+        /// Gets or sets the latitude.
+        /// </summary>
+        /// <value>
+        /// The latitude.
+        /// </value>
+        public virtual decimal Latitude { get; set; }
+        /// <summary>
+        /// Gets or sets the longitude.
+        /// </summary>
+        /// <value>
+        /// The longitude.
+        /// </value>
+        public virtual decimal Longitude { get; set; }
+        /// <summary>
+        /// Gets or sets the map zoom.
+        /// </summary>
+        /// <value>
+        /// The map zoom.
+        /// </value>
+        public virtual int MapZoom { get; set; }
     }
 }

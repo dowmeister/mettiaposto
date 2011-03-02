@@ -17,11 +17,11 @@ $(document).ready(function () {
 function showForm() {
     $('#list').empty();
     clearMessages('#searchMessages');
-    $('.submitForm').show();
+    $('#submitForm').show();
 }
 
 function searchSignals(start) {
-    $('.submitForm').hide();
+    $('#submitForm').hide();
     clearMessages('#searchMessages');
     writeAjax('#searchMessages');
     $('#list').empty();
@@ -45,7 +45,7 @@ function searchSignals_callback(r) {
 
     if (r.error) {
         writeError(r.error.message, '#searchMessages');
-        $('.submitForm').show();
+        $('#submitForm').show();
     }
     else if (r.result) {
 

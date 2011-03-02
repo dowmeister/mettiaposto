@@ -15,6 +15,7 @@ namespace OpenSignals.Frontend
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterAjaxSessionKey();
+            GetCurrentCity();
 
             if (!Page.IsPostBack)
             {

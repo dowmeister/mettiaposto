@@ -13,6 +13,33 @@ namespace OpenSignals.Frontend.Includes {
     public partial class Footer {
         
         /// <summary>
+        /// linkLogo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor linkLogo;
+        
+        /// <summary>
+        /// linkSignal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor linkSignal;
+        
+        /// <summary>
+        /// linkRss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor linkRss;
+        
+        /// <summary>
         /// txtFeedbackName control.
         /// </summary>
         /// <remarks>

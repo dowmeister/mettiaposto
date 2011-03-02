@@ -17,6 +17,8 @@ using System;
 using System.Threading;
 using System.Web;
 using log4net;
+using OpenSignals.Framework.Places;
+using Jayrock.Json;
 
 namespace OpenSignals.Framework.Core.Base
 {
@@ -42,6 +44,19 @@ namespace OpenSignals.Framework.Core.Base
                 return _logger;
             }
         }
+
+        private Place _currentCity = null;
+
+        /// <summary>
+        /// Gets the current city.
+        /// </summary>
+        /// <value>
+        /// The current city.
+        /// </value>
+        public Place CurrentCity
+        {
+            get { return _currentCity; }
+        }        
 
         /// <summary>
         /// Gets from request.
@@ -438,6 +453,25 @@ namespace OpenSignals.Framework.Core.Base
             string ajaxSessionKey = Guid.NewGuid().ToString();
             ClientScript.RegisterClientScriptBlock(this.GetType(), "ajaxSessionKey", "ajaxSessionKey='" + ajaxSessionKey + "';", true);
             AddToSession("AjaxSessionKey", ajaxSessionKey);
+        }
+
+        /// <summary>
+        /// Gets the current city.
+        /// </summary>
+        protected void GetCurrentCity()
+        {
+            if (QueryStringContains("city"))
+            {
+                PlaceManager pm = new PlaceManager();
+                _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city")));
+                JsonObject o = new JsonObject();
+                o["name"] = _currentCity.Name;
+                o["link"] = _currentCity.Link;
+                o["id"] = _currentCity.ID;
+                o["lat"] = _currentCity.Latitude;
+                o["lng"] = _currentCity.Longitude;
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "currentCity", "currentCity = " + o.ToString(), true);
+            }
         }
     }
 }

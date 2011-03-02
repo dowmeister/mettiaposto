@@ -11,20 +11,7 @@ namespace OpenSignals.Frontend
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterAjaxSessionKey();
-
-            if (!Page.IsPostBack)
-                BuildPage();
-        }
-
-        private void BuildPage()
-        {
-            //SignalManager sm = new SignalManager();
-            //ltTotals.Text = sm.GetCountAll().ToString();
-            //ltResolved.Text = sm.GetCountByStatus(Signal.SignalStatus.Resolved).ToString();
-
-            PlaceManager pm = new PlaceManager();
-            ddlCities.DataSource = pm.GetActivePlaces();
-            ddlCities.DataBind();
+            GetCurrentCity();
         }
     }
 }

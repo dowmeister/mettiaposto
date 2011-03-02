@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Web.UI.HtmlControls;
+using OpenSignals.Framework.Places;
+using System.Collections.Generic;
+using OpenSignals.Framework.Core.Base;
 
 namespace OpenSignals.Frontend.Includes
 {
@@ -26,6 +29,23 @@ namespace OpenSignals.Frontend.Includes
                     ((HtmlGenericControl)FindControl("link" + _selectedTab.ToString())).Attributes["class"] = "tabOn";
                     break;
             }
+
+
+            PlaceManager pm = new PlaceManager();
+            Place currentCity = ((BasePage)Page).CurrentCity;
+            currentCityAnchor.InnerHtml = currentCity.Name;
+            currentCityAnchor.HRef = currentCity.Link + "index.aspx";
+
+            linkSearch.HRef = currentCity.Link + "cerca.aspx";
+            linkHome.HRef = currentCity.Link + "index.aspx";
+            linkSignal.HRef = currentCity.Link + "invia.aspx";
+            linkRss.HRef = currentCity.Link + "rss.aspx";
+            linkLogo.HRef = currentCity.Link + "index.aspx";
+
+            List<Place> places = pm.GetActivePlaces();
+            places.Remove(currentCity);
+            rptCities.DataSource = places;
+            rptCities.DataBind();
         }
     }
 }

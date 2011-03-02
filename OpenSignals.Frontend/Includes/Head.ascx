@@ -5,14 +5,18 @@
 <link rel="canonical" href="http://www.mettiaposto.it/" />
 <link rel="icon" href="http://www.mettiaposto.it/favicon.ico" />
 <link rel="shortcut icon" href="http://www.mettiaposto.it/favicon.ico" />
-<link rel="image_src" href="http://www.mettiaposto.it/images/logo.jpg" />
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
+<link rel="image_src" href="http://www.mettiaposto.it/images/logo.png" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
 <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
 <script src="/js/json.js" type="text/javascript"></script>
 <script src="/js/functions.js" type="text/javascript"></script>
 <script src="/js/validation.js" type="text/javascript"></script>
-<script src="/js/jquery/plugins/jquery.tabSlideOut.js" type="text/javascript"></script>
+<script src="/js/jquery/plugins/tabSlideOut.js" type="text/javascript"></script>
 <script src="/js/jquery/plugins/hoverIntent.js" type="text/javascript"></script>
 <link href="/js/jquery/plugins/superfish/superfish.css" rel="stylesheet" type="text/css" media="screen" />
 <script src="/js/jquery/plugins/superfish/superfish.js" type="text/javascript"></script>
+<meta property="fb:app_id" content="183751108307062"/>
+<meta property="og:site_name" content="Mettiaposto.it"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" type="application/rss+xml" title="Mettiaposto.it Feed" href="/rss.ashx" /> 

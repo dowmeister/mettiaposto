@@ -27,7 +27,7 @@ function search()
     if ($('#txtSearch').val() == '' || $('#txtSearch').val() == initial)
         alert('Inserire un indirizzo valido');
     else
-        window.location.href = '/' + $('#ddlCities').val() + '/' + encodeURI($('#txtSearch').val()) + '/invia.aspx';
+        window.location.href = currentCity.link + encodeURI($('#txtSearch').val()) + '/invia.aspx';
 }
 
 function searchSignals()
@@ -36,12 +36,22 @@ function searchSignals()
     var params = new Object();
     params["address"] = '';
     params["zip"] = '';
-    params["city"] = 'Milano';
+    params["city"] = currentCity.name;
     params["categoryID"] = -1;
     params["status"] = 1;
     params["start"] = 0;
 
     params = addSessionKey(params);
+
+    var options = {
+        googleOptions: {
+            zoom: 6,
+            scaleControl: false, mapTypeControl: false, streetViewControl: false
+        }, container: 'map', lat: 42.53, lng: 13.66
+    }
+
+    mapManager = $.mapManager();
+    mapManager.createMap(options);
 
     proxy.searchSignals(params, searchSignals_callback);
 }
@@ -49,17 +59,7 @@ function searchSignals()
 function searchSignals_callback(r) {
     if (r.result) {
         if (r.result.signals.length > 0) {
-            {
-                var options = {
-                    googleOptions: {
-                        zoom: 6,
-                        scaleControl: false, mapTypeControl: false, streetViewControl: false
-                    }, container: 'map', lat: 42.53, lng: 13.66
-                }
-
-                mapManager = $.mapManager();
-                mapManager.createMap(options);
-
+            {              
                 var bounds = new google.maps.LatLngBounds();
 
                 for (var i = 0; i < r.result.signals.length; i++) {

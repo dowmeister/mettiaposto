@@ -11,13 +11,14 @@ using OpenSignals.Framework.Communications.Messages;
 using OpenSignals.Framework.Core.Utility;
 using OpenSignals.Framework.Signals;
 using OpenSignals.Frontend.Includes;
+using OpenSignals.Framework.Core.Base;
 
 namespace OpenSignals.Frontend.Ajax
 {
     /// <summary>
     /// Summary description for JSON
     /// </summary>
-    public class JSONService : JsonRpcHandler, IRequiresSessionState
+    public class JSONService : BaseJSONHandler
     {
         private void CheckRequest(string key)
         {
