@@ -45,9 +45,7 @@
 
 #content input.gobutton
 {
-    background-color: #69A74E;
-    background-position: 0 -96px;
-    border-color: #3B6E22 #3B6E22 #2C5115;
+    background: url("/images/button_green.png") repeat scroll 0 0 transparent;
     margin-top: 10px;
 }
 
