@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Web.UI;
 using OpenSignals.Framework.Core.Base;
-using OpenSignals.Framework.Places;
-using OpenSignals.Framework.Signals;
 
 namespace OpenSignals.Frontend
 {
@@ -10,6 +7,12 @@ namespace OpenSignals.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!QueryStringContains("nomobile"))
+            {
+                if (IsMobileBrowser())
+                    Server.Transfer("/m/Default.aspx");
+            }
+
             RegisterAjaxSessionKey();
             GetCurrentCity();
         }

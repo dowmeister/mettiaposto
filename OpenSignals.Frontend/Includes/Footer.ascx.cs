@@ -1,6 +1,6 @@
 ﻿using System;
-using OpenSignals.Framework.Places;
 using OpenSignals.Framework.Core.Base;
+using OpenSignals.Framework.Places;
 
 namespace OpenSignals.Frontend.Includes
 {

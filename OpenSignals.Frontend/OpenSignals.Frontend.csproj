@@ -181,6 +181,7 @@
     <Content Include="js\search.functions.js" />
     <Content Include="js\signal.functions.js" />
     <Content Include="js\validation.js" />
+    <Content Include="m\Content.aspx" />
     <Content Include="m\Default.aspx" />
     <Content Include="robots.txt" />
     <Content Include="Search.aspx" />
@@ -284,6 +285,13 @@
     </Compile>
     <Compile Include="Includes\StaticFileManager.ascx.designer.cs">
       <DependentUpon>StaticFileManager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="m\Content.aspx.cs">
+      <DependentUpon>Content.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m\Content.aspx.designer.cs">
+      <DependentUpon>Content.aspx</DependentUpon>
     </Compile>
     <Compile Include="m\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

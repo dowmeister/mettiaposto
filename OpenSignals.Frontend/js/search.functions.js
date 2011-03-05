@@ -4,23 +4,27 @@
 
 var mapManager;
 
-$(document).ready(function () {
+$(document).ready(function ()
+{
     mapManager = $.mapManager();
 
     $('#tabs').tabs({
-        show: function (event, ui) {
+        show: function (event, ui)
+        {
             searchSignals(0);
         }
     });
 });
 
-function showForm() {
+function showForm()
+{
     $('#list').empty();
     clearMessages('#searchMessages');
     $('#submitForm').show();
 }
 
-function searchSignals(start) {
+function searchSignals(start)
+{
     $('#submitForm').hide();
     clearMessages('#searchMessages');
     writeAjax('#searchMessages');
@@ -40,14 +44,17 @@ function searchSignals(start) {
     proxy.searchSignals(params, searchSignals_callback);
 }
 
-function searchSignals_callback(r) {
+function searchSignals_callback(r)
+{
     hideAjax('#searchMessages');
 
-    if (r.error) {
+    if (r.error)
+    {
         writeError(r.error.message, '#searchMessages');
         $('#submitForm').show();
     }
-    else if (r.result) {
+    else if (r.result)
+    {
 
         mapManager.createMap({ container: 'map', lat: 42.53, lng: 13.66, googleOptions: {
             zoom: 8, streetViewControl: false,
@@ -57,12 +64,14 @@ function searchSignals_callback(r) {
 
         mapManager.removeAllMarkers();
 
-        if (r.result.signals.length > 0) {
+        if (r.result.signals.length > 0)
+        {
             writeMessage('Trovati ' + r.result.signals.length + ' risultati', '<a href="#" onclick="showForm();">Effettua una nuova ricerca</a>', '#searchMessages');
 
             var bounds = new google.maps.LatLngBounds();
 
-            for (var i = 0; i < r.result.signals.length; i++) {
+            for (var i = 0; i < r.result.signals.length; i++)
+            {
                 var s = r.result.signals[i];
                 var signal = s.signal;
 

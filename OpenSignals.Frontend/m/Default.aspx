@@ -1,90 +1,96 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OpenSignals.Frontend.m.Default" %>
+﻿<%@ Page EnableViewState="false" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OpenSignals.Frontend.m.Default" %>
+
 <%@ Register Src="/Includes/Analytics.ascx" TagName="Analytics" TagPrefix="uc4" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head runat="server" EnableViewState="false">
     <title>Mettiaposto.it Mobile - Invia segnalazioni di disservizi, problemi della tua
         città o del tuo quartiere</title>
+    <meta http-equiv="Content-Language" content="it" />        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no" />
     <meta name="HandheldFriendly" content="True" />
     <link rel="shortcut icon" href="http://www.mettiaposto.it/favicon.ico" />
-    <link href="/css/mobile.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+    <link href="/css/mobile.css" rel="Stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/map.js" type="text/javascript"></script>
+    <script src="/js/mapManager.js" type="text/javascript"></script>
     <script src="/js/mobile.js" type="text/javascript"></script>
     <script src="/js/validation.js" type="text/javascript"></script>
     <script src="/js/functions.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/json.js" type="text/javascript"></script>
     <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
-    <uc4:analytics id="Analytics1" runat="server" />
+    <uc4:Analytics ID="Analytics1" runat="server" EnableViewState="false" />
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div class="wrapper">
-        <div class="header">
-            <img src="/images/logo_beta.jpg" />
+<body class="ui-mobile-viewport">
+    <div id="defaultPage" data-role="page" data-theme="b" data-back-btn-text="Indidtro">
+        <div data-role="header" class="header">
+            <h1>
+                Mettiaposto.it</h1>
         </div>
-        <div class="content">
-            <div id="messages">
-            </div>
+        <div data-role="content" class="content">
             <div class="submit">
                 <h1>
                     Invia la tua segnalazione</h1>
-                <ul>
-                    <li>
-                        <label>
-                            Posizione attuale</label></li>
-                    <li>
-                        <asp:TextBox onblur="geolocalizeByAddress()" ID="txtAddress" runat="server"></asp:TextBox>
-                        <br />
-                        Se la localizzazione non è corretta puoi usare la <a href="javascript:;" onclick="initMap(); return false">
-                            mappa</a> o modificare l'<a href="javascript:;" onclick="$('#txtAddress').focus(); return false;">indirizzo</a>
-                        mappa</a>
-                        <br />
-                        <div style="display: none; width: 100%; height: 300px" id="map">
-                        </div>
-                    </li>
-                    <li>
-                        <label>
-                            Oggetto della segnalazione</label></li>
-                    <li>
-                        <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox></li>
-                    <li>
-                        <label>
-                            Descrizione della segnalazione</label></li>
-                    <li>
-                        <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Rows="10" Columns="20"></asp:TextBox></li>
-                    <li>
-                        <label>
-                            Categoria</label></li>
-                    <li>
-                        <asp:DropDownList DataTextField="Name" DataValueField="CategoryID" ID="ddlCategories"
-                            runat="server">
-                        </asp:DropDownList>
-                    </li>
-                    <li>
-                        <label>
-                            E-Mail</label></li>
-                    <li>
-                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox></li>
-                    <li>
-                        <label>
-                            Carica una foto</label></li>
-                    <li>
-                        <asp:FileUpload ID="fuFile" runat="server" /></li>
-                </ul>
-                <div class="button">
-                    <a href="#" onclick="sendSignal();">Invia</a>
+                <form id="form1" runat="server" EnableViewState="false"> 
+                <div data-role="fieldcontain">
+                    <label class="ui-input-text">
+                        Posizione attuale</label>
+                    <asp:TextBox TabIndex="1" EnableViewState="false" onblur="geolocalizeByAddress()" ID="txtAddress" runat="server"></asp:TextBox>
+                    <br />
+                    Se la localizzazione non è corretta puoi usare la <a href="javascript:;" onclick="initMap(); return false">
+                        mappa</a> o modificare l'<a href="javascript:;" onclick="$('#txtAddress').focus(); return false;">indirizzo</a>
                 </div>
+                <div style="display: none; width: 100%; height: 300px" id="map">
+                </div>
+                <div data-role="fieldcontain">
+                    <label class="ui-input-text">
+                        Oggetto della segnalazione</label>
+                    <asp:TextBox TabIndex="2" ID="txtSubject" EnableViewState="false" runat="server"></asp:TextBox>
+                </div>
+                <div data-role="fieldcontain">
+                    <label class="ui-input-text">
+                        Descrizione della segnalazione</label>
+                    <asp:TextBox TabIndex="3" ID="txtDescription" EnableViewState="false" runat="server" TextMode="MultiLine" Rows="10" Columns="20"></asp:TextBox>
+                </div>
+                <div data-role="fieldcontain">
+                    <label class="ui-input-text">
+                        Categoria</label>
+                    <asp:DropDownList TabIndex="4" data-native-menu="true" DataTextField="Name" DataValueField="CategoryID"
+                        ID="ddlCategories" EnableViewState="false" runat="server">
+                    </asp:DropDownList>
+                </div>
+                <div data-role="fieldcontain">
+                    <label class="ui-input-text">
+                        E-Mail</label>
+                    <asp:TextBox TabIndex="5" EnableViewState="false" ID="txtEmail" runat="server"></asp:TextBox></div>
+                <div data-role="fieldcontain">
+                    <label class="ui-input-text">
+                        Carica una foto</label>
+                    <asp:FileUpload EnableViewState="false" ID="fuFile" runat="server" />
+                </div>
+                <a href="#" class="ui-btn-right" data-role="button" onclick="sendSignal();" data-icon="check">Invia</a>
+                </form>
             </div>
         </div>
-        <div class="footer">
-            <a href="/">Sito Completo</a> | <a href="/m/content.aspx?page=faq">FAQ</a> | <a href="/m/content.aspx?page=privacy">
-                Privacy</a>
+        <div data-role="footer" id="mobile-footer" class="ui-bar" data-theme="b">
+            <a data-role="button" rel="external" data-icon="home" href="/Default.aspx?nomobile=true">
+                Sito Completo</a> <a data-icon="info" data-role="button" href="/m/content.aspx?page=info">
+                    FAQ</a> <a data-role="button" data-icon="info" href="/m/content.aspx?page=privacy">Privacy</a>
         </div>
     </div>
-    </form>
+   <div id="submitResult" class="messages" data-role="page" data-theme="b" data-back-btn-text="Indidtro">
+        <div data-role="header" class="header" data-backbtn="false">
+            <h1>
+                Mettiaposto.it</h1>
+                <a href="#" onclick="$.mobile.changePage($('#defaultPage'));" data-role="button" data-icon="arrow-l">Indietro</a>
+        </div>
+        <div data-role="content" class="content">
+            <div class="messages" id="messages"></div>
+        </div>
+   </div>
 </body>
 </html>

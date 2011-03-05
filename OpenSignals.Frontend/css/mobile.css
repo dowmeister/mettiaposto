@@ -9,21 +9,6 @@ body
     color: #333333;
 }
 
-.wrapper
-{
-    margin: 10px;
-}
-
-.header
-{
-    text-align: center;
-}
-
-.header img
-{
-    width: 150px;    
-}
-
 .content h1
 {
     -moz-border-radius: 5px;
@@ -35,79 +20,9 @@ body
     text-align: center;
 }
 
-.content .description
+.ui-body-b,.ui-body-c,.ui-body-a,.ui-body-d,.ui-body-e
 {
-}
-
-.content .submit
-{
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    background-color: rgb(255,255,255);
-    padding: 5px 15px 5px 5px;    
-}
-
-.content .submit ul
-{
-    margin: 0;
-    padding: 0;
-}
-
-.content .submit ul li
-{
-    list-style-type: none;
-    margin-bottom: 3px;
-}
-
-.content .submit ul li label
-{
-    font-weight: bold;
-}
-
-.content .submit ul li input, .content .submit ul li textarea, .content .submit ul li select
-{
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border: 1px solid #5BB1CA;
-    padding: 3px;
-    font-size: 14px;
-    width: 100%;
-}
-
-.content .button
-{
-    text-align: center;
-    width: 100%;
-}
-
-.content .button a
-{
-    display: inline-block;
-    padding: 3px;
-    background: #5BB1CA;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    width: 150px;
-    color: #FFFFFF;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.footer
-{
-    padding: 5px;
-    margin-top: 5px;
-    border-top: 1px solid #FFFFFF;
-    font-size: 11px;
-    width: 100%;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.footer a
-{
-    color: #FFFFFF;
-    text-decoration: none;
+    text-shadow: none;
 }
 
 

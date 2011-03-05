@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Web.Security;
-using OpenSignals.Framework.Core.Base;
 using log4net;
-using OpenSignals.Framework.Data;
 using NHibernate.Criterion;
+using OpenSignals.Framework.Data;
 
 namespace OpenSignals.Framework.Profiles
 {

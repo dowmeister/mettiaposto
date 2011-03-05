@@ -1,6 +1,5 @@
-﻿using System.Xml.Serialization;
-using System.Collections.Generic;
-using System;
+﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 namespace OpenSignals.Framework.Web
 {
     /// <summary>

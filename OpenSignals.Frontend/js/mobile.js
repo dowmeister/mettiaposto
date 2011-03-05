@@ -5,12 +5,23 @@
 var initialLocation = new google.maps.LatLng(45.46265906981793, 9.187488555908203);
 var currentLocation = null;
 var completeAddress = null;
-var marker = null;
-var map = null;
+var mapManager = null;
+var inputs;
 
 $(document).ready(function ()
 {
-    if (navigator.geolocation)
+    mapManager = $.mapManager();
+
+    inputs = $('input,select,textarea');
+    if ($.browser.mozilla)
+    {
+        inputs.keypress(checkEnter);
+    } else
+    {
+        inputs.keydown(checkEnter);
+    }
+
+    if (mapManager.hasGeolocation())
     {
         navigator.geolocation.getCurrentPosition(function (position)
         {
@@ -18,8 +29,11 @@ $(document).ready(function ()
             if (initialLocation)
             {
                 currentLocation = initialLocation;
-                var geoCoder = new google.maps.Geocoder();
-                geoCoder.geocode({ latLng: initialLocation }, function (response, status) { geoLocation_callback(response, status); });
+                mapManager.geolocate(
+                {
+                    position: initialLocation, callback:
+                    function (response, status) { geoLocation_callback(response, status); }
+                });
             }
         }, function ()
         {
@@ -30,13 +44,42 @@ $(document).ready(function ()
     }
 });
 
+function checkEnter(event)
+{
+    if (event.keyCode == 13)
+    {
+        var nextIndex = parseInt($(event.currentTarget).attr('tabindex'))+1;
+
+        if ($('[tabindex="' + nextIndex + '"]').length > 0)
+        {
+            $('[tabindex="' + (nextIndex-1) + '"]').blur();
+            $('[tabindex="' + nextIndex + '"]').focus().select();
+            event.preventDefault();
+        }
+        else
+        {
+            event.eventPreventDefault();
+            $(event.currentTarget).blur();
+        }
+
+        return false;
+    }
+}
+
+$(document).bind("mobileinit", function ()
+{
+    $.extend($.mobile, {
+        loadingMessage: 'Caricamento...'
+    });
+});
+
 function geoLocation_callback(response, status)
 {
-    if (checkGeolocationResult(status))
+    if (mapManager.checkGeolocationResult(status))
     {
-        completeAddress = getGeolocationData(response, 0).address_components;
-        currentLocation = getGeolocationData(response, 0).geometry.location;
-        $('#txtAddress').val(getGeolocationData(response, 0).formatted_address);
+        completeAddress = mapManager.getGeolocationData(response, 0).address_components;
+        currentLocation = mapManager.getGeolocationData(response, 0).geometry.location;
+        $('#txtAddress').val(mapManager.getGeolocationData(response, 0).formatted_address);
         initMap();
         addMarker();
     }
@@ -50,17 +93,19 @@ function initMap()
         return;
     }
 
-    if (!map)
+    if (!mapManager.getMap('map'))
     {
+
+        mapManager.createMap({
+            lat: currentLocation.lat(), lng: currentLocation.lng, container: 'map', googleOptions:
+            {
+                zoom: 17,
+                scaleControl: false, mapTypeControl: false, disableDoubleClickZoom: true,
+                scrollwheel: false, streetViewControl: false, draggable: false
+            }
+        });
+
         $('#map').show();
-
-        var mapOpts = {
-            zoom: 17,
-            scaleControl: false, mapTypeControl: false, disableDoubleClickZoom: true,
-            scrollwheel: false, streetViewControl: false
-        };
-
-        map = initializeMap('map', currentLocation.lat(), currentLocation.lng(), mapOpts);
 
         addMarker();
     }
@@ -68,34 +113,28 @@ function initMap()
 
 function addMarker()
 {
-    if (marker)
-        marker.setMap(null);
+    mapManager.removeAllMarkers();
 
-    marker = new google.maps.Marker({
-        map: map,
-        position: currentLocation,
-        draggable: true,
-        icon: new google.maps.MarkerImage(MARKERIMAGE_ALERT, new google.maps.Size(32, 32))
+    mapManager.addMarker({
+        id: 'signal0', position: currentLocation, draggable: true, image: MARKERIMAGE_ALERT,
+        mapID: 'map', center: true,
+        dragEnd: function () { geolocationOnMove(mapManager.getMarker('signal0').obj.getPosition()); }
     });
-
-    map.setCenter(currentLocation);
-
-    google.maps.event.addListener(marker, 'dragend', function () { geolocationOnMove(marker.getPosition()); });
 }
 
 function geolocationOnMove(position)
 {
-    var geoCoder = new google.maps.Geocoder();
     currentLocation = position;
-    $('#txtAddress').val('Localizzazione in corso...');
-    geoCoder.geocode({ latLng: position }, function (response, status) { geoLocation_callback(response, status); });
+    mapManager.geolocate({ position: position, mapID: 'map',
+        callback: function (response, status) { geoLocation_callback(response, status); }
+    });
 }
 
 function geolocalizeByAddress()
 {
-    var geoCoder = new google.maps.Geocoder();
-    geoCoder.geocode({ address: $('#txtAddress').val() }, function (response, status) { geoLocation_callback(response, status); });
-    $('#txtAddress').val('Localizzazione in corso...');
+    mapManager.geolocate({ address: $('#txtAddress').val(), mapID: 'map',
+        callback: function (response, status) { geoLocation_callback(response, status); }
+    });
 }
 
 function sendSignal()
@@ -130,9 +169,9 @@ function sendSignal()
 
     if (validation.validationResult())
     {
-        $('.submit').hide();
+//        $('.submit').hide();
 
-        writeAjax('#messages');
+        /*writeAjax('#messages');*/
 
         addSignal();
     }
@@ -154,16 +193,16 @@ function addSignal()
     s.name = 'Anonimo';
     s.longitude = currentLocation.lng();
 
-    s.address = getAddressComponent(completeAddress, 'route').long_name;
+    s.address = mapManager.getAddressComponent(completeAddress, 'route').long_name;
 
-    if (getAddressComponent(completeAddress, 'street_number').long_name != '')
-        s.address += ', ' + getAddressComponent(completeAddress, 'street_number').long_name;
+    if (mapManager.getAddressComponent(completeAddress, 'street_number').long_name != '')
+        s.address += ', ' + mapManager.getAddressComponent(completeAddress, 'street_number').long_name;
 
-    s.zip = getAddressComponent(completeAddress, 'postal_code').long_name;
-    s.city = getAddressComponent(completeAddress, 'locality').long_name;
+    s.zip = mapManager.getAddressComponent(completeAddress, 'postal_code').long_name;
+    s.city = mapManager.getAddressComponent(completeAddress, 'locality').long_name;
 
-    if (map)
-        s.zoom = map.getZoom();
+    if (mapManager.getMap('map'))
+        s.zoom = mapManager.getZoom('map')
     else
         s.zoom = 16;
 
@@ -200,15 +239,17 @@ function addSignal()
 
 function addSignal_callback(r)
 {
-    hideAjax('#messages');
+    /*hideAjax('#messages');*/
 
     if (r.error)
     {
-        writeError(r.error.message, '#messages');
+        /*writeError(r.error.message, '#messages');*/
     }
     else if (r.result)
     {
-        var text = 'La segnalazione è stata salvata correttamente.<br/><a href="/' + r.result.city.toLowerCase() + '/' + r.result.signalID + '/segnalazione.aspx">Clicca qui</a> per visualizzare la pagina di dettaglio.';
+        $.mobile.changePage($('#submitResult'));
+
+        var text = 'La segnalazione è stata salvata correttamente.<br/><a rel="external" href="/' + r.result.city.toLowerCase() + '/' + r.result.signalID + '/segnalazione.aspx">Clicca qui</a> per visualizzare la pagina di dettaglio.';
 
         writeMessage('Segnalazione inviata', text, '#messages');
     }

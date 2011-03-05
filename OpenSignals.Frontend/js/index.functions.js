@@ -56,13 +56,17 @@ function searchSignals()
     proxy.searchSignals(params, searchSignals_callback);
 }
 
-function searchSignals_callback(r) {
-    if (r.result) {
-        if (r.result.signals.length > 0) {
-            {              
+function searchSignals_callback(r)
+{
+    if (r.result)
+    {
+        if (r.result.signals.length > 0)
+        {
+            {
                 var bounds = new google.maps.LatLngBounds();
 
-                for (var i = 0; i < r.result.signals.length; i++) {
+                for (var i = 0; i < r.result.signals.length; i++)
+                {
                     var s = r.result.signals[i];
                     var signal = s.signal;
 

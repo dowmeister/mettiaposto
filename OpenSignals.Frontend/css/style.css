@@ -263,6 +263,12 @@
     border: solid 1px #5BB1CA;
 }
 
+#content .details .shareBox
+{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
 #content .details .shareBox ul li
 {
     list-style: none;

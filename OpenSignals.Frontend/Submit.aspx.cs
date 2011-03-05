@@ -11,6 +11,9 @@ namespace OpenSignals.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsMobileBrowser())
+                Server.Transfer("/m/Default.aspx");
+
             RegisterAjaxSessionKey();
             GetCurrentCity();
 

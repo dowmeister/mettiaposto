@@ -320,7 +320,7 @@ function initDetailPage()
     mapManager.addMarker({ id: 'signalMarker' + currentMarker.id, position: new google.maps.LatLng(currentMarker.lat, currentMarker.lng),
         image: image, center: true, zoom: true, zoomValue: currentMarker.zoom, mapID: 'map'
     });
-    fbInit();
-    getComments(0);
+    FB.init({ appId: '183751108307062', cookie: true, xfbml: true });
+    //getComments(0);
     $('#lnkPhoto').fancybox();
 }

@@ -14,8 +14,6 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using NHibernate;
-using NHibernate.Cfg;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Base;
 

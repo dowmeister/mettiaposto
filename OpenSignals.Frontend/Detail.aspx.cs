@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Globalization;
 using System.Web.UI;
+using Jayrock.Json;
 using OpenSignals.Framework.Categories;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Base;
 using OpenSignals.Framework.Core.Utility;
 using OpenSignals.Framework.Signals;
-using Jayrock.Json;
 
 namespace OpenSignals.Frontend
 {
@@ -74,8 +73,8 @@ namespace OpenSignals.Frontend
 
                 if (s.Status == Signal.SignalStatus.Resolved)
                 {
-                    ddlStatus.Items.FindByValue(Signal.SignalStatus.Resolved.ToString()).Selected = true;
-                    ddlStatus.Enabled = false;
+                    //ddlStatus.Items.FindByValue(Signal.SignalStatus.Resolved.ToString()).Selected = true;
+                    //ddlStatus.Enabled = false;
                     divResolved.Visible = true;
                 }
             }

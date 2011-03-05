@@ -17,6 +17,7 @@
 <link href="/js/jquery/plugins/superfish/superfish.css" rel="stylesheet" type="text/css" media="screen" />
 <script src="/js/jquery/plugins/superfish/superfish.js" type="text/javascript"></script>
 <meta property="fb:app_id" content="183751108307062"/>
+<meta property="fb:admins" content="1437896726,800734657"/>
 <meta property="og:site_name" content="Mettiaposto.it"/>
 <meta property="og:type" content="website"/>
 <link rel="alternate" type="application/rss+xml" title="Mettiaposto.it Feed" href="/rss.ashx" /> 

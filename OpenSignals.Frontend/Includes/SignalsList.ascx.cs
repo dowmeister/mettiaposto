@@ -28,7 +28,7 @@ namespace OpenSignals.Frontend.Includes
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
                 ((HtmlAnchor)e.Item.FindControl("title")).InnerText = ((Signal)e.Item.DataItem).Subject;
-                ((HtmlAnchor)e.Item.FindControl("title")).HRef = "/" + ((Signal)e.Item.DataItem).City + "/" + ((Signal)e.Item.DataItem).SignalID + "/segnalazione.aspx";
+                ((HtmlAnchor)e.Item.FindControl("title")).HRef = ((Signal)e.Item.DataItem).Link;
 
                 if (((Signal)e.Item.DataItem).Status == 1)
                     ((Image)e.Item.FindControl("status")).ImageUrl = "/images/alert.png";

@@ -110,6 +110,20 @@ namespace OpenSignals.Framework.Core.Configuration
 namespace OpenSignals.Framework.Core
 {
     /// <summary>
+    /// 
+    /// </summary>
+    public class RewriteContext
+    {
+        /// <summary>
+        /// Gets or sets the rewrited URL.
+        /// </summary>
+        /// <value>
+        /// The rewrited URL.
+        /// </value>
+        public string RewritedUrl { get; set; }
+    }
+
+    /// <summary>
     /// This class manage the rewrite engine
     /// </summary>
     public class RewriteManager : BaseManager
@@ -139,6 +153,9 @@ namespace OpenSignals.Framework.Core
                                     destinationUrl = destinationUrl.Replace("$" + i.ToString(), m.Groups[i].Value);
                             }
 
+                            RewriteContext ctx = new RewriteContext();
+                            ctx.RewritedUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+                            HttpContext.Current.Items.Add("REWRITECONTEXT", ctx);
                             HttpContext.Current.RewritePath(destinationUrl + HttpContext.Current.Request.Url.Query);
                         }
                     }
