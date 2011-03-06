@@ -43,7 +43,7 @@
                     <asp:TextBox MaxLength="150" ID="txtSearch" CssClass="search" runat="server"></asp:TextBox>
                 </div>
             </div>
-            <div class="clear" style="text-align: right; width:430px">
+            <div class="clear" style="text-align: right; width:440px">
                 <input class="gobutton" id="searchButton" type="button" value="Segnala" onclick="search(); return false;"></input>
             </div>
         </div>
