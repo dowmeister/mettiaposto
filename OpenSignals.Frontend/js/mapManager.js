@@ -23,6 +23,11 @@ $.mapManager = function ()
 
             var m = new google.maps.Map(document.getElementById(options.container), options.googleOptions);
 
+            if (options.ne && options.sw)
+            {
+                m.fitBounds(options.bounds);
+            }
+
             this.maps.push({ id: options.container, obj: m });
         }
     }
@@ -209,6 +214,11 @@ $.mapManager = function ()
     this.hasGeolocation = function ()
     {
         return navigator.geolocation;
+    }
+
+    this.setCenter = function (options)
+    {
+        this.getMap(options.mapID).obj.setCenter(options.position);
     }
 
     return this;

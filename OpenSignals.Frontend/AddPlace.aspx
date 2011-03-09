@@ -14,7 +14,6 @@
     <meta property="og:image" content="http://www.mettiaposto.it/images/logo.png" />
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="/js/mapManager.js" type="text/javascript"></script>
-    <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script src="/js/places.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
@@ -33,20 +32,25 @@
                 </div>
                 <div id="submitForm" class="submitForm">
                     <div class="success message" style="display: block">
-                        Se la tua città non è presente, puoi aggiungerla tu stesso compilando il form sottostante. Dopo la verifica sarà pubblicata e potrai inviare segnalazioni.</a>.
+                        Se la tua città non è presente, puoi aggiungerla tu stesso compilando il form sottostante.
+                        Dopo la verifica sarà pubblicata e potrai inviare segnalazioni.
                     </div>
                     <ol>
                         <li>
                             <label>
                                 Città</label>
-                            <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-                        </li>                        
+                            <asp:TextBox Enabled="false" ID="txtCity" runat="server"></asp:TextBox>
+                            <div class="legend">
+                                Sposta il segnalino sulla mappa al centro della tua città e imposta la zoom della mappa in modo che tutto il territorio comunale sia
+                                compreso dalla mappa.
+                        </div>
+                        </li>
                         <li>
                             <label>
                                 E-mail</label>
                             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                             <div class="legend">
-                                Il tuo indirizzo email non verrà mai mostrato pubblicamente</div>
+                               Inserisci la tua email per essere avvertito quando la tua città sarà pubblicata.</div>
                         </li>
                     </ol>
                     <ul>
@@ -67,7 +71,9 @@
                         <li><a href="#map">Mappa</a></li>
                     </ul>
                     <div map="true" id="map" mapdiv="map_canvas">
-                        <div class="message ajax" style="display:block;"><img style="margin-top:250px; margin-bottom:200px;" alt="Caricamento in corso.." src="/images/ajax-loader.gif" /></div>
+                        <div class="message ajax" style="display: block;">
+                            <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
+                                src="/images/ajax-loader.gif" /></div>
                     </div>
                 </div>
             </div>

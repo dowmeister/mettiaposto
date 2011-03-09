@@ -5,13 +5,18 @@ function initAddPlacePage(city)
 {
     mapManager = $.mapManager();
 
-    $('#tabs').tabs();
-    mapManager.geolocate({ address: city + ', Italia',
-        callback: function (response, status)
+    $('#tabs').tabs({
+        show: function (event, ui)
         {
-            geolocationByAddress_callback(response, status);
-        }
+            mapManager.geolocate({ address: city + ', Italia',
+                callback: function (response, status)
+                {
+                    geolocationByAddress_callback(response, status);
+                }
+            });
+        } 
     });
+    
 }
 
 function geolocationByAddress_callback(r, status, options)
@@ -21,11 +26,63 @@ function geolocationByAddress_callback(r, status, options)
         var data = mapManager.getGeolocationData(r, 0);
 
         mapManager.createMap({
-            container: 'map', position: data.geometry.location, googleOptions: {
-                scaleControl: false, mapTypeControl: false, streetViewControl: false
+            container: 'map', bounds: data.geometry.bounds, position: data.geometry.location, googleOptions: {
+                scaleControl: false, mapTypeControl: false, streetViewControl: false, zoom: 12
             }
         });
 
-        mapManager.addMarker({ id: 'place0', image: MARKERIMAGE_ALERT, mapID: 'map', position: data.geometry.location, center: true, draggable: true });
+        mapManager.addMarker({ id: 'place0', image: MARKERIMAGE_ALERT, mapID: 'map', position: data.geometry.location, center: true, draggable: true,
+            dragEnd: function (event) { mapManager.setCenter({ mapID: 'map', position: event.latLng }); } 
+        });
+    }
+}
+
+function addPlace()
+{
+    validation = $.validateUtils({
+        errorStyle: 'border-color:Red', errorDiv: '#validationError', showAs: 'div', headerMessage: 'Alcuni campi non sono compilati correttamente'
+    });
+
+    validation.addRule({
+        field: '#txtEmail', validateFunction: 'notEmpty', message: 'E-Mail vuota'
+    });
+    validation.addRule({
+        field: '#txtEmail', validateFunction: 'validEmail', message: 'E-Mail non valida'
+    });
+
+    validation.validate();
+
+    if (validation.validationResult())
+    {
+        $('#submitForm').hide();
+
+        writeAjax('#messages');
+
+        var o = new Object();
+        o.name = $('#txtCity').val();
+        o.email = $('#txtEmail').val();
+        o.zoom = mapManager.geZoom('map');
+        o.lat = mapManager.getMarker('place0').obj.getPosition().lat();
+        o.lng = mapManager.getMarker('place0').obj.getPosition().lng();
+        var proxy = new JSONService();
+        proxy.addPlace(o, addPlace_callback);
+    }
+    else
+        validation.showErrorMessage();
+}
+
+function addPlace_callback(r)
+{
+    hideAjax('#messages');
+
+    if (r.error)
+    {
+        writeError(r.error.message, '#messages');
+    }
+    else if (r.result)
+    {
+        var text = 'La segnalazione è stata salvata correttamente.<br/><a href="/' + r.result.city.toLowerCase() + '/' + r.result.signalID + '/segnalazione.aspx">Clicca qui</a> per visualizzare la pagina di dettaglio.';
+
+        writeMessage('Segnalazione salvata correttamente', text, '#messages');
     }
 }

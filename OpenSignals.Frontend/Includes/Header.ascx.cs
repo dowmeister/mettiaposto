@@ -38,6 +38,8 @@ namespace OpenSignals.Frontend.Includes
                     break;
             }
 
+            citiesMenu.Visible = _checkCity;
+
             if (_checkCity)
             {
                 PlaceManager pm = new PlaceManager();

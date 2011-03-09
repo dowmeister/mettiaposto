@@ -5,7 +5,7 @@
             <a runat="server" id="linkLogo" href="/index.aspx"></a>
         </div>
         <div id="menu">
-            <ul class="cities sf-menu">
+            <ul runat="server" id="citiesMenu" class="cities sf-menu">
                 <li runat="server" class="current"><a id="currentCityAnchor" runat="server"></a>
                     <ul>
                         <asp:Repeater ID="rptCities" runat="server">

@@ -13,9 +13,17 @@ namespace OpenSignals.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterAjaxSessionKey();
+            try
+            {
+                RegisterAjaxSessionKey();
 
-            RegisterDocumentReadyFunction("locatePlace", JsUtils.CreateJsFunction("initAddPlacePage", false, GetFromQueryString("city")));
+                RegisterDocumentReadyFunction("locatePlace", JsUtils.CreateJsFunction("initAddPlacePage", false, GetFromQueryString("city")));
+                txtCity.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city"));
+            }
+            catch (Exception ex)
+            {
+                ManageException("Error loading create place page", "Errore", ex);
+            }
         }
     }
 }

@@ -76,7 +76,7 @@
                     <ul>
                         <li><a href="#map">Mappa</a></li>
                     </ul>
-                    <div map="true" id="map" mapdiv="map_canvas">
+                    <div id="map">
                     </div>
                 </div>
             </div>

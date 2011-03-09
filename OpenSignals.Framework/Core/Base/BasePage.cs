@@ -491,11 +491,21 @@ namespace OpenSignals.Framework.Core.Base
             ClientScript.RegisterClientScriptBlock(this.GetType(), "currentCity", "currentCity = " + o.ToString() + ";", true);
         }
 
+        /// <summary>
+        /// Gets the rewrite context.
+        /// </summary>
+        /// <returns></returns>
         public RewriteContext GetRewriteContext()
         {
             return (RewriteContext)GetFromContext("REWRITECONTEXT");
         }
 
+        /// <summary>
+        /// Determines whether [is mobile browser].
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if [is mobile browser]; otherwise, <c>false</c>.
+        /// </returns>
         protected bool IsMobileBrowser()
         {
             Regex MobileBrowsers = new Regex(@"android|avantgo|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|symbian|treo|up\\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino", RegexOptions.IgnoreCase | RegexOptions.Multiline);
@@ -520,6 +530,19 @@ namespace OpenSignals.Framework.Core.Base
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Manages the exception.
+        /// </summary>
+        /// <param name="logErrorMessage">The log error message.</param>
+        /// <param name="errorPageErroMessage">The error page erro message.</param>
+        /// <param name="ex">The ex.</param>
+        protected void ManageException(string logErrorMessage, string errorPageErroMessage, Exception ex)
+        {
+            log.Fatal(logErrorMessage, ex);
+            AddToContext("PAGEERROR", ex); 
+            Server.Transfer("/Error.aspx?message=" + errorPageErroMessage);
         }
     }
 }
