@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="AddPlace.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Ajax\Upload.aspx" />
@@ -181,6 +182,7 @@
     <Content Include="js\json.js" />
     <Content Include="js\mapManager.js" />
     <Content Include="js\mobile.js" />
+    <Content Include="js\places.functions.js" />
     <Content Include="js\search.functions.js" />
     <Content Include="js\signal.functions.js" />
     <Content Include="js\validation.js" />
@@ -201,6 +203,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPlace.aspx.cs">
+      <DependentUpon>AddPlace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPlace.aspx.designer.cs">
+      <DependentUpon>AddPlace.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
