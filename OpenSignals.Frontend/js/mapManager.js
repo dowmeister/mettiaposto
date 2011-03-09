@@ -11,7 +11,12 @@ $.mapManager = function ()
     {
         if (!this.getMap(options.container))
         {
-            var latlng = new google.maps.LatLng(options.lat, options.lng);
+            var latlng;
+
+            if (options.position)
+                latlng = options.position;
+            else
+                latlng = new google.maps.LatLng(options.lat, options.lng);
 
             options.googleOptions.mapTypeId = google.maps.MapTypeId.ROADMAP;
             options.googleOptions.center = latlng;
@@ -93,7 +98,7 @@ $.mapManager = function ()
 
         var geoCoder = new google.maps.Geocoder();
         if (options.address)
-            geoCoder.geocode({ address: options.address, language: 'it', region:'it' }, options.callback);
+            geoCoder.geocode({ address: options.address, language: 'it', region: 'it' }, options.callback);
         else
             geoCoder.geocode({ latLng: options.position, language: 'it', region: 'it' }, options.callback);
     }
