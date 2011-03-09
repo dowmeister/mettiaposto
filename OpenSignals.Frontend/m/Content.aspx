@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Content.aspx.cs" Inherits="OpenSignals.Frontend.m.Content" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Content.aspx.cs" Inherits="OpenSignals.Frontend.Mobile.Content" %>
 
 <%@ Register Src="/Includes/Analytics.ascx" TagName="Analytics" TagPrefix="uc4" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -15,10 +15,9 @@
     <uc4:Analytics ID="Analytics1" runat="server" />
 </head>
 <body class="ui-mobile-viewport">
-    <div data-role="page" data-theme="b" data-back-btn-text="Indidtro">
-        <div data-role="header" class="header" data-position="fixed">
-            <h1>
-                Mettiaposto.it</h1>
+    <div data-role="page" data-theme="b" data-back-btn-text="Back">
+        <div data-role="header" class="header">
+            <div id="logo"> </div>
         </div>
         <div data-role="content" class="content" runat="server" id="divContent">
         </div>

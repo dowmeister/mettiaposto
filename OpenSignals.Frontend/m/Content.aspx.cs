@@ -3,7 +3,7 @@ using System.IO;
 using System.Xml;
 using OpenSignals.Framework.Core.Base;
 
-namespace OpenSignals.Frontend.m
+namespace OpenSignals.Frontend.Mobile
 {
     public partial class Content : BasePage
     {

@@ -9,6 +9,14 @@ body
     color: #333333;
 }
 
+#logo 
+{
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background: url("/images/logo_mobile.png") no-repeat scroll center center transparent
+}
+
 .content h1
 {
     -moz-border-radius: 5px;
@@ -23,6 +31,11 @@ body
 .ui-body-b,.ui-body-c,.ui-body-a,.ui-body-d,.ui-body-e
 {
     text-shadow: none;
+}
+
+.ui-mobile a img
+{
+    vertical-align: middle;
 }
 
 

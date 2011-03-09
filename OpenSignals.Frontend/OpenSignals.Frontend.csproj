@@ -88,6 +88,9 @@
     <Content Include="css\flick\images\ui-icons_ff0084_256x240.png" />
     <Content Include="css\flick\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\flick\jquery-ui-1.8.7.custom.css" />
+    <Content Include="images\locate-me.png" />
+    <Content Include="images\button_green.png" />
+    <Content Include="images\logo_mobile.png" />
     <Content Include="js\jquery\plugins\superfish\arrows-ffffff.png" />
     <Content Include="js\jquery\plugins\superfish\shadow.png" />
     <Content Include="js\jquery\plugins\superfish\superfish.css" />

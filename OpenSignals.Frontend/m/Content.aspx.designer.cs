@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OpenSignals.Frontend.m {
+namespace OpenSignals.Frontend.Mobile {
     
     
     public partial class Content {

@@ -2,7 +2,7 @@
 using OpenSignals.Framework.Categories;
 using OpenSignals.Framework.Core.Base;
 
-namespace OpenSignals.Frontend.m
+namespace OpenSignals.Frontend.Mobile
 {
     public partial class Default : BasePage
     {

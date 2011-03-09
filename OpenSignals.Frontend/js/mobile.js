@@ -37,11 +37,13 @@ $(document).ready(function ()
             }
         }, function ()
         {
-
+            $('#txtAddress').val('');
         },
         { enableHighAccuracy: true }
         );
     }
+    else
+        $('#txtAddress').val('');
 });
 
 function checkEnter(event)
@@ -82,6 +84,11 @@ function geoLocation_callback(response, status)
         $('#txtAddress').val(mapManager.getGeolocationData(response, 0).formatted_address);
         initMap();
         addMarker();
+        $('#form').show();
+    }
+    else
+    {
+        $('#txtAddress').val('');
     }
 }
 
@@ -132,9 +139,14 @@ function geolocationOnMove(position)
 
 function geolocalizeByAddress()
 {
-    mapManager.geolocate({ address: $('#txtAddress').val(), mapID: 'map',
-        callback: function (response, status) { geoLocation_callback(response, status); }
-    });
+    if ($('#txtAddress').val() != '')
+    {
+        mapManager.geolocate({ address: $('#txtAddress').val(), mapID: 'map',
+            callback: function (response, status) { geoLocation_callback(response, status); }
+        });
+    }
+    else
+        alert('Inserisci un indirizzo');
 }
 
 function sendSignal()
