@@ -26,7 +26,7 @@ namespace OpenSignals.Framework.Places
         /// <value>
         /// The ID.
         /// </value>
-        public virtual int ID { get; set; }
+        public virtual int PlaceID { get; set; }
         /// <summary>
         /// Gets or sets the name.
         /// </summary>

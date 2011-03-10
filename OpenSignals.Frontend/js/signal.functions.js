@@ -6,12 +6,6 @@ var currentSignalID = 0;
 var mapManager;
 var nearbyLoaded = false;
 
-var mapOpts = {
-    zoom: 6,
-    scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
-    scrollwheel: false, streetViewControl: false
-};
-
 $(document).ready(function ()
 {
     mapManager = $.mapManager();
@@ -20,10 +14,16 @@ $(document).ready(function ()
     $('#tabs').tabs({
         show: function (event, ui)
         {
+            var mapOpts = {
+                zoom: currentCity.zoom,
+                scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
+                scrollwheel: false, streetViewControl: false
+            };
+
             if ($(ui.panel).attr('map'))
             {
                 if ($(ui.panel).attr('id') == 'map')
-                    mapManager.createMap({ container: 'map', lat: 42.53, lng: 13.66, googleOptions: mapOpts });
+                    mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: mapOpts });
                 else
                 {
                     getSignalsNeraby(currentMarker.zip);
@@ -275,10 +275,12 @@ function getSignalsNearby_callback(r)
     {
         if (r.result.length > 0)
         {
+            var mapOpts = {
+                zoom: currentCity.zoom,
+                scaleControl: false, mapTypeControl: false, scrollwheel: false, streetViewControl: false
+            };
 
-            mapOpts.disableDoubleClickZoom = false;
-            mapOpts.disableDefaultUI = false;
-            mapManager.createMap({ container: 'mapNearby', lat: 42.53, lng: 13.66, googleOptions: mapOpts });
+            mapManager.createMap({ container: 'mapNearby', lat: currentCity.lat, lng: currentCity.lng, googleOptions: mapOpts });
 
             var bounds = new google.maps.LatLngBounds();
 

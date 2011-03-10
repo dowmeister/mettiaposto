@@ -10,7 +10,7 @@
 namespace OpenSignals.Frontend {
     
     
-    public partial class _Default {
+    public partial class Index {
         
         /// <summary>
         /// ucHead control.

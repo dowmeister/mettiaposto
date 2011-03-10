@@ -26,7 +26,8 @@
     <script type="text/javascript" src="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function ()
+        {
             initDetailPage();
         });
     </script>
@@ -100,7 +101,8 @@
                                 var disqus_shortname = 'mettiapostoit';
                                 var disqus_identifier = 'signal_detail_' + currentMarker.id;
                                 var disqus_url = '<%= GetRewriteContext().RewritedUrl %>';
-                                (function () {
+                                (function ()
+                                {
                                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                                     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
                                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -218,8 +220,14 @@
                         <li><a href="#mapNearby">Dintorni</a></li>
                     </ul>
                     <div map="true" class="map" id="map" mapdiv="map">
+                        <div class="message ajax" style="display: block;">
+                            <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
+                                src="/images/ajax-loader.gif" /></div>
                     </div>
                     <div map="true" class="map" runat="server" id="mapNearby" mapdiv="mapNearby">
+                        <div class="message ajax" style="display: block;">
+                            <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
+                                src="/images/ajax-loader.gif" /></div>
                     </div>
                 </div>
             </div>

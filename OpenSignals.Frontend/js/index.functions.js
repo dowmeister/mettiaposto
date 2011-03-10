@@ -45,9 +45,9 @@ function searchSignals()
 
     var options = {
         googleOptions: {
-            zoom: 6,
+            zoom: currentCity.zoom,
             scaleControl: false, mapTypeControl: false, streetViewControl: false
-        }, container: 'map', lat: 42.53, lng: 13.66
+        }, container: 'map', lat: currentCity.lat, lng: currentCity.lng
     }
 
     mapManager = $.mapManager();

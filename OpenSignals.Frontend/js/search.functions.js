@@ -55,9 +55,8 @@ function searchSignals_callback(r)
     }
     else if (r.result)
     {
-
-        mapManager.createMap({ container: 'map', lat: 42.53, lng: 13.66, googleOptions: {
-            zoom: 8, streetViewControl: false,
+        mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: {
+            zoom: currentCity.zoom, streetViewControl: false,
             mapTypeControl: false, scrollwheel: false
         }
         });

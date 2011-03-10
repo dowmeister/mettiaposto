@@ -10,6 +10,8 @@ using OpenSignals.Framework.Core.Base;
 using OpenSignals.Framework.Core.Utility;
 using OpenSignals.Framework.Signals;
 using OpenSignals.Frontend.Includes;
+using OpenSignals.Framework.Places;
+using OpenSignals.Framework.Core;
 
 namespace OpenSignals.Frontend.Ajax
 {
@@ -43,7 +45,12 @@ namespace OpenSignals.Frontend.Ajax
             s.Description = s.Description.Replace("\n", "<br/>");
             s.CreationDate = DateTime.Now;
             s.UpdateDate = DateTime.Now;
-            s.Status = Signal.SignalStatus.Approved; // FIX!!!!
+
+            if (ConfigurationOptions.Current.GetBool("signal_approve_on_submission"))
+                s.Status = Signal.SignalStatus.Approved;
+            else
+                s.Status = Signal.SignalStatus.NotApproved;
+
             s.UpdateDate = DateTime.Now;
             s.ResolutionDescription = string.Empty;
             sm.CreateSignal(s);
@@ -110,26 +117,6 @@ namespace OpenSignals.Frontend.Ajax
 
         private string GetSignalDescription(Signal s)
         {
-            //CategoryManager cm = new CategoryManager();
-            //string categoryName = cm.Load(s.CategoryID).Name;
-            //StringBuilder sb = new StringBuilder();
-            //sb.Append("<div id=\"");
-            //sb.Append("infoWindowContainer");
-            //sb.Append("\"");
-            //sb.Append(s.Subject);
-            //sb.Append("<br/>");
-            //sb.Append("<br/>");
-            //sb.Append("Inviato ");
-            //sb.Append(SignalUtils.GetTimeframe(s.CreationDate));
-            //sb.Append(" ");
-            //sb.Append("nella categoria '");
-            //sb.Append(categoryName);
-            //sb.Append("'");
-            //sb.Append(" - ");
-            //sb.Append(s.Address);
-            //sb.Append("</div>");
-
-            //return sb.ToString();
             Includes.SignalDetail sd = (Includes.SignalDetail)new UserControl().LoadControl("/Includes/SignalDetail.ascx");
             sd.BuildSignalDescription(s);
             return WebUtils.RenderControlToString(sd);
@@ -189,6 +176,27 @@ namespace OpenSignals.Frontend.Ajax
                 sm.SubscribeSignal(ss);
             else
                 throw new Exception("Sei già iscritto a questa segnalazione");
+        }
+
+        [JsonRpcMethod("addPlace")]
+        public Place AddPlace(JsonObject param)
+        {
+            CheckRequest(param["ajaxSessionKey"].ToString());
+
+            Place p = new Place();
+            p.Open311ApiKey = string.Empty;
+            p.Open311CityID = string.Empty;
+            p.Open311URL = string.Empty;
+
+            p.Latitude = Convert.ToDecimal(param["lat"]);
+            p.Longitude = Convert.ToDecimal(param["lng"]);
+            p.MapZoom = Convert.ToInt32(param["zoom"]);
+            p.Name = param["name"].ToString();
+            p.Status = false;
+            PlaceManager pm = new PlaceManager();
+            pm.CreatePlace(p);
+
+            return p;
         }
     }
 }

@@ -9,6 +9,13 @@ namespace OpenSignals.Frontend.Includes
     public partial class Header : System.Web.UI.UserControl
     {
         private bool _checkCity = true;
+        private bool _hideTabs = false;
+
+        public bool HideTabs
+        {
+            get { return _hideTabs; }
+            set { _hideTabs = value; }
+        }
 
         public bool CheckCity
         {
@@ -26,16 +33,21 @@ namespace OpenSignals.Frontend.Includes
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            switch (_selectedTab)
+            tabs.Visible = !_hideTabs;
+
+            if (!_hideTabs)
             {
-                case 1:
-                    link1.Attributes["class"] = "homeOn";
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                    ((HtmlGenericControl)FindControl("link" + _selectedTab.ToString())).Attributes["class"] = "tabOn";
-                    break;
+                switch (_selectedTab)
+                {
+                    case 1:
+                        link1.Attributes["class"] = "homeOn";
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        ((HtmlGenericControl)FindControl("link" + _selectedTab.ToString())).Attributes["class"] = "tabOn";
+                        break;
+                }
             }
 
             citiesMenu.Visible = _checkCity;

@@ -512,5 +512,11 @@ dd
     cursor: pointer;
 }
 
+.teaser
+{
+    height: 350px;
+    border-bottom: solid 1px #E2E2E2;
+}
+
 
 

@@ -461,7 +461,8 @@ namespace OpenSignals.Framework.Core.Base
         /// </summary>
         public void GetCurrentCity()
         {
-            string defaultCity = "Milano";
+            string defaultCity = ConfigurationOptions.Current.GetString("system_default_city");
+
             if (QueryStringContains("city"))
                 defaultCity = GetFromQueryString("city");
 
@@ -479,15 +480,23 @@ namespace OpenSignals.Framework.Core.Base
             {
                 PlaceManager pm = new PlaceManager();
                 _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
-                AddToSession("CurrentCity", _currentCity);
+
+                if (_currentCity != null)
+                    AddToSession("CurrentCity", _currentCity);
+                else
+                {
+                    _currentCity = pm.LoadPlace(ConfigurationOptions.Current.GetString("system_default_city"));
+                    Alert("Città non trovata");
+                }
             }
 
             JsonObject o = new JsonObject();
             o["name"] = _currentCity.Name;
             o["link"] = _currentCity.Link;
-            o["id"] = _currentCity.ID;
+            o["id"] = _currentCity.PlaceID;
             o["lat"] = _currentCity.Latitude;
             o["lng"] = _currentCity.Longitude;
+            o["zoom"] = _currentCity.MapZoom;
             ClientScript.RegisterClientScriptBlock(this.GetType(), "currentCity", "currentCity = " + o.ToString() + ";", true);
         }
 

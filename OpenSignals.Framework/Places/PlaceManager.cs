@@ -75,5 +75,26 @@ namespace OpenSignals.Framework.Places
                 CloseSession();
             }
         }
+
+        /// <summary>
+        /// Creates the place.
+        /// </summary>
+        /// <param name="p">The p.</param>
+        public void CreatePlace(Place p)
+        {
+            try
+            {
+                OpenSession();
+                OpenTransaction();
+                Session.Save(p);
+                CommitTransaction();
+                CloseSession();
+            }
+            catch (Exception ex)
+            {
+                RollbackTransaction();
+                throw ex;
+            }
+        }
     }
 }

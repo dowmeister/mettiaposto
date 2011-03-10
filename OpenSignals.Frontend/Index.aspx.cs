@@ -3,7 +3,7 @@ using OpenSignals.Framework.Core.Base;
 
 namespace OpenSignals.Frontend
 {
-    public partial class _Default : BasePage
+    public partial class Index : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

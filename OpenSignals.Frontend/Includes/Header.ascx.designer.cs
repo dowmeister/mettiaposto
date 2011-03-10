@@ -49,6 +49,15 @@ namespace OpenSignals.Frontend.Includes {
         protected global::System.Web.UI.WebControls.Repeater rptCities;
         
         /// <summary>
+        /// tabs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tabs;
+        
+        /// <summary>
         /// link1 control.
         /// </summary>
         /// <remarks>

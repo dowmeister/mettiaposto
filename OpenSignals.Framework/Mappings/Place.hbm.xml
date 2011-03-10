@@ -1,6 +1,6 @@
 ﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
   <class name="OpenSignals.Framework.Places.Place, OpenSignals.Framework" table="places">
-    <id name="ID" column="p_id" type="int">
+    <id name="PlaceID" column="p_id" type="int">
       <generator class="native"></generator>
     </id>
     <property name="Name" column="p_name" type="String"></property>
@@ -8,5 +8,8 @@
     <property name="Open311URL" column="p_open311_url" type="String"></property>
     <property name="Open311ApiKey" column="p_open311_api_key" type="String"></property>
     <property name="Open311CityID" column="p_open311_city_id" type="String"></property>
+    <property name="Latitude" column="p_latitude" type="decimal"></property>
+    <property name="Longitude" column="p_longitude" type="decimal"></property>
+    <property name="MapZoom" column="p_zoom" type="int"></property>
   </class>
 </hibernate-mapping>

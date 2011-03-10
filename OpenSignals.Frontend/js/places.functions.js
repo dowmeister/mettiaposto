@@ -61,9 +61,10 @@ function addPlace()
         var o = new Object();
         o.name = $('#txtCity').val();
         o.email = $('#txtEmail').val();
-        o.zoom = mapManager.geZoom('map');
+        o.zoom = mapManager.getZoom('map');
         o.lat = mapManager.getMarker('place0').obj.getPosition().lat();
         o.lng = mapManager.getMarker('place0').obj.getPosition().lng();
+        o = addSessionKey(o);
         var proxy = new JSONService();
         proxy.addPlace(o, addPlace_callback);
     }
@@ -81,8 +82,8 @@ function addPlace_callback(r)
     }
     else if (r.result)
     {
-        var text = 'La segnalazione è stata salvata correttamente.<br/><a href="/' + r.result.city.toLowerCase() + '/' + r.result.signalID + '/segnalazione.aspx">Clicca qui</a> per visualizzare la pagina di dettaglio.';
+        var text = 'Appena possibile verrà validata e pubblicata e sarai avvertito con una comunicazione inviata all\'indirizzo email che hai inserito.';
 
-        writeMessage('Segnalazione salvata correttamente', text, '#messages');
+        writeMessage('Grazie per aver aggiunto la tua città a Mettiaposto', text, '#messages');
     }
 }

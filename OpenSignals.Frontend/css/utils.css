@@ -205,7 +205,6 @@ input[type=button], input[type=reset]
 .error h2, .success h2
 {
     font-size: 16px;
-    line-height: 0.4;
 }
 
 .error a, .success a

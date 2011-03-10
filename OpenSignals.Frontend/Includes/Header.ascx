@@ -16,7 +16,7 @@
                     </ul>
                 </li>
             </ul>
-            <ul class="tabs">
+            <ul runat="server" id="tabs" class="tabs">
                 <li runat="server" id="link1" class="homeOff"><a title="Torna alla homepage" class="small"
                     id="linkHome" runat="server" href="/index.aspx"><span>Home</span></a></li>
                 <li runat="server" runat="server" id="link2" class="tabOff"><a class="tabOff" title="Cerca fra le segnalazioni della tua città"
