@@ -2,7 +2,7 @@
 <div id="skyline">
     <div id="header">
         <div id="logo">
-            <a runat="server" id="linkLogo" href="/index.aspx"></a>
+            <a runat="server" id="linkLogo" href="/"></a>
         </div>
         <div id="menu">
             <ul runat="server" id="citiesMenu" class="cities sf-menu">

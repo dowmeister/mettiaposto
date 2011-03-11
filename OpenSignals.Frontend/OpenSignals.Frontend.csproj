@@ -89,7 +89,7 @@
     <Content Include="css\flick\images\ui-icons_ff0084_256x240.png" />
     <Content Include="css\flick\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\flick\jquery-ui-1.8.7.custom.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="Index.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="images\locate-me.png" />
     <Content Include="images\button_green.png" />
@@ -102,7 +102,7 @@
     <Content Include="css\main.css" />
     <Content Include="css\mobile.css" />
     <Content Include="css\style.css" />
-    <Content Include="Index.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
@@ -198,12 +198,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddPlace.aspx.cs">
@@ -245,12 +239,12 @@
     <Compile Include="Content.aspx.designer.cs">
       <DependentUpon>Content.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Index.aspx.cs">
+    <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Index.aspx</DependentUpon>
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

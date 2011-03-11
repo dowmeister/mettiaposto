@@ -261,24 +261,24 @@
     border: solid 1px #5BB1CA;
 }
 
-#content .details .shareBox
+.shareBox
 {
-    text-align: left;
+    text-align: center;
     margin-bottom: 10px;
 }
 
-#content .details .shareBox ul li
+.shareBox ul li
 {
     list-style: none;
     float: left;
 }
 
-#content .details .shareBox ul li a
+.shareBox ul li a
 {
     margin-right: 10px;
 }
 
-#content .details .shareBox ul li a img
+.shareBox ul li a img
 {
     vertical-align: middle;
 }
@@ -518,5 +518,12 @@ dd
     border-bottom: solid 1px #E2E2E2;
 }
 
+.teaser .subscribe
+{
+    text-align: center;
+}
 
-
+.teaser .subscribe input
+{
+    margin-top: 10px;
+}

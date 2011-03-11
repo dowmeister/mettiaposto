@@ -1,0 +1,8 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="OpenSignals.Framework.Newsletter.NewsletterEntry, OpenSignals.Framework" table="newsletter">
+    <id name="SubscriptionID" column="n_id" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="Email" column="n_email" type="string"></property>
+  </class>
+</hibernate-mapping>

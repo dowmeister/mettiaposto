@@ -105,6 +105,8 @@
     <Compile Include="Core\Utility\XmlUtils.cs" />
     <Compile Include="Data\NHibernateSession.cs" />
     <Compile Include="Data\NHibernateSessionManager.cs" />
+    <Compile Include="Newsletter\NewsletterEntry.cs" />
+    <Compile Include="Newsletter\NewsletterManager.cs" />
     <Compile Include="Places\Place.cs" />
     <Compile Include="Places\PlaceManager.cs" />
     <Compile Include="Profiles\MembershipProfile.cs" />
@@ -145,6 +147,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\MembershipUser.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Newsletter.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

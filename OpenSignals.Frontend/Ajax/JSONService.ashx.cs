@@ -12,6 +12,7 @@ using OpenSignals.Framework.Signals;
 using OpenSignals.Frontend.Includes;
 using OpenSignals.Framework.Places;
 using OpenSignals.Framework.Core;
+using OpenSignals.Framework.Newsletter;
 
 namespace OpenSignals.Frontend.Ajax
 {
@@ -197,6 +198,17 @@ namespace OpenSignals.Frontend.Ajax
             pm.CreatePlace(p);
 
             return p;
+        }
+
+        [JsonRpcMethod("subscribeToNewsletter")]
+        public void SubscribeToNewsletter(JsonObject param)
+        {
+            CheckRequest(param["ajaxSessionKey"].ToString());
+
+            NewsletterEntry user = new NewsletterEntry();
+            user.Email = param["email"].ToString();
+            NewsletterManager mg = new NewsletterManager();
+            mg.SubscribeUser(user);
         }
     }
 }
