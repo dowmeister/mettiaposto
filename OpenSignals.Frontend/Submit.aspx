@@ -12,12 +12,12 @@
     <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - Invia una segnalazione a {0}" />
     <meta property="og:description" runat="server" id="metaOgDescription" content="Invia una segnalazione di disservizi, problemi e malfunzionamenti a {0}" />
     <meta property="og:image" content="http://www.mettiaposto.it/images/logo.png" />
-    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/mapManager.js" type="text/javascript"></script>
-    <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
-    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
-    <script src="/js/signal.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
+    <os:StaticFileManager ID="staticFileManager" ContextKey="submit" runat="server">
+        <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
+        <os:StaticFile Url="/js/signal.functions.js" Type="Javascript" />
+        <os:StaticFile Url="/js/jquery/plugins/ajaxfileupload.js" Type="Javascript" />
+    </os:StaticFileManager>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -131,5 +131,8 @@
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,submit"></script>
+    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
 </body>
 </html>

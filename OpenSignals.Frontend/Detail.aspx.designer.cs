@@ -67,6 +67,15 @@ namespace OpenSignals.Frontend {
         protected global::System.Web.UI.UserControl Analytics1;
         
         /// <summary>
+        /// staticFileManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OpenSignals.Framework.Web.Controls.StaticFileManager staticFileManager;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
