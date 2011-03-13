@@ -16,6 +16,7 @@ h2
 #logo
 {
     text-align: center;
+	margin-top:-10px;
 }
 
 .subscribe
@@ -26,6 +27,7 @@ h2
     width: 684px;
     padding: 10px;
     margin: auto;
+	margin-top:10px;
 }
 
 #message
