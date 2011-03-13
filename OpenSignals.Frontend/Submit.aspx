@@ -64,7 +64,7 @@
                             <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
                             *
                             <div class="legend">
-                                Inserisci l'oggetto della segnalazione: sii sintetico e chiaro</div>
+                                Inserisci un titolo sintetico e chiaro</div>
                         </li>
                         <li>
                             <label>
@@ -84,7 +84,7 @@
                                 Nome</label>
                             <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                             <div class="subfield">
-                                <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel dettaglio della segnalazione?"
+                                <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Mostra il mio nome nella segnalazione"
                                     runat="server" /></div>
                             <div class="legend">
                                 Nome ed indirizzo email non sono obbligatori ma ti consigliamo di inserirli per

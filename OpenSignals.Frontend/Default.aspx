@@ -38,7 +38,7 @@
             Per dubbi, chiarimenti, informazioni, per capire come funziona questo sito <a href="/pages/info.aspx">
                 leggi le FAQ</a>.
             <h2 class="homeclaim">
-                Segnala un poblema!</h2>
+                Segnala un problema!</h2>
             <div class="home">
                 Inserisci l'indirizzo (compreso via, viale, piazza o altro)
                 <div class="input">
