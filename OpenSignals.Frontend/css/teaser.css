@@ -16,16 +16,18 @@ h2
 #logo
 {
     text-align: center;
+	margin-top:-10px;
 }
 
 .subscribe
 {
     text-align: center;
     background: url(/images/teaser/whitebox.png) no-repeat;
-    height: 338px;
-    width: 703px;
+    height: 330px;
+    width: 684px;
     padding: 10px;
     margin: auto;
+	margin-top:10px;
 }
 
 #message
@@ -35,8 +37,10 @@ h2
 
 .subscribe #newsletter
 {
-    width: 680px;
-    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 650px;
 }
 
 .subscribe input
