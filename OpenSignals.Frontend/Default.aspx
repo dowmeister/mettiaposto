@@ -4,7 +4,6 @@
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
 <%@ Register Src="Includes/Header.ascx" TagName="Header" TagPrefix="uc3" %>
 <%@ Register Src="Includes/Analytics.ascx" TagName="Analytics" TagPrefix="uc4" %>
-<%@ Register Src="Includes/StaticFileManager.ascx" TagName="StaticFileManager" TagPrefix="uc5" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -14,11 +13,11 @@
     <meta property="og:title" content="Mettiaposto.it" />
     <meta property="og:description" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
     <meta property="og:image" content="http://www.mettiaposto.it/images/logo.png" />
-    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/mapManager.js" type="text/javascript"></script>
-    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
-    <script src="/js/index.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
+    <os:StaticFileManager ID="staticFileManager" ContextKey="index" runat="server">
+        <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
+        <os:StaticFile Url="/js/index.functions.js" Type="Javascript" />
+    </os:StaticFileManager>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -54,6 +53,9 @@
         </div>
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
+    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,index"></script>
     </form>
 </body>
 </html>

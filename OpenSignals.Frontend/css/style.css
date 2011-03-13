@@ -511,19 +511,3 @@ dd
     padding: 2px 24px 2px;
     cursor: pointer;
 }
-
-.teaser
-{
-    height: 350px;
-    border-bottom: solid 1px #E2E2E2;
-}
-
-.teaser .subscribe
-{
-    text-align: center;
-}
-
-.teaser .subscribe input
-{
-    margin-top: 10px;
-}

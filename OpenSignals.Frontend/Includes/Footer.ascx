@@ -8,7 +8,7 @@
 </div>
 <div id="feedback">
     <a class="handle" href="#">Feedback</a>
-    <div class="submitForm" style="display: block">
+    <div id="feedbackSubmit" class="submitForm" style="display: block">
         <ol>
             <li>
                 <label>
@@ -24,7 +24,10 @@
                 <asp:TextBox ID="txtFeedbackComment" TextMode="MultiLine" runat="server"></asp:TextBox></li>
         </ol>
         <div class="buttons">
-            <input class="success" type="button" value="Invia" onclick="sendFeedback(); return false;" />
+            <input class="success" type="button" value="Invia" onclick="sendFeedback('<%= this.ClientID %>'); return false;" />
         </div>
+    </div>
+    <div id="feedbackMessage">
+        
     </div>
 </div>

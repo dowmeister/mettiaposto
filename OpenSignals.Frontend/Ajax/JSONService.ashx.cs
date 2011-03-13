@@ -210,5 +210,14 @@ namespace OpenSignals.Frontend.Ajax
             NewsletterManager mg = new NewsletterManager();
             mg.SubscribeUser(user);
         }
+
+        [JsonRpcMethod("sendFeedback")]
+        public void SendFeedback(JsonObject param)
+        {
+            CheckRequest(param["ajaxSessionKey"].ToString());
+
+            FeedbackEmail f = new FeedbackEmail();
+            f.Send(param["name"].ToString(), param["email"].ToString(), param["message"].ToString());
+        }
     }
 }

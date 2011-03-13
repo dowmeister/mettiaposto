@@ -1,0 +1,119 @@
+﻿body
+{
+    margin: 0 0 0 0;
+    font-size: 12px;
+    font-family: verdana,arial,sans-serif;
+    color: #333333;
+    background: #3299d4 url(/images/teaser/bgintro.png) repeat-x;
+}
+
+h2
+{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#logo
+{
+    text-align: center;
+}
+
+.subscribe
+{
+    text-align: center;
+    background: url(/images/teaser/whitebox.png) no-repeat;
+    height: 338px;
+    width: 703px;
+    padding: 10px;
+    margin: auto;
+}
+
+#message
+{
+    width: 680px;
+}
+
+.subscribe #newsletter
+{
+    width: 680px;
+    margin-top: 20px;
+}
+
+.subscribe input
+{
+    margin-top: 10px;
+}
+
+.shareBox
+{
+    margin: 40px 0 0 135px;
+}
+
+.shareBox ul li
+{
+    list-style: none;
+    float: left;
+}
+
+.shareBox ul li a
+{
+    margin-right: 10px;
+}
+
+.shareBox ul li a img
+{
+    vertical-align: middle;
+}
+
+input.success
+{
+    background: url("/images/button_green.png") repeat scroll 0 0 transparent;
+}
+
+input[type=button], input[type=reset]
+{
+    height: 34px;
+    width: 121px;
+    border: none;
+    color: White;
+    font-weight: bold;
+}
+
+input[type=text] 
+{
+    width: 250px;
+    border: 1px solid #3299d4;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.message
+{
+    padding: 10px;
+    color: White;
+    font-weight: bold;
+    display: none;
+}
+
+.success
+{
+    background-color: #236387;
+}
+
+.ajax
+{
+    background-color: #5BB1CA;
+    border-color: #117491;
+    text-align: center;
+}
+
+.success h2
+{
+    font-size: 16px;
+}
+
+.success a
+{
+    color: #E0E5F5;
+    text-decoration: none;
+}

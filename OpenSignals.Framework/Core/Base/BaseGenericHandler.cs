@@ -35,7 +35,7 @@ namespace OpenSignals.Framework.Core.Base
         /// </summary>
         /// <returns>true if the <see cref="T:System.Web.IHttpHandler"/> instance is reusable; otherwise, false.
         ///   </returns>
-        public bool IsReusable
+        public virtual bool IsReusable
         {
             get { return false; }
         }
