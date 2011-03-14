@@ -9,16 +9,17 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
 <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="/js/json.js" type="text/javascript"></script>
-<script src="/js/functions.js" type="text/javascript"></script>
-<script src="/js/validation.js" type="text/javascript"></script>
-<script src="/js/jquery/plugins/tabSlideOut.js" type="text/javascript"></script>
-<script src="/js/jquery/plugins/hoverIntent.js" type="text/javascript"></script>
-<link href="/js/jquery/plugins/superfish/superfish.css" rel="stylesheet" type="text/css"
-    media="screen" />
-<script src="/js/jquery/plugins/superfish/superfish.js" type="text/javascript"></script>
+<link href="/js/jquery/plugins/superfish/superfish.css" rel="stylesheet" type="text/css" media="screen" />
 <meta property="fb:app_id" content="183751108307062" />
 <meta property="fb:admins" content="1437896726,800734657" />
 <meta property="og:site_name" content="Mettiaposto.it" />
 <meta property="og:type" content="website" />
 <link rel="alternate" type="application/rss+xml" title="Mettiaposto.it Feed" href="/rss.ashx" />
+<os:StaticFileManager ID="commScripts" ContextKey="common" runat="server">
+    <os:StaticFile Url="/js/functions.js" Type="Javascript" />
+    <os:StaticFile Url="/js/validation.js" Type="Javascript" />
+    <os:StaticFile Url="/js/json.js" Type="Javascript" />
+    <os:StaticFile Url="/js/jquery/plugins/tabSlideOut.js" />
+    <os:StaticFile Url="/js/jquery/plugins/hoverIntent.js" Type="Javascript" />
+    <os:StaticFile Url="/js/jquery/plugins/superfish/superfish.js" Type="Javascript" />
+</os:StaticFileManager>

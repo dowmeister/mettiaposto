@@ -4,9 +4,7 @@ using System.Collections.Generic;
 namespace OpenSignals.Frontend.Includes
 {
     public partial class Head : System.Web.UI.UserControl
-    {
-        private List<String> _files = new List<string>();
-        
+    {       
         private string _metaDescription = string.Empty;
 
         public string MetaDescription
@@ -23,19 +21,8 @@ namespace OpenSignals.Frontend.Includes
             set { _metaKeywords = value; }
         }
 
-        public List<String> Files
-        {
-            get { return _files; }
-            set { _files = value; }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            // TO-DO
-            //_files.Add("/js/json.js");
-            //_files.Add("/js/functions.js");
-            //_files.Add("/js/validations.js");
-
             if (!_metaDescription.Equals(string.Empty))
             {
                 metaDescription.Attributes["content"] = _metaDescription;

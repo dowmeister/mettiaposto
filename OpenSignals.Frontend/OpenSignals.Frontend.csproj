@@ -72,6 +72,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Contents\XSL\CommonTemplates.xsl" />
+    <Content Include="Contents\XSL\FeedbackBody.xsl">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Contents\XSL\SignalAlertBody.xsl" />
     <Content Include="Contents\XSL\SignalApprovalBody.xsl" />
     <Content Include="Contents\XSL\SignalSubmissionBody.xsl" />
@@ -89,6 +92,10 @@
     <Content Include="css\flick\images\ui-icons_ff0084_256x240.png" />
     <Content Include="css\flick\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\flick\jquery-ui-1.8.7.custom.css" />
+    <Content Include="css\teaser.css" />
+    <Content Include="images\teaser\bgintro.png" />
+    <Content Include="images\teaser\logointro.png" />
+    <Content Include="images\teaser\whitebox.png" />
     <Content Include="Index.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="images\locate-me.png" />
@@ -150,7 +157,6 @@
     <Content Include="Includes\SignalDetail.ascx" />
     <Content Include="Includes\SignalsList.ascx" />
     <Content Include="Includes\Analytics.ascx" />
-    <Content Include="Includes\StaticFileManager.ascx" />
     <Content Include="js\comments.functions.js" />
     <Content Include="js\facebook.js" />
     <Content Include="js\functions.js" />
@@ -295,13 +301,6 @@
     <Compile Include="Includes\SignalsList.ascx.designer.cs">
       <DependentUpon>SignalsList.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Includes\StaticFileManager.ascx.cs">
-      <DependentUpon>StaticFileManager.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Includes\StaticFileManager.ascx.designer.cs">
-      <DependentUpon>StaticFileManager.ascx</DependentUpon>
-    </Compile>
     <Compile Include="m\Content.aspx.cs">
       <DependentUpon>Content.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -363,6 +362,7 @@
     </Content>
     <None Include="images\searchbutton.png" />
     <Content Include="Rss.ashx" />
+    <Content Include="js\StaticFileHandler.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

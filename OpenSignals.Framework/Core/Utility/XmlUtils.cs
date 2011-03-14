@@ -48,5 +48,20 @@ namespace OpenSignals.Framework.Core.Utility
             
             return xDocument;
         }
+
+        /// <summary>
+        /// Creates the XML node.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="doc">The doc.</param>
+        /// <returns></returns>
+        public static XmlNode CreateXmlNode(string name, string value, XmlDocument doc)
+        {
+            XmlNode n = doc.AppendChild(doc.CreateNode(XmlNodeType.Element, name, string.Empty));
+            n.Value = value;
+            return n;
+
+        }
     }
 }

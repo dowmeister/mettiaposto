@@ -90,3 +90,37 @@ function addSessionKey(params)
     return params;
 }
 
+function sendFeedback(footerControl)
+{
+    $('#feedbackSubmit').hide();
+    writeAjax('#feedbackMessage');
+
+    var o = new Object();
+    o.name = $('#' + footerControl + '_txtFeedbackName').val();
+    o.email = $('#' + footerControl + '_txtFeedbackEmail').val();
+    o.message = $('#' + footerControl + '_txtFeedbackComment').val();
+    o = addSessionKey(o);
+    var proxy = new JSONService();
+    proxy.sendFeedback(o, sendFeedback_callback);
+}
+
+function sendFeedback_callback(r)
+{
+    if (checkAjaxError(r, '#feedbackMessage'))
+    {
+        hideAjax('#feedbackMessage');
+        writeMessage('Grazie!', 'per aver inviato il tuo commento', '#feedbackMessage');
+    }
+}
+
+function checkAjaxError(r, container)
+{
+    if (r.error)
+    {
+        writeError(r.error.message, container);
+        return false;
+    }
+    return true;
+}
+
+

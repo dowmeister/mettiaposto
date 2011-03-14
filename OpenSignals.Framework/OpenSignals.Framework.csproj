@@ -84,6 +84,7 @@
     <Compile Include="Comments\Comment.cs" />
     <Compile Include="Comments\CommentManager.cs" />
     <Compile Include="Communications\BaseMessage.cs" />
+    <Compile Include="Communications\Messages\FeedbackEmail.cs" />
     <Compile Include="Communications\Messages\SignalAlertEmail.cs" />
     <Compile Include="Communications\Messages\SignalApprovalEmail.cs" />
     <Compile Include="Communications\Messages\SignalRejectionEmail.cs" />
@@ -118,7 +119,7 @@
     <Compile Include="Web\Global.cs" />
     <Compile Include="Web\RSS\Items.cs" />
     <Compile Include="Web\RSS\RssGenerator.cs" />
-    <Compile Include="Web\StaticFile.cs" />
+    <Compile Include="Web\Controls\StaticFileManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Signal.hbm.xml">

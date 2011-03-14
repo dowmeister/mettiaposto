@@ -12,18 +12,15 @@
     <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - {0} in {1} a {2}" />
     <meta property="og:description" runat="server" id="metaOgDescription" content="" />
     <meta property="og:image" runat="server" id="ogImage" content="http://www.mettiaposto.it/images/logo.png" />
-    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/mapManager.js" type="text/javascript"></script>
-    <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
-    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
-    <script src="/js/signal.functions.js" type="text/javascript"></script>
-    <script src="http://connect.facebook.net/it_IT/all.js" type="text/javascript"></script>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <link rel="stylesheet" type="text/css" href="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.css"
         media="screen" />
-    <script type="text/javascript" src="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src=""></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
+    <os:StaticFileManager ID="staticFileManager" ContextKey="submit" runat="server">
+        <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
+        <os:StaticFile Url="/js/signal.functions.js" Type="Javascript" />
+        <os:StaticFile Url="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.pack.js" Type="Javascript" />
+    </os:StaticFileManager>
     <script type="text/javascript">
         $(document).ready(function ()
         {
@@ -238,11 +235,11 @@
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>
-    <style>
-        .fbFeedbackContent .postToProfile
-        {
-            float: left;
-        }
-    </style>
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
+    <script src="http://connect.facebook.net/it_IT/all.js" type="text/javascript"></script>
+    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,detail"></script>
 </body>
 </html>
