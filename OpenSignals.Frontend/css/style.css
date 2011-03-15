@@ -170,17 +170,18 @@
 
 .submitForm ol li div.subfield
 {
-    margin: 5px 0 5px 100px;
+    margin: 5px 0 5px 120px;
 }
 
 .submitForm ol li span.checkbox input
 {
     width: auto;
+	margin-top:4px;
 }
 
 .submitForm ol li div.subfield label
 {
-    margin: 0 0 0 0;
+    margin-left: 5px;
     width: auto;
     display: inline;
 }
