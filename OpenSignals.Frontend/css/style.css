@@ -146,7 +146,7 @@
 {
     padding: 5px;
     width: 250px;
-    border: solid 1px #5BB1CA;
+    border: solid 1px #1C8DCE;
 }
 
 .submitForm ol li input:focus, .submitForm ol li textarea:focus, .submitForm ol li select:focus
@@ -158,7 +158,7 @@
 {
     width: 250px;
     height: 150px;
-    border: solid 1px #5BB1CA;
+    border: solid 1px #1C8DCE;
 }
 
 .submitForm ol li div.legend
@@ -213,7 +213,7 @@
 
 #content .details .info, #infoWindowContainer .info
 {
-    color: #5BB1CA;
+    color: #1C8DCE;
     font-size: 10px;
 }
 
@@ -225,7 +225,7 @@
 #content .details .description
 {
     margin-top: 20px;
-    border: solid 1px #5BB1CA;
+    border: solid 1px #1C8DCE;
     padding: 10px;
     font-size: 12px;
 }
@@ -234,7 +234,7 @@
 {
     padding: 1px 0 15px;
     margin-top: 20px;
-    background-color: #5BB1CA;
+    background-color: #1C8DCE;
 }
 
 #content .details .tools ul li
@@ -259,7 +259,7 @@
 {
     display: none;
     padding: 10px;
-    border: solid 1px #5BB1CA;
+    border: solid 1px #1C8DCE;
 }
 
 .shareBox
@@ -384,7 +384,7 @@
 #content .list .pagination li a
 {
     text-decoration: none;
-    background-color: #5BB1CA;
+    background-color: #1C8DCE;
     padding: 6px;
     margin-right: 5px;
     color: White;
@@ -461,7 +461,7 @@
 #infoWindowContainer h2
 {
     font-size: 13px;
-    color: #5BB1CA;
+    color: #1C8DCE;
 }
 
 #infoWindowContainer a
