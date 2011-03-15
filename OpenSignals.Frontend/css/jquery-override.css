@@ -36,3 +36,15 @@
     padding: 10px 0 0 0;
 }
 
+.ui-widget-header
+{
+    background: #236388;
+    color: #FFFFFF;
+}
+
+.ui-dialog-content
+{
+    background: #FFFFFF;
+    border: solid 1px #236388;
+}
+

@@ -7,13 +7,11 @@
             <xsl:call-template name="HtmlStyles"></xsl:call-template>
             <body>
                 <div class="container">
-                    <b>Feedback ricevuto:</b>
+                    <b>Città richiesta:</b>
                     <br/>
-                    Nome: <xsl:value-of select="Feedback/Name"/>
+                    Città: <xsl:value-of select="CityRequest/City"/>
                     <br/>
-                    Email: <xsl:value-of select="Feedback/Email"/>
-                    <br/>
-                    Messaggio <xsl:value-of select="Feedback/Message"/>
+                    Email: <xsl:value-of select="CityRequest/Email"/>
                 </div>
                 <xsl:call-template name="Footer"></xsl:call-template>
             </body>

@@ -197,6 +197,9 @@ namespace OpenSignals.Frontend.Ajax
             PlaceManager pm = new PlaceManager();
             pm.CreatePlace(p);
 
+            CitySubmissionEmail cse = new CitySubmissionEmail();
+            cse.Send(param["name"].ToString(), param["email"].ToString());
+
             return p;
         }
 

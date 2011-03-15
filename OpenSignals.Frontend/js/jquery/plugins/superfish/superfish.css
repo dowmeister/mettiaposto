@@ -74,6 +74,8 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul
 {
     /* visited pseudo selector so IE6 applies text colour*/
     color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
 }
 .sf-menu li
 {

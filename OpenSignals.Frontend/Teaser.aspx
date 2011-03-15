@@ -74,6 +74,7 @@
     </div>
     <div id="fb-root">
     </div>
+    </form>
     <script type="text/javascript">
         $(document).ready(function () { FB.init({ appId: '183751108307062', cookie: true, xfbml: true }); });
 
@@ -94,6 +95,5 @@
             }
         }
     </script>
-    </form>
 </body>
 </html>

@@ -12,11 +12,11 @@
     <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - Invia una segnalazione a {0}" />
     <meta property="og:description" runat="server" id="metaOgDescription" content="Invia una segnalazione di disservizi, problemi e malfunzionamenti a {0}" />
     <meta property="og:image" content="http://www.mettiaposto.it/images/logo.png" />
-    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/mapManager.js" type="text/javascript"></script>
-    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
-    <script src="/js/places.functions.js" type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
+    <os:StaticFileManager ID="staticFileManager" ContextKey="add" runat="server">
+        <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
+        <os:StaticFile Url="/js/places.functions.js" Type="Javascript" />
+    </os:StaticFileManager>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -41,16 +41,16 @@
                                 Città</label>
                             <asp:TextBox Enabled="false" ID="txtCity" runat="server"></asp:TextBox>
                             <div class="legend">
-                                Sposta il segnalino sulla mappa al centro della tua città e imposta la zoom della mappa in modo che tutto il territorio comunale sia
-                                compreso dalla mappa.
-                        </div>
+                                Sposta il segnalino sulla mappa al centro della tua città e imposta la zoom della
+                                mappa in modo che tutto il territorio comunale sia compreso dalla mappa.
+                            </div>
                         </li>
                         <li>
                             <label>
                                 E-mail</label>
                             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                             <div class="legend">
-                               Inserisci la tua email per essere avvertito quando la tua città sarà pubblicata.</div>
+                                Inserisci la tua email per essere avvertito quando la tua città sarà pubblicata.</div>
                         </li>
                     </ol>
                     <ul>
@@ -83,5 +83,8 @@
     </div>
     <uc1:Footer ID="Footer1" CheckCity="false" runat="server" />
     </form>
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
+    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,add"></script>
 </body>
 </html>

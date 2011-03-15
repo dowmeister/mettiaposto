@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="right">
-                <div id="tabs" class="mapTabs">
+                <div id="tabs" class="tabs">
                     <ul>
                         <li><a href="#map">Mappa</a></li>
                     </ul>

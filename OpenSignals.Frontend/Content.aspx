@@ -22,5 +22,6 @@
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>
+    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common"></script>
 </body>
 </html>

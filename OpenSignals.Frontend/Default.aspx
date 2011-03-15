@@ -53,9 +53,9 @@
         </div>
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
-    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,index"></script>
-    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     </form>
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
+    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,index"></script>
 </body>
 </html>

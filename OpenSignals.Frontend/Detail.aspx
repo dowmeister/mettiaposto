@@ -14,19 +14,13 @@
     <meta property="og:image" runat="server" id="ogImage" content="http://www.mettiaposto.it/images/logo.png" />
     <link rel="stylesheet" type="text/css" href="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.css"
         media="screen" />
-    <script type="text/javascript" src=""></script>
     <uc4:Analytics ID="Analytics1" runat="server" />
-    <os:StaticFileManager ID="staticFileManager" ContextKey="submit" runat="server">
+    <os:StaticFileManager ID="staticFileManager" ContextKey="detail" runat="server">
         <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
         <os:StaticFile Url="/js/signal.functions.js" Type="Javascript" />
+        <os:StaticFile Url="/js/comments.functions.js" Type="Javascript" />
         <os:StaticFile Url="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.pack.js" Type="Javascript" />
     </os:StaticFileManager>
-    <script type="text/javascript">
-        $(document).ready(function ()
-        {
-            initDetailPage();
-        });
-    </script>
 </head>
 <body>
     <div id="fb-root">
@@ -73,46 +67,30 @@
                         <div class="clear">
                         </div>
                     </div>
-                    <!--<div class="tools">
-                        <ul>
-                            <li><a class="serviceLink button" id="commentsLink" href="#commentsBox">Commenti</a></li>
-                            <li><a class="serviceLink button" href="#share">Condividi</a></li>
-                            <li><a class="serviceLink button" href="#subscribe">Tienimi informato</a></li>
-                            <%-- <li><a class="serviceLink button" href="#report">Segnala</a></li> --%>
-                        </ul>
-                        <div class="clear">
+                    <div id="commentsBox" class="serviceBox" style="display: block;">
+                        <div id="disqus_thread">
                         </div>
-                    </div>-->
-                    <div style="display: block">
-                        <div id="commentsBox" class="serviceBox" style="display: block;">
-                            <%--<div id="commentsMessages">
-                            </div>
-                            <div id="comments" class="list">
-                            </div>-->
-                            <fb:comments href="" num_posts="5" width="435"></fb:comments> --%>
-                            <div id="disqus_thread">
-                            </div>
-                            <script type="text/javascript">
-                                var disqus_developer = 1;
-                                var disqus_shortname = 'mettiapostoit';
-                                var disqus_identifier = 'signal_detail_' + currentMarker.id;
-                                var disqus_url = '<%= GetRewriteContext().RewritedUrl %>';
-                                (function ()
-                                {
-                                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                                })();
-                            </script>
-                            <ul>
-                                <li>Le informazioni personali vengono utilizzate nel rispetto delle leggi sulla <a
-                                    href="/pages/privacy.aspx">privacy</a>.</li>
-                                <li>Per favore sii educato.</li>
-                                <li>Non abusare di questo servizio: l'abuso discredita la validità del servizio per
-                                    tutti gli utenti!</li>
-                                <li>Non scrivere in maiuscolo</li>
-                            </ul>
-                            <%-- 
+                        <script type="text/javascript">
+                            var disqus_developer = 1;
+                            var disqus_shortname = 'mettiapostoit';
+                            var disqus_identifier = 'signal_detail_' + currentMarker.id;
+                            var disqus_url = document.location.href;
+                            (function ()
+                            {
+                                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            })();
+                        </script>
+                        <ul>
+                            <li>Le informazioni personali vengono utilizzate nel rispetto delle leggi sulla <a
+                                href="/pages/privacy.aspx">privacy</a>.</li>
+                            <li>Per favore sii educato.</li>
+                            <li>Non abusare di questo servizio: l'abuso discredita la validità del servizio per
+                                tutti gli utenti!</li>
+                            <li>Non scrivere in maiuscolo</li>
+                        </ul>
+                        <%-- 
                                                         <div class="clear">
                             </div>
                             <div id="submitCommentMessage">
@@ -171,46 +149,11 @@
                                     <input class="reset" type="reset" value="Annulla" />
                                 </div>
                             </div>--%>
-                        </div>
-                        <div id="subscribe" class="serviceBox">
-                            <div id="subscribeSignalMessages">
-                            </div>
-                            <div class="submitForm">
-                                <ol>
-                                    <li>
-                                        <label>
-                                            E-mail</label>
-                                        <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
-                                        <div class="legend">
-                                            Ricevi via email aggiornamenti su questa segnalazione</div>
-                                    </li>
-                                </ol>
-                                <div class="buttons">
-                                    <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
-                                    <!--<input class="reset" type="reset" value="Annulla" />-->
-                                </div>
-                            </div>
-                        </div>
-                        <%--<div id="report" class="serviceBox">
-                            <div class="submitForm">
-                                <ol>
-                                    <li>
-                                        <label>
-                                            E-mail</label>
-                                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                                    </li>
-                                </ol>
-                                <div class="buttons">
-                                    <input class="success" type="button" value="Iscriviti" onclick="saveSignal(); return false;" />
-                                    <input class="reset" type="reset" value="Annulla" />
-                                </div>
-                            </div>
-                        </div> --%>
                     </div>
                 </div>
             </div>
             <div class="right">
-                <div id="tabs" class="mapTabs">
+                <div id="tabs" class="tabs">
                     <ul>
                         <li><a href="#map">Mappa</a></li>
                         <li><a href="#mapNearby">Dintorni</a></li>
@@ -226,12 +169,28 @@
                                 src="/images/ajax-loader.gif" /></div>
                     </div>
                 </div>
+                <div id="subscribe" class="serviceBox" style="display: block;">
+                    <h4>
+                        Iscriviti agli aggiornamenti via email per questa segnalazione</h4>
+                    <div id="subscribeSignalMessages">
+                    </div>
+                    <div class="submitForm">
+                        <ol>
+                            <li>
+                                <label>
+                                    E-mail</label>
+                                <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
+                            </li>
+                        </ol>
+                        <div class="buttons">
+                            <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="clear">
             </div>
         </div>
-    </div>
-    <div id="hshadow">
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>
@@ -241,5 +200,11 @@
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,detail"></script>
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            initDetailPage();
+        });
+    </script>
 </body>
 </html>

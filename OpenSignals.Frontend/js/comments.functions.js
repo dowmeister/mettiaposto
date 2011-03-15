@@ -2,7 +2,7 @@
 * COMMENT FUNCTIONS
 */
 
-function getComments(offset)
+/*function getComments(offset)
 {
     writeAjax('#commentsMessages');
     $('#comments').empty();
@@ -125,6 +125,7 @@ function addComment_callback(r)
 
     getComments(0);
 }
+*/
 
 function subscribeSignal()
 {

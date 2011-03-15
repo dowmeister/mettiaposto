@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="right">
-                <div id="tabs" class="mapTabs">
+                <div id="tabs" class="tabs">
                     <ul>
                         <li><a href="#map">Mappa</a></li>
                     </ul>
@@ -88,9 +88,9 @@
         </div>
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
+    </form>
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,search"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
-    </form>
 </body>
 </html>

@@ -226,6 +226,13 @@ input[type=button], input[type=reset]
     border: 1px solid #236388;
 }
 
+#feedback .handle
+{
+    background: url(/images/feedback.png) no-repeat;
+    height: 127px;
+    width: 44px;    
+}
+
 #feedback .submitForm ol li input, #feedback .submitForm ol li textarea
 {
     width: 200px;

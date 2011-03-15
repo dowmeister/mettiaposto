@@ -82,8 +82,8 @@ namespace OpenSignals.Framework.Web.Controls
 
             if (HttpContext.Current.Session[_contextKey] != null)
                 files = (List<StaticFile>)HttpContext.Current.Session[_contextKey];
-
-            files.AddRange(_files);
+            else
+                files.AddRange(_files);
 
             HttpContext.Current.Session.Remove(_contextKey);
             HttpContext.Current.Session.Add(_contextKey, files);
@@ -250,7 +250,11 @@ namespace OpenSignals.Framework.Web.Controls
                 {
                     using (StreamReader sr = File.OpenText(context.Server.MapPath(f.Url)))
                     {
+                        sb.Append("// source merged from " + f.Url);
+                        sb.Append(System.Environment.NewLine);
                         sb.Append(sr.ReadToEnd());
+                        sb.Append(System.Environment.NewLine);
+                        sb.Append(System.Environment.NewLine);
                     }
                 }
             }

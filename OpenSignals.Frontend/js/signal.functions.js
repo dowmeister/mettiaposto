@@ -32,20 +32,7 @@ $(document).ready(function ()
         }
     });
 
-    $('.serviceLink').click(function ()
-    {
-        $('.serviceBox').hide();
-
-        var link = $(this);
-        var box = $(link.attr('href'));
-
-        if (link.attr('href') == '#commentsBox')
-            getComments(0);
-
-        box.slideDown();
-
-        return false;
-    });
+    $('#serviceTabs').tabs();
 });
 
 function saveSignal()

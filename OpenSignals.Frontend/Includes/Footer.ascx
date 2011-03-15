@@ -7,7 +7,7 @@
         runat="server">Feed</a>
 </div>
 <div id="feedback">
-    <a class="handle" href="#">Feedback</a>
+    <a class="handle" href="javascript:;">Feedback</a>
     <div id="feedbackSubmit" class="submitForm" style="display: block">
         <ol>
             <li>
@@ -28,6 +28,15 @@
         </div>
     </div>
     <div id="feedbackMessage">
-        
     </div>
+</div>
+<div id="notExistingCity" style="display: none;">
+    La città richiesta (<span id="notExistingCityLabel"></span>) non esiste nel database
+    di Mettiaposto.
+    <br />
+    Puoi aggiungerla tu stesso, clicca sul bottone 'Aggiungi la tua città' per proseguire.
+    <br />
+    Una volta inserita, verrà controllata e sottoposta ad una veloce approvazione per
+    verificare i dati e la posizione che hai inserito e verrai avvertito quando la tua richiesta
+    verrà approvata.
 </div>

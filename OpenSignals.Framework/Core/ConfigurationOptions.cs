@@ -154,7 +154,7 @@ namespace OpenSignals.Framework.Core
         public string GetString(string szKey)
         {
             if (_htOptions.Contains(szKey))
-                return _htOptions[szKey].ToString();
+                return _htOptions[szKey].Value.ToString();
             else
                 return string.Empty;
         }
@@ -167,7 +167,7 @@ namespace OpenSignals.Framework.Core
         public bool GetBool(string szKey)
         {
             if (_htOptions.Contains(szKey))
-                return Convert.ToBoolean(_htOptions[szKey]);
+                return Convert.ToBoolean(_htOptions[szKey].Value);
             else
                 return false;
         }
@@ -180,7 +180,7 @@ namespace OpenSignals.Framework.Core
         public int GetInt32(string szKey)
         {
             if (_htOptions.Contains(szKey))
-                return Convert.ToInt32(_htOptions[szKey]);
+                return Convert.ToInt32(_htOptions[szKey].Value);
             else
                 return -1;
         }
@@ -202,7 +202,7 @@ namespace OpenSignals.Framework.Core
         public object GetCustom(string key)
         {
             if (_htOptions.Contains(key))
-                return _htOptions[key];
+                return _htOptions[key].Value;
             else
                 return null;
         }
@@ -216,7 +216,7 @@ namespace OpenSignals.Framework.Core
         public string[] GetArray(string key, char sep)
         {
             if (_htOptions.Contains(key))
-                return _htOptions[key].ToString().Split(sep);
+                return _htOptions[key].Value.ToString().Split(sep);
             else
                 return new string[0];
         }

@@ -20,6 +20,7 @@ using System.Web;
 using Jayrock.Json;
 using log4net;
 using OpenSignals.Framework.Places;
+using OpenSignals.Framework.Core.Utility;
 
 namespace OpenSignals.Framework.Core.Base
 {
@@ -486,7 +487,7 @@ namespace OpenSignals.Framework.Core.Base
                 else
                 {
                     _currentCity = pm.LoadPlace(ConfigurationOptions.Current.GetString("system_default_city"));
-                    Alert("Città non trovata");
+                    RegisterDocumentReadyFunction("notExistingCity", JsUtils.CreateJsFunction("showNotExistingCityDialog", false, defaultCity));
                 }
             }
 

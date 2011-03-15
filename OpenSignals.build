@@ -44,8 +44,8 @@
     <foreach item="File" property="file">
       <in>
         <items>
-          <include name="${build.outDir}\_PublishedWebsites\OpenSignals.Frontend\js\*.js"></include>
-          <include name="${build.outDir}\_PublishedWebsites\OpenSignals.Frontend\css\*.css"></include>
+          <include name="${build.outDir}\_PublishedWebsites\OpenSignals.Frontend\**\*.js"></include>
+          <include name="${build.outDir}\_PublishedWebsites\OpenSignals.Frontend\**\*.css"></include>
         </items>
       </in>
       <do>

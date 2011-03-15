@@ -22,12 +22,5 @@ namespace OpenSignals.Frontend
             ucHead.MetaDescription = xml.SelectSingleNode("/page/description").InnerText;
             ucHead.MetaKeywords = xml.SelectSingleNode("/page/keywords").InnerText;
         }
-
-        //protected override void OnPreInit(EventArgs e)
-        //{
-        //    this.Theme = "Default";//" + GetFromQueryString("page") + ".skin";
-
-        //    base.OnPreInit(e);
-        //}
     }
 }
