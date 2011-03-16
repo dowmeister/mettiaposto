@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div id="commentsBox" class="serviceBox" style="display: block;">
-                        <div id="disqus_thread">
+                        <%--<div id="disqus_thread">
                         </div>
                         <script type="text/javascript">
                             var disqus_developer = 1;
@@ -89,66 +89,66 @@
                             <li>Non abusare di questo servizio: l'abuso discredita la validità del servizio per
                                 tutti gli utenti!</li>
                             <li>Non scrivere in maiuscolo</li>
-                        </ul>
-                        <%-- 
-                                                        <div class="clear">
+                        </ul> --%>
+                        <div id="commentsMessages" style="margin-top: 10px">
+                        </div>
+                        <div id="comments" class="list">
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div id="commentForm" class="submitForm">
+                            <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">
+                                Accedi con Facebook</button>
+                            <ol>
+                                <!--<li>
+                                    <label>
+                                        Aggiorna stato</label>
+                                    <asp:DropDownList ID="ddlStatus" runat="server">
+                                        <asp:ListItem Text="Segnalazione non risolta" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="Segnalazione risolta" Value="2" />
+                                    </asp:DropDownList>
+                                    <div class="legend">
+                                        Se la segnalazione è stata risolta, seleziona dalla tendina "Segnalazione Risolta"
+                                        e inserisci un commento.
+                                    </div>
+                                </li>-->
+                                <li>
+                                    <label>
+                                        Commento</label>
+                                    <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                </li>
+                                <li>
+                                    <label>
+                                        Nome</label>
+                                    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                    <div class="subfield">
+                                        <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel commento?"
+                                            runat="server" /></div>
+                                    <div class="legend">
+                                        Nome ed indirizzo email non sono obbligatori ma ti consigliamo di inserirli per
+                                        maggiore trasparenza</div>
+                                </li>
+                                <li>
+                                    <label>
+                                        E-mail</label>
+                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                    <div class="legend">
+                                        Il tuo indirizzo email non verrà mai mostrato pubblicamente
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>
+                                        Allega una foto</label>
+                                    <asp:FileUpload ID="fuFile" runat="server" />
+                                    <div class="legend">
+                                        Puoi caricare solo file di tipo IMMAGINE
+                                    </div>
+                                </li>
+                            </ol>
+                            <div class="buttons">
+                                <input class="success" type="button" value="Commenta" onclick="addComment(); return false;" />
                             </div>
-                            <div id="submitCommentMessage">
-                            </div>
-                            <div id="commentForm" class="submitForm">
-                                <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">
-                                    Accedi con Facebook</button>
-                                <ol>
-                                    <li>
-                                        <label>
-                                            Aggiorna stato</label>
-                                        <asp:DropDownList ID="ddlStatus" runat="server">
-                                            <asp:ListItem Text="Segnalazione non risolta" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="Segnalazione risolta" Value="2" />
-                                        </asp:DropDownList>
-                                        <div class="legend">
-                                            Se la segnalazione è stata risolta, seleziona dalla tendina "Segnalazione Risolta"
-                                            e inserisci un commento.
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            Commento</label>
-                                        <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            Nome</label>
-                                        <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-                                        <div class="subfield">
-                                            <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel dettaglio della segnalazione?"
-                                                runat="server" /></div>
-                                        <div class="legend">
-                                            Nome ed indirizzo email non sono obbligatori ma ti consigliamo di inserirli per
-                                            maggiore trasparenza</div>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            E-mail</label>
-                                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                                        <div class="legend">
-                                            Il tuo indirizzo email non verrà mai mostrato pubblicamente
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            Allega una foto</label>
-                                        <asp:FileUpload ID="fuFile" runat="server" />
-                                        <div class="legend">
-                                            Puoi caricare solo file di tipo IMMAGINE
-                                        </div>
-                                    </li>
-                                </ol>
-                                <div class="buttons">
-                                    <input class="success" type="button" value="Invia" onclick="addComment(); return false;" />
-                                    <input class="reset" type="reset" value="Annulla" />
-                                </div>
-                            </div>--%>
+                        </div>
                     </div>
                 </div>
             </div>

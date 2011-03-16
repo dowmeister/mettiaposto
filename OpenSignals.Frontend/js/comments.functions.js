@@ -2,7 +2,7 @@
 * COMMENT FUNCTIONS
 */
 
-/*function getComments(offset)
+function getComments(offset)
 {
     writeAjax('#commentsMessages');
     $('#comments').empty();
@@ -34,7 +34,7 @@ function getComments_callback(r)
 function addComment(signalID)
 {
     validation = $.validateUtils({
-        errorStyle: 'border-color:Red', errorDiv: '#submitCommentMessage', showAs: 'div', headerMessage: 'Alcuni campi non sono compilati correttamente'
+        errorStyle: 'border-color:Red', errorDiv: '#commentsMessages', showAs: 'div', headerMessage: 'Alcuni campi non sono compilati correttamente'
     });
 
     validation.addRule({
@@ -56,7 +56,7 @@ function addComment(signalID)
     {
         $('#commentForm').hide();
 
-        writeAjax('#submitCommentMessage');
+        writeAjax('#commentsMessages');
 
         _addComment();
     }
@@ -110,14 +110,14 @@ function _addComment()
 
 function addComment_callback(r)
 {
-    hideAjax('#submitCommentMessage');
+    hideAjax('#commentsMessages');
 
     if (r.error)
-        writeError(r.error.message, '#submitCommentMessage');
+        writeError(r.error.message, '#commentsMessages');
     else
     {
         if (r.result != 0)
-            writeMessage('Grazie per il tuo commento!', '#submitCommentMessage');
+            writeMessage('Grazie per il tuo commento!', '#commentsMessages');
     }
 
     $('#commentForm').show();
@@ -125,7 +125,6 @@ function addComment_callback(r)
 
     getComments(0);
 }
-*/
 
 function subscribeSignal()
 {
