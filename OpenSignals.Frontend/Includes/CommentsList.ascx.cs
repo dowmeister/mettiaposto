@@ -18,9 +18,14 @@ namespace OpenSignals.Frontend.Includes
 
         public void Populate(List<Comment> comments, int totalRecords)
         {
-            pagination.Controls.Add(WebUtils.CreatePagination(totalRecords, 5, "getComments"));
-            rptList.DataSource = comments;
-            rptList.DataBind();
+            if (comments.Count > 0)
+            {
+                pagination.Controls.Add(WebUtils.CreatePagination(totalRecords, 5, "getComments"));
+                rptList.DataSource = comments;
+                rptList.DataBind();
+            }
+            else
+                this.Visible = false;
         }
 
         protected void rptList_ItemDataBound(object sender, RepeaterItemEventArgs e)

@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2C940EC2-DDA3-4746-B372-82F2B30C8064}"
 	ProjectSection(SolutionItems) = preProject
 		build.bat = build.bat
-		OpenSignals.build = OpenSignals.build
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{8801A52E-5A44-4593-898F-33664AAF4112}"

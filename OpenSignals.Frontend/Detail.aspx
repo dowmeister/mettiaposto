@@ -18,6 +18,7 @@
     <os:StaticFileManager ID="staticFileManager" ContextKey="detail" runat="server">
         <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
         <os:StaticFile Url="/js/signal.functions.js" Type="Javascript" />
+        <os:StaticFile Url="/js/facebook.js" Type="Javascript" />
         <os:StaticFile Url="/js/comments.functions.js" Type="Javascript" />
         <os:StaticFile Url="/js/jquery/plugins/fancybox/jquery.fancybox-1.3.4.pack.js" Type="Javascript" />
     </os:StaticFileManager>
@@ -98,7 +99,13 @@
                         </div>
                         <div id="commentForm" class="submitForm">
                             <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">
-                                Accedi con Facebook</button>
+                                Login con Facebook</button>
+                            <div id="loginStatus" style="display: none;">
+                                <img id="userAvatar" />
+                                <span id="userName"></span>
+                                <br />
+                                <a href="javascript:;" onclick="fbLogout(); return false;">Logout</a>
+                            </div>
                             <ol>
                                 <!--<li>
                                     <label>
@@ -117,24 +124,18 @@
                                         Commento</label>
                                     <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 </li>
-                                <li>
+                                <li id="nameContainer">
                                     <label>
                                         Nome</label>
                                     <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                                     <div class="subfield">
                                         <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel commento?"
                                             runat="server" /></div>
-                                    <div class="legend">
-                                        Nome ed indirizzo email non sono obbligatori ma ti consigliamo di inserirli per
-                                        maggiore trasparenza</div>
                                 </li>
-                                <li>
+                                <li id="emailContainer">
                                     <label>
                                         E-mail</label>
                                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                                    <div class="legend">
-                                        Il tuo indirizzo email non verrà mai mostrato pubblicamente
-                                    </div>
                                 </li>
                                 <li>
                                     <label>
@@ -148,49 +149,49 @@
                             <div class="buttons">
                                 <input class="success" type="button" value="Commenta" onclick="addComment(); return false;" />
                             </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="right">
-                <div id="tabs" class="tabs">
-                    <ul>
-                        <li><a href="#map">Mappa</a></li>
-                        <li><a href="#mapNearby">Dintorni</a></li>
-                    </ul>
-                    <div map="true" class="map" id="map" mapdiv="map">
-                        <div class="message ajax" style="display: block;">
-                            <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
-                                src="/images/ajax-loader.gif" /></div>
-                    </div>
-                    <div map="true" class="map" runat="server" id="mapNearby" mapdiv="mapNearby">
-                        <div class="message ajax" style="display: block;">
-                            <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
-                                src="/images/ajax-loader.gif" /></div>
-                    </div>
-                </div>
-                <div id="subscribe" class="serviceBox" style="display: block;">
-                    <h4>
-                        Iscriviti agli aggiornamenti via email per questa segnalazione</h4>
-                    <div id="subscribeSignalMessages">
-                    </div>
-                    <div class="submitForm">
-                        <ol>
-                            <li>
-                                <label>
-                                    E-mail</label>
-                                <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
-                            </li>
-                        </ol>
-                        <div class="buttons">
-                            <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear">
             </div>
         </div>
+        <div class="right">
+            <div id="tabs" class="tabs">
+                <ul>
+                    <li><a href="#map">Mappa</a></li>
+                    <li><a href="#mapNearby">Dintorni</a></li>
+                </ul>
+                <div map="true" class="map" id="map" mapdiv="map">
+                    <div class="message ajax" style="display: block;">
+                        <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
+                            src="/images/ajax-loader.gif" /></div>
+                </div>
+                <div map="true" class="map" runat="server" id="mapNearby" mapdiv="mapNearby">
+                    <div class="message ajax" style="display: block;">
+                        <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
+                            src="/images/ajax-loader.gif" /></div>
+                </div>
+            </div>
+            <div id="subscribe" class="serviceBox" style="display: block;">
+                <h4>
+                    Iscriviti agli aggiornamenti via email per questa segnalazione</h4>
+                <div id="subscribeSignalMessages">
+                </div>
+                <div class="submitForm">
+                    <ol>
+                        <li>
+                            <label>
+                                E-mail</label>
+                            <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
+                        </li>
+                    </ol>
+                    <div class="buttons">
+                        <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>

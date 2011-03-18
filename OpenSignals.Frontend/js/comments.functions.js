@@ -26,7 +26,10 @@ function getComments_callback(r)
     }
     else
     {
-        $('#comments').html(r.result);
+        if (r.result == '')
+            $('#comments').html('<div class="item"><div class="comment">Nessun commento</div></div>');
+        else
+            $('#comments').html(r.result);
         $('.photo > a').fancybox();
     }
 }

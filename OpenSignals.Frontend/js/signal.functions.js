@@ -5,6 +5,7 @@
 var currentSignalID = 0;
 var mapManager;
 var nearbyLoaded = false;
+var socialUser;
 
 $(document).ready(function ()
 {
@@ -309,7 +310,8 @@ function initDetailPage()
     mapManager.addMarker({ id: 'signalMarker' + currentMarker.id, position: new google.maps.LatLng(currentMarker.lat, currentMarker.lng),
         image: image, center: true, zoom: true, zoomValue: currentMarker.zoom, mapID: 'map'
     });
-    FB.init({ appId: '183751108307062', cookie: true, xfbml: true });
+    //FB.init({ appId: '183751108307062', cookie: true, xfbml: true });
+    fbInit();
     $('#lnkPhoto').fancybox();
     getComments(0);
 }
