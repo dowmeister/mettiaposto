@@ -1,0 +1,198 @@
+﻿body
+{
+    margin: 0;
+    padding: 0;
+    background: #DFDFDF;
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+a img
+{
+    border: none;
+}
+
+#header
+{
+    height: 70px;
+    background-color: #236388;
+    border-bottom: solid 2px Grey;
+}
+
+#menu
+{
+    margin-top: 40px;
+}
+
+#loginInfo
+{
+    display: inline;
+    float: right;
+    color: #FFFFFF;
+    margin: 5px 10px 0 0;
+}
+
+#loginInfo a
+{
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#content
+{
+    margin: 10px 0 10px 0;
+}
+
+#footer
+{
+    border-top: solid 2px Grey;
+}
+
+.form
+{
+    margin: 0 20px 0 20px;
+    background: #FFFFFF;
+    border: 1px solid Grey;
+    padding: 10px;
+}
+
+.form h1
+{
+    font-size: 16px;
+    border-bottom: solid 2px #236388;
+    padding-bottom: 5px;
+}
+
+.form table
+{
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.form table th
+{
+    background: Grey;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border: solid 1px #DFDFDF;
+}
+
+.form table td
+{
+    border: solid 1px #DFDFDF;
+    padding: 4px;
+    text-align: left;
+    vertical-align: top;
+    height: 25px;
+}
+
+.form table td.label
+{
+    vertical-align: middle;
+    text-align: left;
+    width: 200px;
+}
+
+.form table td.buttons
+{
+    text-align: center;
+}
+
+.form table th.commands
+{
+    background: none;
+    border: none;
+}
+
+.form table td.commands
+{
+    text-align: right;
+    border-right: none;
+    border-top: none;
+}
+
+#content .pagination
+{
+    width: 100%;
+    margin-right: 10px;
+}
+
+#content .pagination ul
+{
+    float: right;
+}
+
+#content .pagination li
+{
+    float: left;
+    list-style-type: none;
+}
+
+#content .pagination li a
+{
+    text-decoration: none;
+    background-color: #1C8DCE;
+    padding: 6px;
+    margin-right: 5px;
+    color: White;
+}
+
+.clear
+{
+    clear: both;
+}
+
+select
+{
+    border: solid 1px #1C8DCE;
+}
+
+input[type=text], input[type=password]
+{
+    padding: 4px;
+    border: solid 1px #1C8DCE;
+    width: 250px;
+}
+
+input[type=button], input[type=submit]
+{
+    background: #1C8DCE;
+    border: none;
+    padding: 5px;
+    color: #FFFFFF;
+    width: 80px;
+    font-weight: bold;
+}
+
+.sf-menu a, .sf-menu a:visited
+{
+    font-weight: normal;
+    font-size: 12px;
+}
+
+#LoginBox
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    border: solid 1px Grey;
+    margin: 200px auto auto auto;    
+}
+
+#LoginBox table
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#LoginBox td
+{
+    height: 25px;
+    border: solid 1px #DFDFDF;
+    padding: 4px;
+}

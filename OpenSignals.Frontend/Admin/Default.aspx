@@ -3,18 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>OpenSignals Admin - Home</title>
+    <osadmin:head runat="server" id="head"></osadmin:head>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:CreateUserWizard ID="Createuserwizard1" runat="server">
-            <WizardSteps>
-                <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server" />
-                <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server" />
-            </WizardSteps>
-        </asp:CreateUserWizard>
-    </div>
+    <form runat="server">
+    <osadmin:header runat="server" id="header"></osadmin:header>
+    <osadmin:footer runat="server" id="footer"></osadmin:footer>
     </form>
 </body>
 </html>
