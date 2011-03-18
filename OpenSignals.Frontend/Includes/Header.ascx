@@ -7,14 +7,17 @@
         <div id="menu">
             <ul runat="server" id="citiesMenu" class="cities sf-menu">
                 <li runat="server" class="current"><a id="currentCityAnchor" runat="server"></a>
-                    <ul>
-                        <asp:Repeater ID="rptCities" runat="server">
-                            <ItemTemplate>
-                                <li><a href="<%# ((OpenSignals.Framework.Places.Place)Container.DataItem).Link %>index.aspx">
-                                    <%# ((OpenSignals.Framework.Places.Place)Container.DataItem).Name %></a></li>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </ul>
+                    <asp:Repeater ID="rptCities" runat="server">
+                        <FooterTemplate>
+                            </ul></FooterTemplate>
+                        <HeaderTemplate>
+                            <ul>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li><a href="<%# ((OpenSignals.Framework.Places.Place)Container.DataItem).Link %>index.aspx">
+                                <%# ((OpenSignals.Framework.Places.Place)Container.DataItem).Name %></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </li>
             </ul>
             <ul runat="server" id="tabs" class="tabs">

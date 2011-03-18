@@ -61,8 +61,18 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="AddPlace.aspx" />
+    <Content Include="Admin\css\style.css" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\images\block-warning-red-circle.png" />
+    <Content Include="Admin\images\correct-valid-properties-green-circle.png" />
+    <Content Include="Admin\images\delete.png" />
+    <Content Include="Admin\images\pencil.png" />
+    <Content Include="Admin\Includes\Footer.ascx" />
+    <Content Include="Admin\Includes\Head.ascx" />
+    <Content Include="Admin\Includes\Header.ascx" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\Signals\Edit.aspx" />
+    <Content Include="Admin\Signals\List.aspx" />
     <Content Include="Ajax\Upload.aspx" />
     <Content Include="Content.aspx" />
     <Content Include="Contents\info.xml">
@@ -189,6 +199,7 @@
     <Content Include="js\jquery\plugins\fancybox\jquery.fancybox-1.3.4.css" />
     <Content Include="js\jquery\plugins\fancybox\jquery.fancybox-1.3.4.pack.js" />
     <Content Include="js\jquery\plugins\hoverIntent.js" />
+    <Content Include="js\jquery\plugins\superfish\supersubs.js" />
     <Content Include="js\jquery\plugins\tabSlideOut.js" />
     <Content Include="js\jquery\plugins\superfish\superfish.js" />
     <Content Include="js\json.js" />
@@ -224,12 +235,47 @@
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Includes\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Includes\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Includes\Head.ascx.cs">
+      <DependentUpon>Head.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Includes\Head.ascx.designer.cs">
+      <DependentUpon>Head.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Includes\Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Includes\Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Signals\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Signals\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Signals\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Signals\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ajax\JSONService.ashx.cs">
       <DependentUpon>JSONService.ashx</DependentUpon>
@@ -345,9 +391,7 @@
       <DependentUpon>Submit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\Includes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\OpenSignals.Framework\OpenSignals.Framework.csproj">
       <Project>{8F26021D-5623-4A31-A46D-7816E3FD1963}</Project>
