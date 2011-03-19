@@ -26,10 +26,6 @@
             <div class="left">
                 <h1 class="title">
                     Aggiungi la tua città</h1>
-                <div id="validationError">
-                </div>
-                <div id="messages">
-                </div>
                 <div id="submitForm" class="submitForm">
                     <div class="success message" style="display: block">
                         Se la tua città non è presente, puoi aggiungerla tu stesso compilando il form sottostante.
@@ -64,9 +60,11 @@
                         <input class="success" type="button" value="Invia" onclick="addPlace(); return false;" />
                     </div>
                 </div>
+                <div id="messages">
+                </div>
             </div>
             <div class="right">
-                <div id="tabs" class="mapTabs">
+                <div id="tabs" class="tabs">
                     <ul>
                         <li><a href="#map">Mappa</a></li>
                     </ul>

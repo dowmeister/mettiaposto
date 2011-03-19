@@ -31,21 +31,10 @@ namespace OpenSignals.Frontend
             ddlCategories.DataSource = cm.GetActive();
             ddlCategories.DataBind();
 
-            //string[] parts = GetFromQueryString("city").Split('/');
-            //string city = parts[0];
-            //string address = string.Empty;
-            //if (parts.Length > 1)
-            //    address = parts[1];
-
-            //ltCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(city.ToLower());
-
             ltCity.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower());
 
             if (QueryStringContains("address"))
-            {
                 txtAddress.Text = GetFromQueryString("address");
-                RegisterDocumentReadyFunction("autogeo", JsUtils.CreateJsFunction("geolocateByAddress", false, txtAddress.Text, "map"));
-            }
         }
     }
 }

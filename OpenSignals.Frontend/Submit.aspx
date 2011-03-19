@@ -27,10 +27,6 @@
             <div class="left">
                 <h1 class="title">
                     Segnala un problema</h1>
-                <div id="validationError">
-                </div>
-                <div id="messages">
-                </div>
                 <div id="submitForm" class="submitForm">
                     <div class="success message" style="display: block">
                         Se hai qualche dubbio, prima di inviare la tua segnalazione leggi le <a href="/pages/info.aspx">
@@ -114,6 +110,8 @@
                         <%--<input class="reset" type="reset" value="Annulla" />--%>
                     </div>
                 </div>
+                <div id="messages">
+                </div>
             </div>
             <div class="right">
                 <div id="tabs" class="tabs">
@@ -136,5 +134,8 @@
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,submit"></script>
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
+    <script type="text/javascript">
+        initSubmitPage();
+    </script>
 </body>
 </html>

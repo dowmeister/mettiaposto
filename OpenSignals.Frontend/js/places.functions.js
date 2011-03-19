@@ -40,7 +40,7 @@ function geolocationByAddress_callback(r, status, options)
 function addPlace()
 {
     validation = $.validateUtils({
-        errorStyle: 'border-color:Red', errorDiv: '#validationError', showAs: 'div', headerMessage: 'Alcuni campi non sono compilati correttamente'
+        errorStyle: 'border-color:Red', errorDiv: '#messages', showAs: 'div', headerMessage: 'Alcuni campi non sono compilati correttamente'
     });
 
     validation.addRule({

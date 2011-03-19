@@ -5,6 +5,7 @@ body
     font-size: 12px;
     font-family: verdana,arial,sans-serif;
     color: #333333;
+    background-color: #236388;
 }
 
 textarea, input, select
@@ -14,8 +15,7 @@ textarea, input, select
 
 #wrapper
 {
-    margin: 0 auto 0 auto;
-    width: 1000px;
+    background-color: #FFFFFF;
 }
 
 #navbar
@@ -137,6 +137,7 @@ textarea, input, select
     width: 956px;
     border-left: solid 1px #E2E2E2;
     border-right: solid 1px #E2E2E2;
+    margin: 0 auto;
 }
 
 #footer
@@ -146,7 +147,6 @@ textarea, input, select
     text-align: center;
     color: White;
     padding-top: 10px;
-    border-bottom: 1px solid #000000;
     background: url(../images/footer.png) repeat-x #236388;
 }
 
@@ -246,5 +246,5 @@ input[type=button], input[type=reset]
 .mapLoader
 {
     background: #5BB1CA url(/images/ajax-loader.gif) no-repeat center center;
-    height: 500px;
+    height: 300px;
 }

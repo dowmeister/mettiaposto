@@ -50,6 +50,7 @@ function hideError(container)
 
 function hideAjax(container)
 {
+    clearMessages();
     $(container + ' > .ajax').remove();
 }
 

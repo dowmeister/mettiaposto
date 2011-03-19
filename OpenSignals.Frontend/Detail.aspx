@@ -166,10 +166,7 @@
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,detail"></script>
     <script type="text/javascript">
-        $(document).ready(function ()
-        {
-            initDetailPage();
-        });
+        initDetailPage();
     </script>
 </body>
 </html>

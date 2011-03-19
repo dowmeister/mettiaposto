@@ -7,31 +7,37 @@ var mapManager;
 var nearbyLoaded = false;
 var socialUser;
 
-$(document).ready(function ()
+function initSubmitPage()
 {
-    mapManager = $.mapManager();
+    $(document).ready(function ()
+    {
+        mapManager = $.mapManager();
 
-    $('#address').focus();
-    $('#tabs').tabs({
-        show: function (event, ui)
-        {
-            var mapOpts = {
-                zoom: currentCity.zoom,
-                scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
-                scrollwheel: false, streetViewControl: false
-            };
-
-            if ($(ui.panel).attr('id') == 'map')
-                mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: mapOpts });
-            else
+        $('#address').focus();
+        $('#tabs').tabs({
+            show: function (event, ui)
             {
-                getSignalsNeraby(currentMarker.zip);
-            }
-        }
-    });
+                var mapOpts = {
+                    zoom: currentCity.zoom,
+                    scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
+                    scrollwheel: false, streetViewControl: false
+                };
 
-    $('#serviceTabs').tabs();
-});
+                if ($(ui.panel).attr('id') == 'map')
+                {
+                    mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: mapOpts });
+
+                    if ($('#txtAddress').val() != '')
+                        geolocateByAddress();
+                }
+                else
+                {
+                    getSignalsNeraby(currentMarker.zip);
+                }
+            }
+        });
+    });
+}
 
 function saveSignal()
 {
@@ -48,7 +54,7 @@ function saveSignal()
     }
 
     validation = $.validateUtils({
-        errorStyle: 'border-color:Red', errorDiv: '#validationError', showAs: 'div', headerMessage: 'Alcuni campi non sono compilati correttamente'
+        errorStyle: 'border-color:Red', errorDiv: '#messages', showAs: 'div', headerMessage: 'Alcuni campi non sono compilati correttamente'
     });
 
     validation.addRule({
@@ -297,18 +303,51 @@ function getSignalsNearby_callback(r)
 
 function initDetailPage()
 {
-    var image = '';
+    $(document).ready(function ()
+    {
+        mapManager = $.mapManager();
 
-    if (currentMarker.status == 2)
-        image = MARKERIMAGE_OK;
-    else
-        image = MARKERIMAGE_ALERT;
+        $('#tabs').tabs({
+            show: function (event, ui)
+            {
+                if ($(ui.panel).attr('id') == 'map')
+                {
+                    var mapOpts = {
+                        zoom: currentCity.zoom,
+                        scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
+                        scrollwheel: false, streetViewControl: false
+                    };
 
-    mapManager.addMarker({ id: 'signalMarker' + currentMarker.id, position: new google.maps.LatLng(currentMarker.lat, currentMarker.lng),
-        image: image, center: true, zoom: true, zoomValue: currentMarker.zoom, mapID: 'map'
+                    var mapOpts = {
+                        zoom: currentMarker.zoom,
+                        scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
+                        scrollwheel: false, streetViewControl: false
+                    };
+
+                    mapManager.createMap({ container: 'map', lat: currentMarker.lat, lng: currentMarker.lng, googleOptions: mapOpts });
+
+                    var image = '';
+
+                    if (currentMarker.status == 2)
+                        image = MARKERIMAGE_OK;
+                    else
+                        image = MARKERIMAGE_ALERT;
+
+                    mapManager.addMarker({ id: 'signalMarker' + currentMarker.id, position: new google.maps.LatLng(currentMarker.lat, currentMarker.lng),
+                        image: image, center: true, zoom: true, zoomValue: currentMarker.zoom, mapID: 'map'
+                    });
+                }
+                else
+                {
+                    getSignalsNeraby(currentMarker.zip);
+                }
+            }
+        });
+
+        fbInit();
+
+        $('#lnkPhoto').fancybox();
+
+        getComments(0);
     });
-    //FB.init({ appId: '183751108307062', cookie: true, xfbml: true });
-    fbInit();
-    $('#lnkPhoto').fancybox();
-    getComments(0);
 }
