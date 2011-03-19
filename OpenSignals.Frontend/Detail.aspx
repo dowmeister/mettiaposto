@@ -16,6 +16,7 @@
         media="screen" />
     <uc4:Analytics ID="Analytics1" runat="server" />
     <os:StaticFileManager ID="staticFileManager" ContextKey="detail" runat="server">
+        <os:StaticFile Url="/js/jquery/plugins/ajaxfileupload.js" Type="Javascript" />
         <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
         <os:StaticFile Url="/js/signal.functions.js" Type="Javascript" />
         <os:StaticFile Url="/js/facebook.js" Type="Javascript" />
@@ -49,12 +50,13 @@
                         Segnalazione risolta</div>
                     <div class="message error" id="divExpired" runat="server" visible="false">
                         Segnalazione scaduta</div>
-                    <div class="description" id="divDescription" runat="server">
-                    </div>
-                    <div class="photo" id="divPhoto" runat="server" visible="false">
-                        <a runat="server" id="lnkPhoto">
-                            <asp:Image ID="imgPhoto" runat="server" />
-                        </a>
+                    <div class="description">
+                        <asp:PlaceHolder ID="plhDescription" runat="server"></asp:PlaceHolder>
+                        <div class="photo" id="divPhoto" runat="server" visible="false">
+                            <a runat="server" id="lnkPhoto">
+                                <asp:Image ID="imgPhoto" runat="server" />
+                            </a>
+                        </div>
                     </div>
                     <div class="shareBox">
                         <ul>
@@ -69,29 +71,7 @@
                         </div>
                     </div>
                     <div id="commentsBox" class="serviceBox" style="display: block;">
-                        <%--<div id="disqus_thread">
-                        </div>
-                        <script type="text/javascript">
-                            var disqus_developer = 1;
-                            var disqus_shortname = 'mettiapostoit';
-                            var disqus_identifier = 'signal_detail_' + currentMarker.id;
-                            var disqus_url = document.location.href;
-                            (function ()
-                            {
-                                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                            })();
-                        </script>
-                        <ul>
-                            <li>Le informazioni personali vengono utilizzate nel rispetto delle leggi sulla <a
-                                href="/pages/privacy.aspx">privacy</a>.</li>
-                            <li>Per favore sii educato.</li>
-                            <li>Non abusare di questo servizio: l'abuso discredita la validità del servizio per
-                                tutti gli utenti!</li>
-                            <li>Non scrivere in maiuscolo</li>
-                        </ul> --%>
-                        <div id="commentsMessages" style="margin-top: 10px">
+                        <div id="commentsMessages">
                         </div>
                         <div id="comments" class="list">
                         </div>
@@ -100,25 +80,11 @@
                         <div id="commentForm" class="submitForm">
                             <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">
                                 Login con Facebook</button>
-                            <div id="loginStatus" style="display: none;">
-                                <img id="userAvatar" />
-                                <span id="userName"></span>
-                                <br />
-                                <a href="javascript:;" onclick="fbLogout(); return false;">Logout</a>
-                            </div>
                             <ol>
-                                <!--<li>
-                                    <label>
-                                        Aggiorna stato</label>
-                                    <asp:DropDownList ID="ddlStatus" runat="server">
-                                        <asp:ListItem Text="Segnalazione non risolta" Value="1"></asp:ListItem>
-                                        <asp:ListItem Text="Segnalazione risolta" Value="2" />
-                                    </asp:DropDownList>
-                                    <div class="legend">
-                                        Se la segnalazione è stata risolta, seleziona dalla tendina "Segnalazione Risolta"
-                                        e inserisci un commento.
-                                    </div>
-                                </li>-->
+                                <li class="loginStatus" id="loginStatus" style="display: none;">
+                                    <img id="userAvatar" style="vertical-align: middle" />
+                                    <span id="userName"></span>(<a href="#" onclick="fbLogout(); return false;">Logout</a>)
+                                </li>
                                 <li>
                                     <label>
                                         Commento</label>
@@ -149,49 +115,47 @@
                             <div class="buttons">
                                 <input class="success" type="button" value="Commenta" onclick="addComment(); return false;" />
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="right">
-            <div id="tabs" class="tabs">
-                <ul>
-                    <li><a href="#map">Mappa</a></li>
-                    <li><a href="#mapNearby">Dintorni</a></li>
-                </ul>
-                <div map="true" class="map" id="map" mapdiv="map">
-                    <div class="message ajax" style="display: block;">
-                        <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
-                            src="/images/ajax-loader.gif" /></div>
+            <div class="right">
+                <div id="tabs" class="tabs">
+                    <ul>
+                        <li><a href="#map">Mappa</a></li>
+                        <li><a href="#mapNearby">Dintorni</a></li>
+                    </ul>
+                    <div class="map" id="map">
+                        <div class="mapLoader">
+                        </div>
+                    </div>
+                    <div class="map" runat="server" id="mapNearby">
+                        <div class="mapLoader">
+                        </div>
+                    </div>
                 </div>
-                <div map="true" class="map" runat="server" id="mapNearby" mapdiv="mapNearby">
-                    <div class="message ajax" style="display: block;">
-                        <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
-                            src="/images/ajax-loader.gif" /></div>
-                </div>
-            </div>
-            <div id="subscribe" class="serviceBox" style="display: block;">
-                <h4>
-                    Iscriviti agli aggiornamenti via email per questa segnalazione</h4>
-                <div id="subscribeSignalMessages">
-                </div>
-                <div class="submitForm">
-                    <ol>
-                        <li>
-                            <label>
-                                E-mail</label>
-                            <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
-                        </li>
-                    </ol>
-                    <div class="buttons">
-                        <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
+                <div id="subscribe" class="serviceBox" style="display: block;">
+                    <h4>
+                        Iscriviti agli aggiornamenti via email per questa segnalazione</h4>
+                    <div id="subscribeSignalMessages">
+                    </div>
+                    <div class="submitForm">
+                        <ol>
+                            <li>
+                                <label>
+                                    E-mail</label>
+                                <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
+                            </li>
+                        </ol>
+                        <div class="buttons">
+                            <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="clear">
+            </div>
         </div>
-        <div class="clear">
-        </div>
-    </div>
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>

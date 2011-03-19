@@ -120,7 +120,9 @@
                     <ul>
                         <li><a href="#map">Mappa</a></li>
                     </ul>
-                    <div map="true" id="map" mapdiv="map_canvas">
+                    <div class="map" id="map">
+                        <div class="mapLoader">
+                        </div>
                     </div>
                 </div>
                 <span id="completeAddress" style="display: none;">Indirizzo completo: </span>

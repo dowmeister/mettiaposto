@@ -18,7 +18,7 @@ using System;
 namespace OpenSignals.Framework.Comments
 {
     /// <summary>
-    /// This class represents the signal comment. 
+    /// This class represents the signal comment.
     /// </summary>
     public class Comment
     {
@@ -53,6 +53,41 @@ namespace OpenSignals.Framework.Comments
             /// Rejected
             /// </summary>
             public const int Reject = -1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public struct AuthorType
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int Anonymous = -1;
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int Internal = 0;
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int Facebook = 1;
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int Twitter = 2;
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int OpenID = 3;
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int Gravatar = 4;
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int Yahoo = 5;
         }
 
         /// <summary>
@@ -118,6 +153,21 @@ namespace OpenSignals.Framework.Comments
         /// The text.
         /// </value>
         public virtual string Text { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user ID.
+        /// </summary>
+        /// <value>
+        /// The user ID.
+        /// </value>
+        public virtual string AuthorReferenceKey { get; set; }
+        /// <summary>
+        /// Gets or sets the type of the user.
+        /// </summary>
+        /// <value>
+        /// The type of the user.
+        /// </value>
+        public virtual int AuthorReferenceType { get; set; }
        
     }
 }

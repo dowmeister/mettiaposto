@@ -76,10 +76,9 @@
                     <ul>
                         <li><a href="#map">Mappa</a></li>
                     </ul>
-                    <div id="map">
-                        <div class="message ajax" style="display: block;">
-                            <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
-                                src="/images/ajax-loader.gif" /></div>
+                    <div class="map" id="map">
+                        <div class="mapLoader">
+                        </div>
                     </div>
                 </div>
             </div>

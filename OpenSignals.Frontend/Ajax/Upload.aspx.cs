@@ -34,7 +34,7 @@ namespace OpenSignals.Frontend.Ajax
                     System.Drawing.Image originalImage = System.Drawing.Image.FromStream(file.InputStream);
                     System.Drawing.Image smallImage = WebUtils.ResizeImage(originalImage, 350, 300, true);
                     System.Drawing.Image mobileImage = WebUtils.ResizeImage(originalImage, 200, 300, true);
-                    System.Drawing.Image commentsImage = WebUtils.ResizeImage(originalImage, 250, 300, true);
+                    System.Drawing.Image commentsImage = WebUtils.ResizeImage(originalImage, 150, 200, true);
                     System.Drawing.Image bigImage = WebUtils.ResizeImage(originalImage, 640, 480, true);
 
                     originalImage.Save(Path.Combine(originalPath, fileName));

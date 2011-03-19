@@ -106,6 +106,7 @@
     <Content Include="css\flick\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\flick\jquery-ui-1.8.7.custom.css" />
     <Content Include="css\teaser.css" />
+    <Content Include="images\avatar.png" />
     <Content Include="images\green-arrow-right.gif" />
     <Content Include="images\teaser\bgintro.png" />
     <Content Include="images\teaser\logointro.png" />

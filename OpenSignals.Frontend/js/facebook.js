@@ -11,14 +11,10 @@ function fbInit()
         {
             retrievePersonalData();
         }
+        else
+            $('.facebook-button').show();
     });
-    /*FB.Event.subscribe('auth.sessionChange', function (response)
-    {
-        if (response.session)
-        {
-            retrievePersonalData();
-        }
-    });*/
+
 }
 
 function fbLogin()
@@ -32,29 +28,55 @@ function fbLogin()
 
 function retrievePersonalData()
 {
+    $('.facebook-button').hide();
+
     FB.api('/me', function (response)
     {
         socialUser = response;
         $('#txtName').val(response.name);
         $('#txtEmail').val(response.email);
-        $('#userAvatar').attr('src', 'https://graph.facebook.com/' + response.id + '/picture?type=small&access_token=' + FB.getSession().access_token);
+        $('#userAvatar').attr('src', 'https://graph.facebook.com/' + response.id + '/picture?type=square');
         $('#userName').html(response.name);
         $('#loginStatus').show();
     });
 
     $('#nameContainer').hide();
     $('#emailContainer').hide();
-    $('#btnFBLogin').hide();
 }
 
 function fbLogout()
 {
     FB.logout(function (response)
     {
+        socialUser = null;
         $('#nameContainer').show();
         $('#emailContainer').show();
-        $('#btnFBLogin').show();
-        socialUser = null;
         $('#loginStatus').hide();
+        $('.facebook-button').show();
     });
+}
+
+function fbPostToFeed(params)
+{
+    FB.ui(
+           {
+               method: 'feed',
+               name: params.name,
+               link: params.link,
+               picture: params.image,
+               caption: params.caption,
+               description: params.description,
+               message: params.message
+           },
+           function (response)
+           {
+               if (response && response.post_id)
+               {
+                   alert('Post was published.');
+               } else
+               {
+                   alert('Post was not published.');
+               }
+           }
+         );
 }

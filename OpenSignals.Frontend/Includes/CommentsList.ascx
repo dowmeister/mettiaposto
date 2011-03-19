@@ -3,6 +3,8 @@
 <asp:Repeater ID="rptList" runat="server" OnItemDataBound="rptList_ItemDataBound">
     <ItemTemplate>
         <div class="item">
+            <div class="avatar">
+                <asp:Image ID="avatar" ImageUrl="/images/avatar.png" runat="server" /></div>
             <div class="comment" runat="server" id="comment">
             </div>
             <div class="legend">
@@ -19,6 +21,8 @@
     </ItemTemplate>
     <AlternatingItemTemplate>
         <div class="alt-item">
+            <div class="avatar">
+                <asp:Image ID="avatar" ImageUrl="/images/avatar.png" runat="server" /></div>
             <div class="comment" runat="server" id="comment">
             </div>
             <div class="legend">

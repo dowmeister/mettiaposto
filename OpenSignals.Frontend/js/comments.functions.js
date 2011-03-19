@@ -8,7 +8,7 @@ function getComments(offset)
     $('#comments').empty();
     var proxy = new JSONService();
     var params = new Object();
-    params["signalID"] = currentSignalID;
+    params["signalID"] = currentMarker.id;
     params["offset"] = offset;
 
     params = addSessionKey(params);
@@ -26,10 +26,10 @@ function getComments_callback(r)
     }
     else
     {
-        if (r.result == '')
+        if (r.result.count == 0)
             $('#comments').html('<div class="item"><div class="comment">Nessun commento</div></div>');
         else
-            $('#comments').html(r.result);
+            $('#comments').html(r.result.html);
         $('.photo > a').fancybox();
     }
 }
@@ -72,15 +72,23 @@ function _addComment()
     var proxy = new JSONService();
 
     var c = new Object();
-    c.signalID = currentSignalID;
+    c.signalID = currentMarker.id;
     c.text = $('#txtDescription').val();
     c.authorName = $('#txtName').val();
     c.authorEmail = $('#txtEmail').val();
     c.showAuthorName = document.getElementById('chkPublicName').checked;
     c.attachment = '';
 
-    if ($('#ddlStatus').val() == '2')
-        c.setSignalResolved = true;
+    if (socialUser)
+    {
+        c.authorReferenceKey = socialUser.id;
+        c.authorReferenceType = 1;
+    }
+    else
+    {
+        c.authorReferenceKey = '';
+        c.authorReferenceType = -1;
+    }
 
     if ($('#fuFile').val() != '')
     {
@@ -125,6 +133,8 @@ function addComment_callback(r)
 
     $('#commentForm').show();
     $('#commentForm > input, textarea').val('');
+
+    fbPostToFeed({ title: 'titolo', message: 'Ho commentato una segnalazione su Mettiaposto', caption: $('#ltCategory').html(), description: $('#divDescription').html(), link: document.location.href, picture: '' });
 
     getComments(0);
 }

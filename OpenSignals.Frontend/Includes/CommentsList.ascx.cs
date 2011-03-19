@@ -48,6 +48,9 @@ namespace OpenSignals.Frontend.Includes
                     ((HtmlAnchor)e.Item.FindControl("lnkPhoto")).HRef = WebUtils.GetImageUrl(UploadPaths.Big, c.Attachment);
                     ((Image)e.Item.FindControl("imgPhoto")).ImageUrl = WebUtils.GetImageUrl(UploadPaths.Comments, c.Attachment);
                 }
+
+                if (c.AuthorReferenceType == Comment.AuthorType.Facebook)
+                    ((Image)e.Item.FindControl("avatar")).ImageUrl = "http://graph.facebook.com/" + c.AuthorReferenceKey + "/picture?type=square";
             }
         }
     }

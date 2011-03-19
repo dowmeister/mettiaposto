@@ -29,7 +29,7 @@ namespace OpenSignals.Frontend
                 SignalManager sm = new SignalManager();
                 Signal s = sm.LoadSingnal(int.Parse(GetFromQueryString("id")));
                 divTitle.InnerHtml = s.Subject;
-                divDescription.InnerHtml = s.Description;
+                plhDescription.Controls.Add(new LiteralControl(s.Description));
 
                 this.Title = String.Format(this.Title, s.Subject, s.Address, s.City);
                 metaOgDescription.Attributes["content"] = s.Excerpt;
@@ -61,7 +61,6 @@ namespace OpenSignals.Frontend
                 currentMarker["status"] = s.Status;
 
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "currentMarker", "currentMarker=" + currentMarker.ToString() + ";", true);
-                //RegisterDocumentReadyFunction("init", "initDetailPage");
 
                 if (!s.Attachment.Equals(string.Empty))
                 {
@@ -73,8 +72,6 @@ namespace OpenSignals.Frontend
 
                 if (s.Status == Signal.SignalStatus.Resolved)
                 {
-                    //ddlStatus.Items.FindByValue(Signal.SignalStatus.Resolved.ToString()).Selected = true;
-                    //ddlStatus.Enabled = false;
                     divResolved.Visible = true;
                 }
             }

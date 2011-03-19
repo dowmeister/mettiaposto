@@ -21,14 +21,11 @@ $(document).ready(function ()
                 scrollwheel: false, streetViewControl: false
             };
 
-            if ($(ui.panel).attr('map'))
+            if ($(ui.panel).attr('id') == 'map')
+                mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: mapOpts });
+            else
             {
-                if ($(ui.panel).attr('id') == 'map')
-                    mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: mapOpts });
-                else
-                {
-                    getSignalsNeraby(currentMarker.zip);
-                }
+                getSignalsNeraby(currentMarker.zip);
             }
         }
     });

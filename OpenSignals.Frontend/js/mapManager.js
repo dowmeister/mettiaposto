@@ -3,7 +3,6 @@ var MARKERIMAGE_OK = '/images/check.png';
 
 $.mapManager = function ()
 {
-
     this.maps = new Array();
     this.markers = new Array();
 

@@ -157,13 +157,13 @@ namespace OpenSignals.Frontend {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExpired;
         
         /// <summary>
-        /// divDescription control.
+        /// plhDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDescription;
+        protected global::System.Web.UI.WebControls.PlaceHolder plhDescription;
         
         /// <summary>
         /// divPhoto control.
@@ -191,15 +191,6 @@ namespace OpenSignals.Frontend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgPhoto;
-        
-        /// <summary>
-        /// ddlStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
         /// txtDescription control.

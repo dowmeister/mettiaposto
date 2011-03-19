@@ -124,19 +124,26 @@ namespace OpenSignals.Frontend.Ajax
         }
 
         [JsonRpcMethod("getComments")]
-        public string GetComments(JsonObject pars)
+        public JsonObject GetComments(JsonObject pars)
         {
             CheckRequest(pars["ajaxSessionKey"].ToString());
 
-            string ret = string.Empty;
+            JsonObject ret = new JsonObject();
             CommentManager cm = new CommentManager();
             int totalRecords = 0;
             List<Comment> comments = cm.GetComments(Convert.ToInt32(pars["signalID"]), Convert.ToInt32(pars["offset"]),
                 out totalRecords);
 
-            CommentsList s = (CommentsList)new UserControl().LoadControl("/Includes/CommentsList.ascx");
-            s.Populate(comments, totalRecords);
-            ret = WebUtils.RenderControlToString(s);
+            if (comments.Count > 0)
+            {
+                CommentsList s = (CommentsList)new UserControl().LoadControl("/Includes/CommentsList.ascx");
+                s.Populate(comments, totalRecords);
+                ret["count"] = totalRecords;
+                ret["html"] = WebUtils.RenderControlToString(s);
+            }
+            else
+                ret["count"] = 0;
+
             return ret;
         }
 
@@ -150,12 +157,6 @@ namespace OpenSignals.Frontend.Ajax
             c.Text = c.Text.Replace("\n", "<br/>");
             c.Status = Comment.CommentStatus.Approved;
             int ret = cm.AddComment(c);
-
-            if (c.SetSignalResolved)
-            {
-                SignalManager sm = new SignalManager();
-                sm.ResolveSignal(c.SignalID, c.Text);
-            }
 
             SignalAlertEmail sae = new SignalAlertEmail();
             sae.Send(c);

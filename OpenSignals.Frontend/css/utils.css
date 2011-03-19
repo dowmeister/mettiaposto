@@ -242,3 +242,9 @@ input[type=button], input[type=reset]
 {
     clear: both;
 }
+
+.mapLoader
+{
+    background: #5BB1CA url(/images/ajax-loader.gif) no-repeat center center;
+    height: 500px;
+}

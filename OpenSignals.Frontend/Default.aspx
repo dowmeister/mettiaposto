@@ -23,10 +23,9 @@
     <form id="form1" runat="server">
     <uc3:Header ID="Header1" runat="server" TabSelected="1" />
     <div id="content">
-        <div style="float: left; width: 500px; height: 500px;" id="map">
-            <div class="message ajax" style="display: block;">
-                <img style="margin-top: 250px; margin-bottom: 200px;" alt="Caricamento in corso.."
-                    src="/images/ajax-loader.gif" /></div>
+        <div class="homeMap" id="map">
+            <div class="mapLoader">
+            </div>
         </div>
         <div style="float: right; width: 430px">
             <h2 class="homeclaim">
