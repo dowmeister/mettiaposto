@@ -9,11 +9,12 @@
 #content .home
 {
     float: left;
-    width: 420px;
-    background-color: #236388;
+    width: 422px;
+    background: url("/images/Blubox.png") repeat scroll 0 0 transparent;
     padding: 10px;
     color: #FFFFFF;
     font-weight: bold;
+	height:60px;
 }
 
 #content h2.homeclaim
