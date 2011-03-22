@@ -92,6 +92,9 @@
     <Compile Include="Communications\Messages\SignalReminderEmail.cs" />
     <Compile Include="Communications\Messages\SignalSubmissionEmail.cs" />
     <Compile Include="Communications\Messages\SignalToCouncilEmail.cs" />
+    <Compile Include="Core\Base\BaseAdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Core\Base\BaseGenericHandler.cs">
       <SubType>Component</SubType>
     </Compile>

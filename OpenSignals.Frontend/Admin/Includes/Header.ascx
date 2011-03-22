@@ -28,3 +28,5 @@
             <asp:LinkButton ID="lnkLogout" runat="server" onclick="lnkLogout_Click">Logout</asp:LinkButton>
         </div>
     </div>
+</div>
+

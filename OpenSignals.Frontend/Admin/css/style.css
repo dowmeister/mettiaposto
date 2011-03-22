@@ -193,6 +193,5 @@ input[type=button], input[type=submit]
 #LoginBox td
 {
     height: 25px;
-    border: solid 1px #DFDFDF;
     padding: 4px;
 }
