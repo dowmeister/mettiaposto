@@ -13,11 +13,45 @@ namespace OpenSignals.Frontend.Admin.Signals
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            tblList.Rows.Add(this.CreateListHeader(true, new string[] { "ID", "Oggetto", "Categoria", "Stato" }));
+            if (!Page.IsPostBack)
+            {
+                BuildPage();
+            }
+        }
+
+        private void BuildPage()
+        {
+            tblList.Rows.Add(this.CreateListHeader(true, new string[] { "ID", "Oggetto", "Creata il", "Città", "Categoria", "Stato" }));
 
             SignalManager sm = new SignalManager();
             int totalRecords = 0;
-            List<Signal> items = sm.Search(string.Empty, string.Empty, string.Empty, -1, -1, 0, out totalRecords);
+            List<Signal> items = sm.Search(string.Empty, string.Empty, string.Empty, -1, -2, 0, out totalRecords);
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                TableRow tr = CreateTableRow();
+                tr.Cells.Add(CreateTableCell(items[i].SignalID.ToString()));
+                tr.Cells.Add(CreateTableCell(items[i].Subject));
+                tr.Cells.Add(CreateTableCell(items[i].CreationDate.ToShortDateString()));
+                tr.Cells.Add(CreateTableCell(items[i].City));
+                tr.Cells.Add(CreateTableCell(items[i].CategoryName));
+                switch (items[i].Status)
+                {
+                    case Signal.SignalStatus.Approved:
+                        tr.Cells.Add(CreateTableCell("Approvato"));
+                        break;
+                    case Signal.SignalStatus.NotApproved:
+                        tr.Cells.Add(CreateTableCell("Non approvato"));
+                        break;
+                    case Signal.SignalStatus.Resolved:
+                        tr.Cells.Add(CreateTableCell("Risolto"));
+                        break;
+                }
+
+                tblList.Rows.Add(tr);
+            }
+
+            tblList.Rows.Add(CreatePaginationRow(totalRecords, 10, 7));
         }
     }
 }

@@ -31,5 +31,9 @@
       <key column="ss_signal_id"></key>
       <one-to-many class="OpenSignals.Framework.Signals.SignalSubscription"></one-to-many>
     </bag>
+    <join table="categories">
+      <key column="c_id" property-ref="s_category_id"/>
+      <property name="CategoryName" column="c_name" not-null="true" />
+    </join>
   </class>
 </hibernate-mapping>

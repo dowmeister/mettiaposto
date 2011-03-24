@@ -219,6 +219,14 @@ namespace OpenSignals.Framework.Signals
         public virtual IList<SignalSubscription> Subscriptions { get; set; }
 
         /// <summary>
+        /// Gets or sets the name of the category.
+        /// </summary>
+        /// <value>
+        /// The name of the category.
+        /// </value>
+        public virtual string CategoryName { get; set; }
+
+        /// <summary>
         /// Gets the link to detail page
         /// </summary>
         public virtual string Link

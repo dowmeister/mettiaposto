@@ -144,10 +144,13 @@ namespace OpenSignals.Framework.Signals
             if (categoryID != -1)
                 criteria.Add(Restrictions.Eq("CategoryID", categoryID));
 
-            if (status == -1)
-                criteria.Add(Restrictions.Ge("Status", 1));
-            else
-                criteria.Add(Restrictions.Eq("Status", status));
+            if (status != -2)
+            {
+                if (status == -1)
+                    criteria.Add(Restrictions.Ge("Status", 1));
+                else
+                    criteria.Add(Restrictions.Eq("Status", status));
+            }
 
             return criteria;
         }

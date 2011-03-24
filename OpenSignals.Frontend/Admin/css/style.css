@@ -85,10 +85,9 @@ a img
 .form table td
 {
     border: solid 1px #DFDFDF;
-    padding: 4px;
+    padding: 10px 4px 10px 10px;
     text-align: left;
     vertical-align: top;
-    height: 25px;
 }
 
 .form table td.label
@@ -116,24 +115,23 @@ a img
     border-top: none;
 }
 
-#content .pagination
+.form table td.pagination
 {
-    width: 100%;
     margin-right: 10px;
 }
 
-#content .pagination ul
+.form table td.pagination ul
 {
     float: right;
 }
 
-#content .pagination li
+.form table td.pagination li
 {
     float: left;
     list-style-type: none;
 }
 
-#content .pagination li a
+.form table td.pagination li a
 {
     text-decoration: none;
     background-color: #1C8DCE;

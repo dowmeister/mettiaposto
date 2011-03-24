@@ -13,7 +13,8 @@
         <div class="form">
             <h1>
                 Elenco Segnalazioni</h1>
-                <asp:Table ID="tblList" runat="server" CssClass="listTable"></asp:Table>           
+            <asp:Table ID="tblList" runat="server" CssClass="listTable">
+            </asp:Table>
             <table class="listTable">
                 <tr>
                     <th>
@@ -157,18 +158,20 @@
                                         <img src="images/correct-valid-properties-green-circle.png" /></a>
                     </td>
                 </tr>
+                <tr>
+                    <td class="pagination">
+                        <ul>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                        </ul>
+                    </td>
+                </tr>
             </table>
-            <div class="pagination">
-                <ul>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                </ul>
-            </div>
             <div class="clear">
             </div>
         </div>
