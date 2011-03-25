@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using OpenSignals.Framework.Data;
+using NHibernate.Criterion;
 
 namespace OpenSignals.Framework.Categories
 {
@@ -29,6 +30,31 @@ namespace OpenSignals.Framework.Categories
         /// </summary>
         /// <returns>Category collection</returns>
         public List<Category> GetActive()
+        {
+            try
+            {
+                OpenSession();
+                List<Category> cats = (List<Category>)Session.CreateCriteria(typeof(Category))
+                    .Add(Restrictions.Eq("Status", true))
+                    .AddOrder(new NHibernate.Criterion.Order("Name", true)).List<Category>();
+                return cats;
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error loading active categories", ex);
+                throw ex;
+            }
+            finally
+            {
+                CloseSession();
+            }
+        }
+
+        /// <summary>
+        /// Gets the active.
+        /// </summary>
+        /// <returns>Category collection</returns>
+        public List<Category> GetCategories()
         {
             try
             {

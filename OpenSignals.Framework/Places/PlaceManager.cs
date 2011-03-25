@@ -35,7 +35,33 @@ namespace OpenSignals.Framework.Places
             {
                 OpenSession();
                 List<Place> ret = (List<Place>)Session.CreateCriteria(typeof(Place))
+                    .AddOrder(new NHibernate.Criterion.Order("Name", true))    
                     .Add(Restrictions.Eq("Status", true))
+                    .List<Place>();
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error loading active places", ex);
+                throw ex;
+            }
+            finally
+            {
+                CloseSession();
+            }
+        }
+
+        /// <summary>
+        /// Gets the active places.
+        /// </summary>
+        /// <returns></returns>
+        public List<Place> GetPlaces()
+        {
+            try
+            {
+                OpenSession();
+                List<Place> ret = (List<Place>)Session.CreateCriteria(typeof(Place))
+                     .AddOrder(new NHibernate.Criterion.Order("Name", true))    
                     .List<Place>();
                 return ret;
             }

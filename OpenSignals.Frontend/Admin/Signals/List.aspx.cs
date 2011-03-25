@@ -21,7 +21,7 @@ namespace OpenSignals.Frontend.Admin.Signals
 
         private void BuildPage()
         {
-            tblList.Rows.Add(this.CreateListHeader(true, new string[] { "ID", "Oggetto", "Creata il", "Città", "Categoria", "Stato" }));
+            tblList.Rows.Add(this.CreateListHeader(true, new string[] { "ID", "Oggetto", "Creata il", "Città", "Indirizzo", "Categoria", "Stato" }));
 
             SignalManager sm = new SignalManager();
             int totalRecords = 0;
@@ -34,6 +34,7 @@ namespace OpenSignals.Frontend.Admin.Signals
                 tr.Cells.Add(CreateTableCell(items[i].Subject));
                 tr.Cells.Add(CreateTableCell(items[i].CreationDate.ToShortDateString()));
                 tr.Cells.Add(CreateTableCell(items[i].City));
+                tr.Cells.Add(CreateTableCell(items[i].Address));
                 tr.Cells.Add(CreateTableCell(items[i].CategoryName));
                 switch (items[i].Status)
                 {
@@ -47,6 +48,13 @@ namespace OpenSignals.Frontend.Admin.Signals
                         tr.Cells.Add(CreateTableCell("Risolto"));
                         break;
                 }
+
+                List<Control> buttons = new List<Control>();
+                buttons.Add(CreateImageButton("#", "Modifica", ImageButtons.Edit));
+                buttons.Add(CreateImageButton("#", "Elimina", ImageButtons.Delete));
+                buttons.Add(CreateImageButton("#", "Approva", ImageButtons.Approve));
+                buttons.Add(CreateImageButton("#", "Rifiuta", ImageButtons.Reject));
+                tr.Controls.Add(CreateCommandsCell(buttons));
 
                 tblList.Rows.Add(tr);
             }

@@ -2,26 +2,26 @@
 <div id="wrapper">
     <div id="header">
         <ul id="menu" class="sf-menu">
-            <li><a href="#">Segnalazioni</a>
+            <li><a href="/Admin/Signals/List.aspx">Segnalazioni</a>
                 <ul>
-                    <li><a href="#">Commenti</a></li></ul>
+                    <li><a href="/Admin/Comments/List.aspx">Commenti</a></li></ul>
             </li>
-            <li><a href="#">Città</a>
+            <li><a href="/Admin/Places/List.aspx">Città</a>
                 <ul>
-                    <li><a href="#">Aggiungi Città</a></li></ul>
+                    <li><a href="/Admin/Places/Edit.aspx">Aggiungi Città</a></li></ul>
             </li>
-            <li><a href="#">Categorie</a>
+            <li><a href="/Admin/Categories/List.aspx">Categorie</a>
                 <ul>
-                    <li><a href="#">Aggiungi Categoria</a></li></ul>
+                    <li><a href="/Admin/Categories/Edit.aspx">Aggiungi Categoria</a></li></ul>
             </li>
-            <li><a href="#">Utenti</a>
+            <li><a href="/Admin/Users/List.aspx">Utenti</a>
                 <ul>
-                    <li><a href="#">Aggiunti Utente</a></li>
-                    <li><a href="#">Ruoli</a></li>
-                    <li><a href="#">Aggiungi Ruolo</a></li>
+                    <li><a href="/Admin/Users/Edit.aspx">Aggiunti Utente</a></li>
+                    <li><a href="/Admin/Users/RolesList.aspx">Ruoli</a></li>
+                    <li><a href="/Admin/Users/EditRole.aspx">Aggiungi Ruolo</a></li>
                 </ul>
             </li>
-            <li><a href="#">Configurazione</a></li>
+            <li><a href="/Admin/Panel/Configuration.aspx">Configurazione</a></li>
         </ul>
         <div id="loginInfo">
             Utente: Admin |

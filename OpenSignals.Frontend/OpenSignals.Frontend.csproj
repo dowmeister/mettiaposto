@@ -63,10 +63,10 @@
     <Content Include="AddPlace.aspx" />
     <Content Include="Admin\css\style.css" />
     <Content Include="Admin\Default.aspx" />
-    <Content Include="Admin\images\block-warning-red-circle.png" />
-    <Content Include="Admin\images\correct-valid-properties-green-circle.png" />
+    <Content Include="Admin\images\reject.png" />
+    <Content Include="Admin\images\approve.png" />
     <Content Include="Admin\images\delete.png" />
-    <Content Include="Admin\images\pencil.png" />
+    <Content Include="Admin\images\edit.png" />
     <Content Include="Admin\Includes\Footer.ascx" />
     <Content Include="Admin\Includes\Head.ascx" />
     <Content Include="Admin\Includes\Header.ascx" />
@@ -107,6 +107,7 @@
     <Content Include="css\flick\jquery-ui-1.8.7.custom.css" />
     <Content Include="css\teaser.css" />
     <Content Include="images\avatar.png" />
+    <Content Include="images\Blubox.png" />
     <Content Include="images\green-arrow-right.gif" />
     <Content Include="images\teaser\bgintro.png" />
     <Content Include="images\teaser\logointro.png" />

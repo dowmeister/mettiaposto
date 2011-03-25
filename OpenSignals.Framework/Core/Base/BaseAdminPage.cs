@@ -5,6 +5,7 @@ using System.Text;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using OpenSignals.Framework.Core.Utility;
+using System.Web.UI.HtmlControls;
 
 namespace OpenSignals.Framework.Core.Base
 {
@@ -13,6 +14,29 @@ namespace OpenSignals.Framework.Core.Base
     /// </summary>
     public class BaseAdminPage : BasePage
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public struct ImageButtons
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public const string Delete = "/Admin/images/delete.png";
+            /// <summary>
+            /// 
+            /// </summary>
+            public const string Edit = "/Admin/images/edit.png";
+            /// <summary>
+            /// 
+            /// </summary>
+            public const string Approve = "/Admin/images/approve.png";
+            /// <summary>
+            /// 
+            /// </summary>
+            public const string Reject = "/Admin/images/reject.png";
+        }
+
         /// <summary>
         /// Creates the list header.
         /// </summary>
@@ -104,6 +128,43 @@ namespace OpenSignals.Framework.Core.Base
                 return tr;
             }
             else return new TableRow();
+        }
+
+        /// <summary>
+        /// Creates the commands cell.
+        /// </summary>
+        /// <param name="controls">The controls.</param>
+        /// <returns></returns>
+        protected TableCell CreateCommandsCell(List<Control> controls)
+        {
+            TableCell td = new TableCell();
+            td.CssClass = "commands";
+            for (int i = 0; i < controls.Count; i++)
+            {
+                td.Controls.Add(controls[i]);
+            }
+            return td;
+        }
+
+        /// <summary>
+        /// Creates the image button.
+        /// </summary>
+        /// <param name="onclick">The onclick.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="image">The image.</param>
+        /// <returns></returns>
+        protected HtmlAnchor CreateImageButton(string onclick, string title, string image)
+        {
+            HtmlAnchor a = new HtmlAnchor();
+            a.HRef = "javascript:;";
+            a.Title = title;
+            a.Attributes.Add("onclick", onclick);
+            Image img = new Image();
+            img.ImageUrl = image;
+            img.AlternateText = title;
+            img.ToolTip = title;
+            a.Controls.Add(img);
+            return a;
         }
     }
 }
