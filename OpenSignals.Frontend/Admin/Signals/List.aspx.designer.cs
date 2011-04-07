@@ -29,5 +29,14 @@ namespace OpenSignals.Frontend.Admin.Signals {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tblList;
+        
+        /// <summary>
+        /// lnkAction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkAction;
     }
 }

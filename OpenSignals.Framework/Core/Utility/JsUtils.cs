@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Jayrock.Json;
 
 namespace OpenSignals.Framework.Core.Utility
 {
@@ -140,6 +141,10 @@ namespace OpenSignals.Framework.Core.Utility
                             sb.Append(parameters[i].ToString());
                         }
                         else if (parameters[i] is JsConstant)
+                        {
+                            sb.Append(parameters[i].ToString());
+                        }
+                        else if (parameters[i] is JsonObject)
                         {
                             sb.Append(parameters[i].ToString());
                         }

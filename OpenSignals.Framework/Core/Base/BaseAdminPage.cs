@@ -6,6 +6,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using OpenSignals.Framework.Core.Utility;
 using System.Web.UI.HtmlControls;
+using Jayrock.Json;
+using Jayrock.Json.Conversion;
 
 namespace OpenSignals.Framework.Core.Base
 {
@@ -156,8 +158,8 @@ namespace OpenSignals.Framework.Core.Base
         protected HtmlAnchor CreateImageButton(string onclick, string title, string image)
         {
             HtmlAnchor a = new HtmlAnchor();
-            a.HRef = "javascript:;";
             a.Title = title;
+            a.HRef = "javascript:;";
             a.Attributes.Add("onclick", onclick);
             Image img = new Image();
             img.ImageUrl = image;
@@ -165,6 +167,34 @@ namespace OpenSignals.Framework.Core.Base
             img.ToolTip = title;
             a.Controls.Add(img);
             return a;
+        }
+
+        /// <summary>
+        /// Creates the image link.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="image">The image.</param>
+        /// <returns></returns>
+        protected HtmlAnchor CreateImageLink(string url, string title, string image)
+        {
+            HtmlAnchor a = new HtmlAnchor();
+            a.HRef = url;
+            Image img = new Image();
+            img.ImageUrl = image;
+            img.AlternateText = title;
+            img.ToolTip = title;
+            a.Controls.Add(img);
+            return a;
+        }
+
+        /// <summary>
+        /// Gets the action.
+        /// </summary>
+        /// <returns></returns>
+        protected JsonObject GetAction()
+        {
+            return (JsonObject)JsonConvert.Import(GetFromRequest("__EVENTARGUMENT"));            
         }
     }
 }

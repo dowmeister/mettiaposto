@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using OpenSignals.Framework.Core.Base;
 using OpenSignals.Framework.Signals;
+using OpenSignals.Framework.Core.Utility;
+using Jayrock.Json;
 
 namespace OpenSignals.Frontend.Admin.Signals
 {
@@ -50,16 +52,42 @@ namespace OpenSignals.Frontend.Admin.Signals
                 }
 
                 List<Control> buttons = new List<Control>();
-                buttons.Add(CreateImageButton("#", "Modifica", ImageButtons.Edit));
-                buttons.Add(CreateImageButton("#", "Elimina", ImageButtons.Delete));
-                buttons.Add(CreateImageButton("#", "Approva", ImageButtons.Approve));
-                buttons.Add(CreateImageButton("#", "Rifiuta", ImageButtons.Reject));
+                buttons.Add(CreateImageLink("Edit.aspx?ID=" + items[i].SignalID, "Modifica", ImageButtons.Edit));
+                buttons.Add(CreateImageButton(JsUtils.CreateJsFunction("performAction", true, new JsonObject(new string[]{"action","argument"}, new string[]{"delete", items[i].SignalID.ToString()})),
+                    "Elimina", ImageButtons.Delete));
+                buttons.Add(CreateImageButton(JsUtils.CreateJsFunction("performAction", true, new JsonObject(new string[]{"action","argument"}, new string[]{"approve", items[i].SignalID.ToString()})), 
+                    "Approva", ImageButtons.Approve));
+                buttons.Add(CreateImageButton(JsUtils.CreateJsFunction("performAction", true, new JsonObject(new string[] { "action", "argument" }, new string[] { "reject", items[i].SignalID.ToString() })),
+                    "Rifiuta", ImageButtons.Reject));
                 tr.Controls.Add(CreateCommandsCell(buttons));
 
                 tblList.Rows.Add(tr);
             }
 
             tblList.Rows.Add(CreatePaginationRow(totalRecords, 10, 7));
+        }
+
+        protected void lnkAction_Click(object sender, EventArgs e)
+        {
+            JsonObject action = GetAction();
+
+            Alert(action["action"].ToString());
+
+            SignalManager sm = new SignalManager();
+            switch (action["action"].ToString())
+            {
+                case "delete":
+                    sm.Delete(int.Parse(action["argument"].ToString()));
+                    break;
+                case "approve":
+                    sm.ResolveSignal(int.Parse(action["argument"].ToString()), string.Empty);
+                    break;
+                case "reject":
+
+                    break;
+            }
+
+            BuildPage();
         }
     }
 }

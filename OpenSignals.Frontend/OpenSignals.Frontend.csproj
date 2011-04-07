@@ -70,6 +70,7 @@
     <Content Include="Admin\Includes\Footer.ascx" />
     <Content Include="Admin\Includes\Head.ascx" />
     <Content Include="Admin\Includes\Header.ascx" />
+    <Content Include="Admin\js\functions.js" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\Signals\Edit.aspx" />
     <Content Include="Admin\Signals\List.aspx" />

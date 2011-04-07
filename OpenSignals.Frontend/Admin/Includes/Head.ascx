@@ -10,4 +10,5 @@
     <os:StaticFile Url="/js/functions.js" Type="Javascript" />
     <os:StaticFile Url="/js/validation.js" Type="Javascript" />
     <os:StaticFile Url="/js/json.js" Type="Javascript" />
+    <os:StaticFile Url="/Admin/js/functions.js" Type="Javascript" />
 </os:StaticFileManager>

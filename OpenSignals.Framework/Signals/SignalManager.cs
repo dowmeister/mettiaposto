@@ -245,5 +245,29 @@ namespace OpenSignals.Framework.Signals
             Session.SaveOrUpdate(s);
             CloseSession();
         }
+
+        /// <summary>
+        /// Deletes the specified id.
+        /// </summary>
+        /// <param name="id">The id.</param>
+        public void Delete(int id)
+        {
+            try
+            {
+                OpenSession();
+                OpenTransaction();
+                Signal s = this.LoadSingnal(id);
+                Session.Delete(s);
+                CloseSession();
+            }
+            catch (Exception ex)
+            {
+                RollbackTransaction();
+            }
+            finally
+            {
+                CloseSession();
+            }
+        }
     }
 }
