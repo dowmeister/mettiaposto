@@ -88,6 +88,9 @@ function searchSignals_callback(r)
 
                 mapManager.fitBounds({ mapID: 'map', bounds: bounds, center: true });
             }
+
+            if (mapManager.getZoom('map') > currentCity.zoom)
+                mapManager.setZoom({ mapID: 'map', zoom: currentCity.zoom });
         }
     }
 }

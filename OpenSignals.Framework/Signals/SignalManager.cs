@@ -56,8 +56,8 @@ namespace OpenSignals.Framework.Signals
             }
             catch (Exception ex)
             {
+                log.Error("Error creating signal", ex);
                 RollbackTransaction();
-                CloseSession();
                 throw ex;
             }
         }
@@ -263,6 +263,7 @@ namespace OpenSignals.Framework.Signals
             catch (Exception ex)
             {
                 RollbackTransaction();
+                log.Error("Error deleting signal " + id, ex);
             }
             finally
             {

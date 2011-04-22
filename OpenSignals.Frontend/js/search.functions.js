@@ -65,7 +65,7 @@ function searchSignals_callback(r)
 
         if (r.result.signals.length > 0)
         {
-            writeMessage('Trovati ' + r.result.signals.length + ' risultati', '<a href="#" onclick="showForm();">Effettua una nuova ricerca</a>', '#searchMessages');
+            writeMessage(r.result.signals.length + ' segnalazioni trovate', '<a href="#" onclick="showForm();">Effettua una nuova ricerca</a>', '#searchMessages');
 
             var bounds = new google.maps.LatLngBounds();
 
@@ -93,8 +93,10 @@ function searchSignals_callback(r)
             $('#list').html(r.result.html);
 
             mapManager.fitBounds({ mapID: 'map', bounds: bounds });
+
+            mapManager.setZoom({ mapID: 'map', zoom: 15 });
         }
         else
-            writeError('Nessuna segnalazione trovata con i parametri di ricerca specificati<p><a href="#" onclick="showForm();">Effettua una nuova ricerca</a></p>', '#searchMessages');
+            writeError('Nessuna segnalazione trovata con i parametri di ricerca specificati<p><a href="#" onclick="showForm();">Effettua una nuova ricerca</a> o <a href="' + currentCity.link + 'invia.aspx">inserisci la prima segnalazione</a> per questa città.</a></p>', '#searchMessages');
     }
 }

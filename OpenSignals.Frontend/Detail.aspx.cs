@@ -74,6 +74,12 @@ namespace OpenSignals.Frontend
                 {
                     divResolved.Visible = true;
                 }
+
+                if (sm.SearchNearZip(s.Zip, s.SignalID).Count == 0)
+                {
+                    liMapNearby.Visible = false;
+                    mapNearby.Visible = false;
+                }
             }
         }
     }

@@ -150,7 +150,7 @@
             </ul>
         </dd>
     </dl>
-    <h2>
+    <!--<h2>
         Questioni tecniche
     </h2>
     <dl>
@@ -172,7 +172,7 @@
             Mettiaposto.it è un progetto <strong>opensource</strong>: il codice sorgente è liberamente scaricabile
             da <a href="http://github.com/shardick/mettiaposto" href="_target">Github</a>.
         </dd>
-    </dl>
+    </dl>-->
 </div>
 ]]>
   </content>

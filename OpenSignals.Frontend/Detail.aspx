@@ -123,7 +123,7 @@
                 <div id="tabs" class="tabs">
                     <ul>
                         <li><a href="#map">Mappa</a></li>
-                        <li><a href="#mapNearby">Dintorni</a></li>
+                        <li runat="server" id="liMapNearby"><a href="#mapNearby">Dintorni</a></li>
                     </ul>
                     <div class="map" id="map">
                         <div class="mapLoader">
