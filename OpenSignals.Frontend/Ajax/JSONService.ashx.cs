@@ -43,6 +43,7 @@ namespace OpenSignals.Frontend.Ajax
             CheckRequest(ajaxSessionKey);
 
             SignalManager sm = new SignalManager();
+            s.CategoryName = null;
             s.Description = s.Description.Replace("\n", "<br/>");
             s.CreationDate = DateTime.Now;
             s.UpdateDate = DateTime.Now;

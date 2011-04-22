@@ -238,6 +238,15 @@ namespace OpenSignals.Frontend {
         protected global::System.Web.UI.WebControls.FileUpload fuFile;
         
         /// <summary>
+        /// liMapNearby control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMapNearby;
+        
+        /// <summary>
         /// mapNearby control.
         /// </summary>
         /// <remarks>

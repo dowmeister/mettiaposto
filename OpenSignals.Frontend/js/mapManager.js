@@ -1,15 +1,12 @@
 ﻿var MARKERIMAGE_ALERT = '/images/alert.png';
 var MARKERIMAGE_OK = '/images/check.png';
 
-$.mapManager = function ()
-{
+$.mapManager = function () {
     this.maps = new Array();
     this.markers = new Array();
 
-    this.createMap = function (options)
-    {
-        if (!this.getMap(options.container))
-        {
+    this.createMap = function (options) {
+        if (!this.getMap(options.container)) {
             var latlng;
 
             if (options.position)
@@ -22,8 +19,7 @@ $.mapManager = function ()
 
             var m = new google.maps.Map(document.getElementById(options.container), options.googleOptions);
 
-            if (options.ne && options.sw)
-            {
+            if (options.ne && options.sw) {
                 m.fitBounds(options.bounds);
             }
 
@@ -31,8 +27,7 @@ $.mapManager = function ()
         }
     }
 
-    this.createMarker = function (options)
-    {
+    this.createMarker = function (options) {
         this.removeMarkerById(options.id);
 
         var marker = new google.maps.Marker({
@@ -47,8 +42,7 @@ $.mapManager = function ()
         return marker;
     }
 
-    this.addMarker = function (options)
-    {
+    this.addMarker = function (options) {
         options.map = this.getMap(options.mapID).obj;
 
         var marker = this.createMarker(options);
@@ -68,13 +62,10 @@ $.mapManager = function ()
         return marker;
     }
 
-    this.getMap = function (id)
-    {
+    this.getMap = function (id) {
         var found;
-        $.each(this.maps, function (index, map)
-        {
-            if (map.id == id)
-            {
+        $.each(this.maps, function (index, map) {
+            if (map.id == id) {
                 found = map;
                 return false;
             }
@@ -82,20 +73,17 @@ $.mapManager = function ()
         return found;
     }
 
-    this.geolocate = function (options)
-    {
+    this.geolocate = function (options) {
         var checkMap = false;
         var m;
 
-        if (options.mapID)
-        {
+        if (options.mapID) {
             m = this.getMap(options.mapID);
         }
         else
             checkMap = false;
 
-        if (checkMap)
-        {
+        if (checkMap) {
             if (!m)
                 return false;
         }
@@ -107,39 +95,31 @@ $.mapManager = function ()
             geoCoder.geocode({ latLng: options.position, language: 'it', region: 'it' }, options.callback);
     }
 
-    this.removeMarkerFromMap = function (marker)
-    {
+    this.removeMarkerFromMap = function (marker) {
         marker.setMap(null);
     }
 
-    this.removeMarker = function (index)
-    {
+    this.removeMarker = function (index) {
         this.removeMarkerFromMap(this.markers[index].obj);
         this.markers.splice(index, 1);
     }
 
-    this.removeMarkerById = function (id)
-    {
-        for (var i = this.markers.length - 1; i >= 0; i--)
-        {
-            if (this.markers[i].id == id)
-            {
+    this.removeMarkerById = function (id) {
+        for (var i = this.markers.length - 1; i >= 0; i--) {
+            if (this.markers[i].id == id) {
                 this.removeMarker(i);
                 break;
             }
         }
     }
 
-    this.removeAllMarkers = function ()
-    {
-        for (var i = this.markers.length - 1; i >= 0; i--)
-        {
+    this.removeAllMarkers = function () {
+        for (var i = this.markers.length - 1; i >= 0; i--) {
             this.removeMarker(i);
         }
     }
 
-    this.fitBounds = function (options)
-    {
+    this.fitBounds = function (options) {
         var map = this.getMap(options.mapID).obj;
         map.fitBounds(options.bounds);
 
@@ -147,21 +127,17 @@ $.mapManager = function ()
             map.setCenter(options.bounds.getCenter());
     }
 
-    this.normalizeZoom = function (options)
-    {
+    this.normalizeZoom = function (options) {
         var map = this.getMap(options.mapID).obj;
 
         if (map.getZoom() > options.zoomLimit)
             map.setZoom(options.zoomLimit);
     }
 
-    this.getMarker = function (id)
-    {
+    this.getMarker = function (id) {
         var found;
-        $.each(this.markers, function (index, marker)
-        {
-            if (marker.id == id)
-            {
+        $.each(this.markers, function (index, marker) {
+            if (marker.id == id) {
                 found = marker;
                 return false;
             }
@@ -169,40 +145,32 @@ $.mapManager = function ()
         return found;
     }
 
-    this.getZoom = function (id)
-    {
+    this.getZoom = function (id) {
         return this.getMap(id).obj.getZoom();
     }
 
-    this.setZoom = function (options)
-    {
+    this.setZoom = function (options) {
         this.getMap(options.mapID).obj.setZoom(options.zoom);
     }
 
-    this.setCenter = function (options)
-    {
+    this.setCenter = function (options) {
         this.getMap(options.mapID).obj.setCenter(options.position);
     }
 
-    this.checkGeolocationResult = function (status)
-    {
+    this.checkGeolocationResult = function (status) {
         if (status == google.maps.GeocoderStatus.OK)
             return true;
         else
             return false;
     }
 
-    this.getGeolocationData = function (r, index)
-    {
+    this.getGeolocationData = function (r, index) {
         return data = r[index];
     }
 
-    this.getAddressComponent = function (components, type)
-    {
-        for (var i = 0; i < components.length; i++)
-        {
-            for (var j = 0; j < components[i].types.length; j++)
-            {
+    this.getAddressComponent = function (components, type) {
+        for (var i = 0; i < components.length; i++) {
+            for (var j = 0; j < components[i].types.length; j++) {
                 if (components[i].types[j] == type)
                     return components[i];
             }
@@ -210,14 +178,17 @@ $.mapManager = function ()
         return { long_name: '' };
     }
 
-    this.hasGeolocation = function ()
-    {
+    this.hasGeolocation = function () {
         return navigator.geolocation;
     }
 
-    this.setCenter = function (options)
-    {
+    this.setCenter = function (options) {
         this.getMap(options.mapID).obj.setCenter(options.position);
+    }
+
+    this.normalizeZoom = function (options) {
+        if (this.getZoom(options.mapID) > options.zoom)
+            this.setZoom(options);
     }
 
     return this;

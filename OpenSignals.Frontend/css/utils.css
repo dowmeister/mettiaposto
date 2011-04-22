@@ -1,9 +1,12 @@
 ﻿/* UTILS */
+
+* { font-family: 'Lucida Grande', 'Lucida Sans Unicode', Lucida, Verdana, Arial, sans-serif; }
+
 body
 {
     margin: 0 0 0 0;
     font-size: 12px;
-    font-family: verdana,arial,sans-serif;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Lucida, Verdana, Arial, sans-serif;
     color: #333333;
     background-color: #236388;
 }

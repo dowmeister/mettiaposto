@@ -124,3 +124,7 @@ function showNotExistingCityDialog(cityToAdd)
         }
     });
 }
+
+function searchCity() {
+    window.location.href = '/' + $('#searchCity').val() + '/index.aspx';
+}
