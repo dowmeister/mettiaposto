@@ -6,7 +6,7 @@
     width: 980px;
 }
 
-#content .home
+.home
 {
     float: left;
     width: 422px;
@@ -21,7 +21,6 @@
 {
     font-size: 14px;
     color: #000000;
-    text-align: right;
 }
 
 #content .home .input
@@ -209,7 +208,7 @@
 
 #content .homeMap
 {
-    width: 500px;
+    width: 955px;
     height: 350px;
     float: left;
 }

@@ -27,17 +27,21 @@
             <div class="mapLoader">
             </div>
         </div>
-        <div style="float: right; width: 430px">
+        <div class="clear">
+        </div>
+        <div style="float: left; top: -20; width: 430px">
             <h2 class="homeclaim">
-                Hai visto qualcosa che non va nella tua città? Mettiaposto.it può aiutarti!!</h2>
-            Perchè ti permette di inviare segnalazioni riguardanti problemi o disservizi del
+                Hai visto qualcosa che non va nella tua città?</h2>
+            Mettiaposto.it ti permette di inviare segnalazioni riguardanti problemi o disservizi del
             tuo quartiere, come buche, spazzatura in strada, marciapiedi danneggiati o graffiti
             sui muri.
             <br />
             Per dubbi, chiarimenti, informazioni, per capire come funziona questo sito <a href="/pages/info.aspx">
                 leggi le FAQ</a>.
             <h2 class="homeclaim">
-                Segnala un problema!</h2>
+        </div>
+        <div style="float: right; width: 450px">
+            <h2 class="homeclaim">... e allora segnala un problema!</h2>
             <div class="home">
                 Inserisci l'indirizzo (compreso via, viale, piazza o altro)
                 <div class="input">
@@ -48,7 +52,7 @@
                 <input class="gobutton" id="searchButton" type="button" value="Segnala" onclick="search(); return false;"></input>
             </div>
         </div>
-        <div style="clear: both;">
+        <div class="clear">
         </div>
     </div>
     <uc1:Footer ID="Footer1" runat="server" />

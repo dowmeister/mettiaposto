@@ -44,7 +44,8 @@
                             <asp:TextBox ID="txtAddress" runat="server" CssClass="address" onblur="geolocateByAddress();"></asp:TextBox>
                             *
                             <div class="legend">
-                                Digita un indirizzo, esempio: Via Ripamonti, 100</div>
+                                Puoi spostare il segnalino di pericolo che vedi sulla mappa per migliorare la precisione della segnalazione.<br />
+                                L'indirizzo si aggiornerà automaticamente.</div>
                         </li>
                         <li>
                             <label>
