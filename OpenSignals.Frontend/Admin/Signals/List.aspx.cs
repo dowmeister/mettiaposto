@@ -71,19 +71,20 @@ namespace OpenSignals.Frontend.Admin.Signals
         {
             JsonObject action = GetAction();
 
-            Alert(action["action"].ToString());
-
             SignalManager sm = new SignalManager();
             switch (action["action"].ToString())
             {
                 case "delete":
                     sm.Delete(int.Parse(action["argument"].ToString()));
+                    Alert("Segnalazione cancellata");
                     break;
                 case "approve":
                     sm.ResolveSignal(int.Parse(action["argument"].ToString()), string.Empty);
+                    Alert("Segnalazione approvata");
                     break;
                 case "reject":
-
+                    sm.RejectSignal(int.Parse(action["argument"].ToString()), string.Empty);
+                    Alert("Segnalazione rifiutata");
                     break;
             }
 

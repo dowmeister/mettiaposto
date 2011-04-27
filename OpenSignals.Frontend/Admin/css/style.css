@@ -150,14 +150,20 @@ select
     border: solid 1px #1C8DCE;
 }
 
-input[type=text], input[type=password]
+input[type=text], input[type=password], textarea
 {
     padding: 4px;
     border: solid 1px #1C8DCE;
     width: 250px;
 }
 
-input[type=button], input[type=submit]
+textarea 
+{
+    width: 350px;
+    height: 150px;
+}
+
+input[type=button], input[type=submit], input[type=reset]
 {
     background: #1C8DCE;
     border: none;

@@ -236,9 +236,19 @@ namespace OpenSignals.Framework.Signals
         /// <param name="comment">The comment.</param>
         public void ResolveSignal(int signalID, string comment)
         {
+            this.ChangeSignalStatus(Signal.SignalStatus.Approved, signalID, comment);
+        }
+
+        public void RejectSignal(int signalID, string comment)
+        {
+            this.ChangeSignalStatus(Signal.SignalStatus.NotApproved, signalID, comment);
+        }
+
+        private void ChangeSignalStatus(int newStatus, int signalID, string comment)
+        {
             OpenSession();
             Signal s = this.LoadSingnal(signalID);
-            s.Status = Signal.SignalStatus.Resolved;
+            s.Status = newStatus;
             s.ResolutionDate = DateTime.Now;
             s.ResolutionDescription = comment;
             s.UpdateDate = DateTime.Now;
