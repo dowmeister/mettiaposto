@@ -1,12 +1,15 @@
 ﻿/* UTILS */
 
-* { font-family: 'Lucida Grande', 'Lucida Sans Unicode', Lucida, Verdana, Arial, sans-serif; }
+*
+{
+    font-family: 'Lucida Grande' , 'Lucida Sans Unicode' , Lucida, Verdana, Arial, sans-serif;
+    font-size: 12px;
+}
 
 body
 {
     margin: 0 0 0 0;
-    font-size: 12px;
-    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Lucida, Verdana, Arial, sans-serif;
+    font-family: 'Lucida Grande' , 'Lucida Sans Unicode' , Lucida, Verdana, Arial, sans-serif;
     color: #333333;
     background-color: #236388;
 }
@@ -74,7 +77,7 @@ textarea, input, select
     display: inline;
     text-align: center;
     float: left;
-	margin-right: -4px;
+    margin-right: -4px;
 }
 
 #menu ul.tabs li a
@@ -157,7 +160,7 @@ textarea, input, select
 {
     color: White;
     text-decoration: none;
-    font-size: 10px
+    font-size: 10px;
 }
 
 input.success
@@ -233,7 +236,7 @@ input[type=button], input[type=reset]
 {
     background: url(/images/feedback.png) no-repeat;
     height: 127px;
-    width: 44px;    
+    width: 44px;
 }
 
 #feedback .submitForm ol li input, #feedback .submitForm ol li textarea

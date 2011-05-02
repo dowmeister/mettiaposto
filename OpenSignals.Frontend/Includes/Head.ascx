@@ -2,7 +2,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" runat="server" id="metaDescription" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
 <meta name="keywords" runat="server" id="metaKeywords" content="segnala, disservizi, città, tua città, mia città, milano, comune, problemi, buche, graffiti, spazzatura" />
-<link rel="canonical" href="http://www.mettiaposto.it/" />
 <link rel="icon" href="http://www.mettiaposto.it/favicon.ico" />
 <link rel="shortcut icon" href="http://www.mettiaposto.it/favicon.ico" />
 <link rel="image_src" href="http://www.mettiaposto.it/images/logo.png" />

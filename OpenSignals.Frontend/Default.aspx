@@ -41,7 +41,7 @@
             <h2 class="homeclaim">
         </div>
         <div style="float: right; width: 450px">
-            <h2 class="homeclaim">... e allora segnala un problema!</h2>
+            <!--<h2 class="homeclaim">... e allora segnala un problema!</h2>-->
             <div class="home">
                 Inserisci l'indirizzo (compreso via, viale, piazza o altro)
                 <div class="input">

@@ -21,7 +21,7 @@
                 </li>
             </ul>
             <div id="search" style="background-color: #ffffff; padding: 10px:">
-                <input type="text" id="searchCity" name="searchCity" /> <input type="button" value="Cerca" onclick="searchCity(); return false;" />
+                Aggiungi la tua città: <input type="text" id="searchCity" name="searchCity" /> <input type="button" value="Cerca" onclick="searchCity(); return false;" />
             </div>
             <ul runat="server" id="tabs" class="tabs">
                 <li runat="server" id="link1" class="homeOff"><a title="Torna alla homepage" class="small"
