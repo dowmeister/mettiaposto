@@ -61,6 +61,8 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="AddPlace.aspx" />
+    <Content Include="Admin\Categories\Edit.aspx" />
+    <Content Include="Admin\Categories\List.aspx" />
     <Content Include="Admin\css\style.css" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\images\reject.png" />
@@ -109,7 +111,13 @@
     <Content Include="css\teaser.css" />
     <Content Include="images\avatar.png" />
     <Content Include="images\Blubox.png" />
+    <Content Include="images\BodySearch.png" />
     <Content Include="images\green-arrow-right.gif" />
+    <Content Include="images\HeadSearch.png" />
+    <Content Include="images\minitab-selected2.png" />
+    <Content Include="images\minitab-selected2_long.png" />
+    <Content Include="images\minitab2.png" />
+    <Content Include="images\searchcity.png" />
     <Content Include="images\teaser\bgintro.png" />
     <Content Include="images\teaser\logointro.png" />
     <Content Include="images\teaser\whitebox.png" />
@@ -230,6 +238,20 @@
     </Compile>
     <Compile Include="AddPlace.aspx.designer.cs">
       <DependentUpon>AddPlace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Categories\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categories\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Categories\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categories\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -394,7 +416,9 @@
       <DependentUpon>Submit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Admin\Places\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenSignals.Framework\OpenSignals.Framework.csproj">
       <Project>{8F26021D-5623-4A31-A46D-7816E3FD1963}</Project>

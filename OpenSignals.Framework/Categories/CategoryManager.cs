@@ -97,5 +97,61 @@ namespace OpenSignals.Framework.Categories
                 CloseSession();
             }
         }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                OpenSession();
+                Category ret = this.Load(id);
+                Session.Delete(ret);
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error deleting single category", ex);
+                throw ex;
+            }
+            finally
+            {
+                CloseSession();
+            }
+        }
+
+        public void Update(Category c)
+        {
+            try
+            {
+                OpenSession();
+                Session.Evict(c);
+                Session.Update(c);
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error updating single category", ex);
+                throw ex;
+            }
+            finally
+            {
+                CloseSession();
+            }
+        }
+
+        public void Create(Category c)
+        {
+            try
+            {
+                OpenSession();
+                Session.Save(c);
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error updating single category", ex);
+                throw ex;
+            }
+            finally
+            {
+                CloseSession();
+            }
+        }
     }
 }

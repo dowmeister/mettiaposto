@@ -16,9 +16,10 @@
             <table class="inputTable">
                 <tr>
                     <td class="label">
-                        Stato</td>
+                        Stato
+                    </td>
                     <td class="input">
-                        <asp:DropDownList ID="ddlStatus" runat="server">
+                        <asp:DropDownList ID="DropDownList2" runat="server">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -29,6 +30,7 @@
                     <td class="input">
                         <asp:DropDownList ID="ddlPlaces" runat="server">
                         </asp:DropDownList>
+                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -45,7 +47,8 @@
                         Oggetto
                     </td>
                     <td class="input">
-                       <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -53,7 +56,7 @@
                         Descrizione
                     </td>
                     <td class="input">
-                       <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -74,9 +77,11 @@
                 </tr>
                 <tr>
                     <td class="label">
-                        Allegato</td>
+                        Allegato
+                    </td>
                     <td class="input">
                         <asp:Image ID="imgImage" runat="server" />
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -84,7 +89,9 @@
                         Posizione
                     </td>
                     <td class="input">
-                        <div id="map"></div></td>
+                        <div id="map">
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td class="label">
@@ -110,7 +117,10 @@
                     </td>
                     <td class="input">
                         <asp:Label ID="lblResolutionDate" runat="server"></asp:Label>
-                        &nbsp;
+                        &nbsp; Data creazione
+                    </td>
+                    <td class="input">
+                        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -119,7 +129,10 @@
                     </td>
                     <td class="input">
                         <asp:TextBox ID="txtResolutionComment" runat="server" TextMode="MultiLine"></asp:TextBox>
-                        &nbsp;
+                        &nbsp; Ultima modifica
+                    </td>
+                    <td class="input">
+                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                     </td>
                 </tr>
                 <tr>

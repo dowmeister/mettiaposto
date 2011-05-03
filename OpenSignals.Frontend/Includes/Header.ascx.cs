@@ -50,14 +50,14 @@ namespace OpenSignals.Frontend.Includes
                 }
             }
 
-            citiesMenu.Visible = _checkCity;
+            //citiesMenu.Visible = _checkCity;
 
             if (_checkCity)
             {
                 PlaceManager pm = new PlaceManager();
                 Place currentCity = ((BasePage)Page).CurrentCity;
-                currentCityAnchor.InnerHtml = currentCity.Name;
-                currentCityAnchor.HRef = currentCity.Link + "index.aspx";
+                //currentCityAnchor.InnerHtml = currentCity.Name;
+                //currentCityAnchor.HRef = currentCity.Link + "index.aspx";
 
                 linkSearch.HRef = currentCity.Link + "cerca.aspx";
                 linkHome.HRef = currentCity.Link + "index.aspx";
@@ -65,10 +65,10 @@ namespace OpenSignals.Frontend.Includes
                 linkRss.HRef = currentCity.Link + "rss.aspx";
                 linkLogo.HRef = currentCity.Link + "index.aspx";
 
-                List<Place> places = pm.GetActivePlaces();
-                places.Remove(currentCity);
-                rptCities.DataSource = places;
-                rptCities.DataBind();
+                //List<Place> places = pm.GetActivePlaces();
+                //places.Remove(currentCity);
+                //rptCities.DataSource = places;
+                //rptCities.DataBind();
             }
         }
     }

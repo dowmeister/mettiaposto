@@ -68,7 +68,7 @@
                 </div>
                 <div id="searchMessages">
                 </div>
-                <div id="list" class="list">
+                <div id="searchList" class="list search">
                 </div>
             </div>
             <div class="right">

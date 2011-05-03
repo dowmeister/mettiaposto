@@ -22,33 +22,6 @@ namespace OpenSignals.Frontend.Includes {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor linkLogo;
         
         /// <summary>
-        /// citiesMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl citiesMenu;
-        
-        /// <summary>
-        /// currentCityAnchor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor currentCityAnchor;
-        
-        /// <summary>
-        /// rptCities control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptCities;
-        
-        /// <summary>
         /// tabs control.
         /// </summary>
         /// <remarks>

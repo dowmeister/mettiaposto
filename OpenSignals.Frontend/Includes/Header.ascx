@@ -4,25 +4,13 @@
         <div id="logo">
             <a runat="server" id="linkLogo" href="/"></a>
         </div>
-        <div id="menu">
-            <ul runat="server" id="citiesMenu" class="cities sf-menu">
-                <li runat="server" class="current"><a id="currentCityAnchor" runat="server"></a>
-                    <asp:Repeater ID="rptCities" runat="server">
-                        <FooterTemplate>
-                            </ul></FooterTemplate>
-                        <HeaderTemplate>
-                            <ul>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <li><a href="<%# ((OpenSignals.Framework.Places.Place)Container.DataItem).Link %>index.aspx">
-                                <%# ((OpenSignals.Framework.Places.Place)Container.DataItem).Name %></a></li>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </li>
-            </ul>
-            <div id="search" style="background-color: #ffffff; padding: 10px:">
-                <input type="text" id="searchCity" name="searchCity" /> <input type="button" value="Cerca" onclick="searchCity(); return false;" />
+        <div class="searchBar">
+            <div class="currentCity">Milano</div>
+            <div id="search">
+                <input type="text" id="searchCity" value="Cambia città..." name="searchCity" />
             </div>
+        </div>
+        <div id="menu">
             <ul runat="server" id="tabs" class="tabs">
                 <li runat="server" id="link1" class="homeOff"><a title="Torna alla homepage" class="small"
                     id="linkHome" runat="server" href="/index.aspx"><span>Home</span></a></li>

@@ -14,7 +14,7 @@ namespace OpenSignals.Frontend
             }
 
             RegisterAjaxSessionKey();
-            GetCurrentCity();
+            InitClientObjects();
         }
     }
 }

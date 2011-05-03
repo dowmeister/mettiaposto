@@ -18,7 +18,7 @@ $(document).ready(function ()
 
 function showForm()
 {
-    $('#list').empty();
+    $('#searchList').empty();
     clearMessages('#searchMessages');
     $('#submitForm').show();
 }
@@ -28,7 +28,7 @@ function searchSignals(start)
     $('#submitForm').hide();
     clearMessages('#searchMessages');
     writeAjax('#searchMessages');
-    $('#list').empty();
+    $('#searchList').empty();
 
     var proxy = new JSONService();
     var params = new Object();
@@ -90,7 +90,7 @@ function searchSignals_callback(r)
                 google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('map').obj, this) });
             }
 
-            $('#list').html(r.result.html);
+            $('#searchList').html(r.result.html);
 
             mapManager.fitBounds({ mapID: 'map', bounds: bounds });
 

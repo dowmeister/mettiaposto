@@ -9,6 +9,28 @@ $(document).ready(function ()
 
     if ($.superfish)
         $('.sf-menu').superfish();
+
+    $('#search').mouseover(function ()
+    {
+        $(this).css('opacity', 1.0);
+    });
+
+    $('#search').mouseout(function ()
+    {
+        $(this).css('opacity', 0.6);
+    });
+
+    $("#searchCity").click(function () { $(this).val(''); });
+    $("#searchCity").autocomplete({
+        source: places, 
+        focus: function (event, ui)
+        {
+            $("#searchCity").val(ui.item.name);
+            return false;
+        },
+        select: function (event, ui) { window.location.href = ui.item.link + 'index.aspx'; }, 
+        minLenght: 0, delay: 0
+    });
 });
 
 function writeMessage(title, message, container)

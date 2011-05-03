@@ -10,7 +10,7 @@
 .ui-tabs .ui-tabs-nav li
 {
     border: none;
-    background: url(../images/minitab.png) no-repeat;
+    background: url(../images/minitab2.png) no-repeat;
     width: 96px;
     height: 26px;
     text-align: center;
@@ -19,7 +19,7 @@
 
 #content .ui-tabs .ui-tabs-selected, #content .ui-tabs .ui-state-hover
 {
-    background: url(../images/minitab-selected.png) no-repeat;
+    background: url(../images/minitab-selected2.png) no-repeat;
 }
 
 .ui-tabs .ui-tabs-nav li a

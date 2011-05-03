@@ -13,7 +13,7 @@ namespace OpenSignals.Frontend
                 Server.Transfer("/m/Default.aspx");
             
             RegisterAjaxSessionKey();
-            GetCurrentCity();
+            InitClientObjects();
 
             XmlDocument xml = new XmlDocument();
             xml.Load(Server.MapPath(Path.Combine("/Contents/", GetFromQueryString("page") + ".xml")));

@@ -268,6 +268,7 @@ namespace OpenSignals.Framework.Signals
                 OpenTransaction();
                 Signal s = this.LoadSingnal(id);
                 Session.Delete(s);
+                CommitTransaction();
                 CloseSession();
             }
             catch (Exception ex)

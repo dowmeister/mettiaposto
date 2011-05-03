@@ -21,6 +21,7 @@ using Jayrock.Json;
 using log4net;
 using OpenSignals.Framework.Places;
 using OpenSignals.Framework.Core.Utility;
+using System.Collections.Generic;
 
 namespace OpenSignals.Framework.Core.Base
 {
@@ -460,8 +461,9 @@ namespace OpenSignals.Framework.Core.Base
         /// <summary>
         /// Gets the current city.
         /// </summary>
-        public void GetCurrentCity()
-        {
+        public void InitClientObjects()
+        {                   
+            PlaceManager pm = new PlaceManager();
             string defaultCity = ConfigurationOptions.Current.GetString("system_default_city");
 
             if (QueryStringContains("city"))
@@ -472,14 +474,13 @@ namespace OpenSignals.Framework.Core.Base
                 _currentCity = (Place)GetFromSession("CurrentCity");
                 if (QueryStringContains("city") && GetFromQueryString("city") != _currentCity.Name)
                 {
-                    PlaceManager pm = new PlaceManager();
+
                     _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
                     AddToSession("CurrentCity", _currentCity);
                 }
             }
             else
             {
-                PlaceManager pm = new PlaceManager();
                 _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
 
                 if (_currentCity != null)
@@ -491,6 +492,17 @@ namespace OpenSignals.Framework.Core.Base
                 }
             }
 
+            List<Place> places = pm.GetActivePlaces();
+
+            JsonArray citiesArr = new JsonArray();
+            foreach (Place p in places)
+            {
+                JsonObject c = new JsonObject();
+                c["name"] = p.Name;
+                c["link"] = p.Link;
+                citiesArr.Add(c);
+            }
+
             JsonObject o = new JsonObject();
             o["name"] = _currentCity.Name;
             o["link"] = _currentCity.Link;
@@ -498,7 +510,8 @@ namespace OpenSignals.Framework.Core.Base
             o["lat"] = _currentCity.Latitude;
             o["lng"] = _currentCity.Longitude;
             o["zoom"] = _currentCity.MapZoom;
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "currentCity", "currentCity = " + o.ToString() + ";", true);
+
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "clientPageObjects", "var currentCity = " + o.ToString() + "; var places = " + citiesArr.ToString() + ";", true);
         }
 
         /// <summary>

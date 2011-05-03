@@ -15,7 +15,7 @@ namespace OpenSignals.Frontend
                 Server.Transfer("/m/Default.aspx");
 
             RegisterAjaxSessionKey();
-            GetCurrentCity();
+            InitClientObjects();
 
             metaOgDescription.Attributes["content"] = String.Format(metaOgDescription.Attributes["content"], CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower()));
             ogTitle.Attributes["content"] = String.Format(ogTitle.Attributes["content"], CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city").ToLower()));

@@ -10,7 +10,7 @@ $(document).ready(function ()
     $('#txtSearch').val(initial);
     $('#txtSearch').click(function () { $('#txtSearch').val(''); });
     $('#txtSearch').focus();
-    $(document).keypress(function (event)
+    $('#txtSearch').keypress(function (event)
     {
         if (event.which == 13)
         {
