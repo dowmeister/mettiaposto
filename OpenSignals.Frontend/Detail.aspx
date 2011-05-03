@@ -41,8 +41,7 @@
                         da
                         <asp:Label ID="ltAuthor" runat="server"></asp:Label>
                         nella categoria "<asp:Label ID="ltCategory" runat="server"></asp:Label>"
-                        <br />
-                        Indirizzo:
+                        in
                         <asp:Label ID="lblAddress" runat="server"></asp:Label>
                     </div>
                     <div class="message success" style="display: block; margin-top: 10px;" id="divResolved"
@@ -83,7 +82,7 @@
                             <ol>
                                 <li class="loginStatus" id="loginStatus" style="display: none;">
                                     <img id="userAvatar" style="vertical-align: middle" />
-                                    <span id="userName"></span>(<a href="#" onclick="fbLogout(); return false;">Logout</a>)
+                                    <span id="userName"></span> (<a href="#" onclick="fbLogout(); return false;">Logout</a>)
                                 </li>
                                 <li>
                                     <label>

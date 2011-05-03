@@ -39,6 +39,12 @@ function searchSignals(start)
     params["status"] = parseInt($('#ddlStatus').val());
     params["start"] = start;
 
+    mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: {
+        zoom: currentCity.zoom, streetViewControl: false,
+        mapTypeControl: false, scrollwheel: false
+    }
+    });
+
     params = addSessionKey(params);
 
     proxy.searchSignals(params, searchSignals_callback);
@@ -55,12 +61,6 @@ function searchSignals_callback(r)
     }
     else if (r.result)
     {
-        mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: {
-            zoom: currentCity.zoom, streetViewControl: false,
-            mapTypeControl: false, scrollwheel: false
-        }
-        });
-
         mapManager.removeAllMarkers();
 
         if (r.result.signals.length > 0)
