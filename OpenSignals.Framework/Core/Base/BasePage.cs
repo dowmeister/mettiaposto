@@ -498,7 +498,7 @@ namespace OpenSignals.Framework.Core.Base
             foreach (Place p in places)
             {
                 JsonObject c = new JsonObject();
-                c["name"] = p.Name;
+                c["label"] = p.Name;
                 c["link"] = p.Link;
                 citiesArr.Add(c);
             }

@@ -25,7 +25,7 @@ $(document).ready(function ()
         source: places, 
         focus: function (event, ui)
         {
-            $("#searchCity").val(ui.item.name);
+            $("#searchCity").val(ui.item.label);
             return false;
         },
         select: function (event, ui) { window.location.href = ui.item.link + 'index.aspx'; }, 
