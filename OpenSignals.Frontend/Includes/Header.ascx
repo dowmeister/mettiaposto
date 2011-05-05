@@ -8,7 +8,7 @@
             <div class="currentCity"><asp:Literal ID="ltCurrentCity" runat="server"></asp:Literal></div>
             <div id="search">
                 <input type="text" id="searchCity" value="Cambia città..." name="searchCity" />
-				<a class="button" href="#"></a>
+				<a class="button" href="#"><span style="display:none">Cambia città!</span></a>
             </div>
         </div>
         <div id="menu">
