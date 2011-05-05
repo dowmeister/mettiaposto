@@ -18,6 +18,9 @@ namespace OpenSignals.Frontend
                 RegisterAjaxSessionKey();
 
                 RegisterDocumentReadyFunction("locatePlace", JsUtils.CreateJsFunction("initAddPlacePage", false, GetFromQueryString("city")));
+
+                InitClientObjects();
+
                 txtCity.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(GetFromQueryString("city"));
             }
             catch (Exception ex)

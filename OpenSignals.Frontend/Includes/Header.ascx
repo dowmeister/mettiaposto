@@ -5,7 +5,7 @@
             <a runat="server" id="linkLogo" href="/"></a>
         </div>
         <div class="searchBar">
-            <div class="currentCity">Milano</div>
+            <div class="currentCity"><asp:Literal ID="ltCurrentCity" runat="server"></asp:Literal></div>
             <div id="search">
                 <input type="text" id="searchCity" value="Cambia città..." name="searchCity" />
             </div>

@@ -469,28 +469,51 @@ namespace OpenSignals.Framework.Core.Base
             if (QueryStringContains("city"))
                 defaultCity = GetFromQueryString("city");
 
-            if (SessionContains("CurrentCity"))
-            {
-                _currentCity = (Place)GetFromSession("CurrentCity");
-                if (QueryStringContains("city") && GetFromQueryString("city") != _currentCity.Name)
-                {
+            _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
 
-                    _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
-                    AddToSession("CurrentCity", _currentCity);
-                }
+            if (_currentCity != null)
+            {
+                
             }
             else
             {
-                _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
+                _currentCity = pm.LoadPlace(ConfigurationOptions.Current.GetString("system_default_city"));
 
-                if (_currentCity != null)
-                    AddToSession("CurrentCity", _currentCity);
-                else
-                {
-                    _currentCity = pm.LoadPlace(ConfigurationOptions.Current.GetString("system_default_city"));
-                    RegisterDocumentReadyFunction("notExistingCity", JsUtils.CreateJsFunction("showNotExistingCityDialog", false, defaultCity));
-                }
+                RegisterDocumentReadyFunction("notExistingCity", JsUtils.CreateJsFunction("showNotExistingCityDialog", false, defaultCity));
             }
+
+            JsonObject o = new JsonObject();
+            o["name"] = _currentCity.Name;
+            o["link"] = _currentCity.Link;
+            o["id"] = _currentCity.PlaceID;
+            o["lat"] = _currentCity.Latitude;
+            o["lng"] = _currentCity.Longitude;
+            o["zoom"] = _currentCity.MapZoom;
+
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "clientPageObjects", "var currentCity = " + o.ToString() + ";", true); 
+
+            //if (SessionContains("CurrentCity"))
+            //{
+            //    _currentCity = (Place)GetFromSession("CurrentCity");
+            //    if (QueryStringContains("city") && GetFromQueryString("city") != _currentCity.Name)
+            //    {
+
+            //        _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
+            //        AddToSession("CurrentCity", _currentCity);
+            //    }
+            //}
+            //else
+            //{
+            //    _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
+
+            //    if (_currentCity != null)
+            //        AddToSession("CurrentCity", _currentCity);
+            //    else
+            //    {
+            //        _currentCity = pm.LoadPlace(ConfigurationOptions.Current.GetString("system_default_city"));
+            //        RegisterDocumentReadyFunction("notExistingCity", JsUtils.CreateJsFunction("showNotExistingCityDialog", false, defaultCity));
+            //    }
+            //}
 
             List<Place> places = pm.GetActivePlaces();
 
@@ -503,15 +526,7 @@ namespace OpenSignals.Framework.Core.Base
                 citiesArr.Add(c);
             }
 
-            JsonObject o = new JsonObject();
-            o["name"] = _currentCity.Name;
-            o["link"] = _currentCity.Link;
-            o["id"] = _currentCity.PlaceID;
-            o["lat"] = _currentCity.Latitude;
-            o["lng"] = _currentCity.Longitude;
-            o["zoom"] = _currentCity.MapZoom;
-
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "clientPageObjects", "var currentCity = " + o.ToString() + "; var places = " + citiesArr.ToString() + ";", true);
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "cities", "var places = " + citiesArr.ToString() + ";", true);
         }
 
         /// <summary>

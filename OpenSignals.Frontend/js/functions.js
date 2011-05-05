@@ -15,23 +15,47 @@ $(document).ready(function ()
         $(this).css('opacity', 1.0);
     });
 
-    $('#search').mouseout(function ()
-    {
-        $(this).css('opacity', 0.6);
-    });
+    //    $('#search').mouseout(function ()
+    //    {
+    //        $(this).css('opacity', 0.6);
+    //    });
 
     $("#searchCity").click(function () { $(this).val(''); });
+    $("#searchCity").keypress(function (event)
+    {
+        if (event.which == 13 || event.which == 9)
+        {
+            mapManager = new $.mapManager
+            mapManager.geolocate({ address: $("#searchCity").val() + ", Italia", callback:
+                function (response, status) { checkPlace_callback(response, status); }
+            });
+            return false;
+        }
+    });
+
     $("#searchCity").autocomplete({
-        source: places, 
+        source: places,
         focus: function (event, ui)
         {
             $("#searchCity").val(ui.item.label);
             return false;
         },
-        select: function (event, ui) { window.location.href = ui.item.link + 'index.aspx'; }, 
+        select: function (event, ui) { window.location.href = ui.item.link + 'index.aspx'; },
         minLenght: 0, delay: 0
     });
 });
+
+function checkPlace_callback(response, status)
+{
+    mapManager = new $.mapManager();
+    if (mapManager.checkGeolocationResult(status))
+    {
+        var data = mapManager.getGeolocationData(response, 0);
+
+        $("#searchCity").val(mapManager.getAddressComponent(data.address_components, 'locality').long_name)
+        window.location.href = '/' + $("#searchCity").val().toLowerCase() + '/crea.aspx';
+    }
+}
 
 function writeMessage(title, message, container)
 {
@@ -140,7 +164,7 @@ function showNotExistingCityDialog(cityToAdd)
     $('#notExistingCity').dialog({
         width: 500, modal: true, resizable: false, draggable: false, title: 'Ops!', show: 'slide',
         buttons: {
-            'Aggiungi la tua città': function () { goTo('/' + cityToAdd + '/crea.aspx'); },
+            'Aggiungi la tua città': function () { $(this).dialog('close'); },
             'Leggi le FAQ': function () { goTo('/pages/info.aspx#addCity'); },
             "Dai un'occhiata": function () { $(this).dialog('close'); }
         }

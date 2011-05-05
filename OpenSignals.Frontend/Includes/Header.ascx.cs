@@ -65,6 +65,8 @@ namespace OpenSignals.Frontend.Includes
                 linkRss.HRef = currentCity.Link + "rss.aspx";
                 linkLogo.HRef = currentCity.Link + "index.aspx";
 
+                ltCurrentCity.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(currentCity.Name);
+
                 //List<Place> places = pm.GetActivePlaces();
                 //places.Remove(currentCity);
                 //rptCities.DataSource = places;
