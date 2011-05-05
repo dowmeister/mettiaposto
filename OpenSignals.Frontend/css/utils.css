@@ -289,7 +289,9 @@ input[type=button], input[type=reset]
     color: Grey;
     border: 0;
 }
-#search a.button
+#search img.button
 {
-	background: url("/images/searchicon.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    margin-right: 12px;
+    margin-top: 8px;
 }
