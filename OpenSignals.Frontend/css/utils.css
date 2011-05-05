@@ -185,16 +185,17 @@ input[type=button], input[type=reset]
 
 .message
 {
-    padding: 10px;
+	padding:20px;
     color: White;
     font-weight: bold;
     display: none;
+	font-size:15px;
 }
 
 .success
 {
     background: url("/images/HeadSearch.png") repeat scroll 0 0 transparent;
-    height: 74px;
+    height: 54px;
 }
 
 .error
@@ -213,12 +214,14 @@ input[type=button], input[type=reset]
 .error h2, .success h2
 {
     font-size: 16px;
+	margin: 0;
 }
 
 .error a, .success a
 {
     color: #E0E5F5;
     text-decoration: none;
+	font-size: 14px;
 }
 
 .fieldError
@@ -267,11 +270,14 @@ input[type=button], input[type=reset]
 
 .searchBar .currentCity
 {
-    color: #FFFFFF;
-    font-size: 24px;
-    margin-bottom: 3px;
-    width: 600px; 
-	height: 36px;
+  color:#FFFFFF;
+  font-family:Tahoma;
+  font-size:24px;
+  font-weight:bold;
+  height:36px;
+  margin-top:4px;
+  text-shadow:black 1px 1px 3px;
+  width:600px;
 }
 
 #search
