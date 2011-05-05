@@ -270,7 +270,8 @@ input[type=button], input[type=reset]
     color: #FFFFFF;
     font-size: 24px;
     margin-bottom: 3px;
-    width: 600px;       
+    width: 600px; 
+	height: 36px;
 }
 
 #search
@@ -288,10 +289,11 @@ input[type=button], input[type=reset]
     width: 160px;
     color: Grey;
     border: 0;
+	float: left;
 }
 #search a.button
 {
     float: right;
-    margin-right: 12px;
+    margin-right: 13px;
     margin-top: 8px;
 }
