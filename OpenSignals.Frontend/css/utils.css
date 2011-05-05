@@ -193,7 +193,8 @@ input[type=button], input[type=reset]
 
 .success
 {
-    background-color: #236387;
+    background: url("/images/HeadSearch.png") repeat scroll 0 0 transparent;
+    height: 74px;
 }
 
 .error
