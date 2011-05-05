@@ -289,3 +289,7 @@ input[type=button], input[type=reset]
     color: Grey;
     border: 0;
 }
+#searchcitybutton
+{
+	background: url("/images/searchicon.png") no-repeat scroll 0 0 transparent;
+}
