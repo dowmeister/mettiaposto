@@ -194,8 +194,9 @@ input[type=button], input[type=reset]
 
 .success
 {
-    background: url("/images/HeadSearch.png") repeat scroll 0 0 transparent;
-    height: 74px;
+    background: url("/images/HeadSearch2.png") no-repeat scroll 0 0 #2C6A8C;
+    width: 408px;
+	border-radius: 0 0 5px 5px;
 }
 
 .error
