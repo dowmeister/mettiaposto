@@ -306,6 +306,6 @@ input[type=button], input[type=reset]
 #search a.button
 {
     float: right;
-    margin-right: 13px;
+    padding-right: 10px;
     margin-top: 8px;
 }
