@@ -185,7 +185,7 @@ input[type=button], input[type=reset]
 
 .message
 {
-	padding:20px;
+	padding:10px 20px;
     color: White;
     font-weight: bold;
     display: none;
@@ -195,7 +195,7 @@ input[type=button], input[type=reset]
 .success
 {
     background: url("/images/HeadSearch.png") repeat scroll 0 0 transparent;
-    height: 54px;
+    height: 74px;
 }
 
 .error
@@ -221,7 +221,12 @@ input[type=button], input[type=reset]
 {
     color: #E0E5F5;
     text-decoration: none;
-	font-size: 14px;
+	font-size: 12px;
+}
+.error p, .success p
+{
+	margin-top: 3px;
+	font-size: 12px;
 }
 
 .fieldError
