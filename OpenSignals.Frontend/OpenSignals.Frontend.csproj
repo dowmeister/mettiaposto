@@ -214,6 +214,7 @@
     <Content Include="js\jquery\plugins\tabSlideOut.js" />
     <Content Include="js\jquery\plugins\superfish\superfish.js" />
     <Content Include="js\json.js" />
+    <Content Include="js\launch.js" />
     <Content Include="js\mapManager.js" />
     <Content Include="js\mobile.js" />
     <Content Include="js\places.functions.js" />
