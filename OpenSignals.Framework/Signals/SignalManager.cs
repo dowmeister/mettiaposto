@@ -239,6 +239,11 @@ namespace OpenSignals.Framework.Signals
             this.ChangeSignalStatus(Signal.SignalStatus.Approved, signalID, comment);
         }
 
+        /// <summary>
+        /// Rejects the signal.
+        /// </summary>
+        /// <param name="signalID">The signal ID.</param>
+        /// <param name="comment">The comment.</param>
         public void RejectSignal(int signalID, string comment)
         {
             this.ChangeSignalStatus(Signal.SignalStatus.NotApproved, signalID, comment);

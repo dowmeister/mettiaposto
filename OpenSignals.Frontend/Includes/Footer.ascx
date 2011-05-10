@@ -40,3 +40,10 @@
     verificare i dati e la posizione che hai inserito e verrai avvertito quando la tua richiesta
     verrà approvata.
 </div>
+<div id="alreadyRequestedCity" style="display: none;">
+    La città richiesta (<span id="alreadyRequestedCityLabel"></span>) è stata già richiesta da un altro utente
+    e verrà attivata quanto prima per permettere a tutti di inviare le segnalazioni.
+    <br />
+    <br />
+    Stay tuned :)
+</div>

@@ -224,5 +224,13 @@ namespace OpenSignals.Frontend.Ajax
             FeedbackEmail f = new FeedbackEmail();
             f.Send(param["name"].ToString(), param["email"].ToString(), param["message"].ToString());
         }
+
+        [JsonRpcMethod("checkPlace")]
+        public Place CheckPlace(string placeName)
+        {
+            PlaceManager pm = new PlaceManager();
+            return pm.LoadPlace(placeName);
+        }
+        
     }
 }

@@ -15,20 +15,12 @@ $(document).ready(function ()
         $(this).css('opacity', 1.0);
     });
 
-    //    $('#search').mouseout(function ()
-    //    {
-    //        $(this).css('opacity', 0.6);
-    //    });
-
     $("#searchCity").click(function () { $(this).val(''); });
     $("#searchCity").keypress(function (event)
     {
         if (event.which == 13 || event.which == 9)
         {
-            mapManager = new $.mapManager
-            mapManager.geolocate({ address: $("#searchCity").val() + ", Italia", callback:
-                function (response, status) { checkPlace_callback(response, status); }
-            });
+            checkPlace();
             return false;
         }
     });
@@ -45,6 +37,14 @@ $(document).ready(function ()
     });
 });
 
+function checkPlace()
+{
+    mapManager = new $.mapManager
+    mapManager.geolocate({ address: $("#searchCity").val() + ", Italia", callback:
+                function (response, status) { checkPlace_callback(response, status); }
+    });
+}
+
 function checkPlace_callback(response, status)
 {
     mapManager = new $.mapManager();
@@ -52,8 +52,29 @@ function checkPlace_callback(response, status)
     {
         var data = mapManager.getGeolocationData(response, 0);
 
-        $("#searchCity").val(mapManager.getAddressComponent(data.address_components, 'locality').long_name)
-        window.location.href = '/' + $("#searchCity").val().toLowerCase() + '/crea.aspx';
+        var proxy = new JSONService();
+        var placeName = mapManager.getAddressComponent(data.address_components, 'locality').long_name;
+        $("#searchCity").val(placeName);
+
+        var place = proxy.checkPlace(placeName);
+
+        if (place)
+        {
+            if (place.status == 1)
+                window.location.href = '/' + place.name.toLowerCase() + '/index.aspx';
+            else
+            {
+                $('#alreadyRequestedCityLabel').html(placeName);
+                $('#alreadyRequestedCity').dialog({
+                    title: 'Città richiesta ma non attiva', draggable: false, resizable: false,
+                    buttons: {
+                        'Chiudi': function () { $(this).dialog('destroy'); }
+                    }
+                });
+            }
+        }
+        else
+            window.location.href = '/' + $("#searchCity").val().toLowerCase() + '/crea.aspx';
     }
 }
 
@@ -171,6 +192,7 @@ function showNotExistingCityDialog(cityToAdd)
     });
 }
 
-function searchCity() {
+function searchCity()
+{
     window.location.href = '/' + $('#searchCity').val() + '/index.aspx';
 }
