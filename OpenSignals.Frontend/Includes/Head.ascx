@@ -8,7 +8,6 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
 <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="/js/jquery/plugins/superfish/superfish.css" rel="stylesheet" type="text/css" media="screen" />
 <meta property="fb:app_id" content="183751108307062" />
 <meta property="fb:admins" content="1437896726,800734657" />
 <meta property="og:site_name" content="Mettiaposto.it" />

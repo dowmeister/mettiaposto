@@ -10,6 +10,9 @@
     <title>Mettiaposto.it - {0}</title>
     <uc2:Head ID="ucHead" runat="server" />
     <uc4:Analytics ID="Analytics1" runat="server" />
+    <os:StaticFileManager ID="staticFileManager" ContextKey="content" runat="server">
+        <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
+    </os:StaticFileManager>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,6 +25,7 @@
     </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>
-    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,content"></script>
 </body>
 </html>
