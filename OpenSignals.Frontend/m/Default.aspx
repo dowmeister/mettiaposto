@@ -12,24 +12,27 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no" />
     <meta name="HandheldFriendly" content="true" />
     <link rel="shortcut icon" href="http://www.mettiaposto.it/favicon.ico" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
     <link href="/css/mobile.css" rel="Stylesheet" type="text/css" />
-    <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
-    <script src="/js/mapManager.js" type="text/javascript"></script>
-    <script src="/js/mobile.js" type="text/javascript"></script>
-    <script src="/js/validation.js" type="text/javascript"></script>
-    <script src="/js/functions.js" type="text/javascript"></script>
-    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
-    <script src="/js/json.js" type="text/javascript"></script>
-    <script src="/js/jquery/plugins/ajaxfileupload.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"
+        type="text/javascript"></script>
     <uc4:Analytics ID="Analytics1" runat="server" EnableViewState="false" />
+    <os:StaticFileManager ID="staticFileManager" ContextKey="mobile" runat="server" EnableViewState="false">
+        <os:StaticFile Url="/js/functions.js" Type="Javascript" />
+        <os:StaticFile Url="/js/mapManager.js" Type="Javascript" />
+        <os:StaticFile Url="/js/mobile.js" Type="Javascript" />
+        <os:StaticFile Url="/js/validation.js" Type="Javascript" />
+        <os:StaticFile Url="/js/mobile.js" Type="Javascript" />
+        <os:StaticFile Url="/js/json.js" Type="Javascript" />
+        <os:StaticFile Url="/js/jquery/plugins/ajaxfileupload.js" Type="Javascript" />
+    </os:StaticFileManager>
 </head>
 <body class="ui-mobile-viewport">
     <div id="defaultPage" data-role="page" data-theme="b" data-back-btn-text="Back">
         <div data-role="header" class="header">
-            <div id="logo"> </div>
+            <h1>
+                Mettiaposto Mobile</h1>
         </div>
         <div data-role="content" class="content">
             <div class="submit">
@@ -84,22 +87,26 @@
             </div>
         </div>
         <div data-role="footer" id="mobile-footer" class="ui-bar" data-theme="b">
-            <a data-role="button" rel="external" data-icon="home" href="/Default.aspx?nomobile=true">
-                Sito Completo</a> <a data-icon="info" data-role="button" href="/m/content.aspx?page=info">
-                    FAQ</a> <a data-role="button" data-icon="info" href="/m/content.aspx?page=privacy">Privacy</a>
+            <h4>
+                <a data-role="button" rel="external" data-icon="home" href="/Default.aspx?nomobile=true">
+                    Sito Completo</a> <a data-icon="info" data-role="button" href="/m/content.aspx?page=info">
+                        FAQ</a> <a data-role="button" data-icon="info" href="/m/content.aspx?page=privacy">Privacy</a></h4>
         </div>
     </div>
-    <div id="submitResult" class="messages" data-role="page" data-theme="b" data-back-btn-text="Back">
+    <div id="submitResult" class="messages" data-role="page" data-theme="b" data-back-btn-text="Indietro">
         <div data-role="header" class="header" data-backbtn="false">
             <h1>
                 Mettiaposto.it</h1>
             <a href="#" onclick="$.mobile.changePage($('#defaultPage'));" data-role="button"
-                data-icon="arrow-l">Indietro</a>
+                data-icon="arrow-l" data-iconpos="notext">Indietro</a>
         </div>
         <div data-role="content" class="content">
             <div class="messages" id="messages">
             </div>
         </div>
     </div>
+    <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
+    <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=mobile"></script>
 </body>
 </html>

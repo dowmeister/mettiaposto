@@ -33,7 +33,11 @@ namespace OpenSignals.Framework.Web
         {
             try
             {
-                RewriteManager.RewriteUrl();
+                if (!Request.Url.PathAndQuery.Contains("ashx"))
+                {
+                    //Response.Filter = new WhitespaceHttpFilter(Response.Filter);
+                    RewriteManager.RewriteUrl();
+                }
             }
             catch (Exception ex)
             {

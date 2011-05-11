@@ -123,7 +123,7 @@ namespace OpenSignals.Framework.Core.Utility
         /// <returns></returns>
         public static string GetImageUrl(string type, string attachment)
         {
-            return "http://" + HttpContext.Current.Request.Url.Host + ConfigurationOptions.Current.GetString("system_upload_path") + type + attachment;
+            return ConfigurationOptions.Current.GetString("system_upload_path") + type + attachment;
         }
     }
 }

@@ -5,7 +5,10 @@
     font-family: 'Lucida Grande' , 'Lucida Sans Unicode' , Lucida, Verdana, Arial, sans-serif;
 }
 
-a img { border: none; }
+a img
+{
+    border: none;
+}
 
 body
 {
@@ -270,7 +273,7 @@ input[type=button], input[type=reset]
 {
     color: #FFFFFF;
     font-size: 24px;
-    margin-bottom: 3px;       
+    margin-bottom: 3px;
 }
 
 #search
@@ -292,4 +295,9 @@ input[type=button], input[type=reset]
 #search a img
 {
     vertical-align: middle;
+}
+
+.line
+{
+    border-bottom: 1px solid #1C8DCE;
 }

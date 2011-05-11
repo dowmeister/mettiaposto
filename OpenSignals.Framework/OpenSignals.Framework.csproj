@@ -124,6 +124,7 @@
     <Compile Include="Web\RSS\Items.cs" />
     <Compile Include="Web\RSS\RssGenerator.cs" />
     <Compile Include="Web\Controls\StaticFileManager.cs" />
+    <Compile Include="Web\WhitespaceHttpFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Signal.hbm.xml">

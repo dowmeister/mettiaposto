@@ -14,8 +14,8 @@
     padding: 10px;
     color: #FFFFFF;
     font-weight: bold;
-	height:60px;
-	margin-top: 10px;
+    height: 60px;
+    margin-top: 10px;
 }
 
 #content h2.homeclaim
@@ -122,7 +122,7 @@
 {
     float: left;
     width: 480px;
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 .submitForm ol li
@@ -179,7 +179,7 @@
 .submitForm ol li span.checkbox input
 {
     width: auto;
-	margin-top:4px;
+    margin-top: 4px;
 }
 
 .submitForm ol li div.subfield label
@@ -200,7 +200,7 @@
 #content .tabs ul
 {
     background: none repeat scroll 0 0 white;
-	border-bottom: 1px solid #1C8DCE;
+    border-bottom: 1px solid #1C8DCE;
 }
 
 #content .map
@@ -221,6 +221,11 @@
     margin-top: 5px;
 }
 
+#content .details .info
+{
+    margin-bottom: 10px;
+}
+
 #content .details .info, #infoWindowContainer .info
 {
     color: #1C8DCE;
@@ -234,10 +239,12 @@
 
 #content .details .description
 {
-    margin-top: 20px;
-    border: solid 1px #1C8DCE;
+    margin-bottom: 10px;
     padding: 10px;
-    font-size: 12px;
+    background: #A6C9DD;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    min-height: 40px;
 }
 
 #content .details .tools
@@ -268,14 +275,23 @@
 #content .details .serviceBox
 {
     display: none;
-    padding: 10px;
-    border: solid 1px #1C8DCE;
+    padding: 10px; /*border: solid 1px #1C8DCE;*/
 }
 
 .shareBox
 {
     text-align: center;
     margin-bottom: 10px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #D4E6F0;
+    padding: 10px;
+}
+
+.shareBox ul
+{
+    margin: 0;
+    padding: 0;
 }
 
 .shareBox ul li
@@ -303,6 +319,19 @@
 {
     margin-top: 20px;
     text-align: center;
+    width: 350px;
+    border: 10px solid #FFFFFF;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#content .details .photo a
+{
+    margin: 0;
+    padding: 0;
+    height: 0;
 }
 
 #content .list
@@ -532,4 +561,17 @@ dd
 {
     text-decoration: none;
     color: #236388;
-} 
+}
+
+.statusBox
+{
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.status-notResolved
+{
+    background: #FFFD8B;
+}
