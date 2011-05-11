@@ -287,9 +287,9 @@ function getSignalsNearby_callback(r) {
                 google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('mapNearby').obj, this) });
             }
 
-            mapManager.fitBounds({ mapID: 'mapNearby', bounds: bounds });
+            mapManager.fitZoomToBounds({ mapID: 'mapNearby', zoom: 15 });
 
-            mapManager.normalizeZoom({ mapID: 'mapNearby', zoom: 15 });
+            mapManager.fitBounds({ mapID: 'mapNearby', bounds: bounds });
         }
 
         nearbyLoaded = true;

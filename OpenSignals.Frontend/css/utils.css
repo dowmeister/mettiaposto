@@ -154,7 +154,6 @@ textarea, input, select
 
 #footer
 {
-    font-size: 10px;
     height: 150px;
     text-align: center;
     color: White;
@@ -166,7 +165,6 @@ textarea, input, select
 {
     color: White;
     text-decoration: none;
-    font-size: 10px;
 }
 
 input.success

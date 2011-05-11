@@ -92,9 +92,9 @@ function searchSignals_callback(r)
 
             $('#searchList').html(r.result.html);
 
-            mapManager.fitBounds({ mapID: 'map', bounds: bounds });
+            mapManager.fitZoomToBounds({ mapID: 'map', zoom: 15 });
 
-            mapManager.setZoom({ mapID: 'map', zoom: 15 });
+            mapManager.fitBounds({ mapID: 'map', bounds: bounds });
         }
         else
             writeError('Nessuna segnalazione trovata con i parametri di ricerca specificati<p><a href="#" onclick="showForm();">Effettua una nuova ricerca</a> o <a href="' + currentCity.link + 'invia.aspx">inserisci la prima segnalazione</a> per questa città.</a></p>', '#searchMessages');

@@ -86,11 +86,10 @@ function searchSignals_callback(r)
                     google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('map').obj, this) });
                 }
 
+                mapManager.fitZoomToBounds({ mapID: 'map', zoom: currentCity.zoom });
+
                 mapManager.fitBounds({ mapID: 'map', bounds: bounds, center: true });
             }
-
-            if (mapManager.getZoom('map') > currentCity.zoom)
-                mapManager.setZoom({ mapID: 'map', zoom: currentCity.zoom });
         }
     }
 }
