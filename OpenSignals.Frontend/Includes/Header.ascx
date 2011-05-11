@@ -8,7 +8,7 @@
             <div class="currentCity"><asp:Literal ID="ltCurrentCity" runat="server"></asp:Literal></div>
             <div id="search">
                 <input type="text" id="searchCity" value="Cambia città..." name="searchCity" />
-				<a class="button" href="#"><img src="/images/searchicon.png" /></a>
+				<a class="button" title="Cambia città" href="#" onclick="checkPlace(); return false;"><img alt="Cambia città" src="/images/searchicon.png" /></a>
             </div>
         </div>
         <div id="menu">

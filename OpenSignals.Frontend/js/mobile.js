@@ -8,6 +8,13 @@ var completeAddress = null;
 var mapManager = null;
 var inputs;
 
+$(document).bind("mobileinit", function ()
+{
+    $.extend($.mobile, {
+        loadingMessage: 'Caricamento...'
+    });
+});
+
 $(document).ready(function ()
 {
     mapManager = $.mapManager();
@@ -67,13 +74,6 @@ function checkEnter(event)
         return false;
     }
 }
-
-$(document).bind("mobileinit", function ()
-{
-    $.extend($.mobile, {
-        loadingMessage: 'Caricamento...'
-    });
-});
 
 function geoLocation_callback(response, status)
 {

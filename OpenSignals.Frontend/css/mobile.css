@@ -1,20 +1,23 @@
 ﻿@import url(/css/utils.css);
 
+*
+{
+    font-family: 'Lucida Grande' , 'Lucida Sans Unicode' , Lucida, Verdana, Arial, sans-serif;
+}
+
 body
 {
     background-color: #5BB1CA;
     margin: 0 0 0 0;
     font-size: 14px;
-    font-family: verdana,arial,sans-serif;
     color: #333333;
 }
 
-#logo 
+#logo
 {
     text-align: center;
     width: 100%;
-    height: 100px;
-    background: url("/images/logo_mobile.png") no-repeat scroll center center transparent
+    height: 100px; /*background: url("/images/logo_mobile.png") no-repeat scroll center center transparent*/
 }
 
 .content h1
@@ -28,7 +31,7 @@ body
     text-align: center;
 }
 
-.ui-body-b,.ui-body-c,.ui-body-a,.ui-body-d,.ui-body-e
+.ui-body-b, .ui-body-c, .ui-body-a, .ui-body-d, .ui-body-e
 {
     text-shadow: none;
 }

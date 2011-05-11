@@ -98,6 +98,10 @@ namespace OpenSignals.Framework.Categories
             }
         }
 
+        /// <summary>
+        /// Deletes the specified id.
+        /// </summary>
+        /// <param name="id">The id.</param>
         public void Delete(int id)
         {
             try
@@ -117,6 +121,10 @@ namespace OpenSignals.Framework.Categories
             }
         }
 
+        /// <summary>
+        /// Updates the specified c.
+        /// </summary>
+        /// <param name="c">The c.</param>
         public void Update(Category c)
         {
             try
@@ -136,6 +144,10 @@ namespace OpenSignals.Framework.Categories
             }
         }
 
+        /// <summary>
+        /// Creates the specified c.
+        /// </summary>
+        /// <param name="c">The c.</param>
         public void Create(Category c)
         {
             try

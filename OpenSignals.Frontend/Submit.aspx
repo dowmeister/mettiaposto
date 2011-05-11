@@ -70,7 +70,12 @@
                             * </li>
                         <li>
                             <label>
-                                Allega una foto</label>
+                                Criticità</label>
+                            <div id="criticalSlider" style="background: #256488; display:inline-block; width:200px"></div> <span style="margin-left:10px;" id="criticalLevel">Bassa</span>
+                        </li>
+                        <li>
+                            <label>
+                                Carica una foto</label>
                             <asp:FileUpload ID="fuFile" runat="server" />
                             <div class="legend">
                                 Puoi caricare solo file di tipo IMMAGINE

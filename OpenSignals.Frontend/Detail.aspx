@@ -40,8 +40,7 @@
                         <asp:Label ID="ltTimeFrame" runat="server"></asp:Label>
                         da
                         <asp:Label ID="ltAuthor" runat="server"></asp:Label>
-                        nella categoria "<asp:Label ID="ltCategory" runat="server"></asp:Label>"
-                        in
+                        nella categoria "<asp:Label ID="ltCategory" runat="server"></asp:Label>" in
                         <asp:Label ID="lblAddress" runat="server"></asp:Label>
                     </div>
                     <div class="message success" style="display: block; margin-top: 10px;" id="divResolved"
@@ -57,63 +56,69 @@
                             </a>
                         </div>
                     </div>
+                    <div class="statusBox status-notResolved">
+                        Questa segnalazione è ancora aperta.
+                    </div>
                     <div class="shareBox">
                         <ul>
                             <li><a name="fb_share" type="button">Convidivi su Facebook</a> </li>
                             <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"
                                 data-via="mettiaposto" data-lang="it">Tweet</a> </li>
                             <li>
-                                <fb:like layout="button_count" show_faces="false"></fb:like>
+                                <fb:like layout="button_count" font="lucida grande" show_faces="false"></fb:like>
+                            </li>
+                            <li>
+                                <fb:send font="lucida grande"></fb:send>
                             </li>
                         </ul>
                         <div class="clear">
                         </div>
                     </div>
-                    <div id="commentsBox" class="serviceBox" style="display: block;">
-                        <div id="commentsMessages">
-                        </div>
-                        <div id="comments" class="list">
-                        </div>
-                        <div class="clear">
-                        </div>
-                        <div id="commentForm" class="submitForm">
-                            <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">
-                                Login con Facebook</button>
-                            <ol>
-                                <li class="loginStatus" id="loginStatus" style="display: none;">
-                                    <img id="userAvatar" style="vertical-align: middle" />
-                                    <span id="userName"></span> (<a href="#" onclick="fbLogout(); return false;">Logout</a>)
-                                </li>
-                                <li>
-                                    <label>
-                                        Commento</label>
-                                    <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                </li>
-                                <li id="nameContainer">
-                                    <label>
-                                        Nome</label>
-                                    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-                                    <div class="subfield">
-                                        <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel commento?"
-                                            runat="server" /></div>
-                                </li>
-                                <li id="emailContainer">
-                                    <label>
-                                        E-mail</label>
-                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                                </li>
-                                <li>
-                                    <label>
-                                        Allega una foto</label>
-                                    <asp:FileUpload ID="fuFile" runat="server" />
-                                    <div class="legend">
-                                        Puoi caricare solo file di tipo IMMAGINE
-                                    </div>
-                                </li>
-                            </ol>
-                            <div class="buttons">
-                                <input class="success" type="button" value="Commenta" onclick="addComment(); return false;" />
-                            </div>
+                    <div class="line">
+                    </div>
+                    <div id="commentsMessages">
+                    </div>
+                    <div id="comments" class="list">
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div id="commentForm" class="submitForm">
+                        <button id="btnFBLogin" class="facebook-button" onclick="fbLogin(); return false;">
+                            Login con Facebook</button>
+                        <ol>
+                            <li class="loginStatus" id="loginStatus" style="display: none;">
+                                <img id="userAvatar" style="vertical-align: middle" />
+                                <span id="userName"></span>(<a href="#" onclick="fbLogout(); return false;">Logout</a>)
+                            </li>
+                            <li>
+                                <label>
+                                    Commento</label>
+                                <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            </li>
+                            <li id="nameContainer">
+                                <label>
+                                    Nome</label>
+                                <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                <div class="subfield">
+                                    <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel commento?"
+                                        runat="server" /></div>
+                            </li>
+                            <li id="emailContainer">
+                                <label>
+                                    E-mail</label>
+                                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                            </li>
+                            <li>
+                                <label>
+                                    Allega una foto</label>
+                                <asp:FileUpload ID="fuFile" runat="server" />
+                                <div class="legend">
+                                    Puoi caricare solo file di tipo IMMAGINE
+                                </div>
+                            </li>
+                        </ol>
+                        <div class="buttons">
+                            <input class="success" type="button" value="Commenta" onclick="addComment(); return false;" />
                         </div>
                     </div>
                 </div>

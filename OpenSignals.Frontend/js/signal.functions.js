@@ -8,26 +8,52 @@ var nearbyLoaded = false;
 var socialUser;
 
 function initSubmitPage() {
-    $(document).ready(function () {
+    $(document).ready(function ()
+    {
         mapManager = $.mapManager();
 
         $('#address').focus();
         $('#tabs').tabs({
-            show: function (event, ui) {
+            show: function (event, ui)
+            {
                 var mapOpts = {
                     zoom: currentCity.zoom,
                     scaleControl: false, mapTypeControl: false, disableDefaultUI: true, disableDoubleClickZoom: true,
                     scrollwheel: false, streetViewControl: false
                 };
 
-                if ($(ui.panel).attr('id') == 'map') {
+                if ($(ui.panel).attr('id') == 'map')
+                {
                     mapManager.createMap({ container: 'map', lat: currentCity.lat, lng: currentCity.lng, googleOptions: mapOpts });
 
                     if ($('#txtAddress').val() != '')
                         geolocateByAddress();
                 }
-                else {
+                else
+                {
                     getSignalsNeraby(currentMarker.zip);
+                }
+            }
+        });
+
+        $("#criticalSlider").slider({
+            value: 1,
+            min: 1,
+            max: 3,
+            step: 1,
+            slide: function (event, ui)
+            {
+                switch (ui.value)
+                {
+                    case 1:
+                        $("#criticalLevel").html('Normale');
+                        break;
+                    case 2:
+                        $("#criticalLevel").html('Media');
+                        break;
+                    case 3:
+                        $("#criticalLevel").html('Alta');
+                        break;
                 }
             }
         });

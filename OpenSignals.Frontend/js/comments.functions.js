@@ -26,10 +26,12 @@ function getComments_callback(r)
     }
     else
     {
-        if (r.result.count == 0)
+        /*if (r.result.count == 0)
             $('#comments').html('<div class="item"><div class="comment">Nessun commento, puoi essere il primo!</div></div>');
-        else
+        else*/
+        if (r.result.count > 0)
             $('#comments').html(r.result.html);
+
         $('.photo > a').fancybox();
     }
 }
