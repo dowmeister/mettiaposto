@@ -43,11 +43,6 @@
                         nella categoria "<asp:Label ID="ltCategory" runat="server"></asp:Label>" in
                         <asp:Label ID="lblAddress" runat="server"></asp:Label>
                     </div>
-                    <div class="message success" style="display: block; margin-top: 10px;" id="divResolved"
-                        runat="server" visible="false">
-                        Segnalazione risolta</div>
-                    <div class="message error" id="divExpired" runat="server" visible="false">
-                        Segnalazione scaduta</div>
                     <div class="description">
                         <asp:PlaceHolder ID="plhDescription" runat="server"></asp:PlaceHolder>
                         <div class="photo" id="divPhoto" runat="server" visible="false">
@@ -56,8 +51,14 @@
                             </a>
                         </div>
                     </div>
-                    <div class="statusBox status-notResolved">
-                        Questa segnalazione è ancora aperta.
+                    <div id="divStatusNotResolved" visible="false" runat="server" class="statusBox status-notResolved">
+                        Questa segnalazione è ancora aperta
+                    </div>
+                    <div id="divStatusResolved" visible="false" runat="server" class="statusBox status-resolved">
+                        Questa segnalazione è stata risolta
+                    </div>
+                    <div id="divStatusExpired" visible="false" runat="server" class="statusBox status-expired">
+                        Questa segnalazione è scaduta (2 mesi senza risposta)
                     </div>
                     <div class="shareBox">
                         <ul>

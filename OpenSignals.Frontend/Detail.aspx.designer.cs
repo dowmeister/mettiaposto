@@ -139,24 +139,6 @@ namespace OpenSignals.Frontend {
         protected global::System.Web.UI.WebControls.Label lblAddress;
         
         /// <summary>
-        /// divResolved control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResolved;
-        
-        /// <summary>
-        /// divExpired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExpired;
-        
-        /// <summary>
         /// plhDescription control.
         /// </summary>
         /// <remarks>
@@ -191,6 +173,33 @@ namespace OpenSignals.Frontend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgPhoto;
+        
+        /// <summary>
+        /// divStatusNotResolved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStatusNotResolved;
+        
+        /// <summary>
+        /// divStatusResolved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStatusResolved;
+        
+        /// <summary>
+        /// divStatusExpired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStatusExpired;
         
         /// <summary>
         /// txtDescription control.

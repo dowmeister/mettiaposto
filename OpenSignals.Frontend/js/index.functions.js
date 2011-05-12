@@ -38,7 +38,7 @@ function searchSignals()
     params["zip"] = '';
     params["city"] = currentCity.name;
     params["categoryID"] = -1;
-    params["status"] = 1;
+    params["status"] = -1;
     params["start"] = 0;
 
     params = addSessionKey(params);
@@ -81,9 +81,10 @@ function searchSignals_callback(r)
                     else
                         image = MARKERIMAGE_ALERT;
 
-                    var m = mapManager.addMarker({ mapID: 'map', id: 'signalMarker' + signal.signalID, position: myLatLng, draggable: false, image: image });
-                    var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
-                    google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('map').obj, this) });
+                    m = mapManager.addMarker({ mapID: 'map', id: 'signalMarker' + signal.signalID, position: myLatLng, draggable: false, image: image });
+                    m.html = s.description;
+                    w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
+                    google.maps.event.addListener(m, 'click', function () { w.setContent(this.html); w.open(mapManager.getMap('map').obj, this) });
                 }
 
                 mapManager.fitZoomToBounds({ mapID: 'map', zoom: currentCity.zoom });

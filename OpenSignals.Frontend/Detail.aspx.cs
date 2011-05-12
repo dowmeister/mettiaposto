@@ -70,9 +70,18 @@ namespace OpenSignals.Frontend
                     ogImage.Attributes["content"] = WebUtils.GetImageUrl(UploadPaths.Small, s.Attachment);
                 }
 
-                if (s.Status == Signal.SignalStatus.Resolved)
+                switch (s.Status)
                 {
-                    divResolved.Visible = true;
+                    case Signal.SignalStatus.Approved:
+                    case Signal.SignalStatus.ReOpened:
+                        divStatusNotResolved.Visible = true;
+                        break;
+                    case Signal.SignalStatus.Resolved:
+                        divStatusResolved.Visible = true;
+                        break;
+                    case Signal.SignalStatus.Expired:
+                        divStatusExpired.Visible = true;
+                        break;
                 }
 
                 if (sm.SearchNearZip(s.Zip, s.SignalID).Count == 0)

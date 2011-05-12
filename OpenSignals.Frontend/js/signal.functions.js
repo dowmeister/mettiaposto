@@ -282,9 +282,10 @@ function getSignalsNearby_callback(r) {
                 else
                     image = MARKERIMAGE_ALERT;
 
-                var m = mapManager.addMarker({ id: 'signalMarker' + signal.signalID, position: myLatLng, draggable: false, mapID: 'mapNearby', image: image });
-                var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
-                google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('mapNearby').obj, this) });
+                m = mapManager.addMarker({ id: 'signalMarker' + signal.signalID, position: myLatLng, draggable: false, mapID: 'mapNearby', image: image });
+                m.html = s.description;
+                w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
+                google.maps.event.addListener(m, 'click', function () { w.setContent(this.html); w.open(mapManager.getMap('mapNearby').obj, this) });
             }
 
             mapManager.fitZoomToBounds({ mapID: 'mapNearby', zoom: 15 });

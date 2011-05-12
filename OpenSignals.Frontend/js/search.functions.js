@@ -85,9 +85,10 @@ function searchSignals_callback(r)
                 else
                     image = MARKERIMAGE_ALERT;
 
-                var m = mapManager.addMarker({ id: 'signalMarker' + signal.signalID, position: myLatLng, draggable: false, mapID: 'map', image: image });
-                var w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
-                google.maps.event.addListener(m, 'click', function () { w.open(mapManager.getMap('map').obj, this) });
+                m = mapManager.addMarker({ id: 'signalMarker' + signal.signalID, position: myLatLng, draggable: false, mapID: 'map', image: image });
+                m.html = s.description;
+                w = new google.maps.InfoWindow({ content: s.description, maxWidth: 300 });
+                google.maps.event.addListener(m, 'click', function () { w.setContent(this.html); w.open(mapManager.getMap('map').obj, this) });
             }
 
             $('#searchList').html(r.result.html);

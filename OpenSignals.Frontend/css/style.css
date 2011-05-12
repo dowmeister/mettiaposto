@@ -575,3 +575,13 @@ dd
 {
     background: #FFFD8B;
 }
+
+.status-expired
+{
+    background-color: #F3A29A;
+}
+
+.status-resolved
+{
+    background-color: #A0E17A;
+}

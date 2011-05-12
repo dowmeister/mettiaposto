@@ -42,6 +42,14 @@ namespace OpenSignals.Framework.Signals
             /// Resolved
             /// </summary>
             public const int Resolved = 2;
+            /// <summary>
+            /// Expired (after X months of inactivity)
+            /// </summary>
+            public const int Expired = 3;
+            /// <summary>
+            /// Reopened after expiration or closed
+            /// </summary>
+            public const int ReOpened = 4;
         }
 
         /// <summary>
