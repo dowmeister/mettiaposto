@@ -204,8 +204,10 @@ input[type=button], input[type=reset]
 
 .error
 {
-    background-color: #F3A29A;
-    border-color: Red;
+    background: url("../images/HeadSearch2_error.png") no-repeat scroll 0 0 #e35555;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 428px;
 }
 
 .ajax
