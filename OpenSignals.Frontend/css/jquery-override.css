@@ -50,7 +50,7 @@
 
 #criticalSlider .ui-slider-handle
 {
-    background: #FB940B none;
-    border: none;
+	background: none repeat scroll 0 0 #D0DFE4;
+	border: 1px solid #256488;
 }
 
