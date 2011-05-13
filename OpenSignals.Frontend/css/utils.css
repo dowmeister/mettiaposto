@@ -286,7 +286,7 @@ input[type=button], input[type=reset]
 #search input
 {
 	background: none repeat scroll 0 0 transparent;
-    margin: 4px 5px 5px 6px;
+    margin: 5px 5px 5px 6px;
     padding: 3px;
     width: 160px;
     color: #236387;
