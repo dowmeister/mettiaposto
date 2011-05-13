@@ -196,13 +196,18 @@ input[type=button], input[type=reset]
 
 .success
 {
-    background-color: #236387;
+	background: url("../images/HeadSearch2.png") no-repeat scroll 0 0 #2C6A8C;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 428px;
 }
 
 .error
 {
-    background-color: #F3A29A;
-    border-color: Red;
+    background: url("../images/HeadSearch2_error.png") no-repeat scroll 0 0 #e35555;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 428px;
 }
 
 .ajax
@@ -262,16 +267,18 @@ input[type=button], input[type=reset]
 .searchBar
 {
     float: left;
-    margin-top: 80px;
+    margin-top: 73px;
     margin-left: -30px;
     width: 210px;
 }
 
 .searchBar .currentCity
 {
+	font-weight: bold;
     color: #FFFFFF;
     font-size: 24px;
-    margin-bottom: 3px;
+    margin-bottom: 12px;
+	height: 25px;
 }
 
 #search
@@ -283,10 +290,11 @@ input[type=button], input[type=reset]
 
 #search input
 {
-    margin: 6px;
+	background: none repeat scroll 0 0 transparent;
+    margin: 5px 5px 5px 6px;
     padding: 3px;
     width: 160px;
-    color: Grey;
+    color: #236387;
     border: 0;
 }
 
