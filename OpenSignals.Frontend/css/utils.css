@@ -299,3 +299,16 @@ input[type=button], input[type=reset]
 {
     border-bottom: 1px solid #1C8DCE;
 }
+
+#socialBar a.facebook
+{
+    width: 30px;
+    margin-right: 5px;
+    background: url(/images/facebook.gif) no-repeat;
+}
+
+#socialBar a.twitter
+{
+    width: 30px;
+    background: url(/images/twitter.gif) no-repeat;
+}

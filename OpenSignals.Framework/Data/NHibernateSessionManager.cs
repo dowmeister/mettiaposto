@@ -49,7 +49,7 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         public void CloseSession()
         {
-            NHibernateSession.Current.Session.Flush();
+            //NHibernateSession.Current.Session.Flush();
 
             if (NHibernateSession.Current.Session.IsOpen)
             {

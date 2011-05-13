@@ -24,7 +24,7 @@
 
 .ui-tabs .ui-tabs-nav li a
 {
-    color: White;
+    color: #FFFFFF;
     font-weight: bold;
     padding:  5px 0 0 0;
     display: block;
@@ -46,5 +46,11 @@
 {
     background: #FFFFFF;
     border: solid 1px #236388;
+}
+
+#criticalSlider .ui-slider-handle
+{
+    background: #FB940B none;
+    border: none;
 }
 

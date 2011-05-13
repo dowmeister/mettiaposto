@@ -319,12 +319,16 @@
 {
     margin-top: 20px;
     text-align: center;
-    width: 350px;
+    /*width: 350px;*/
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#content .details .photo img
+{
     border: 10px solid #FFFFFF;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 #content .details .photo a
