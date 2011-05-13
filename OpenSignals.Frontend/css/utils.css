@@ -262,16 +262,18 @@ input[type=button], input[type=reset]
 .searchBar
 {
     float: left;
-    margin-top: 80px;
+    margin-top: 73px;
     margin-left: -30px;
     width: 210px;
 }
 
 .searchBar .currentCity
 {
+	font-weight: bold;
     color: #FFFFFF;
     font-size: 24px;
-    margin-bottom: 3px;
+    margin-bottom: 12px;
+	height: 25px;
 }
 
 #search
@@ -283,10 +285,11 @@ input[type=button], input[type=reset]
 
 #search input
 {
-    margin: 6px;
+	background: none repeat scroll 0 0 transparent;
+    margin: 4px 5px 5px 6px;
     padding: 3px;
     width: 160px;
-    color: Grey;
+    color: #236387;
     border: 0;
 }
 
