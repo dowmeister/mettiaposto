@@ -1,592 +1,576 @@
-﻿#content .presentation
-{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    width: 980px;
+﻿#content .presentation 
+{	
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width: 980px;
 }
 
 .home
-{
-    float: left;
-    width: 422px;
-    background: url("/images/Blubox.png") repeat scroll 0 0 transparent;
-    padding: 10px;
-    color: #FFFFFF;
-    font-weight: bold;
-    height: 60px;
-    margin-top: 10px;
+ {
+	float: left;
+	width: 422px;
+	background: url("/images/Blubox.png") repeat scroll 0 0 transparent;
+	padding: 10px;
+	color: #FFF;
+	font-weight: bold;
+	height: 60px;
+	margin-top: 10px;
 }
 
 #content h2.homeclaim
 {
-    font-size: 14px;
-    color: #000000;
+	font-size: 14px;
+	color: #000;
 }
 
 #content .home .input
 {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 #content .home select
 {
-    width: 120px;
-    border: none;
-    color: #000000;
-    float: right;
+	width: 120px;
+	border: none;
+	color: #000;
+	float: right;
 }
 
 #content .home input.search
 {
-    width: 410px;
-    border: none;
-    color: Grey;
+	width: 410px;
+	border: none;
+	color: Grey;
 	height: 16px;
 }
 
 #content input.gobutton
 {
-    background: url("/images/button_green.png") repeat scroll 0 0 transparent;
-    margin-top: 10px;
+	background: url("/images/button_green.png") repeat scroll 0 0 transparent;
+	margin-top: 10px;
 }
 
 #content .statsBox
 {
-    width: 245px;
-    height: 90px;
-    float: left;
-    padding-top: 23px;
+	width: 245px;
+	height: 90px;
+	float: left;
+	padding-top: 23px;
 }
 
 #content .statsBox div
 {
-    width: 155px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    color: White;
+	width: 155px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	color: White;
 }
 
 #content .statsBox div div
 {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 #content .totalSignals
 {
-    background: url(../images/bk_box_sx.jpg) no-repeat;
+	background: url(../images/bk_box_sx.jpg) no-repeat;
 }
 
 #content .resolvedSignals
 {
-    background: url(../images/bk_box_dx.jpg) no-repeat;
+	background: url(../images/bk_box_dx.jpg) no-repeat;
 }
 
 #content .claim
 {
-    text-align: center;
-    margin-bottom: 10px;
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 #content .claim a
 {
-    background: url(../images/claimhome.png) no-repeat;
-    display: block;
-    height: 233px;
-    margin: 0 auto 0 auto;
+	background: url(../images/claimhome.png) no-repeat;
+	display: block;
+	height: 233px;
+	margin: 0 auto 0 auto;
 }
-
 
 #content h1.title
 {
-    font-size: 16px;
-    height: 20px;
-    padding: 0 0 10px 0;
-    border-bottom: 1px solid #1c8dce;
+	font-size: 16px;
+	height: 20px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid #1c8dce;
 }
 
 .clear
 {
-    clear: both;
+	clear: both;
 }
 
 .twocols .left
 {
-    display: inline;
-    float: left;
-    width: 450px;
-    margin-right: 20px;
+	display: inline;
+	float: left;
+	width: 450px;
+	margin-right: 20px;
 }
 
 .twocols .right
 {
-    float: left;
-    width: 480px;
-    margin-top: 10px;
+	float: left;
+	width: 480px;
+	margin-top: 10px;
 }
 
 .submitForm ol li
 {
-    list-style: none;
-    margin: 10px 5px 0 0px;
+	list-style: none;
+	margin: 10px 5px 0 0;
 }
 
 .submitForm ol li span.generic
 {
-    line-height: 1.8;
+	line-height: 1.8;
 }
 
 .submitForm ol li label
 {
-    display: inline-block;
-    line-height: 1.8;
-    vertical-align: top;
-    width: 120px;
+	display: inline-block;
+	line-height: 1.8;
+	vertical-align: top;
+	width: 120px;
 }
 
 .submitForm ol li input, .submitForm ol li select
 {
-    padding: 5px;
-    width: 250px;
-    border: solid 1px #1C8DCE;
+	padding: 5px;
+	width: 250px;
+	border: solid 1px #1C8DCE;
 }
 
 .submitForm ol li input:focus, .submitForm ol li textarea:focus, .submitForm ol li select:focus
 {
-    border: solid 1px #5CCA69;
+	border: solid 1px #5CCA69;
 }
 
 .submitForm ol li textarea
 {
-    width: 250px;
-    height: 150px;
-    border: solid 1px #1C8DCE;
-    font-size: 12px;
+	width: 250px;
+	height: 150px;
+	border: solid 1px #1C8DCE;
+	font-size: 12px;
 }
 
 .submitForm ol li div.legend
 {
-    font-size: 10px;
-    font-style: italic;
-    margin: 5px 0 5px 125px;
+	font-size: 10px;
+	font-style: italic;
+	margin: 5px 0 5px 125px;
 }
 
 .submitForm ol li div.subfield
 {
-    margin: 5px 0 5px 120px;
+	margin: 5px 0 5px 120px;
 }
 
 .submitForm ol li span.checkbox input
 {
-    width: auto;
-    margin-top: 4px;
+	width: auto;
+	margin-top: 4px;
 }
 
 .submitForm ol li div.subfield label
 {
-    margin-left: 5px;
-    width: auto;
-    display: inline;
+	margin-left: 5px;
+	width: auto;
+	display: inline;
 }
 
 .submitForm div.buttons
 {
-    text-align: right;
-    margin: 10px 0 10px 0;
-    padding-top: 10px;
-    border-top: solid 1px #1C8DCE;
+	text-align: right;
+	margin: 10px 0 10px 0;
+	padding-top: 10px;
+	border-top: solid 1px #1C8DCE;
 }
 
 #content .tabs ul
 {
-    background: none repeat scroll 0 0 white;
-    border-bottom: 1px solid #1C8DCE;
+	background: none repeat scroll 0 0 white;
+	border-bottom: 1px solid #1C8DCE;
 }
 
 #content .map
 {
-    width: 470px;
-    height: 500px;
+	width: 470px;
+	height: 500px;
 }
 
 #content .homeMap
 {
-    width: 955px;
-    height: 350px;
-    float: left;
+	width: 955px;
+	height: 350px;
+	float: left;
 }
 
 #content .details
 {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 
 #content .details .info
 {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 #content .details .info, #infoWindowContainer .info
 {
-    color: #1C8DCE;
-    font-size: 10px;
+	color: #1C8DCE;
+	font-size: 10px;
 }
 
 #content .details .info span
 {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 #content .details .description
 {
-    margin-bottom: 10px;
-    padding: 10px;
-    background: #A6C9DD;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    min-height: 40px;
+	margin-bottom: 10px;
+	padding: 10px;
+	background: #A6C9DD;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	min-height: 40px;
 }
 
 #content .details .tools
 {
-    padding: 1px 0 15px;
-    margin-top: 20px;
-    background-color: #1C8DCE;
+	padding: 1px 0 15px;
+	margin-top: 20px;
+	background-color: #1C8DCE;
 }
 
 #content .details .tools ul li
 {
-    list-style: none;
-    float: left;
-    margin-right: 10px;
+	list-style: none;
+	float: left;
+	margin-right: 10px;
 }
 
 #content .details .tools ul li a
 {
-    text-decoration: none;
-    color: White;
-    font-weight: bold;
-    display: block;
-    margin-right: 5px;
-    padding: 5px;
-    background-color: #117491;
+	text-decoration: none;
+	color: White;
+	font-weight: bold;
+	display: block;
+	margin-right: 5px;
+	padding: 5px;
+	background-color: #117491;
 }
 
 #content .details .serviceBox
 {
-    display: none;
-    padding: 10px; /*border: solid 1px #1C8DCE;*/
+	display: none;
+	padding: 10px;
 }
 
 .shareBox
 {
-    text-align: center;
-    margin-bottom: 10px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    background: #D4E6F0;
-    padding: 10px;
+	text-align: center;
+	margin-bottom: 10px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #D4E6F0;
+	padding: 10px;
 }
 
 .shareBox ul
 {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .shareBox ul li
 {
-    list-style: none;
-    float: left;
+	list-style: none;
+	float: left;
 }
 
 .shareBox ul li a
 {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 .shareBox ul li a img
 {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 #content .mapTabs
 {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 
 #content .details .photo
 {
-    margin-top: 20px;
-    text-align: center;
-    /*width: 350px;*/
-    margin-right: auto;
-    margin-left: auto;
+	margin-top: 20px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 #content .details .photo img
 {
-    border: 10px solid #FFFFFF;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+	border: 10px solid #FFF;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 #content .details .photo a
 {
-    margin: 0;
-    padding: 0;
-    height: 0;
+	margin: 0;
+	padding: 0;
+	height: 0;
 }
 
 #content .list
 {
-    margin-top: 20px;
-    padding-right: 10px;
+	margin-top: 20px;
+	padding-right: 10px;
 }
 
 #content .list div
 {
-    float: left;
+	float: left;
 }
 
 #content .list .item
 {
-    background-color: #E0E5F5;
-    padding: 5px;
-    margin-bottom: 1px;
-    border-bottom: 1px solid #DDDDDD;
-    width: 100%;
+	background-color: #E0E5F5;
+	padding: 5px;
+	margin-bottom: 1px;
+	border-bottom: 1px solid #DDD;
+	width: 100%;
 }
 
 #content .list .alt-item
 {
-    background-color: #D6DDEF;
-    padding: 5px;
-    margin-bottom: 1px;
-    border-bottom: 1px solid #DDDDDD;
-    width: 100%;
+	background-color: #D6DDEF;
+	padding: 5px;
+	margin-bottom: 1px;
+	border-bottom: 1px solid #DDD;
+	width:100%;
 }
 
 #content #searchList .item, #content #searchList .alt-item
 {
-    padding: 5px;
-    margin-bottom: 2px;
-    border-bottom: 0;
-    background: url(/images/BodySearch.png) no-repeat scroll 0 0 transparent;
-    width: 100%;
+	padding: 5px;
+	margin-bottom: 2px;
+	border-bottom: 0;
+	background: url(/images/BodySearch.png) no-repeat scroll 0 0 transparent;
+	width: 100%;
 }
 
 #content .list div.title
 {
-    font-size: 12px;
-    font-weight: bold;
-    width: 370px;
-    height: 25px;
+	font-size: 12px;
+	font-weight: bold;
+	width: 370px;
+	height: 25px;
 }
 
 #content .list div.title a
 {
-    text-decoration: none;
-    color: #117491;
+	text-decoration: none;
+	color: #117491;
 }
 
 #content .list div.title img
 {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 #content .list div.legend
 {
-    font-size: 10px;
-    margin-top: 5px;
+	font-size: 10px;
+	margin-top: 5px;
 }
 
 #content .list div.legend span
 {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 #content .list div.status
 {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 #content .list .pagination
 {
-    width: 100%;
-    margin-right: 10px;
+	width: 100%;
+	margin-right: 10px;
 }
 
 #content .list .pagination ul
 {
-    float: right;
+	float: right;
 }
 
 #content .list .pagination li
 {
-    float: left;
-    list-style-type: none;
+	float: left;
+	list-style-type: none;
 }
 
 #content .list .pagination li a
 {
-    text-decoration: none;
-    background-color: #1C8DCE;
-    padding: 6px;
-    margin-right: 5px;
-    color: White;
+	text-decoration: none;
+	background-color: #1C8DCE;
+	padding: 6px;
+	margin-right: 5px;
+	color: White;
 }
 
 #content .list .comment
 {
-    float: none;
-    margin-bottom: 5px;
+	float: none;
+	margin-bottom: 5px;
 }
 
 #content .list .avatar
 {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 .infoboxblu
 {
-    background: url("../images/homemsgbk.jpg") no-repeat scroll transparent;
-    text-align: center;
-    margin-bottom: 10px;
-    color: #FFFFFF;
-    font-weight: bold;
-    padding: 10px;
+	background: url("../images/homemsgbk.jpg") no-repeat scroll transparent;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #FFF;
+	font-weight: bold;
+	padding: 10px;
 }
 
 .infoboxblu a
 {
-    color: #DFB054;
-    text-decoration: none;
+	color: #DFB054;
+	text-decoration: none;
 }
 
 #content .serviceBox .list
 {
-    margin-top: 0;
-}
-
-#content .serviceBox .message
-{
-    /*width: 435px;*/
-}
-
-#content .serviceBox .list .item, #content .serviceBox .list .alt-item, #content .serviceBox .list .pagination
-{
-    /*width: 450px;*/
+	margin-top: 0;
 }
 
 #content .serviceBox .submitForm ol li label
 {
-    width: 100px;
+	width: 100px;
 }
 
 #content .serviceBox .submitForm ol li textarea, #content .serviceBox .submitForm ol li input[type=text]
 {
-    width: 240px;
+	width: 240px;
 }
 
 #content .list .photo
 {
-    width: 100%;
-    text-align: center;
+	width: 100%;
+	text-align: center;
 }
 
 #content .full
 {
-    width: 960px;
+	width: 960px;
 }
 
 #infoWindowContainer
 {
-    min-height: 90px;
+	min-height: 90px;
 }
 
 #infoWindowContainer h2
 {
-    font-size: 13px;
-    color: #1C8DCE;
+	font-size: 13px;
+	color: #1C8DCE;
 }
 
 #infoWindowContainer a
 {
-    margin-top: 5px;
-    text-decoration: none;
-    color: #117491;
-    font-weight: bold;
-    font-size: 11px;
-    display: block;
+	margin-top: 5px;
+	text-decoration: none;
+	color: #117491;
+	font-weight: bold;
+	font-size: 11px;
+	display: block;
 }
 
 #infoWindowContainer .image
 {
-    text-align: center;
-    margin-top: 5px;
-}
-
-dl
-{
+	text-align: center;
+	margin-top: 5px;
 }
 
 dt
 {
-    font-weight: bold;
-    margin: 10px 0 5px 0;
+	font-weight: bold;
+	margin: 10px 0 5px 0;
 }
 
 dd
 {
-    line-height: 1.5;
+	line-height: 1.5;
 }
 
 .full h2
 {
-    font-size: 14px;
-    border-bottom: 1px solid;
+	font-size: 14px;
+	border-bottom: 1px solid;
 }
 
 .facebook-button
 {
-    background: url("http://static.ak.fbcdn.net/rsrc.php/zL/r/FGFbc80dUKj.png") no-repeat left -188px #5F78AB;
-    border: none;
-    color: #FFFFFF;
-    display: block;
-    font-weight: bold;
-    margin: 1px 1px 0 21px;
-    padding: 2px 24px 2px;
-    cursor: pointer;
-    display: none;
+	background: url("http://static.ak.fbcdn.net/rsrc.php/zL/r/FGFbc80dUKj.png") no-repeat left -188px #5F78AB;
+	border: none;
+	color: #FFF;
+	display: block;
+	font-weight: bold;
+	margin: 1px 1px 0 21px;
+	padding: 2px 24px 2px;
+	cursor: pointer;
+	display: none;
 }
 
 .loginStatus a
 {
-    text-decoration: none;
-    color: #236388;
+	text-decoration: none;
+	color: #236388;
 }
 
 .statusBox
 {
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
 .status-notResolved
 {
-    background: #FFFD8B;
+	background: #FFFD8B;
 }
 
-.status-expired
+.status-expired 
 {
-    background-color: #F3A29A;
+	background-color: #F3A29A;
 }
 
 .status-resolved
 {
-    background-color: #A0E17A;
+	background-color:#A0E17A;
 }
