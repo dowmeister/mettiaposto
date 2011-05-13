@@ -196,7 +196,10 @@ input[type=button], input[type=reset]
 
 .success
 {
-    background-color: #236387;
+	background: url("../images/HeadSearch2.png") no-repeat scroll 0 0 #2C6A8C;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 428px;
 }
 
 .error
