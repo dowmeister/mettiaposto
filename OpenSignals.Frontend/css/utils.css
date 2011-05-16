@@ -239,6 +239,7 @@ input[type=button], input[type=reset]
     width: 250px;
     background: #ffffff;
     border: 1px solid #236388;
+	height: 376px;
 }
 
 #feedback .handle
@@ -246,6 +247,7 @@ input[type=button], input[type=reset]
     background: url(/images/feedback.png) no-repeat;
     height: 127px;
     width: 44px;
+	margin-top: -1px;
 }
 
 #feedback .submitForm ol li input, #feedback .submitForm ol li textarea
