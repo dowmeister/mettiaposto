@@ -544,6 +544,7 @@ dd
 	padding: 2px 24px 2px;
 	cursor: pointer;
 	display: none;
+	height: 22px;
 }
 
 .loginStatus a
