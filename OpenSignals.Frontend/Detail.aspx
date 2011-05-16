@@ -101,7 +101,7 @@
                                     Nome</label>
                                 <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                                 <div class="subfield">
-                                    <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Possiamo mostrare il tuo nome nel commento?"
+                                    <asp:CheckBox CssClass="checkbox" Checked="true" ID="chkPublicName" Text="Vuoi mostrare il tuo nome nel commento?"
                                         runat="server" /></div>
                             </li>
                             <li id="emailContainer">
