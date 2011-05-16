@@ -262,7 +262,7 @@ input[type=button], input[type=reset]
 
 .mapLoader
 {
-    background: #5BB1CA url(/images/ajax-loader.gif) no-repeat center center;
+    background: #bed7e3 url(/images/ajax-loader.gif) no-repeat center center;
     height: 300px;
 }
 
