@@ -60,7 +60,7 @@
                     <div id="divStatusExpired" visible="false" runat="server" class="statusBox status-expired">
                         Questa segnalazione è scaduta (2 mesi senza risposta)
                     </div>
-                    <div class="shareBox">
+					<!-- <div class="shareBox">
                         <ul>                            
                             <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"
                                 data-via="mettiaposto" data-lang="it">Tweet</a> </li>
@@ -71,6 +71,15 @@
                             <li>
                                 <fb:send font="lucida grande"></fb:send>
                             </li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div> -->
+                    <div class="shareBox">
+                        <ul>                            
+                            <li><a href="http://twitter.com/share" title="Condividi su Twitter"><img src="/images/social_twitter.png" alt="Twitter"></a> </li>
+                            <li><a href="http://twitter.com/share" title="Condividi su Facebook"><img src="/images/social_facebook.png" alt="Facebook"></a> </li>
+							<li><a href="http://twitter.com/share" title="Tienimi aggiornato!"><img src="/images/social_update.png" alt="Aggiornami"></a> </li>
                         </ul>
                         <div class="clear">
                         </div>
