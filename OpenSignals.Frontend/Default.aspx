@@ -38,7 +38,6 @@
             <br />
             Per dubbi, chiarimenti, informazioni, per capire come funziona questo sito <a href="/pages/info.aspx">
                 leggi le FAQ</a>.
-            <h2 class="homeclaim">
         </div>
         <div style="float: right; width: 470px">
             <div class="home">
