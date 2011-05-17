@@ -73,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Google\Geocoder.cs" />
+    <Compile Include="API\Google\GeocodeResponse.cs" />
     <Compile Include="API\Open311\Open311Exception.cs" />
     <Compile Include="API\Open311\Request.cs" />
     <Compile Include="API\Open311\Services.cs" />

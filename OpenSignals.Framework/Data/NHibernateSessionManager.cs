@@ -49,8 +49,6 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         public void CloseSession()
         {
-            //NHibernateSession.Current.Session.Flush();
-
             if (NHibernateSession.Current.Session.IsOpen)
             {
                 NHibernateSession.Current.Factory.Close();

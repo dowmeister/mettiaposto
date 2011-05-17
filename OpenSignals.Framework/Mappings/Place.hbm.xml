@@ -11,5 +11,6 @@
     <property name="Latitude" column="p_latitude" type="decimal"></property>
     <property name="Longitude" column="p_longitude" type="decimal"></property>
     <property name="MapZoom" column="p_zoom" type="int"></property>
+    <property name="GeolocationInfo" column="p_geo" type="OpenSignals.Framework.API.Google.Geometry, OpenSignals.Framework"></property>
   </class>
 </hibernate-mapping>

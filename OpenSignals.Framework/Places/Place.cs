@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using OpenSignals.Framework.API.Google;
 namespace OpenSignals.Framework.Places
 {
     /// <summary>
@@ -92,5 +93,13 @@ namespace OpenSignals.Framework.Places
         /// The map zoom.
         /// </value>
         public virtual int MapZoom { get; set; }
+
+        /// <summary>
+        /// Gets or sets the geolocation info.
+        /// </summary>
+        /// <value>
+        /// The geolocation info.
+        /// </value>
+        public virtual Geometry GeolocationInfo { get; set; }
     }
 }

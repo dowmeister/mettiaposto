@@ -44,6 +44,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\RequiredAssembly\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RequiredAssembly\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -111,16 +115,25 @@
     <Content Include="css\teaser.css" />
     <Content Include="images\avatar.png" />
     <Content Include="images\Blubox.png" />
+    <Content Include="images\Blubox2.png" />
     <Content Include="images\BodySearch.png" />
+    <Content Include="images\facebook.gif" />
     <Content Include="images\green-arrow-right.gif" />
     <Content Include="images\HeadSearch.png" />
+    <Content Include="images\HeadSearch2.png" />
+    <Content Include="images\HeadSearch2_error.png" />
     <Content Include="images\minitab-selected2.png" />
     <Content Include="images\minitab-selected2_long.png" />
     <Content Include="images\minitab2.png" />
     <Content Include="images\searchcity.png" />
+    <Content Include="images\searchicon.png" />
+    <Content Include="images\social_facebook.png" />
+    <Content Include="images\social_twitter.png" />
+    <Content Include="images\social_update.png" />
     <Content Include="images\teaser\bgintro.png" />
     <Content Include="images\teaser\logointro.png" />
     <Content Include="images\teaser\whitebox.png" />
+    <Content Include="images\twitter.gif" />
     <Content Include="Index.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="images\locate-me.png" />
@@ -228,6 +241,7 @@
     <Content Include="Detail.aspx" />
     <Content Include="Submit.aspx" />
     <Content Include="Teaser.aspx" />
+    <Content Include="TestGeo.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -415,6 +429,13 @@
     </Compile>
     <Compile Include="Submit.aspx.designer.cs">
       <DependentUpon>Submit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestGeo.aspx.cs">
+      <DependentUpon>TestGeo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestGeo.aspx.designer.cs">
+      <DependentUpon>TestGeo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

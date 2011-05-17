@@ -17,6 +17,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using System;
 
 namespace OpenSignals.Framework.Core.Utility
 {
@@ -34,7 +35,7 @@ namespace OpenSignals.Framework.Core.Utility
         {
             XmlDocument xDocument = null;
             XmlSerializer xSerializer = new XmlSerializer(o.GetType());
-            
+
             xDocument = new XmlDocument();
             
             using (MemoryStream ms = new MemoryStream())
@@ -157,6 +158,15 @@ namespace OpenSignals.Framework.Core.Utility
             {
                 return string.Empty;
             }
+        }
+
+        public static object Deserialize(string xml, Type type)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlSerializer xSerializer = new XmlSerializer(type);
+            XmlNodeReader nReader = new XmlNodeReader(doc);
+            return xSerializer.Deserialize(nReader);
         }
     }
 }

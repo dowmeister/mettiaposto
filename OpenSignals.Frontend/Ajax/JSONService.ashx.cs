@@ -229,7 +229,7 @@ namespace OpenSignals.Frontend.Ajax
         public Place CheckPlace(string placeName)
         {
             PlaceManager pm = new PlaceManager();
-            return pm.LoadPlace(placeName);
+            return pm.CheckPlace(placeName);
         }
         
     }

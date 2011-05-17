@@ -4,6 +4,7 @@
 <%@ Register Src="Includes/Head.ascx" TagName="Head" TagPrefix="uc2" %>
 <%@ Register Src="Includes/Header.ascx" TagName="Header" TagPrefix="uc3" %>
 <%@ Register Src="Includes/Analytics.ascx" TagName="Analytics" TagPrefix="uc4" %>
+<%@ Import Namespace="OpenSignals.Framework.Core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -60,7 +61,7 @@
                     <div id="divStatusExpired" visible="false" runat="server" class="statusBox status-expired">
                         Questa segnalazione è scaduta (2 mesi senza risposta)
                     </div>
-					<!-- <div class="shareBox">
+                    <!-- <div class="shareBox">
                         <ul>                            
                             <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"
                                 data-via="mettiaposto" data-lang="it">Tweet</a> </li>
@@ -76,10 +77,15 @@
                         </div>
                     </div> -->
                     <div class="shareBox">
-                        <ul>                            
-                            <li><a href="http://twitter.com/share" title="Condividi su Twitter"><img src="/images/social_twitter.png" alt="Twitter"></a> </li>
-                            <li><a href="http://twitter.com/share" title="Condividi su Facebook"><img src="/images/social_facebook.png" alt="Facebook"></a> </li>
-							<li><a href="http://twitter.com/share" title="Tienimi aggiornato!"><img src="/images/social_update.png" alt="Aggiornami"></a> </li>
+                        <ul>
+                            <li><a onclick="sharePopup(this); return false;" href="http://twitter.com/intent/tweet?text=<%= this.Title %>&url=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&via=mettiaposto"
+                                title="Condividi su Twitter">
+                                <img src="/images/social_twitter.png" alt="Twitter"/></a> </li>
+                            <li><a onclick="sharePopup(this); return false;" href="http://www.facebook.com/share.php?u=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&t=<%= this.Title %>"
+                                title="Condividi su Facebook">
+                                <img src="/images/social_facebook.png" alt="Facebook"/></a> </li>
+                            <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Tienimi aggiornato!">
+                                <img src="/images/social_update.png" alt="Aggiornami"></a> </li>
                         </ul>
                         <div class="clear">
                         </div>
@@ -143,26 +149,8 @@
                         <div class="mapLoader">
                         </div>
                     </div>
-                    <div class="map" runat="server" id="mapNearby">
+                    <div style="display:none" class="map" runat="server" id="mapNearby">
                         <div class="mapLoader">
-                        </div>
-                    </div>
-                </div>
-                <div id="subscribe" class="serviceBox" style="display: block;">
-                    <h4>
-                        Iscriviti agli aggiornamenti via email per questa segnalazione</h4>
-                    <div id="subscribeSignalMessages">
-                    </div>
-                    <div class="submitForm">
-                        <ol>
-                            <li>
-                                <label>
-                                    E-mail</label>
-                                <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
-                            </li>
-                        </ol>
-                        <div class="buttons">
-                            <input class="success" type="button" value="Iscriviti" onclick="subscribeSignal(); return false;" />
                         </div>
                     </div>
                 </div>
@@ -171,12 +159,25 @@
             </div>
         </div>
     </div>
+    <div id="subscribeDialog" style="display: none">
+        <div id="subscribeSignalMessages">
+        </div>
+        <div id="subscribeSignalForm" class="submitForm">
+            <ol>
+                <li>
+                    <label>
+                        E-mail</label>
+                    <asp:TextBox ID="txtSubscribeEmail" runat="server"></asp:TextBox>
+                </li>
+            </ol>
+        </div>
+    </div>
     <uc1:Footer ID="Footer1" runat="server" />
     </form>
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="http://connect.facebook.net/it_IT/all.js" type="text/javascript"></script>
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <!--<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,detail"></script>
     <script type="text/javascript">

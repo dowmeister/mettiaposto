@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using NHibernate.Criterion;
 using OpenSignals.Framework.Data;
+using OpenSignals.Framework.API.Google;
 
 namespace OpenSignals.Framework.Places
 {
@@ -121,6 +122,39 @@ namespace OpenSignals.Framework.Places
                 RollbackTransaction();
                 throw ex;
             }
+        }
+
+        public Place CheckPlace(string placeName)
+        {
+            Geocoder geoCoder = new Geocoder();
+            GeocodeResponse response = geoCoder.GeocodeByAddress(placeName + ", Italia");
+            AddressComponent ac = response.Result.AddressComponents.FindByType("locality");
+            if (ac != null)
+            {
+                Place p = this.LoadPlace(ac.LongName);
+
+                if (p != null)
+                    return p;
+                else
+                {
+                    p = new Place();
+                    p.Name = ac.LongName;
+                    p.GeolocationInfo = response.Result.Geometry;
+                    p.Latitude = response.Result.Geometry.Location.Latitude;
+                    p.Longitude = response.Result.Geometry.Location.Longitude;
+                    p.MapZoom = 13;
+                    p.Open311ApiKey = string.Empty;
+                    p.Open311CityID = string.Empty;
+                    p.Open311URL = string.Empty;
+                    p.Status = true;
+
+                    this.CreatePlace(p);
+
+                    return p;
+                }
+            }
+
+            return null;
         }
     }
 }

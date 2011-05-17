@@ -42,43 +42,28 @@ $(document).ready(function ()
 
 function checkPlace()
 {
-    mapManager = new $.mapManager
-    mapManager.geolocate({ address: $("#searchCity").val() + ", Italia", callback:
-                function (response, status) { checkPlace_callback(response, status); }
-    });
-}
+    var proxy = new JSONService();
+    var place = proxy.checkPlace($("#searchCity").val());
 
-function checkPlace_callback(response, status)
-{
-    mapManager = new $.mapManager();
-    if (mapManager.checkGeolocationResult(status))
+    if (place)
     {
-        var data = mapManager.getGeolocationData(response, 0);
+        $("#searchCity").val(place.name);
 
-        var proxy = new JSONService();
-        var placeName = mapManager.getAddressComponent(data.address_components, 'locality').long_name;
-        $("#searchCity").val(placeName);
-
-        var place = proxy.checkPlace(placeName);
-
-        if (place)
-        {
-            if (place.status == 1)
-                window.location.href = '/' + place.name.toLowerCase() + '/index.aspx';
-            else
-            {
-                $('#alreadyRequestedCityLabel').html(placeName);
-                $('#alreadyRequestedCity').dialog({
-                    title: 'Città richiesta ma non attiva', draggable: false, resizable: false,
-                    buttons: {
-                        'Chiudi': function () { $(this).dialog('destroy'); }
-                    }
-                });
-            }
-        }
+        if (place.status == 1)
+            window.location.href = '/' + place.name.toLowerCase() + '/index.aspx';
         else
-            window.location.href = '/' + $("#searchCity").val().toLowerCase() + '/crea.aspx';
+        {
+            $('#alreadyRequestedCityLabel').html(placeName);
+            $('#alreadyRequestedCity').dialog({
+                title: 'Città richiesta ma non attiva', draggable: false, resizable: false,
+                buttons: {
+                    'Chiudi': function () { $(this).dialog('destroy'); }
+                }
+            });
+        }
     }
+    else
+        alert("La città richiesta non è in Italia o non esiste");
 }
 
 function writeMessage(title, message, container)
@@ -198,4 +183,10 @@ function showNotExistingCityDialog(cityToAdd)
 function searchCity()
 {
     window.location.href = '/' + $('#searchCity').val() + '/index.aspx';
+}
+
+function sharePopup(a)
+{
+    window.open(a.href, "Condividi", "status=0,toolbar=0,menubar=0,resizable=0,scrollbars=0,height=400,width=600");
+    return false;
 }
