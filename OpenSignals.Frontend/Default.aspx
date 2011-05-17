@@ -40,14 +40,14 @@
                 leggi le FAQ</a>.
             <h2 class="homeclaim">
         </div>
-        <div style="float: right; width: 450px">
+        <div style="float: right; width: 470px">
             <div class="home">
                 Inserisci l'indirizzo (compreso via, viale, piazza o altro)
                 <div class="input">
                     <asp:TextBox MaxLength="150" ID="txtSearch" CssClass="search" runat="server"></asp:TextBox>
                 </div>
             </div>
-            <div class="clear" style="text-align: right; width: 440px">
+            <div class="clear" style="text-align: right; width: 470px">
                 <input class="gobutton" id="searchButton" type="button" value="Segnala" onclick="search(); return false;"></input>
             </div>
         </div>
