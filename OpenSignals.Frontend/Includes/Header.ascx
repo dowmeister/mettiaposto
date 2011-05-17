@@ -4,6 +4,13 @@
         <div id="logo">
             <a runat="server" id="linkLogo" href="/"></a>
         </div>
+        <div class="headerlinks">
+            <ul>
+                <li><a class="facebook" href="http://www.facebook.com/apps/application.php?id=183751108307062"><span>Seguici su Facebook</span></a></li>
+                <li><a class="twitter" href="http://twitter.com/mettiaposto"><span>Seguici su Twitter</span></a></li>
+                <li><a class="georss" runat="server" id="geoRSSLink" href="#"><span>Sottoscrivi il feed GeoRSS</span></a></li>
+            </ul>
+        </div>
         <div class="searchBar">
             <div class="currentCity"><asp:Literal ID="ltCurrentCity" runat="server"></asp:Literal></div>
             <div id="search">

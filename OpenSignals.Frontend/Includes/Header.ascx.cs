@@ -63,6 +63,7 @@ namespace OpenSignals.Frontend.Includes
                 linkHome.HRef = currentCity.Link + "index.aspx";
                 linkSignal.HRef = currentCity.Link + "invia.aspx";
                 linkRss.HRef = currentCity.Link + "rss.aspx";
+                geoRSSLink.HRef = currentCity.Link + "georss.aspx";
                 linkLogo.HRef = currentCity.Link + "index.aspx";
 
                 ltCurrentCity.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(currentCity.Name);

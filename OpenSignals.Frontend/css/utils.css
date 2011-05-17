@@ -64,7 +64,7 @@ textarea, input, select
 #menu
 {
     float: right;
-    width: 534px;
+    /*width: 534px;*/
 }
 
 #menu ul.cities
@@ -74,7 +74,8 @@ textarea, input, select
 
 #menu ul.tabs
 {
-    margin-top: 108px;
+    margin-top: 58px;
+    padding: 0;
 }
 
 #menu ul.tabs li
@@ -321,4 +322,51 @@ input[type=button], input[type=reset]
 {
     width: 30px;
     background: url(/images/twitter.gif) no-repeat;
+}
+
+.headerlinks
+{
+    float: right; 
+    height: 40px; 
+    margin-top: 10px;
+}
+
+.headerlinks ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+.headerlinks li
+{
+    float: left;
+    list-style-type: none;
+}
+
+.headerlinks a
+{
+    display: block;
+    width: 32px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.headerlinks a.facebook
+{
+    background: url(/images/facebook.png) no-repeat;   
+}
+
+.headerlinks a.twitter
+{
+    background: url(/images/twitter.png) no-repeat;   
+}
+
+.headerlinks a.georss
+{
+    background: url(/images/georss.png) no-repeat;   
+}
+
+.headerlinks a span
+{
+    display: none;
 }

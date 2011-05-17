@@ -50,6 +50,25 @@ namespace OpenSignals.Framework.Core.Utility
             return xDocument;
         }
 
+        public static XmlDocument Serialize(object o, XmlSerializerNamespaces ns)
+        {
+            XmlDocument xDocument = null;
+            XmlSerializer xSerializer = new XmlSerializer(o.GetType());
+
+            xDocument = new XmlDocument();
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                xSerializer.Serialize(ms, o, ns);
+                ms.Position = 0;
+                byte[] b = new byte[ms.Length];
+                ms.Read(b, 0, (int)ms.Length);
+                xDocument.LoadXml(Encoding.UTF8.GetString(b));
+            }
+
+            return xDocument;
+        }
+
         /// <summary>
         /// Creates the node.
         /// </summary>

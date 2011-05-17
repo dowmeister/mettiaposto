@@ -123,6 +123,7 @@
     <Compile Include="Signals\SignalManager.cs" />
     <Compile Include="Signals\SignalUtils.cs" />
     <Compile Include="Web\Global.cs" />
+    <Compile Include="Web\RSS\GeoRSS.cs" />
     <Compile Include="Web\RSS\Items.cs" />
     <Compile Include="Web\RSS\RssGenerator.cs" />
     <Compile Include="Web\Controls\StaticFileManager.cs" />
