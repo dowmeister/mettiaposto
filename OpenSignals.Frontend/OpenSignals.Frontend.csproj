@@ -241,7 +241,6 @@
     <Content Include="Detail.aspx" />
     <Content Include="Submit.aspx" />
     <Content Include="Teaser.aspx" />
-    <Content Include="TestGeo.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -429,13 +428,6 @@
     </Compile>
     <Compile Include="Submit.aspx.designer.cs">
       <DependentUpon>Submit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TestGeo.aspx.cs">
-      <DependentUpon>TestGeo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestGeo.aspx.designer.cs">
-      <DependentUpon>TestGeo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

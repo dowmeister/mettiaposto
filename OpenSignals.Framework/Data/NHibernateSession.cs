@@ -39,15 +39,23 @@ namespace OpenSignals.Framework.Data
         /// <summary>
         /// Gets the istance
         /// </summary>
-        public static NHibernateSession Current { get { return _istance; } }
+        public static NHibernateSession Current
+        {
+            get
+            {
+                if (_istance == null)
+                    _istance = new NHibernateSession();
+
+                return _istance;
+            }
+        }
 
         /// <summary>
         /// Prevents a default instance of the <see cref="NHibernateSession"/> class from being created.
         /// </summary>
         private NHibernateSession()
         {
-            var config = new Configuration();
-            config.Configure();
+            Configuration config = new Configuration().Configure();
             factory = config.BuildSessionFactory();
         }
     }

@@ -486,8 +486,8 @@ namespace OpenSignals.Framework.Core.Base
             o["name"] = _currentCity.Name;
             o["link"] = _currentCity.Link;
             o["id"] = _currentCity.PlaceID;
-            o["lat"] = _currentCity.Latitude;
-            o["lng"] = _currentCity.Longitude;
+            o["lat"] = _currentCity.GeolocationInfo.Location.Latitude;
+            o["lng"] = _currentCity.GeolocationInfo.Location.Longitude;
             o["zoom"] = _currentCity.MapZoom;
 
             ClientScript.RegisterClientScriptBlock(this.GetType(), "clientPageObjects", "var currentCity = " + o.ToString() + ";", true); 
