@@ -9,8 +9,7 @@
 .home
  {
 	float: left;
-	width: 422px;
-	background: url("/images/Blubox.png") repeat scroll 0 0 transparent;
+	background: url("/images/Blubox2.png") repeat scroll 0 0 transparent;
 	padding: 10px;
 	color: #FFF;
 	font-weight: bold;
@@ -39,7 +38,7 @@
 
 #content .home input.search
 {
-	width: 410px;
+	width: 440px;
 	border: none;
 	color: Grey;
 	height: 16px;
