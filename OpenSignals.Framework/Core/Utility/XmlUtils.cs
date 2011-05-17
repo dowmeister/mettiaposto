@@ -160,6 +160,12 @@ namespace OpenSignals.Framework.Core.Utility
             }
         }
 
+        /// <summary>
+        /// Deserializes the specified XML.
+        /// </summary>
+        /// <param name="xml">The XML.</param>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public static object Deserialize(string xml, Type type)
         {
             XmlDocument doc = new XmlDocument();

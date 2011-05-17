@@ -124,11 +124,17 @@ namespace OpenSignals.Framework.Places
             }
         }
 
+        /// <summary>
+        /// Checks the place.
+        /// </summary>
+        /// <param name="placeName">Name of the place.</param>
+        /// <returns></returns>
         public Place CheckPlace(string placeName)
         {
             Geocoder geoCoder = new Geocoder();
             GeocodeResponse response = geoCoder.GeocodeByAddress(placeName + ", Italia");
             AddressComponent ac = response.Result.AddressComponents.FindByType("locality");
+
             if (ac != null)
             {
                 Place p = this.LoadPlace(ac.LongName);

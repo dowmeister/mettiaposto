@@ -25,6 +25,9 @@ namespace OpenSignals.Framework.Data
     public class NHibernateSessionManager : BaseManager
     {
         private ISessionFactory _sessionFactory =  NHibernateSession.Current.Factory;
+        /// <summary>
+        /// 
+        /// </summary>
         protected ISession _session = NHibernateSession.Current.Session;
         /// <summary>
         /// Gets the session.
