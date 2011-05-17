@@ -64,7 +64,7 @@
                         <ul>                            
                             <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"
                                 data-via="mettiaposto" data-lang="it">Tweet</a> </li>
-                            <li><a name="fb_share" type="button">Convidivi su Facebook</a> </li>
+                            <li><a name="fb_share" type="button">Convidivi</a> </li>
                             <li>
                                 <fb:like layout="button_count" font="lucida grande" show_faces="false"></fb:like>
                             </li>
