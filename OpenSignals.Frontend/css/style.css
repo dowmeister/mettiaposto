@@ -47,7 +47,8 @@
 #content input.gobutton
 {
 	background: url("/images/button_green.png") repeat scroll 0 0 transparent;
-	margin-top: 10px;
+	margin-right: 1px;
+    margin-top: 5px;
 }
 
 #content .statsBox
