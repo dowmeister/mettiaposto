@@ -492,6 +492,7 @@
 #infoWindowContainer
 {
 	min-height: 90px;
+	margin-top: -12px;
 }
 
 #infoWindowContainer h2
@@ -514,6 +515,10 @@
 {
 	text-align: center;
 	margin-top: 5px;
+}
+#imgImage
+{
+	height: 105px;
 }
 
 dt
