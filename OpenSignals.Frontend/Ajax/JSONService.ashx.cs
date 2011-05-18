@@ -226,11 +226,35 @@ namespace OpenSignals.Frontend.Ajax
         }
 
         [JsonRpcMethod("checkPlace")]
-        public Place CheckPlace(string placeName)
+        public Place CheckPlace(string placeName, string sessionKey)
         {
+            CheckRequest(sessionKey);
+
             PlaceManager pm = new PlaceManager();
             return pm.CheckPlace(placeName);
         }
-        
+
+        [JsonRpcMethod("changeSignalStatus")]
+        public void ChangeSignalStatus(int signalID, int newStatus, string description, string sessionKey)
+        {
+            CheckRequest(sessionKey);
+
+            SignalManager sm = new SignalManager();
+            Signal s = sm.LoadSingnal(signalID);
+
+            switch (newStatus)
+            {
+                case Signal.SignalStatus.ReOpened:
+                    s.ReopenDate = DateTime.Now;
+                    s.ReopenDescription = description;
+                    break;
+                case Signal.SignalStatus.Resolved:
+                    s.ResolutionDate = DateTime.Now;
+                    s.ResolutionDescription = description;
+                    break;
+            }
+
+            sm.ChangeSignalStatus(s);
+        }
     }
 }

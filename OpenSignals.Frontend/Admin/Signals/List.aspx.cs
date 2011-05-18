@@ -79,11 +79,11 @@ namespace OpenSignals.Frontend.Admin.Signals
                     Alert("Segnalazione cancellata");
                     break;
                 case "approve":
-                    sm.ResolveSignal(int.Parse(action["argument"].ToString()), string.Empty);
+                    //sm.ResolveSignal(int.Parse(action["argument"].ToString()), string.Empty);
                     Alert("Segnalazione approvata");
                     break;
                 case "reject":
-                    sm.RejectSignal(int.Parse(action["argument"].ToString()), string.Empty);
+                    //sm.RejectSignal(int.Parse(action["argument"].ToString()), string.Empty);
                     Alert("Segnalazione rifiutata");
                     break;
             }

@@ -9,7 +9,7 @@
             </div>
             <div class="legend">
                 inviato da
-                <asp:Label ID="author" runat="server"></asp:Label>,
+                <asp:Literal ID="ltAuthor" runat="server"></asp:Literal>, 
                 <asp:Label ID="timeframe" runat="server"></asp:Label>
             </div>
             <div class="photo" id="divPhoto" runat="server" visible="false">
@@ -27,7 +27,7 @@
             </div>
             <div class="legend">
                 inviato da
-                <asp:Label ID="author" runat="server"></asp:Label>,
+                <asp:Literal ID="ltAuthor" runat="server"></asp:Literal>, 
                 <asp:Label ID="timeframe" runat="server"></asp:Label>
             </div>
             <div class="photo" id="divPhoto" runat="server" visible="false">

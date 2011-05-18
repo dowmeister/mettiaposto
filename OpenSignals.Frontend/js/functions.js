@@ -47,7 +47,7 @@ function checkPlace()
 
     if (place)
     {
-        $("#searchCity").val(place.name);
+        $("#searchCity").val(place.name, ajaxSessionKey);
 
         if (place.status == 1)
             window.location.href = '/' + place.name.toLowerCase() + '/index.aspx';

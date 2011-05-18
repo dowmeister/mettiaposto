@@ -580,3 +580,17 @@ dd
 {
 	background-color:#A0E17A;
 }
+
+.statusBox div
+{
+    text-align: right;
+    margin-top: 10px;
+}
+
+.statusBox a
+{
+    padding: 0 22px 0 0;
+    background: url(/images/edit.gif) no-repeat right;
+    display: block;
+    text-align: right;
+}

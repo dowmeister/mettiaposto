@@ -229,36 +229,20 @@ namespace OpenSignals.Framework.Signals
              
         }
 
-        /// <summary>
-        /// Set the signal as resolved
-        /// </summary>
-        /// <param name="signalID">The signal ID.</param>
-        /// <param name="comment">The comment.</param>
-        public void ResolveSignal(int signalID, string comment)
+        public void ChangeSignalStatus(Signal s)
         {
-            this.ChangeSignalStatus(Signal.SignalStatus.Approved, signalID, comment);
-        }
-
-        /// <summary>
-        /// Rejects the signal.
-        /// </summary>
-        /// <param name="signalID">The signal ID.</param>
-        /// <param name="comment">The comment.</param>
-        public void RejectSignal(int signalID, string comment)
-        {
-            this.ChangeSignalStatus(Signal.SignalStatus.NotApproved, signalID, comment);
-        }
-
-        private void ChangeSignalStatus(int newStatus, int signalID, string comment)
-        {
-            OpenSession();
-            Signal s = this.LoadSingnal(signalID);
-            s.Status = newStatus;
-            s.ResolutionDate = DateTime.Now;
-            s.ResolutionDescription = comment;
-            s.UpdateDate = DateTime.Now;
-            Session.SaveOrUpdate(s);
-             
+            try
+            {
+                OpenSession();
+                OpenTransaction();
+                Session.SaveOrUpdate(s);
+                CommitTransaction();
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Error changing status to signal " + s.SignalID, ex);
+                RollbackTransaction();
+            }
         }
 
         /// <summary>
@@ -273,13 +257,12 @@ namespace OpenSignals.Framework.Signals
                 OpenTransaction();
                 Signal s = this.LoadSingnal(id);
                 Session.Delete(s);
-                CommitTransaction();
-                 
+                CommitTransaction();                 
             }
             catch (Exception ex)
             {
-                RollbackTransaction();
                 log.Error("Error deleting signal " + id, ex);
+                RollbackTransaction();
             }
             finally
             {

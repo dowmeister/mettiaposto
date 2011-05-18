@@ -175,6 +175,15 @@ namespace OpenSignals.Frontend {
         protected global::System.Web.UI.WebControls.Image imgPhoto;
         
         /// <summary>
+        /// divStatusReopened control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStatusReopened;
+        
+        /// <summary>
         /// divStatusNotResolved control.
         /// </summary>
         /// <remarks>
@@ -272,6 +281,15 @@ namespace OpenSignals.Frontend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSubscribeEmail;
+        
+        /// <summary>
+        /// txtChangeStatusDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtChangeStatusDescription;
         
         /// <summary>
         /// Footer1 control.

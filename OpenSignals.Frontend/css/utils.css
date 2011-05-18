@@ -19,6 +19,12 @@ body
     background-color: #236388;
 }
 
+a, a:hover, a:link, a:visited
+{
+    color: #2C6A8C;
+    text-decoration: none;
+}
+
 textarea, input, select
 {
     padding: 5px;

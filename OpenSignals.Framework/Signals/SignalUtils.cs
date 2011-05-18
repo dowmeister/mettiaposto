@@ -36,7 +36,7 @@ namespace OpenSignals.Framework.Signals
                 return "circa 1 mese fa (il " + creationDate.ToShortDateString() + ")";
             }
 
-            if (ts.Days > 30)
+            if (ts.Days > 31)
             {
                 return "circa " + (ts.Days / 30).ToString() + " mesi fa (il " + creationDate.ToShortDateString() + ")";
             }
@@ -53,7 +53,7 @@ namespace OpenSignals.Framework.Signals
 
             if (ts.Days == 0 && ts.Hours > 1)
             {
-                return ts.Hours.ToString() + " ore fa e " + ts.Minutes.ToString() + " minuti fa";
+                return ts.Hours.ToString() + " ore e " + ts.Minutes.ToString() + " minuti fa";
             }
 
             if (ts.Days == 0 && ts.Hours == 1)

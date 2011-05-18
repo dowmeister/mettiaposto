@@ -38,9 +38,14 @@ namespace OpenSignals.Frontend.Includes
                 ((Label)e.Item.FindControl("timeframe")).Text = SignalUtils.GetTimeframe(c.CreationDate);
 
                 if (c.ShowAuthorName)
-                    ((Label)e.Item.FindControl("author")).Text = c.AuthorName;
+                {
+                    if (c.AuthorReferenceType == Comment.AuthorType.Facebook)
+                        ((Literal)e.Item.FindControl("ltAuthor")).Text = "<fb:name uid=\"" + c.AuthorReferenceKey + "\" use-you=\"no\"></fb:name>";
+                    else
+                        ((Literal)e.Item.FindControl("ltAuthor")).Text = c.AuthorName;
+                }
                 else
-                    ((Label)e.Item.FindControl("author")).Text = "Anonimo";
+                    ((Literal)e.Item.FindControl("ltAuthor")).Text = "Anonimo";
 
                 if (!c.Attachment.Equals(string.Empty))
                 {

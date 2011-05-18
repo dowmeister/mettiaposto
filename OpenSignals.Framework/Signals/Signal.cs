@@ -246,6 +246,22 @@ namespace OpenSignals.Framework.Signals
         }
 
         /// <summary>
+        /// Gets or sets the reopen description.
+        /// </summary>
+        /// <value>
+        /// The reopen description.
+        /// </value>
+        public virtual string ReopenDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reopen date.
+        /// </summary>
+        /// <value>
+        /// The reopen date.
+        /// </value>
+        public virtual DateTime ReopenDate { get; set; }
+
+        /// <summary>
         /// Gets the excerpt.
         /// </summary>
         public virtual string Excerpt

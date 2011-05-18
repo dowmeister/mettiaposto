@@ -2,6 +2,8 @@
 * FACEBOOK INTEGRATIONS FUNCTIONS
 */
 
+var fbLogged = false;
+
 function fbInit()
 {
     FB.init({ appId: '183751108307062', cookie: true, xfbml: true });
@@ -32,6 +34,7 @@ function retrievePersonalData()
 
     FB.api('/me', function (response)
     {
+        fbLogged = true;
         socialUser = response;
         $('#txtName').val(response.name);
         $('#txtEmail').val(response.email);
@@ -48,6 +51,7 @@ function fbLogout()
 {
     FB.logout(function (response)
     {
+        fbLogged = false;
         socialUser = null;
         $('#nameContainer').show();
         $('#emailContainer').show();

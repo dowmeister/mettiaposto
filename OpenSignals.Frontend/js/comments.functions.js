@@ -130,13 +130,16 @@ function addComment_callback(r)
     else
     {
         if (r.result != 0)
+        {
             writeMessage('Grazie per il tuo commento!', '#commentsMessages');
+
+            if (fbLogged)
+                fbPostToFeed({ title: document.title, message: 'Ho commentato una segnalazione su Mettiaposto', caption: $('#ltCategory').html(), description: $('#divDescription').html(), link: document.location.href, picture: $('#imgPhoto').attr('src') });
+        }
     }
 
     $('#commentForm').show();
     $('#commentForm > input, textarea').val('');
-
-    fbPostToFeed({ title: 'titolo', message: 'Ho commentato una segnalazione su Mettiaposto', caption: $('#ltCategory').html(), description: $('#divDescription').html(), link: document.location.href, picture: '' });
 
     getComments(0);
 }

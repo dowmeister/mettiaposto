@@ -379,7 +379,7 @@ function initDetailPage()
 
         $('#subscribeDialog').dialog({
             width: 470, autoOpen: false, title: 'Rimani aggiornato sulla segnalazione via email', resizable: false, draggable: false,
-            buttons: { 'Ricevi aggiornamenti via email': function () { subscribeSignal(); }, 'Chiudi': function () { $(this).dialog('close'); } }
+            modal:true, buttons: { 'Ricevi aggiornamenti via email': function () { subscribeSignal(); }, 'Chiudi': function () { $(this).dialog('close'); } }
         });
     });
 }
@@ -387,4 +387,37 @@ function initDetailPage()
 function openSubscribeDialog()
 {
     $('#subscribeDialog').dialog('open');
+}
+
+function openChangeSignalStatus(newStatus)
+{
+    switch (newStatus)
+    {
+        case 1:
+            $('#newStatus').val('Segnalazione aperta');
+            break;
+        case 2:
+            $('#newStatus').val('Segnalazione chiusa');
+            break;
+        case 3:
+            $('#newStatus').val('Segnalazione riaperta');
+            break;
+    }
+
+    $('#subscribeDialog').dialog({
+        width: 470, title: 'Modifica lo stato della segnalazione', resizable: false, draggable: false, modal: true,
+        buttons: { 'Modifica stato': function () { changeStatus(newStatus); }, 'Chiudi': function () { $(this).dialog('destroy'); } }
+    });
+
+}
+
+function changeStatus(newStatus)
+{
+    var proxy = new JSONService();
+    proxy.changeSignalStatus(newStatus, $('#txtChangeStatusDescription').val(), ajaxSessionKey, changeStatus_callback);
+}
+
+function changeStatus_callback(r)
+{
+    
 }
