@@ -139,7 +139,7 @@ namespace OpenSignals.Framework.Core
         {
             OpenSession();
             _htOptions = new OptionCollection(Session.CreateCriteria(typeof(Option)).List<Option>());
-            CloseSession();
+             
         }
 
         #endregion

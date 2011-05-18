@@ -38,7 +38,7 @@ namespace OpenSignals.Frontend.Includes
                 ((Label)e.Item.FindControl("timeframe")).Text = SignalUtils.GetTimeframe(((Signal)e.Item.DataItem).CreationDate);
 
                 CategoryManager cm = new CategoryManager();
-                ((Label)e.Item.FindControl("category")).Text = cm.Load(((Signal)e.Item.DataItem).CategoryID).Name;
+                ((Label)e.Item.FindControl("category")).Text = ((Signal)e.Item.DataItem).CategoryName;
             }
         }
     }

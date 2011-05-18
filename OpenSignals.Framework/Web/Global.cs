@@ -16,6 +16,7 @@
 using System;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Base;
+using OpenSignals.Framework.Data;
 
 namespace OpenSignals.Framework.Web
 {
@@ -44,6 +45,17 @@ namespace OpenSignals.Framework.Web
                 log.Fatal("Error rewriting url", ex);
                 throw ex;
             }
+        }
+
+        /// <summary>
+        /// Handles the EndRequest event of the Application control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            if (NHibernateSession.Current.Session != null)
+                NHibernateSession.Current.Session.Close();
         }
     }
 }

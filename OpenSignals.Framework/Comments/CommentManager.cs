@@ -63,7 +63,7 @@ namespace OpenSignals.Framework.Comments
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -78,7 +78,7 @@ namespace OpenSignals.Framework.Comments
             OpenTransaction();
             Session.Save(c);
             CommitTransaction();
-            CloseSession();
+             
             return c.CommentID;
         }
     }

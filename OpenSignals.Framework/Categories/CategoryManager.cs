@@ -46,7 +46,7 @@ namespace OpenSignals.Framework.Categories
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -70,7 +70,7 @@ namespace OpenSignals.Framework.Categories
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -94,7 +94,7 @@ namespace OpenSignals.Framework.Categories
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -117,7 +117,7 @@ namespace OpenSignals.Framework.Categories
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -140,7 +140,7 @@ namespace OpenSignals.Framework.Categories
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -162,7 +162,7 @@ namespace OpenSignals.Framework.Categories
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
     }

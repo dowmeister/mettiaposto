@@ -36,7 +36,7 @@ namespace OpenSignals.Framework.Signals
         {
             OpenSession();
             Signal ret = (Signal)Session.Load(typeof(Signal), id);
-            CloseSession();
+             
             return ret;
         }
 
@@ -52,7 +52,7 @@ namespace OpenSignals.Framework.Signals
                 OpenTransaction();
                 Session.Save(s);
                 CommitTransaction();
-                CloseSession();
+                 
             }
             catch (Exception ex)
             {
@@ -86,7 +86,7 @@ namespace OpenSignals.Framework.Signals
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -123,7 +123,7 @@ namespace OpenSignals.Framework.Signals
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -166,7 +166,7 @@ namespace OpenSignals.Framework.Signals
             int count = Session.CreateCriteria(typeof(Signal))
                 .Add(Restrictions.Eq("Status", status))
                 .SetProjection(Projections.RowCount()).UniqueResult<int>();
-            CloseSession();
+             
             return count;
         }
 
@@ -180,7 +180,7 @@ namespace OpenSignals.Framework.Signals
             int count = Session.CreateCriteria(typeof(Signal))
                 .Add(Restrictions.Ge("Status", 1))
                 .SetProjection(Projections.RowCount()).UniqueResult<int>();
-            CloseSession();
+             
             return count;
         }
 
@@ -198,7 +198,7 @@ namespace OpenSignals.Framework.Signals
                 .Add(Restrictions.Eq("Email", ss.Email))
                 .SetProjection(Projections.RowCount()).UniqueResult<int>();
 
-            CloseSession();
+             
 
             return (rowcount == 0);
         }
@@ -214,7 +214,7 @@ namespace OpenSignals.Framework.Signals
             List<SignalSubscription> ret = (List<SignalSubscription>)Session.CreateCriteria(typeof(SignalSubscription))
                 .Add(Restrictions.Eq("SignalID", signalID))
                 .List<SignalSubscription>();
-            CloseSession();
+             
             return ret;
         }
 
@@ -226,7 +226,7 @@ namespace OpenSignals.Framework.Signals
         {
             OpenSession();
             Session.Save(ss);
-            CloseSession();
+             
         }
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace OpenSignals.Framework.Signals
             s.ResolutionDescription = comment;
             s.UpdateDate = DateTime.Now;
             Session.SaveOrUpdate(s);
-            CloseSession();
+             
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace OpenSignals.Framework.Signals
                 Signal s = this.LoadSingnal(id);
                 Session.Delete(s);
                 CommitTransaction();
-                CloseSession();
+                 
             }
             catch (Exception ex)
             {
@@ -283,7 +283,7 @@ namespace OpenSignals.Framework.Signals
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
     }

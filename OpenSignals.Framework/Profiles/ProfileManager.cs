@@ -124,7 +124,6 @@ namespace OpenSignals.Framework.Profiles
                 connection.OpenTransaction();
                 connection.Session.Save(user);
                 connection.CommitTransaction();
-                connection.CloseSession();
 
                 return user;
             }
@@ -135,7 +134,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
             
         }
@@ -166,7 +164,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
         }
 
@@ -230,7 +227,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
         }
 
@@ -274,7 +270,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
         }
 
@@ -315,7 +310,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
         }
 
@@ -374,7 +368,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
         }
 
@@ -409,7 +402,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
         }
 
@@ -437,7 +429,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
         }
 
@@ -462,7 +453,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
         }
 
@@ -497,7 +487,6 @@ namespace OpenSignals.Framework.Profiles
             }
             finally
             {
-                connection.CloseSession();
             }
             
         }

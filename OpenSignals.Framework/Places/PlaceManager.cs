@@ -48,7 +48,7 @@ namespace OpenSignals.Framework.Places
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -73,7 +73,7 @@ namespace OpenSignals.Framework.Places
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -99,7 +99,7 @@ namespace OpenSignals.Framework.Places
             }
             finally
             {
-                CloseSession();
+                 
             }
         }
 
@@ -115,7 +115,7 @@ namespace OpenSignals.Framework.Places
                 OpenTransaction();
                 Session.Save(p);
                 CommitTransaction();
-                CloseSession();
+                 
             }
             catch (Exception ex)
             {

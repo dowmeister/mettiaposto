@@ -23,12 +23,12 @@ namespace OpenSignals.Framework.Newsletter
                 OpenSession();
                 OpenTransaction();
                 Session.Save(user);
-                CloseSession();
+                 
             }
             catch (Exception ex)
             {
                 RollbackTransaction();
-                CloseSession();
+                 
                 throw ex;
             }
         }
