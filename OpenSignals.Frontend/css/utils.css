@@ -333,8 +333,8 @@ input[type=button], input[type=reset]
 .headerlinks
 {
     background-color: #C2D8E3;
-    border: 1px solid #236387;
-    border-radius: 4px 4px 4px 4px;
+    border: 1px solid #76a6be;
+    border-radius: 5px 5px 5px 5px;
     float: right;
     height: 35px;
     margin-top: 13px;
