@@ -114,26 +114,35 @@
     <Content Include="css\flick\jquery-ui-1.8.7.custom.css" />
     <Content Include="css\teaser.css" />
     <Content Include="images\avatar.png" />
-    <Content Include="images\Blubox.png" />
     <Content Include="images\Blubox2.png" />
     <Content Include="images\BodySearch.png" />
-    <Content Include="images\facebook.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\georss.gif" />
+    <Content Include="images\georss.png" />
     <Content Include="images\green-arrow-right.gif" />
-    <Content Include="images\HeadSearch.png" />
     <Content Include="images\HeadSearch2.png" />
     <Content Include="images\HeadSearch2_error.png" />
+    <Content Include="images\logo_per_twitter.png" />
+    <Content Include="images\minisocial_facebook.png" />
+    <Content Include="images\minisocial_georss.png" />
+    <Content Include="images\minisocial_rss.png" />
+    <Content Include="images\minisocial_twitter.png" />
     <Content Include="images\minitab-selected2.png" />
     <Content Include="images\minitab-selected2_long.png" />
     <Content Include="images\minitab2.png" />
+    <Content Include="images\minitab2_long.png" />
     <Content Include="images\searchcity.png" />
     <Content Include="images\searchicon.png" />
+    <Content Include="images\socialbox.png" />
     <Content Include="images\social_facebook.png" />
+    <Content Include="images\social_report.png" />
     <Content Include="images\social_twitter.png" />
     <Content Include="images\social_update.png" />
     <Content Include="images\teaser\bgintro.png" />
     <Content Include="images\teaser\logointro.png" />
     <Content Include="images\teaser\whitebox.png" />
     <Content Include="images\twitter.gif" />
+    <Content Include="images\twitter.png" />
     <Content Include="Index.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="images\locate-me.png" />
@@ -152,11 +161,7 @@
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\alert.png" />
-    <Content Include="images\bk_box_centre.jpg" />
-    <Content Include="images\bk_box_dx.jpg" />
-    <Content Include="images\bk_box_sx.jpg" />
     <Content Include="images\blueline.png" />
-    <Content Include="images\brownbox.png" />
     <Content Include="images\feedback.png" />
     <Content Include="images\footer.png" />
     <Content Include="images\logo.png" />
@@ -169,25 +174,10 @@
     <Content Include="images\tabs\twitter.png" />
     <Content Include="images\check.png" />
     <Content Include="images\claimhome.png" />
-    <Content Include="images\feedback_top_tab.gif" />
-    <Content Include="images\greenbox.png" />
-    <Content Include="images\greenbutton.png" />
-    <Content Include="images\greentab.png" />
     <Content Include="images\header_repeated.jpg" />
     <Content Include="images\homemsgbk.jpg" />
-    <Content Include="images\minitab-selected.png" />
-    <Content Include="images\minitab.png" />
     <Content Include="images\minitabline.jpg" />
     <Content Include="images\minitabline.png" />
-    <Content Include="images\orangetab.png" />
-    <Content Include="images\pinktab.png" />
-    <Content Include="images\redbox.png" />
-    <Content Include="images\searchbg.jpg" />
-    <Content Include="images\searchbg.png" />
-    <Content Include="images\segnala_button.jpg" />
-    <Content Include="images\skyline.jpg" />
-    <Content Include="images\skyline.png" />
-    <Content Include="images\vshadow.png" />
     <Content Include="Includes\CommentsList.ascx" />
     <Content Include="Includes\Footer.ascx" />
     <Content Include="Includes\Head.ascx" />
@@ -440,16 +430,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\redbutton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Ajax\JSONService.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="images\searchbutton.png" />
     <Content Include="Rss.ashx" />
     <Content Include="js\StaticFileHandler.ashx" />
   </ItemGroup>
