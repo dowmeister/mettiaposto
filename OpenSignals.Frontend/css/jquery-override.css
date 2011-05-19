@@ -38,8 +38,7 @@
 
 .ui-widget-header
 {
-    background: #236388;
-    color: #FFFFFF;
+    border-radius: 5px 5px 0 0;
 }
 
 .ui-dialog-content
@@ -54,3 +53,17 @@
 	border: 1px solid #256488;
 }
 
+.ui-dialog .ui-dialog-buttonpane button
+{
+    background: url("/images/button_green.png") repeat scroll 0 0 transparent;
+    border: medium none;
+    color: White;
+    font-weight: bold;
+    height: 34px;
+    width: 121px;
+}
+
+.ui-dialog .ui-dialog-buttonpane
+{
+    border-top: 1px solid #1C8DCE;
+}

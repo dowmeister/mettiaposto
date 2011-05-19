@@ -72,11 +72,11 @@ namespace OpenSignals.Frontend
 
                 switch (s.Status)
                 {
-                    case Signal.SignalStatus.Approved:
+                    case Signal.SignalStatus.ReOpened:
                         divStatusReopened.Visible = true;
                         divStatusReopened.InnerHtml = String.Format(divStatusReopened.InnerHtml, s.ReopenDate.ToShortDateString(), s.ReopenDescription);
                         break;
-                    case Signal.SignalStatus.ReOpened:
+                    case Signal.SignalStatus.Approved:
                         divStatusNotResolved.Visible = true;
                         break;
                     case Signal.SignalStatus.Resolved:
