@@ -29,9 +29,6 @@
                     id="linkSignal" runat="server" href="/milano/invia.aspx">Segnala</a></li>
                 <li runat="server" id="link4" class="tabOff"><a class="tabOff" title="Domande, Risposte e altre utili informazioni"
                     href="/pages/info.aspx">FAQ</a></li>
-                <li class="rss"><a title="Iscriviti all'RSS della tua città per ricevere le segnalazioni in tempo reale"
-                    id="linkRss" runat="server" class="small rss" href="/rss.ashx"><span>Iscriviti all'RSS
-                        delle segnalazioni della tua città</span></a></li>
             </ul>
         </div>
     </div>
