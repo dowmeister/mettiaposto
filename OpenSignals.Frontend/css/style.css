@@ -355,6 +355,7 @@
 	margin-bottom: 1px;
 	border-bottom: 1px solid #DDD;
 	width: 100%;
+	border-radius: 5px;
 }
 
 #content .list .alt-item
