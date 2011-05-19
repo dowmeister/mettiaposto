@@ -332,14 +332,16 @@ input[type=button], input[type=reset]
 
 .headerlinks
 {
-    float: right; 
-    height: 40px; 
-    margin-top: 10px;
+    background: url("/images/socialbox.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 35px;
+    margin-top: 15px;
+    width: 127px;
 }
 
 .headerlinks ul
 {
-    margin: 0;
+	margin: 6px 1px 0;
     padding: 0;
 }
 
@@ -352,25 +354,31 @@ input[type=button], input[type=reset]
 .headerlinks a
 {
     display: block;
-    width: 32px;
+    width: 25px;
     height: 40px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .headerlinks a.facebook
 {
-    background: url(/images/facebook.png) no-repeat;   
+	background: url("/images/minisocial_facebook.png") no-repeat;
 }
 
 .headerlinks a.twitter
 {
-    background: url(/images/twitter.png) no-repeat;   
+    background: url(/images/minisocial_twitter.png) no-repeat;   
 }
 
 .headerlinks a.georss
 {
-    background: url(/images/georss.png) no-repeat;   
+    background: url(/images/minisocial_georss.png) no-repeat;   
 }
+
+.headerlinks a.rss
+{
+    background: url(/images/minisocial_rss.png) no-repeat;   
+}
+
 
 .headerlinks a span
 {
