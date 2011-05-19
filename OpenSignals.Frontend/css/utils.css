@@ -332,10 +332,13 @@ input[type=button], input[type=reset]
 
 .headerlinks
 {
-    background: url("/images/socialbox.png") no-repeat scroll 0 0 transparent;
+    background-color: #C2D8E3;
+    border: 1px solid #236387;
+    border-radius: 4px 4px 4px 4px;
     float: right;
     height: 35px;
-    margin-top: 15px;
+    margin-top: 13px;
+    opacity: 0.6;
     width: 127px;
 }
 
