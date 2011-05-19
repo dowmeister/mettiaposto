@@ -333,13 +333,18 @@ input[type=button], input[type=reset]
 .headerlinks
 {
     background-color: #C2D8E3;
-    border: 1px solid #76a6be;
+    border: 1px solid #6f98ad;
     border-radius: 5px 5px 5px 5px;
     float: right;
     height: 35px;
     margin-top: 13px;
     opacity: 0.6;
     width: 127px;
+}
+
+.headerlinks:hover
+{
+	opacity: 1;
 }
 
 .headerlinks ul
