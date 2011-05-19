@@ -97,6 +97,8 @@
                                 <img src="/images/social_facebook.png" alt="Facebook" /></a> </li>
                             <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Tienimi aggiornato!">
                                 <img src="/images/social_update.png" alt="Aggiornami"></a> </li>
+							<li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Riporta un abuso!">
+                                <img src="/images/social_report.png" alt="Riporta un abuso"></a> </li>
                         </ul>
                         <div class="clear">
                         </div>
