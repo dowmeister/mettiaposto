@@ -17,6 +17,9 @@ using System;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Base;
 using OpenSignals.Framework.Data;
+using NHibernate.Context;
+using System.Web;
+using NHibernate;
 
 namespace OpenSignals.Framework.Web
 {
@@ -34,6 +37,8 @@ namespace OpenSignals.Framework.Web
         {
             try
             {
+                ManagedWebSessionContext.Bind(HttpContext.Current, NHibernateSession.Current.Factory.OpenSession());
+
                 if (!Request.Url.PathAndQuery.Contains("ashx"))
                 {
                     //Response.Filter = new WhitespaceHttpFilter(Response.Filter);
@@ -54,8 +59,18 @@ namespace OpenSignals.Framework.Web
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Application_EndRequest(object sender, EventArgs e)
         {
-            if (NHibernateSession.Current.Session != null)
-                NHibernateSession.Current.Session.Close();
+            ISession session = ManagedWebSessionContext.Unbind(
+               HttpContext.Current, NHibernateSession.Current.Factory);
+
+            if (session != null)
+            {
+                if (session.Transaction != null && session.Transaction.IsActive)
+                    session.Transaction.Rollback();
+                else
+                    session.Flush();
+
+                session.Close();
+            }
         }
     }
 }

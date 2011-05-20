@@ -416,8 +416,15 @@ function changeStatus(newStatus)
     proxy.changeSignalStatus(currentMarker.id, newStatus, $('#txtChangeStatusDescription').val(), ajaxSessionKey, changeStatus_callback);
 }
 
-function changeStatus_callback(r)
+function changeStatus_callback(r) 
 {
-    $('#changeStatusDialog').dialog('destroy');
-    document.location.reload();
+    if (r) {
+        if (r.error) {
+            alert(r.error.message);
+        }
+        else {
+            $('#changeStatusDialog').dialog('destroy');
+            document.location.reload();
+        }
+    }
 }

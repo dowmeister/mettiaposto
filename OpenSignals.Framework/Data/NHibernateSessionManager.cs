@@ -28,7 +28,7 @@ namespace OpenSignals.Framework.Data
         /// <summary>
         /// 
         /// </summary>
-        protected ISession _session = NHibernateSession.Current.Session;
+        protected ISession _session = NHibernateSession.Current.Factory.GetCurrentSession();
         /// <summary>
         /// Gets the session.
         /// </summary>
@@ -44,7 +44,10 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         public void OpenSession()
         {
-            _session = _sessionFactory.OpenSession();
+            //if (_session == null)
+            //    _session = _sessionFactory.OpenSession();
+            //else
+            //    _session = _sessionFactory.GetCurrentSession();
         }
 
         /// <summary>
@@ -71,8 +74,6 @@ namespace OpenSignals.Framework.Data
         /// </summary>
         public void OpenTransaction()
         {
-            this.CheckSession();
-
             if (_transaction == null)
                 _session.BeginTransaction();
         }

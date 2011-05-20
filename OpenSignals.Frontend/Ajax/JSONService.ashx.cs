@@ -241,6 +241,7 @@ namespace OpenSignals.Frontend.Ajax
 
             SignalManager sm = new SignalManager();
             Signal s = sm.LoadSingnal(signalID);
+            s.Status = newStatus;
 
             switch (newStatus)
             {

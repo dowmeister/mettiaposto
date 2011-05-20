@@ -235,13 +235,14 @@ namespace OpenSignals.Framework.Signals
             {
                 OpenSession();
                 OpenTransaction();
-                Session.SaveOrUpdate(s);
+                Session.Update(s, s.SignalID);
                 CommitTransaction();
             }
             catch (Exception ex)
             {
                 log.Fatal("Error changing status to signal " + s.SignalID, ex);
                 RollbackTransaction();
+                throw ex;
             }
         }
 

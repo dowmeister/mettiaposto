@@ -40,8 +40,13 @@ $(document).ready(function ()
     }
 });
 
-function checkPlace()
-{
+function checkPlace() {
+
+    if ($("#searchCity").val() == '') {
+        alert('Inserire il nome di un Comune Italiano per proseguire');
+        return;
+    }
+
     var proxy = new JSONService();
     var place = proxy.checkPlace($("#searchCity").val());
 
