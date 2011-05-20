@@ -123,3 +123,9 @@ input[type=text]
     color: #E0E5F5;
     text-decoration: none;
 }
+
+#lrcontent
+{
+	border-radius: 12px;
+	margin-top: 40px;
+}
