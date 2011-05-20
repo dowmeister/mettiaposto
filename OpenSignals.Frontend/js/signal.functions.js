@@ -273,6 +273,7 @@ function getSignalsNeraby(zipCode)
 {
     if (!nearbyLoaded)
     {
+        $('#mapNearby').show();
         var proxy = new JSONService();
         proxy.getSignalsNearby({ zip: zipCode, signalID: currentMarker.id, ajaxSessionKey: ajaxSessionKey }, getSignalsNearby_callback);
     }
@@ -288,8 +289,6 @@ function getSignalsNearby_callback(r)
     {
         if (r.result.length > 0)
         {
-            $('#mapNearby').show();
-
             var mapOpts = {
                 zoom: currentCity.zoom,
                 scaleControl: false, mapTypeControl: false, scrollwheel: false, streetViewControl: false
@@ -379,7 +378,7 @@ function initDetailPage()
 
         $('#subscribeDialog').dialog({
             width: 470, autoOpen: false, title: 'Rimani aggiornato sulla segnalazione via email', resizable: false, draggable: false,
-            modal:true, buttons: { 'Ricevi aggiornamenti via email': function () { subscribeSignal(); }, 'Chiudi': function () { $(this).dialog('close'); } }
+            modal:true, buttons: { 'Ricevi aggiornamenti via email': function () { subscribeSignal(); } }
         });
     });
 }
@@ -394,19 +393,19 @@ function openChangeSignalStatus(newStatus)
     switch (newStatus)
     {
         case 1:
-            $('#newStatus').val('Segnalazione aperta');
+            $('#newStatus').html('Segnalazione aperta');
             break;
         case 2:
-            $('#newStatus').val('Segnalazione chiusa');
+            $('#newStatus').html('Segnalazione chiusa');
             break;
         case 3:
-            $('#newStatus').val('Segnalazione riaperta');
+            $('#newStatus').html('Segnalazione riaperta');
             break;
     }
 
-    $('#subscribeDialog').dialog({
+    $('#changeStatusDialog').dialog({
         width: 470, title: 'Modifica lo stato della segnalazione', resizable: false, draggable: false, modal: true,
-        buttons: { 'Modifica stato': function () { changeStatus(newStatus); }, 'Chiudi': function () { $(this).dialog('destroy'); } }
+        buttons: { 'Modifica stato': function () { changeStatus(newStatus); } }
     });
 
 }
@@ -414,10 +413,11 @@ function openChangeSignalStatus(newStatus)
 function changeStatus(newStatus)
 {
     var proxy = new JSONService();
-    proxy.changeSignalStatus(newStatus, $('#txtChangeStatusDescription').val(), ajaxSessionKey, changeStatus_callback);
+    proxy.changeSignalStatus(currentMarker.id, newStatus, $('#txtChangeStatusDescription').val(), ajaxSessionKey, changeStatus_callback);
 }
 
 function changeStatus_callback(r)
 {
-    
+    $('#changeStatusDialog').dialog('destroy');
+    document.location.reload();
 }

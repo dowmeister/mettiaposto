@@ -53,24 +53,19 @@
                         </div>
                     </div>
                     <div id="divStatusReopened" visible="false" runat="server" class="statusBox status-notResolved">
-                        Segnalazione riaperta il {0}, motivo: {2}
-                        <br />
-                        <a href="#" onclick="changeStatus(2); return false;">Chiudi la segnalazione</a>
+                        Segnalazione riaperta il {0}, motivo: {1} <a href="#" onclick="openChangeSignalStatus(2); return false;">
+                            Chiudi la segnalazione</a>
                     </div>
                     <div id="divStatusNotResolved" visible="false" runat="server" class="statusBox status-notResolved">
-                        Segnalazione non risolta <a href="#" onclick="changeStatus(2); return false;">Chiudi
-                            la segnalazione</a>
+                        Segnalazione non risolta <a href="#" onclick="openChangeSignalStatus(2); return false;">
+                            Chiudi la segnalazione</a>
                     </div>
                     <div id="divStatusResolved" visible="false" runat="server" class="statusBox status-resolved">
-                        Segnalazione risolta il {0}, segnalato da {1} con messaggio: {2}
-                        <div>
-                            <a href="#" onclick="changeStatus(4); return false;">Riapri la segnalazione</a>
-                        </div>
-                        <div class="clear">
-                        </div>
+                        Segnalazione risolta il {0}, segnalato da {1}, messaggio: {2} <a href="#" onclick="openChangeSignalStatus(4); return false;">
+                            Riapri la segnalazione</a>
                     </div>
                     <div id="divStatusExpired" visible="false" runat="server" class="statusBox status-expired">
-                        Questa segnalazione è scaduta (2 mesi senza risposta)
+                        Questa segnalazione è scaduta (2 mesi senza aggiornamenti)
                     </div>
                     <!-- <div class="shareBox">
                         <ul>                            
@@ -91,14 +86,14 @@
                         <ul>
                             <li><a onclick="sharePopup(this); return false;" href="http://twitter.com/intent/tweet?text=<%= this.Title %>&url=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&via=mettiaposto"
                                 title="Condividi su Twitter">
-                                <img src="/images/social_twitter.png" alt="Twitter" /></a> </li>
+                                <img src="/images/social_twitter.png" alt="Condividi su Twitter" /></a> </li>
                             <li><a onclick="sharePopup(this); return false;" href="http://www.facebook.com/share.php?u=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&t=<%= this.Title %>"
                                 title="Condividi su Facebook">
-                                <img src="/images/social_facebook.png" alt="Facebook" /></a> </li>
-                            <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Tienimi aggiornato!">
-                                <img src="/images/social_update.png" alt="Aggiornami"></a> </li>
-							<li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Riporta un abuso!">
-                                <img src="/images/social_report.png" alt="Riporta un abuso"></a> </li>
+                                <img src="/images/social_facebook.png" alt="Condividi su Facebook" /></a> </li>
+                            <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Iscriviti alla segnalazione">
+                                <img src="/images/social_update.png" alt="Aggiornami" /></a> </li>
+                            <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Riporta un abuso per una segnalazione impropria o errata">
+                                <img src="/images/social_report.png" alt="Riporta un abuso per una segnalazione impropria o errata" /></a></li>
                         </ul>
                         <div class="clear">
                         </div>
@@ -116,8 +111,8 @@
                             Login con Facebook</button>
                         <ol>
                             <li class="loginStatus" id="loginStatus" style="display: none;">
-                                <img id="userAvatar" style="vertical-align: middle" />
-                                <span id="userName"></span>(<a href="#" onclick="fbLogout(); return false;">Logout</a>)
+                                <img alt="foto profilo" id="userAvatar" style="vertical-align: middle" />
+                                <span id="userName"></span>(<a href="javascript:;" title="Logout" onclick="fbLogout(); return false;">Logout</a>)
                             </li>
                             <li>
                                 <label>
@@ -197,8 +192,10 @@
                         Messaggio</label>
                     <asp:TextBox runat="server" ID="txtChangeStatusDescription" TextMode="MultiLine"></asp:TextBox>
                     <div class="legend">
-                        Se si sta riaprendo una segnalazione, inserire un messaggio che spieghi perchè la segnalazione viene riaperta (es: il problema segnalato non è stato risolto correttamente); se si sta
-                        chiudendo una segnalazione, è possibile indicare in che modo il problema è stato risolto (es.: la buca è stata chiusa con nuovo asfalto)
+                        Se si sta riaprendo una segnalazione, inserire un messaggio che spieghi perchè la
+                        segnalazione viene riaperta (es: il problema segnalato non è stato risolto correttamente);
+                        se si sta chiudendo una segnalazione, è possibile indicare in che modo il problema
+                        è stato risolto (es.: la buca è stata chiusa con nuovo asfalto)
                     </div>
                 </li>
             </ol>
