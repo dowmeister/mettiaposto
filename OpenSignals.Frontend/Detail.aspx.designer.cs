@@ -292,6 +292,15 @@ namespace OpenSignals.Frontend {
         protected global::System.Web.UI.WebControls.TextBox txtChangeStatusDescription;
         
         /// <summary>
+        /// txtReportAbuseMesasage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReportAbuseMesasage;
+        
+        /// <summary>
         /// Footer1 control.
         /// </summary>
         /// <remarks>

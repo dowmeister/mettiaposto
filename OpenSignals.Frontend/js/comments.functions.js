@@ -188,3 +188,28 @@ function subscribeSignal_callback(r)
         writeMessage('Ti sei iscritto a questa segnalazione', "In questo modo potrai rimanere aggiornato sullo stato e i commenti della segnalazione", '#subscribeSignalMessages');
     }
 }
+
+function openReportAbuseDialog()
+{
+    $('#reportAbuseDialog').dialog({
+        width: 470, title: 'Segnala un contenuto improprio o errato', resizable: false, draggable: false,
+        modal: true, buttons: { 'Segnala': function () { reportAbuse(); } }
+    });
+}
+
+function reportAbuse()
+{
+    $('#reportAbuseForm').hide();
+    writeAjax('#reportAbuseMessages');
+    alert('l');
+}
+
+function reportAbuse_callback(r)
+{
+    hideAjax('#reportAbuseMessages');
+
+    if (checkResponse(r))
+    {
+        writeMessag('Grazie!', 'La tua segnalazione contribuisce a rendere migliore e più affidabile questo servizio', '#reportAbuseMessages');         
+    }
+}

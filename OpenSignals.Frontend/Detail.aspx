@@ -61,7 +61,7 @@
                             Chiudi la segnalazione</a>
                     </div>
                     <div id="divStatusResolved" visible="false" runat="server" class="statusBox status-resolved">
-                        Segnalazione risolta il {0}, segnalato da {1}, messaggio: {2} <a href="#" onclick="openChangeSignalStatus(4); return false;">
+                        Segnalazione risolta il {0}, messaggio: {1} <a href="#" onclick="openChangeSignalStatus(4); return false;">
                             Riapri la segnalazione</a>
                     </div>
                     <div id="divStatusExpired" visible="false" runat="server" class="statusBox status-expired">
@@ -92,7 +92,7 @@
                                 <img src="/images/social_facebook.png" alt="Condividi su Facebook" /></a> </li>
                             <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Iscriviti alla segnalazione">
                                 <img src="/images/social_update.png" alt="Aggiornami" /></a> </li>
-                            <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Riporta un abuso per una segnalazione impropria o errata">
+                            <li><a href="javascript:;" onclick="openReportAbuseDialog(); return false;" title="Riporta un abuso per una segnalazione impropria o errata">
                                 <img src="/images/social_report.png" alt="Riporta un abuso per una segnalazione impropria o errata" /></a></li>
                         </ul>
                         <div class="clear">
@@ -181,7 +181,9 @@
         </div>
     </div>
     <div id="changeStatusDialog" style="display: none">
-        <div class="submitForm">
+        <div id="changeStatusMessages">
+        </div>
+        <div id="changeStatusForm" class="submitForm">
             <ol>
                 <li>
                     <label>
@@ -197,6 +199,19 @@
                         se si sta chiudendo una segnalazione, è possibile indicare in che modo il problema
                         è stato risolto (es.: la buca è stata chiusa con nuovo asfalto)
                     </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+     <div id="reportAbuseDialog" style="display: none">
+        <div id="reportAbuseMessages">
+        </div>
+        <div id="reportAbuseForm" class="submitForm">
+            <ol>
+                <li>
+                    <label>
+                        Commento</label>
+                    <asp:TextBox ID="txtReportAbuseMesasage" TextMode="MultiLine" runat="server"></asp:TextBox>
                 </li>
             </ol>
         </div>

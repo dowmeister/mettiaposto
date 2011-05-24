@@ -81,7 +81,7 @@ namespace OpenSignals.Frontend
                         break;
                     case Signal.SignalStatus.Resolved:
                         divStatusResolved.Visible = true;
-                        divStatusReopened.InnerHtml = String.Format(divStatusResolved.InnerHtml, s.ResolutionDate, s.ResolutionDescription);
+                        divStatusResolved.InnerHtml = String.Format(divStatusResolved.InnerHtml, s.ResolutionDate, s.ResolutionDescription);
                         break;
                     case Signal.SignalStatus.Expired:
                         divStatusExpired.Visible = true;

@@ -398,7 +398,7 @@ function openChangeSignalStatus(newStatus)
         case 2:
             $('#newStatus').html('Segnalazione chiusa');
             break;
-        case 3:
+        case 4:
             $('#newStatus').html('Segnalazione riaperta');
             break;
     }
@@ -412,6 +412,8 @@ function openChangeSignalStatus(newStatus)
 
 function changeStatus(newStatus)
 {
+    $('#changeStatusForm').hide();
+    writeAjax('#changeStatusMessages');
     var proxy = new JSONService();
     proxy.changeSignalStatus(currentMarker.id, newStatus, $('#txtChangeStatusDescription').val(), ajaxSessionKey, changeStatus_callback);
 }

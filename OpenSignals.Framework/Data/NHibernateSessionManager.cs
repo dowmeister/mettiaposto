@@ -75,7 +75,7 @@ namespace OpenSignals.Framework.Data
         public void OpenTransaction()
         {
             if (_transaction == null)
-                _session.BeginTransaction();
+               _transaction = _session.BeginTransaction();
         }
 
         private void CheckSession()

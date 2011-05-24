@@ -195,3 +195,19 @@ function sharePopup(a)
     window.open(a.href, "Condividi", "status=0,toolbar=0,menubar=0,resizable=0,scrollbars=0,height=400,width=600");
     return false;
 }
+
+function checkResponse(r)
+{
+    if (r)
+    {
+        if (r.error)
+        {
+            alert(r.error.message);
+            return false;
+        }
+        else
+            return true;
+    }
+    else
+        return false;
+}
