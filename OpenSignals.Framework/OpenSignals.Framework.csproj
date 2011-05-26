@@ -87,6 +87,7 @@
     <Compile Include="Comments\CommentManager.cs" />
     <Compile Include="Communications\BaseMessage.cs" />
     <Compile Include="Communications\Messages\CitySubmissionEmail.cs" />
+    <Compile Include="Communications\Messages\AbuseReportEmail.cs" />
     <Compile Include="Communications\Messages\FeedbackEmail.cs" />
     <Compile Include="Communications\Messages\SignalAlertEmail.cs" />
     <Compile Include="Communications\Messages\SignalApprovalEmail.cs" />

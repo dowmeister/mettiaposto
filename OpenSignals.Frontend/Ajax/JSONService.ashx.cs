@@ -47,6 +47,7 @@ namespace OpenSignals.Frontend.Ajax
             s.Description = s.Description.Replace("\n", "<br/>");
             s.CreationDate = DateTime.Now;
             s.UpdateDate = DateTime.Now;
+            s.ReopenDescription = string.Empty;
 
             if (ConfigurationOptions.Current.GetBool("signal_approve_on_submission"))
                 s.Status = Signal.SignalStatus.Approved;
@@ -256,6 +257,15 @@ namespace OpenSignals.Frontend.Ajax
             }
 
             sm.ChangeSignalStatus(s);
+        }
+
+        [JsonRpcMethod("reportAbuse")]
+        public void ReportAbuse(string message, string ajaxSessionKey)
+        {
+            CheckRequest(ajaxSessionKey);
+
+            AbuseReportEmail email = new AbuseReportEmail();
+            email.Send(this.Context.Request.UrlReferrer.AbsoluteUri.ToString(), message);
         }
     }
 }

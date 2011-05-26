@@ -47,3 +47,6 @@
     <br />
     Stay tuned :)
 </div>
+<div id="alertDialog" style="display:none;">
+    <div id="alertMessage"></div>
+</div>

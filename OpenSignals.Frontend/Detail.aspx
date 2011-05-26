@@ -42,7 +42,7 @@
                         da
                         <asp:Label ID="ltAuthor" runat="server"></asp:Label>
                         nella categoria "<asp:Label ID="ltCategory" runat="server"></asp:Label>" in
-                        <asp:Label ID="lblAddress" runat="server"></asp:Label>
+                        <asp:Label ID="lblAddress" runat="server"></asp:Label> - Criticità <asp:Label ID="lblCriticalLevel" runat="server"></asp:Label>
                     </div>
                     <div class="description">
                         <asp:PlaceHolder ID="plhDescription" runat="server"></asp:PlaceHolder>
@@ -112,7 +112,7 @@
                         <ol>
                             <li class="loginStatus" id="loginStatus" style="display: none;">
                                 <img alt="foto profilo" id="userAvatar" style="vertical-align: middle" />
-                                <span id="userName"></span>(<a href="javascript:;" title="Logout" onclick="fbLogout(); return false;">Logout</a>)
+                                <span id="userName"></span>&nbsp;(<a href="javascript:;" title="Logout" onclick="fbLogout(); return false;">Logout</a>)
                             </li>
                             <li>
                                 <label>
@@ -220,8 +220,6 @@
     </form>
     <script src="http://maps.google.com/maps/api/js?sensor=true&amp;region=it" type="text/javascript"></script>
     <script src="http://connect.facebook.net/it_IT/all.js" type="text/javascript"></script>
-    <!--<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>-->
     <script src="/Ajax/JSONService.ashx?proxy" type="text/javascript"></script>
     <script type="text/javascript" src="/js/StaticFileHandler.ashx?key=common,detail"></script>
     <script type="text/javascript">

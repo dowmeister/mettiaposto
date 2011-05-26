@@ -596,3 +596,18 @@ dd
     display: block;
     text-align: right;
 }
+
+.criticalNormal
+{
+    color: Green;
+}
+
+.criticalMedium
+{
+    color: Orange;
+}
+
+.criticalHigh
+{
+    color: Red;
+}

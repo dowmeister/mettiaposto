@@ -52,6 +52,22 @@ namespace OpenSignals.Framework.Signals
             public const int ReOpened = 4;
         }
 
+        public struct CriticalLevels
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int Normal = 1;
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int Medium = 2;
+            /// <summary>
+            /// 
+            /// </summary>
+            public const int High = 3;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Signal"/> class.
         /// </summary>
@@ -287,6 +303,14 @@ namespace OpenSignals.Framework.Signals
         }
 
         #endregion
+
+        /// <summary>
+        /// Gets or sets the critical level.
+        /// </summary>
+        /// <value>
+        /// The critical level.
+        /// </value>
+        public virtual int CriticalLevel { get; set; }
     }
 
     /// <summary>

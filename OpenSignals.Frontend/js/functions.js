@@ -48,11 +48,11 @@ function checkPlace() {
     }
 
     var proxy = new JSONService();
-    var place = proxy.checkPlace($("#searchCity").val());
+    var place = proxy.checkPlace($("#searchCity").val(), ajaxSessionKey);
 
     if (place)
     {
-        $("#searchCity").val(place.name, ajaxSessionKey);
+        $("#searchCity").val(place.name);
 
         if (place.status == 1)
             window.location.href = '/' + place.name.toLowerCase() + '/index.aspx';
@@ -210,4 +210,17 @@ function checkResponse(r)
     }
     else
         return false;
+}
+
+window.alert = function (msg)
+{
+    $('#alertMessage').html(msg);
+    $('#alertDialog').dialog({
+        width: 400, modal: true, draggable: false, resizable: false, title: 'Ops! Un messaggio per te...',
+        buttons:
+        {
+            'Chiudi': function () { $(this).dialog('destroy'); }
+        }
+    });
+    return false;
 }
