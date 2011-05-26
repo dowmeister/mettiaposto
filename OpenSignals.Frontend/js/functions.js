@@ -180,7 +180,7 @@ function showNotExistingCityDialog(cityToAdd)
         buttons: {
             'Aggiungila': function () { $(this).dialog('close'); },
             'Leggi le FAQ': function () { goTo('/pages/info.aspx#addCity'); },
-            "Dai un'occhiata": function () { $(this).dialog('close'); }
+            "Esci": function () { $(this).dialog('close'); }
         }
     });
 }
