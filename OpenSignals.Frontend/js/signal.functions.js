@@ -388,7 +388,7 @@ function initDetailPage()
 
         $('#subscribeDialog').dialog({
             width: 470, autoOpen: false, title: 'Rimani aggiornato sulla segnalazione via email', resizable: false, draggable: false,
-            modal: true, buttons: { 'Ricevi aggiornamenti via email': function () { subscribeSignal(); } }
+            modal: true, buttons: { 'Aggiornami': function () { subscribeSignal(); } }
         });
     });
 }
