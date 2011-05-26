@@ -34,7 +34,7 @@
     La città richiesta (<span id="notExistingCityLabel"></span>) non esiste nel database
     di Mettiaposto.
     <br />
-    Puoi aggiungerla tu stesso, clicca sul bottone 'Aggiungi la tua città' per proseguire.
+    Puoi aggiungerla tu stesso, clicca sul bottone 'Aggiungila' per proseguire.
     <br />
     Una volta inserita, verrà controllata e sottoposta ad una veloce approvazione per
     verificare i dati e la posizione che hai inserito e verrai avvertito quando la tua richiesta
