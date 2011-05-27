@@ -178,9 +178,9 @@ function showNotExistingCityDialog(cityToAdd)
     $('#notExistingCity').dialog({
         width: 500, modal: true, resizable: false, draggable: false, title: 'Ops!', show: 'slide',
         buttons: {
-            'Aggiungi la tua città': function () { $(this).dialog('close'); },
+            'Aggiungila': function () { $(this).dialog('close'); },
             'Leggi le FAQ': function () { goTo('/pages/info.aspx#addCity'); },
-            "Dai un'occhiata": function () { $(this).dialog('close'); }
+            "Esci": function () { $(this).dialog('close'); }
         }
     });
 }
