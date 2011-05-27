@@ -134,6 +134,7 @@ function addSignal()
     s.zoom = mapManager.getZoom('map');
     s.attachment = '';
     s.criticalLevel = $('#criticalSlider').slider('option', 'value');
+    s.source = 'www';
 
     if ($('#fuFile').val() != '')
     {

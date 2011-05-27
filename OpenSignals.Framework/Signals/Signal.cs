@@ -302,6 +302,14 @@ namespace OpenSignals.Framework.Signals
             get { return !this.Attachment.Equals(string.Empty); }
         }
 
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public virtual string Source { get; set; }
+
         #endregion
 
         /// <summary>

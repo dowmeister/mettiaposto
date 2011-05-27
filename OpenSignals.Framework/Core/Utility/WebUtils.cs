@@ -125,5 +125,27 @@ namespace OpenSignals.Framework.Core.Utility
         {
             return ConfigurationOptions.Current.GetString("system_upload_path") + type + attachment;
         }
+
+        /// <summary>
+        /// Creates the attachments directories.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        public static void CreateAttachmentsDirectories(string path)
+        {
+            if (!Directory.Exists(Path.Combine(path, UploadPaths.Original)))
+                Directory.CreateDirectory(Path.Combine(path, UploadPaths.Original));
+
+            if (!Directory.Exists(Path.Combine(path, UploadPaths.Mobile)))
+                Directory.CreateDirectory(Path.Combine(path, UploadPaths.Mobile));
+
+            if (!Directory.Exists(Path.Combine(path, UploadPaths.Small)))
+                Directory.CreateDirectory(Path.Combine(path, UploadPaths.Small));
+
+            if (!Directory.Exists(Path.Combine(path, UploadPaths.Big)))
+                Directory.CreateDirectory(Path.Combine(path, UploadPaths.Big));
+
+            if (!Directory.Exists(Path.Combine(path, UploadPaths.Comments)))
+                Directory.CreateDirectory(Path.Combine(path, UploadPaths.Comments));
+        }
     }
 }
