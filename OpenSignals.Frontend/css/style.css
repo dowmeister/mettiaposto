@@ -596,3 +596,46 @@ dd
     display: block;
     text-align: right;
 }
+
+.criticalNormal
+{
+    color: Green;
+}
+
+.criticalMedium
+{
+    color: Orange;
+}
+
+.criticalHigh
+{
+    color: Red;
+}
+
+.shareBox ul li a
+{
+    display: block;
+    width: 38px;
+    height: 37px;
+    background-repeat: no-repeat;
+}
+
+.shareBox ul li a.facebook
+{
+    background: url(/images/social_facebook.png);
+}
+
+.shareBox ul li a.twitter
+{
+    background: url(/images/social_twitter.png);
+}
+
+.shareBox ul li a.report
+{
+    background: url(/images/social_report.png);
+}
+
+.shareBox ul li a.subscribe
+{
+    background: url(/images/social_update.png);
+}
