@@ -201,15 +201,19 @@ function reportAbuse()
 {
     $('#reportAbuseForm').hide();
     writeAjax('#reportAbuseMessages');
-    alert('l');
+    var proxy = new JSONService();
+    proxy.reportAbuse($('#txtReportAbuseMesasage').val(), ajaxSessionKey, reportAbuse_callback);
 }
 
 function reportAbuse_callback(r)
 {
     hideAjax('#reportAbuseMessages');
 
-    if (checkResponse(r))
-    {
-        writeMessag('Grazie!', 'La tua segnalazione contribuisce a rendere migliore e più affidabile questo servizio', '#reportAbuseMessages');         
+    if (checkResponse(r)) {
+        writeMessage('Grazie!', 'La tua segnalazione contribuisce a rendere migliore e più affidabile questo servizio', '#reportAbuseMessages');
     }
+    else {
+        writeError(r.error.message, '#reportAbuseMessages');
+    }
+    
 }

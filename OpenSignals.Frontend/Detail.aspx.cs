@@ -34,7 +34,7 @@ namespace OpenSignals.Frontend
                 this.Title = String.Format(this.Title, s.Subject, s.Address, s.City);
                 metaOgDescription.Attributes["content"] = s.Excerpt;
                 ogTitle.Attributes["content"] = String.Format(ogTitle.Attributes["content"], s.Subject, s.Address, s.City);
-                
+
                 if (!s.ShowName)
                     ltAuthor.Text = "Anonimo";
                 else
@@ -65,7 +65,7 @@ namespace OpenSignals.Frontend
                 if (!s.Attachment.Equals(string.Empty))
                 {
                     divPhoto.Visible = true;
-                    lnkPhoto.HRef = WebUtils.GetImageUrl( UploadPaths.Big, s.Attachment);
+                    lnkPhoto.HRef = WebUtils.GetImageUrl(UploadPaths.Big, s.Attachment);
                     imgPhoto.ImageUrl = WebUtils.GetImageUrl(UploadPaths.Small, s.Attachment);
                     ogImage.Attributes["content"] = WebUtils.GetImageUrl(UploadPaths.Small, s.Attachment);
                 }
@@ -85,6 +85,22 @@ namespace OpenSignals.Frontend
                         break;
                     case Signal.SignalStatus.Expired:
                         divStatusExpired.Visible = true;
+                        break;
+                }
+
+                switch (s.CriticalLevel)
+                {
+                    case Signal.CriticalLevels.Normal:
+                        lblCriticalLevel.Text = "Bassa";
+                        lblCriticalLevel.CssClass = "criticalNormal";
+                        break;
+                    case Signal.CriticalLevels.Medium:
+                        lblCriticalLevel.Text = "Media";
+                        lblCriticalLevel.CssClass = "criticalMedium";
+                        break;
+                    case Signal.CriticalLevels.High:
+                        lblCriticalLevel.Text = "Alta";
+                        lblCriticalLevel.CssClass = "criticalHigh";
                         break;
                 }
 

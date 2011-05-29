@@ -39,9 +39,9 @@ namespace OpenSignals.Frontend.Includes
 
                 if (c.ShowAuthorName)
                 {
-                    if (c.AuthorReferenceType == Comment.AuthorType.Facebook)
-                        ((Literal)e.Item.FindControl("ltAuthor")).Text = "<fb:name uid=\"" + c.AuthorReferenceKey + "\" use-you=\"no\"></fb:name>";
-                    else
+                    //if (c.AuthorReferenceType == Comment.AuthorType.Facebook)
+                    //    ((Literal)e.Item.FindControl("ltAuthor")).Text = "<fb:name uid=\"" + c.AuthorReferenceKey + "\" use-you=\"no\"></fb:name>";
+                    //else
                         ((Literal)e.Item.FindControl("ltAuthor")).Text = c.AuthorName;
                 }
                 else

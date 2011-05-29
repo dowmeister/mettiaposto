@@ -167,4 +167,31 @@ namespace OpenSignals.Framework.Core
                 throw new Exception("Cannot find <rewrite> node in web.config");
         }
     }
+
+    public class URLRewriteModule : IHttpModule
+    {
+        #region IHttpModule Members
+
+        public void Dispose()
+        {
+        }
+
+        public void Init(HttpApplication context)
+        {
+            context.BeginRequest += new EventHandler(context_BeginRequest);
+        }
+
+        void context_BeginRequest(object sender, EventArgs e)
+        {
+            HttpContext context = ((HttpApplication)sender).Context;
+
+            if (!context.Request.Url.PathAndQuery.Contains("ashx"))
+            {
+                //Response.Filter = new WhitespaceHttpFilter(Response.Filter);
+                RewriteManager.RewriteUrl();
+            }
+        }
+
+        #endregion
+    }
 }

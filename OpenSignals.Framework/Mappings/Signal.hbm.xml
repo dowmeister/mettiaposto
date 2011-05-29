@@ -1,41 +1,42 @@
 ﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="OpenSignals.Framework" namespace="OpenSignals.Framework.Signals">
-    <class name="Signal" table="signals">
-        <id name="SignalID" column="s_id" type="int">
-            <generator class="native"></generator>
-        </id>
-        <property name="Subject" column="s_subject" type="String"></property>
-        <property name="Description" column="s_description" type="String"></property>
-        <property name="Status" column="s_status" type="int"></property>
-        <property name="CategoryID" column="s_category_id" type="int"></property>
-        <property name="Name" column="s_name" type="String"></property>
-        <property name="Email" column="s_email" type="String"></property>
-        <property name="ShowName" column="s_show_name" type="bool"></property>
-        <property name="ResolutionDescription" column="s_resolution_description" type="String"></property>
-        <property name="Address" column="s_address" type="String"></property>
-        <property name="City" column="s_city" type="String"></property>
-        <property name="Zip" column="s_zip" type="String"></property>
-        <property name="CreationDate" column="s_creation_date" type="DateTime"></property>
-        <property name="UpdateDate" column="s_update_date" type="DateTime"></property>
-        <property name="ResolutionDate" column="s_resolution_date" type="DateTime"></property>
-        <property name="Latitude" column="s_latitude" type="decimal"></property>
-        <property name="Longitude" column="s_longitude" type="decimal"></property>
-        <property name="Zoom" column="s_zoom" type="int"></property>
-        <property name="Attachment" column="s_attachment" type="String"></property>
-        <property name="SentToCouncil" column="s_sent_to_council" type="bool"></property>
-        <property name="SentToCouncilDate" column="s_sent_to_council_date" type="DateTime"></property>
-        <property name="ReopenDate" column="s_reopen_date" type="DateTime"></property>
-        <property name="ReopenDescription" column="s_reopen_description" type="string"></property>
-        <bag name="Comments" table="signal_comments" lazy="false">
-            <key column="sc_signal_id"></key>
-            <one-to-many class="OpenSignals.Framework.Comments.Comment"></one-to-many>
-        </bag>
-        <bag name="Subscriptions" table="signal_subscriptions" lazy="false">
-            <key column="ss_signal_id"></key>
-            <one-to-many class="OpenSignals.Framework.Signals.SignalSubscription"></one-to-many>
-        </bag>
-        <join table="categories" inverse="true">
-            <key column="c_id" property-ref="s_category_id"/>
-            <property name="CategoryName" column="c_name" />
-        </join>
-    </class>
+  <class name="Signal" table="signals">
+    <id name="SignalID" column="s_id" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="Subject" column="s_subject" type="String"></property>
+    <property name="Description" column="s_description" type="String"></property>
+    <property name="Status" column="s_status" type="int"></property>
+    <property name="CategoryID" column="s_category_id" type="int"></property>
+    <property name="Name" column="s_name" type="String"></property>
+    <property name="Email" column="s_email" type="String"></property>
+    <property name="ShowName" column="s_show_name" type="bool"></property>
+    <property name="ResolutionDescription" column="s_resolution_description" type="String"></property>
+    <property name="Address" column="s_address" type="String"></property>
+    <property name="City" column="s_city" type="String"></property>
+    <property name="Zip" column="s_zip" type="String"></property>
+    <property name="CreationDate" column="s_creation_date" type="DateTime"></property>
+    <property name="UpdateDate" column="s_update_date" type="DateTime"></property>
+    <property name="ResolutionDate" column="s_resolution_date" type="DateTime"></property>
+    <property name="Latitude" column="s_latitude" type="decimal"></property>
+    <property name="Longitude" column="s_longitude" type="decimal"></property>
+    <property name="Zoom" column="s_zoom" type="int"></property>
+    <property name="Attachment" column="s_attachment" type="String"></property>
+    <property name="SentToCouncil" column="s_sent_to_council" type="bool"></property>
+    <property name="SentToCouncilDate" column="s_sent_to_council_date" type="DateTime"></property>
+    <property name="ReopenDate" column="s_reopen_date" type="DateTime"></property>
+    <property name="ReopenDescription" column="s_reopen_description" type="string"></property>
+    <property name="CriticalLevel" column="s_critical_level" type="int"></property>
+    <bag name="Comments" table="signal_comments" lazy="false">
+      <key column="sc_signal_id"></key>
+      <one-to-many class="OpenSignals.Framework.Comments.Comment"></one-to-many>
+    </bag>
+    <bag name="Subscriptions" table="signal_subscriptions" lazy="false">
+      <key column="ss_signal_id"></key>
+      <one-to-many class="OpenSignals.Framework.Signals.SignalSubscription"></one-to-many>
+    </bag>
+    <join table="categories" inverse="true">
+      <key column="c_id" property-ref="s_category_id"/>
+      <property name="CategoryName" column="c_name" />
+    </join>
+  </class>
 </hibernate-mapping>

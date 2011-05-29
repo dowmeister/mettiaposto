@@ -92,6 +92,9 @@
     <Content Include="Contents\XSL\CitySubmissionBody.xsl">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Contents\XSL\AbuseReportBody.xsl">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Contents\XSL\FeedbackBody.xsl">
       <SubType>Designer</SubType>
     </Content>

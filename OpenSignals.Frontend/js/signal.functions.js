@@ -133,6 +133,8 @@ function addSignal()
     s.city = currentCity.name;
     s.zoom = mapManager.getZoom('map');
     s.attachment = '';
+    s.criticalLevel = $('#criticalSlider').slider('option', 'value');
+    s.source = 'www';
 
     if ($('#fuFile').val() != '')
     {
@@ -182,46 +184,55 @@ function geolocationByAddress_callback(r, status, options)
     {
         var data = mapManager.getGeolocationData(r, 0);
 
-        mapManager.setCenter({ mapID: 'map', position: data.geometry.location });
-
-        switch (data.types[0])
+        if (mapManager.getAddressComponent(data.address_components, 'locality').long_name == currentCity.name)
         {
-            case 'street_address':
-                mapManager.setZoom({ mapID: 'map', zoom: 16 });
-                break;
-            case 'postal_code':
-                mapManager.setZoom({ mapID: 'map', zoom: 14 });
-                break;
-            case 'sublocality':
-                mapManager.setZoom({ mapID: 'map', zoom: 13 });
-                break;
-            case 'route':
-                mapManager.setZoom({ mapID: 'map', zoom: 15 });
-                break;
-            case 'locality':
-                mapManager.setZoom({ mapID: 'map', zoom: 7 });
-                break;
-        }
+            switch (data.types[0])
+            {
+                case 'street_address':
+                    mapManager.setZoom({ mapID: 'map', zoom: 16 });
+                    break;
+                case 'postal_code':
+                    mapManager.setZoom({ mapID: 'map', zoom: 14 });
+                    break;
+                case 'sublocality':
+                    //mapManager.setZoom({ mapID: 'map', zoom: 13 });
+                    alert("L'indirizzo inserito non è molto preciso, prova a riscriverlo indicando precisamente il tipo di indirizzo (via, viale, piazza) o il numero civico");
+                    return;
+                    break;
+                case 'route':
+                    mapManager.setZoom({ mapID: 'map', zoom: 15 });
+                    break;
+                case 'locality':
+                    //mapManager.setZoom({ mapID: 'map', zoom: 7 });
+                    alert("L'indirizzo inserito non è molto preciso, prova a riscriverlo indicando precisamente il tipo di indirizzo (via, viale, piazza) o il numero civico");
+                    return;
+                    break;
+            }
 
-        switch (data.types[0])
-        {
-            case 'street_address':
-            case 'route':
-                mapManager.addMarker({
-                    managerInstance: mapManager,
-                    id: 'geoLocatedMarker0', position: data.geometry.location, draggable: true, mapID: 'map',
-                    image: MARKERIMAGE_ALERT, center: true, localize: true,
-                    goelocalizationCallback:
+            mapManager.setCenter({ mapID: 'map', position: data.geometry.location });
+
+            switch (data.types[0])
+            {
+                case 'street_address':
+                case 'route':
+                    mapManager.addMarker({
+                        managerInstance: mapManager,
+                        id: 'geoLocatedMarker0', position: data.geometry.location, draggable: true, mapID: 'map',
+                        image: MARKERIMAGE_ALERT, center: true, localize: true,
+                        goelocalizationCallback:
                         function (response, status) { geoLocationByLatLng_callback(response, status); },
-                    dragEnd: function (event)
-                    {
-                        mapManager.geolocate({ mapID: 'map', position: event.latLng, callback:
+                        dragEnd: function (event)
+                        {
+                            mapManager.geolocate({ mapID: 'map', position: event.latLng, callback:
                             function (response, status) { geoLocationByLatLng_callback(response, status); }
-                        });
-                    }
-                });
-                break;
+                            });
+                        }
+                    });
+                    break;
+            }
         }
+        else
+            alert("L'indirizzo che hai inserito non è a " + currentCity.name);
     }
 
     currentMap = null;
@@ -378,7 +389,7 @@ function initDetailPage()
 
         $('#subscribeDialog').dialog({
             width: 470, autoOpen: false, title: 'Rimani aggiornato sulla segnalazione via email', resizable: false, draggable: false,
-            modal:true, buttons: { 'Ricevi aggiornamenti via email': function () { subscribeSignal(); } }
+            modal: true, buttons: { 'Aggiornami': function () { subscribeSignal(); } }
         });
     });
 }
@@ -418,13 +429,16 @@ function changeStatus(newStatus)
     proxy.changeSignalStatus(currentMarker.id, newStatus, $('#txtChangeStatusDescription').val(), ajaxSessionKey, changeStatus_callback);
 }
 
-function changeStatus_callback(r) 
+function changeStatus_callback(r)
 {
-    if (r) {
-        if (r.error) {
+    if (r)
+    {
+        if (r.error)
+        {
             alert(r.error.message);
         }
-        else {
+        else
+        {
             $('#changeStatusDialog').dialog('destroy');
             document.location.reload();
         }
