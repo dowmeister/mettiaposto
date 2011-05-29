@@ -1,6 +1,6 @@
 ﻿/* UTILS */
 
-*
+a, div, span, h1, h2, h3, li, input, select, textarea
 {
     font-family: 'Lucida Grande' , 'Lucida Sans Unicode' , Lucida, Verdana, Arial, sans-serif;
 }
@@ -28,6 +28,9 @@ a, a:hover, a:link, a:visited
 textarea, input, select
 {
     padding: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 #wrapper
@@ -69,8 +72,7 @@ textarea, input, select
 
 #menu
 {
-    float: right;
-    /*width: 534px;*/
+    float: right; /*width: 534px;*/
 }
 
 #menu ul.cities
@@ -203,7 +205,7 @@ input[type=button], input[type=reset]
 
 .success
 {
-	background: url("../images/HeadSearch2.png") no-repeat scroll 0 0 #2C6A8C;
+    background: url("../images/HeadSearch2.png") no-repeat scroll 0 0 #2C6A8C;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 428px;
@@ -246,7 +248,7 @@ input[type=button], input[type=reset]
     width: 250px;
     background: #ffffff;
     border: 1px solid #236388;
-	height: 376px;
+    height: 376px;
 }
 
 #feedback .handle
@@ -254,7 +256,7 @@ input[type=button], input[type=reset]
     background: url(/images/feedback.png) no-repeat;
     height: 127px;
     width: 44px;
-	margin-top: -1px;
+    margin-top: -1px;
 }
 
 #feedback .submitForm ol li input, #feedback .submitForm ol li textarea
@@ -283,11 +285,11 @@ input[type=button], input[type=reset]
 
 .searchBar .currentCity
 {
-	font-weight: bold;
+    font-weight: bold;
     color: #FFFFFF;
     font-size: 24px;
     margin-bottom: 12px;
-	height: 25px;
+    height: 25px;
 }
 
 #search
@@ -299,7 +301,7 @@ input[type=button], input[type=reset]
 
 #search input
 {
-	background: none repeat scroll 0 0 transparent;
+    background: none repeat scroll 0 0 transparent;
     margin: 5px 5px 5px 6px;
     padding: 3px;
     width: 160px;
@@ -344,12 +346,12 @@ input[type=button], input[type=reset]
 
 .headerlinks:hover
 {
-	opacity: 1;
+    opacity: 1;
 }
 
 .headerlinks ul
 {
-	margin: 6px 1px 0;
+    margin: 6px 1px 0;
     padding: 0;
 }
 
@@ -369,22 +371,22 @@ input[type=button], input[type=reset]
 
 .headerlinks a.facebook
 {
-	background: url("/images/minisocial_facebook.png") no-repeat;
+    background: url("/images/minisocial_facebook.png") no-repeat;
 }
 
 .headerlinks a.twitter
 {
-    background: url(/images/minisocial_twitter.png) no-repeat;   
+    background: url(/images/minisocial_twitter.png) no-repeat;
 }
 
 .headerlinks a.georss
 {
-    background: url(/images/minisocial_georss.png) no-repeat;   
+    background: url(/images/minisocial_georss.png) no-repeat;
 }
 
 .headerlinks a.rss
 {
-    background: url(/images/minisocial_rss.png) no-repeat;   
+    background: url(/images/minisocial_rss.png) no-repeat;
 }
 
 

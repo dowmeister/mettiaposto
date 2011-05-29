@@ -6,8 +6,8 @@
 <%@ Register Src="Includes/Analytics.ascx" TagName="Analytics" TagPrefix="uc4" %>
 <%@ Import Namespace="OpenSignals.Framework.Core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="Head1" runat="server"> 
     <title>Mettiaposto.it - {0} in {1} a {2}</title>
     <uc2:Head ID="ucHead" runat="server" />
     <meta property="og:title" id="ogTitle" runat="server" content="Mettiaposto.it - {0} in {1} a {2}" />
@@ -84,16 +84,14 @@
                     </div> -->
                     <div class="shareBox">
                         <ul>
-                            <li><a onclick="sharePopup(this); return false;" href="http://twitter.com/intent/tweet?text=<%= this.Title %>&url=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&via=mettiaposto"
-                                title="Condividi su Twitter">
-                                <img src="/images/social_twitter.png" alt="Condividi su Twitter" /></a> </li>
-                            <li><a onclick="sharePopup(this); return false;" href="http://www.facebook.com/share.php?u=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&t=<%= this.Title %>"
-                                title="Condividi su Facebook">
-                                <img src="/images/social_facebook.png" alt="Condividi su Facebook" /></a> </li>
-                            <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" title="Iscriviti alla segnalazione">
-                                <img src="/images/social_update.png" alt="Aggiornami" /></a> </li>
-                            <li><a href="javascript:;" onclick="openReportAbuseDialog(); return false;" title="Riporta un abuso per una segnalazione impropria o errata">
-                                <img src="/images/social_report.png" alt="Riporta un abuso per una segnalazione impropria o errata" /></a></li>
+                            <li><a onclick="sharePopup(this); return false;" class="facebook" href="http://twitter.com/intent/tweet?text=<%= this.Title %>&url=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&via=mettiaposto"
+                                title="Condividi su Twitter"></a></li>
+                            <li><a onclick="sharePopup(this); return false;" class="twitter" href="http://www.facebook.com/share.php?u=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&t=<%= this.Title %>"
+                                title="Condividi su Facebook"></a></li>
+                            <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" class="subscribe"
+                                title="Iscriviti alla segnalazione"></a></li>
+                            <li><a href="javascript:;" onclick="openReportAbuseDialog(); return false;" class="report"
+                                title="Riporta un abuso per una segnalazione impropria o errata"></a></li>
                         </ul>
                         <div class="clear">
                         </div>
@@ -203,7 +201,7 @@
             </ol>
         </div>
     </div>
-     <div id="reportAbuseDialog" style="display: none">
+    <div id="reportAbuseDialog" style="display: none">
         <div id="reportAbuseMessages">
         </div>
         <div id="reportAbuseForm" class="submitForm">
