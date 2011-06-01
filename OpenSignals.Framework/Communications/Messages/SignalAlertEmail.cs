@@ -43,19 +43,29 @@ namespace OpenSignals.Framework.Communications.Messages
         }
 
         /// <summary>
+        /// Sends the communication.
+        /// </summary>
+        /// <param name="signalID">The signal ID.</param>
+        public void Send(int signalID)
+        {
+            this.Send(null, signalID);
+        }
+
+        /// <summary>
         /// Sends the specified c.
         /// </summary>
         /// <param name="c">The c.</param>
-        public void Send(Comment c)
+        /// <param name="signalID">The signal ID.</param>
+        public void Send(Comment c, int signalID)
         {
             try
             {
                 SignalManager sm = new SignalManager();
-                Signal s = sm.LoadSingnal(c.SignalID);
+                Signal s = sm.LoadSingnal(signalID);
 
                 this.BccReceivers.Add(new MailAddress(s.Email));
 
-                List<SignalSubscription> subscriptions = sm.GetSubscriptions(c.SignalID);
+                List<SignalSubscription> subscriptions = sm.GetSubscriptions(signalID);
 
                 foreach (SignalSubscription sc in subscriptions)
                 {
@@ -70,7 +80,7 @@ namespace OpenSignals.Framework.Communications.Messages
             }
             catch (Exception ex)
             {
-                log.Error("Error sending alert communication", ex);
+                LogUtils.Log("Error sending alert communication", ex);
             }
         }
 
@@ -83,8 +93,12 @@ namespace OpenSignals.Framework.Communications.Messages
         {
             base.CreateXML();
             xmlDocument = XmlUtils.Serialize(s);
-            XmlNode comment = xmlDocument.ImportNode(XmlUtils.Serialize(c).SelectSingleNode("/Comment"), true);
-            xmlDocument.DocumentElement.AppendChild(comment);
+
+            if (c != null)
+            {
+                XmlNode comment = xmlDocument.ImportNode(XmlUtils.Serialize(c).SelectSingleNode("/Comment"), true);
+                xmlDocument.DocumentElement.AppendChild(comment);
+            }
         }
     }
 }

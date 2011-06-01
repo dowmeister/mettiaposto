@@ -18,7 +18,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
 using Jayrock.Json;
-using log4net;
 using OpenSignals.Framework.Places;
 using OpenSignals.Framework.Core.Utility;
 using System.Collections.Generic;
@@ -30,24 +29,6 @@ namespace OpenSignals.Framework.Core.Base
     /// </summary>
     public class BasePage : System.Web.UI.Page
     {
-        /// <summary>
-        /// Logger class
-        /// </summary>
-        protected ILog _logger = null;
-
-        /// <summary>
-        /// Gets the log.
-        /// </summary>
-        protected ILog log
-        {
-            get
-            {
-                if (_logger == null)
-                    _logger = LogManager.GetLogger("System");
-                return _logger;
-            }
-        }
-
         private Place _currentCity = null;
 
         /// <summary>
@@ -578,7 +559,7 @@ namespace OpenSignals.Framework.Core.Base
         /// <param name="ex">The ex.</param>
         protected void ManageException(string logErrorMessage, string errorPageErroMessage, Exception ex)
         {
-            log.Fatal(logErrorMessage, ex);
+            LogUtils.Log(new Exception(logErrorMessage, ex));
             AddToContext("PAGEERROR", ex); 
             Server.Transfer("/Error.aspx?message=" + errorPageErroMessage);
         }

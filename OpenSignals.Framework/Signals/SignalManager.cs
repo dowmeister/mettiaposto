@@ -60,7 +60,7 @@ namespace OpenSignals.Framework.Signals
             }
             catch (Exception ex)
             {
-                log.Error("Error creating signal", ex);
+                LogUtils.Log("Error creating signal", ex);
                 RollbackTransaction();
                 throw ex;
             }
@@ -200,11 +200,9 @@ namespace OpenSignals.Framework.Signals
             int rowcount = Session.CreateCriteria(typeof(SignalSubscription))
                 .Add(Restrictions.Eq("SignalID", ss.SignalID))
                 .Add(Restrictions.Eq("Email", ss.Email))
-                .SetProjection(Projections.RowCount()).UniqueResult<int>();
+                .SetProjection(Projections.RowCount()).UniqueResult<int>();            
 
-             
-
-            return (rowcount == 0);
+            return !(rowcount == 0);
         }
 
         /// <summary>
@@ -229,8 +227,7 @@ namespace OpenSignals.Framework.Signals
         public void SubscribeSignal(SignalSubscription ss)
         {
             OpenSession();
-            Session.Save(ss);
-             
+            Session.Save(ss);             
         }
 
         public void ChangeSignalStatus(Signal s)
@@ -244,7 +241,7 @@ namespace OpenSignals.Framework.Signals
             }
             catch (Exception ex)
             {
-                log.Fatal("Error changing status to signal " + s.SignalID, ex);
+                LogUtils.Log("Error changing status to signal " + s.SignalID, ex);
                 RollbackTransaction();
                 throw ex;
             }
@@ -266,7 +263,7 @@ namespace OpenSignals.Framework.Signals
             }
             catch (Exception ex)
             {
-                log.Error("Error deleting signal " + id, ex);
+                LogUtils.Log("Error deleting signal " + id, ex);
                 RollbackTransaction();
             }
             finally

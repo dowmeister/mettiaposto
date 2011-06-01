@@ -11,20 +11,37 @@
         font-size: 12px;
         font-family: verdana,arial,sans-serif;
         color: #333333;
+        background-color: #F4F4F4;
         }
         .container
         {
         padding: 20px;
-        width: 100%;
-        border: 1px solid #5BB1CA;
+        width: 300px;
+        background-color: #FFFFFF;
+        border: 1px solid #DDDDDD;
+        }
+        h1
+        {
+        font-size: 14px;
+        }
+        .little
+        {
+        font-size: 10px;
+        color: Grey;
         }
         hr { border: 2px solid #5BB1CA; }
+        .footer
+        {
+        border-top: border: 1px solid #DDDDDD;
+        font-size: 10px;
+        }
       </style>
     </head>
   </xsl:template>
   <xsl:template name="Footer">
-    <hr/>
-    Questa comunicazione è stata inviata da <a href="www.mettiaposto.it">www.mettiaposto.it</a> .
-    Per informazioni, lamentele e brutte parole scrivi a <a href="mailto:info@mettiaposto.it">info@mettiaposto.it</a>
+    <div style="border-top: border: 1px solid #DDDDDD; font-size: 10px; margin-top:10px;">
+      Questa comunicazione è stata inviata da <a href="http://www.mettiaposto.it">www.mettiaposto.it</a> .
+      Per informazioni, lamentele e brutte parole scrivi a <a href="mailto:info@mettiaposto.it">info@mettiaposto.it</a>
+    </div>
   </xsl:template>
 </xsl:stylesheet>

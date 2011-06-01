@@ -13,14 +13,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <uc3:Header ID="Header1" runat="server" SelectedTab="4" />
+    <uc3:Header ID="Header1" runat="server" CheckCity="false" SelectedTab="4" />
     <div id="content">
         <div class="full" runat="server" id="divContent">
         </div>
         <div class="clear">
         </div>
     </div>
-    <uc1:Footer ID="Footer1" runat="server" />
+    <uc1:Footer ID="Footer1" CheckCity="false" runat="server" />
     </form>
 </body>
 </html>

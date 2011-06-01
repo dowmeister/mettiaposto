@@ -14,7 +14,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Web;
-using log4net;
+using Elmah;
+using System;
 
 namespace OpenSignals.Framework.Core.Base
 {
@@ -23,20 +24,9 @@ namespace OpenSignals.Framework.Core.Base
     /// </summary>
     public class BaseManager
     {
-        private ILog _log = null;
-
-        /// <summary>
-        /// Gets the log.
-        /// </summary>
-        protected ILog log
+        protected void Log(Exception ex)
         {
-            get
-            {
-                if (_log == null)
-                    _log = LogManager.GetLogger("System");
-
-                return _log;
-            }
+            ErrorSignal.FromCurrentContext().Raise(ex);
         }
     }
 
@@ -45,20 +35,9 @@ namespace OpenSignals.Framework.Core.Base
     /// </summary>
     public class BaseApplication : HttpApplication
     {
-        private ILog _log = null;
-
-        /// <summary>
-        /// Gets the log.
-        /// </summary>
-        protected ILog log
+        protected void Log(Exception ex)
         {
-            get
-            {
-                if (_log == null)
-                    _log = LogManager.GetLogger("System");
-
-                return _log;
-            }
+            ErrorSignal.FromCurrentContext().Raise(ex);
         }
     }
 }

@@ -5,12 +5,27 @@
   <xsl:template match="/">
     <html>
       <xsl:call-template name="HtmlStyles"></xsl:call-template>
-      <body>
-        <div class="container">
-          <b>La segnalazione che stai controllando è stata aggiornata</b>
-          <br/>
-          Un utente ha commentato la segnalazione.
-          <br/>
+      <body style="font-size: 12px; font-family: verdana,arial,sans-serif; color: #333333; background-color: #F4F4F4;">
+        <span style="font-size: 10px; color: #666666;">Mettiaposto.it</span>
+        <h1 style="font-size: 14px;">Segnalazione aggiornata</h1>
+        <div style="padding: 20px; width: 300px; background-color: #FFFFFF; border: 1px solid #DDDDDD;">
+          <b>La segnalazione che stai controllando o che hai creato è stata aggiornata.</b>
+          <xsl:if test="/SignalProxy/Status = '2'">
+            <br/>
+            <br/>
+            <b>La segnalazione è stata risolta.</b>
+            <br/>
+            <br/>
+            Clicca sul link sopra per visualizzare la segnalazione e il messaggio di risoluzione.
+          </xsl:if>
+          <xsl:if test="/SignalProxy/Status = '4'">
+            <br/>
+            <br/>
+            <b>La segnalazione è stata riaperta.</b>
+            <br/>
+            Clicca sul link sopra per visualizzare la segnalazione e il messaggio di risoluzione.
+          </xsl:if>
+          <br/><br/>
           Puoi trovare la segnalazione all'indirizzo:
           <xsl:element name="a">
             <xsl:attribute name="href">
@@ -18,13 +33,6 @@
             </xsl:attribute>
             http://www.mettiaposto.it/<xsl:value-of select="/SignalProxy/City"/>/<xsl:value-of select="/SignalProxy/SignalID"/>/segnalazione.aspx
           </xsl:element>
-          <xsl:if test="/SignalProxy/Comment/SetSignalResolved = 'true'">
-            <br/>
-            <br/>
-            <b>La segnalazione è stata risolta.</b>
-            <br/>
-            Clicca sul link sopra per visualizzare la segnalazione e il messaggio di risoluzione.
-          </xsl:if>
         </div>
         <xsl:call-template name="Footer"></xsl:call-template>
       </body>

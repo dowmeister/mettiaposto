@@ -22,6 +22,7 @@ using System.Xml;
 using System.Xml.Xsl;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Base;
+using OpenSignals.Framework.Core.Utility;
 
 namespace OpenSignals.Framework.Communications
 {
@@ -96,7 +97,7 @@ namespace OpenSignals.Framework.Communications
         /// <summary>
         /// Sends the communication.
         /// </summary>
-        protected void Send()
+        public virtual void Send()
         {
             try
             {
@@ -123,7 +124,7 @@ namespace OpenSignals.Framework.Communications
             }
             catch (System.Exception ex)
             {
-                log.Error("Error sending communication", ex);
+                LogUtils.Log("Error sending communication", ex);
             }            
         }
 
@@ -150,7 +151,7 @@ namespace OpenSignals.Framework.Communications
             }
             catch (Exception ex)
             {
-                log.Error("Error transforming XML", ex);
+                LogUtils.Log("Error transforming XML", ex);
                 throw ex;
             }
         }

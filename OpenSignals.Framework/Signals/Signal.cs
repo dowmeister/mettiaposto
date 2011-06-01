@@ -137,7 +137,6 @@ namespace OpenSignals.Framework.Signals
         /// <value>
         /// The email.
         /// </value>
-        [XmlIgnore]
         public virtual string Email { get; set; }
         /// <summary>
         /// Gets or sets the status.

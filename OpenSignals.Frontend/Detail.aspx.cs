@@ -13,12 +13,19 @@ namespace OpenSignals.Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterAjaxSessionKey();
-            InitClientObjects();
-
-            if (!Page.IsPostBack)
+            try
             {
-                RenderPage();
+                RegisterAjaxSessionKey();
+                InitClientObjects();
+
+                if (!Page.IsPostBack)
+                {
+                    RenderPage();
+                }
+            }
+            catch (Exception ex)
+            {
+                ManageException("Error loading detail page", ex.Message, ex);                
             }
         }
 

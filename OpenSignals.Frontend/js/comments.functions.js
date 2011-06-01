@@ -166,7 +166,7 @@ function subscribeSignal()
         var proxy = new JSONService();
         var params = new Object();
 
-        params["signalID"] = currentSignalID;
+        params["signalID"] = currentMarker.id;
         params["email"] = $('#txtSubscribeEmail').val();
         params = addSessionKey(params);
 

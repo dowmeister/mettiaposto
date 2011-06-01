@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NHibernate.Criterion;
 using OpenSignals.Framework.Data;
+using OpenSignals.Framework.Core.Utility;
 
 namespace OpenSignals.Framework.Comments
 {
@@ -58,7 +59,7 @@ namespace OpenSignals.Framework.Comments
             }
             catch (Exception ex)
             {
-                log.Fatal("Error loading comments", ex);
+                LogUtils.Log("Error loading comments", ex);
                 throw ex;
             }
             finally

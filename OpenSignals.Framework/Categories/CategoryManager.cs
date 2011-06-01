@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using OpenSignals.Framework.Data;
 using NHibernate.Criterion;
+using OpenSignals.Framework.Core.Utility;
 
 namespace OpenSignals.Framework.Categories
 {
@@ -41,7 +42,7 @@ namespace OpenSignals.Framework.Categories
             }
             catch (Exception ex)
             {
-                log.Fatal("Error loading active categories", ex);
+                LogUtils.Log("Error loading active categories", ex);
                 throw ex;
             }
             finally
@@ -65,7 +66,7 @@ namespace OpenSignals.Framework.Categories
             }
             catch (Exception ex)
             {
-                log.Fatal("Error loading active categories", ex);
+                LogUtils.Log("Error loading active categories", ex);
                 throw ex;
             }
             finally
@@ -89,7 +90,7 @@ namespace OpenSignals.Framework.Categories
             }
             catch (Exception ex)
             {
-                log.Fatal("Error loading single category", ex);
+                LogUtils.Log("Error loading single category", ex);
                 throw ex;
             }
             finally
@@ -112,7 +113,7 @@ namespace OpenSignals.Framework.Categories
             }
             catch (Exception ex)
             {
-                log.Fatal("Error deleting single category", ex);
+                LogUtils.Log("Error deleting single category", ex);
                 throw ex;
             }
             finally
@@ -135,7 +136,7 @@ namespace OpenSignals.Framework.Categories
             }
             catch (Exception ex)
             {
-                log.Fatal("Error updating single category", ex);
+                LogUtils.Log("Error updating single category", ex);
                 throw ex;
             }
             finally
@@ -157,7 +158,7 @@ namespace OpenSignals.Framework.Categories
             }
             catch (Exception ex)
             {
-                log.Fatal("Error updating single category", ex);
+                LogUtils.Log("Error updating single category", ex);
                 throw ex;
             }
             finally

@@ -147,5 +147,10 @@ namespace OpenSignals.Framework.Core.Utility
             if (!Directory.Exists(Path.Combine(path, UploadPaths.Comments)))
                 Directory.CreateDirectory(Path.Combine(path, UploadPaths.Comments));
         }
+
+        public static string FormatHtml(string s)
+        {
+            return s.Replace("\n", "<br/>");
+        }
     }
 }

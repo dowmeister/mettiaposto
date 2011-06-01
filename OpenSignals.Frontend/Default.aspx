@@ -32,8 +32,8 @@
         <div style="float: left; top: -20; width: 430px">
             <h2 class="homeclaim">
                 Hai visto qualcosa che non va nella tua città?</h2>
-            Mettiaposto.it ti permette di inviare segnalazioni riguardanti problemi o disservizi del
-            tuo quartiere, come buche, spazzatura in strada, marciapiedi danneggiati o graffiti
+            Mettiaposto.it ti permette di inviare segnalazioni riguardanti problemi o disservizi
+            del tuo quartiere, come buche, spazzatura in strada, marciapiedi danneggiati o graffiti
             sui muri.
             <br />
             Per dubbi, chiarimenti, informazioni, per capire come funziona questo sito <a href="/pages/info.aspx">

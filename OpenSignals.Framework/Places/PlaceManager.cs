@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using NHibernate.Criterion;
 using OpenSignals.Framework.Data;
 using OpenSignals.Framework.API.Google;
+using OpenSignals.Framework.Core.Utility;
 
 namespace OpenSignals.Framework.Places
 {
@@ -43,7 +44,7 @@ namespace OpenSignals.Framework.Places
             }
             catch (Exception ex)
             {
-                log.Fatal("Error loading active places", ex);
+                LogUtils.Log("Error loading active places", ex);
                 throw ex;
             }
             finally
@@ -68,7 +69,7 @@ namespace OpenSignals.Framework.Places
             }
             catch (Exception ex)
             {
-                log.Fatal("Error loading active places", ex);
+                LogUtils.Log("Error loading active places", ex);
                 throw ex;
             }
             finally
@@ -94,7 +95,7 @@ namespace OpenSignals.Framework.Places
             }
             catch (Exception ex)
             {
-                log.Fatal("Error loading place by name", ex);
+                LogUtils.Log("Error loading place by name", ex);
                 throw ex;
             }
             finally

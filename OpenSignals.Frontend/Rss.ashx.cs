@@ -92,7 +92,7 @@ namespace OpenSignals.Frontend
             }
             catch (Exception ex)
             {
-                log.Fatal("Error loading or creating RSS", ex);
+                LogUtils.Log("Error loading or creating RSS", ex);
                 throw ex;
             }
         }

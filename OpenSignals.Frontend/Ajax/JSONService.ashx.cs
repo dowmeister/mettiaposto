@@ -44,7 +44,7 @@ namespace OpenSignals.Frontend.Ajax
 
             SignalManager sm = new SignalManager();
             s.CategoryName = null;
-            s.Description = s.Description.Replace("\n", "<br/>");
+            s.Description = WebUtils.FormatHtml(s.Description);
             s.CreationDate = DateTime.Now;
             s.UpdateDate = DateTime.Now;
             s.ReopenDescription = string.Empty;
@@ -156,12 +156,12 @@ namespace OpenSignals.Frontend.Ajax
 
             CommentManager cm = new CommentManager();
             c.CreationDate = DateTime.Now;
-            c.Text = c.Text.Replace("\n", "<br/>");
+            c.Text = WebUtils.FormatHtml(c.Text);
             c.Status = Comment.CommentStatus.Approved;
             int ret = cm.AddComment(c);
 
             SignalAlertEmail sae = new SignalAlertEmail();
-            sae.Send(c);
+            sae.Send(c, c.SignalID);
             
             return ret;
         }
@@ -176,7 +176,7 @@ namespace OpenSignals.Frontend.Ajax
             ss.Email = param["email"].ToString();
             ss.SignalID = Convert.ToInt32(param["signalID"]);
 
-            if (sm.CheckIfSubscribed(ss))
+            if (!sm.CheckIfSubscribed(ss))
                 sm.SubscribeSignal(ss);
             else
                 throw new Exception("Sei già iscritto a questa segnalazione");
@@ -248,15 +248,18 @@ namespace OpenSignals.Frontend.Ajax
             {
                 case Signal.SignalStatus.ReOpened:
                     s.ReopenDate = DateTime.Now;
-                    s.ReopenDescription = description;
+                    s.ReopenDescription = WebUtils.FormatHtml(description);
                     break;
                 case Signal.SignalStatus.Resolved:
                     s.ResolutionDate = DateTime.Now;
-                    s.ResolutionDescription = description;
+                    s.ResolutionDescription = WebUtils.FormatHtml(description);
                     break;
             }
 
             sm.ChangeSignalStatus(s);
+
+            SignalAlertEmail email = new SignalAlertEmail();
+            email.Send(signalID);
         }
 
         [JsonRpcMethod("reportAbuse")]
@@ -265,7 +268,7 @@ namespace OpenSignals.Frontend.Ajax
             CheckRequest(ajaxSessionKey);
 
             AbuseReportEmail email = new AbuseReportEmail();
-            email.Send(this.Context.Request.UrlReferrer.AbsoluteUri.ToString(), message);
+            email.Send(this.Context.Request.UrlReferrer.AbsoluteUri.ToString(), WebUtils.FormatHtml(message));
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Security;
-using log4net;
 using NHibernate.Criterion;
 using OpenSignals.Framework.Data;
 
@@ -13,23 +12,6 @@ namespace OpenSignals.Framework.Profiles
     class ProfileManager : MembershipProvider
     {
         private NHibernateSessionManager connection = new NHibernateSessionManager();
-
-        private ILog _log = null;
-        private System.Collections.Specialized.NameValueCollection config;
-
-        /// <summary>
-        /// Gets the log.
-        /// </summary>
-        private ILog log
-        {
-            get
-            {
-                if (_log == null)
-                    _log = LogManager.GetLogger("System");
-
-                return _log;
-            }
-        }
 
         /// <summary>
         /// The name of the application using the custom membership provider.
@@ -68,7 +50,7 @@ namespace OpenSignals.Framework.Profiles
         public override void Initialize(string name, System.Collections.Specialized.NameValueCollection config)
         {
             base.Initialize(name, config);
-            this.config = config;
+            //this.config = config;
         }
 
         /// <summary>

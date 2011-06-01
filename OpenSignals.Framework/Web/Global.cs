@@ -20,6 +20,7 @@ using OpenSignals.Framework.Data;
 using NHibernate.Context;
 using System.Web;
 using NHibernate;
+using OpenSignals.Framework.Core.Utility;
 
 namespace OpenSignals.Framework.Web
 {
@@ -41,7 +42,7 @@ namespace OpenSignals.Framework.Web
             }
             catch (Exception ex)
             {
-                log.Fatal("Error rewriting url", ex);
+                LogUtils.Log("Error rewriting url", ex);
                 throw ex;
             }
         }

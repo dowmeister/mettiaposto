@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.SessionState;
 using Jayrock.JsonRpc.Web;
-using log4net;
+using Elmah;
 
 namespace OpenSignals.Framework.Core.Base
 {
@@ -10,23 +10,7 @@ namespace OpenSignals.Framework.Core.Base
     /// </summary>
     public class BaseGenericHandler : IHttpHandler
     {
-        /// <summary>
-        /// Logger class
-        /// </summary>
-        protected ILog _logger = null;
-
-        /// <summary>
-        /// Gets the log.
-        /// </summary>
-        protected ILog log
-        {
-            get
-            {
-                if (_logger == null)
-                    _logger = LogManager.GetLogger("System");
-                return _logger;
-            }
-        }
+        protected HttpContext currentContext = null;
 
         #region IHttpHandler Members
 
@@ -46,6 +30,7 @@ namespace OpenSignals.Framework.Core.Base
         /// <param name="context">An <see cref="T:System.Web.HttpContext"/> object that provides references to the intrinsic server objects (for example, Request, Response, Session, and Server) used to service HTTP requests.</param>
         public virtual void ProcessRequest(HttpContext context)
         {
+            currentContext = context;
         }
 
         #endregion
@@ -54,24 +39,5 @@ namespace OpenSignals.Framework.Core.Base
     /// <summary>
     /// 
     /// </summary>
-    public class BaseJSONHandler : JsonRpcHandler, IRequiresSessionState
-    {
-        /// <summary>
-        /// Logger class
-        /// </summary>
-        protected ILog _logger = null;
-
-        /// <summary>
-        /// Gets the log.
-        /// </summary>
-        protected ILog log
-        {
-            get
-            {
-                if (_logger == null)
-                    _logger = LogManager.GetLogger("System");
-                return _logger;
-            }
-        }
-    }
+    public class BaseJSONHandler : JsonRpcHandler, IRequiresSessionState { }
 }

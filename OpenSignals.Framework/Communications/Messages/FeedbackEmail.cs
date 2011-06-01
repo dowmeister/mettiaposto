@@ -40,7 +40,7 @@ namespace OpenSignals.Framework.Communications.Messages
             }
             catch (Exception ex)
             {
-                log.Error("Error sending alert communication", ex);
+                LogUtils.Log("Error sending alert communication", ex);
                 throw ex;
             }
         }
