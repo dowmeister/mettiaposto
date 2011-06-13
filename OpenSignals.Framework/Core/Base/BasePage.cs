@@ -563,5 +563,11 @@ namespace OpenSignals.Framework.Core.Base
             AddToContext("PAGEERROR", ex); 
             Server.Transfer("/Error.aspx?message=" + errorPageErroMessage);
         }
+
+        protected void CheckTheBeta()
+        {
+            if (!CookieContains("OSBETA"))
+                Response.Redirect("/");
+        }
     }
 }

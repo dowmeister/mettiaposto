@@ -231,6 +231,7 @@
     <Content Include="Detail.aspx" />
     <Content Include="Submit.aspx" />
     <Content Include="Teaser.aspx" />
+    <Content Include="TryBeta.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -386,6 +387,13 @@
     </Compile>
     <Compile Include="Submit.aspx.designer.cs">
       <DependentUpon>Submit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TryBeta.aspx.cs">
+      <DependentUpon>TryBeta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TryBeta.aspx.designer.cs">
+      <DependentUpon>TryBeta.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
