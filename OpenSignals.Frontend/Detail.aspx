@@ -84,9 +84,9 @@
                     </div> -->
                     <div class="shareBox">
                         <ul>
-                            <li><a onclick="sharePopup(this); return false;" class="facebook" href="http://twitter.com/intent/tweet?text=<%= this.Title %>&url=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&via=mettiaposto"
+                            <li><a onclick="sharePopup(this); return false;" class="twitter" href="http://twitter.com/intent/tweet?text=<%= this.Title %>&url=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&via=mettiaposto"
                                 title="Condividi su Twitter"></a></li>
-                            <li><a onclick="sharePopup(this); return false;" class="twitter" href="http://www.facebook.com/share.php?u=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&t=<%= this.Title %>"
+                            <li><a onclick="sharePopup(this); return false;" class="facebook" href="http://www.facebook.com/share.php?u=<%= ((RewriteContext)GetFromContext("REWRITECONTEXT")).RewritedUrl %>&t=<%= this.Title %>"
                                 title="Condividi su Facebook"></a></li>
                             <li><a href="javascript:;" onclick="openSubscribeDialog(); return false;" class="subscribe"
                                 title="Iscriviti alla segnalazione"></a></li>
