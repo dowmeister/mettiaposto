@@ -29,11 +29,21 @@ namespace OpenSignals.Framework.Web.Controls
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination;
 
+        /// <summary>
+        /// Handles the Load event of the Page control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Populates the specified comments.
+        /// </summary>
+        /// <param name="comments">The comments.</param>
+        /// <param name="totalRecords">The total records.</param>
         public void Populate(List<Comment> comments, int totalRecords)
         {
             if (comments.Count > 0)
@@ -46,6 +56,11 @@ namespace OpenSignals.Framework.Web.Controls
                 this.Visible = false;
         }
 
+        /// <summary>
+        /// Handles the ItemDataBound event of the rptList control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Web.UI.WebControls.RepeaterItemEventArgs"/> instance containing the event data.</param>
         protected void rptList_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)

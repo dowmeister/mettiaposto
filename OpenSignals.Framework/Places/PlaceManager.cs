@@ -19,6 +19,7 @@ using NHibernate.Criterion;
 using OpenSignals.Framework.Data;
 using OpenSignals.Framework.API.Google;
 using OpenSignals.Framework.Core.Utility;
+using System.Text.RegularExpressions;
 
 namespace OpenSignals.Framework.Places
 {
@@ -37,7 +38,7 @@ namespace OpenSignals.Framework.Places
             {
                 OpenSession();
                 List<Place> ret = (List<Place>)Session.CreateCriteria(typeof(Place))
-                    .AddOrder(new NHibernate.Criterion.Order("Name", true))    
+                    .AddOrder(new NHibernate.Criterion.Order("Name", true))
                     .Add(Restrictions.Eq("Status", true))
                     .List<Place>();
                 return ret;
@@ -49,7 +50,7 @@ namespace OpenSignals.Framework.Places
             }
             finally
             {
-                 
+
             }
         }
 
@@ -63,7 +64,7 @@ namespace OpenSignals.Framework.Places
             {
                 OpenSession();
                 List<Place> ret = (List<Place>)Session.CreateCriteria(typeof(Place))
-                     .AddOrder(new NHibernate.Criterion.Order("Name", true))    
+                     .AddOrder(new NHibernate.Criterion.Order("Name", true))
                     .List<Place>();
                 return ret;
             }
@@ -74,7 +75,7 @@ namespace OpenSignals.Framework.Places
             }
             finally
             {
-                 
+
             }
         }
 
@@ -100,7 +101,33 @@ namespace OpenSignals.Framework.Places
             }
             finally
             {
-                 
+
+            }
+        }
+
+        /// <summary>
+        /// Loads the place.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns></returns>
+        public Place LoadPlaceByRewritedName(string url)
+        {
+            try
+            {
+                OpenSession();
+                Place ret = Session.CreateCriteria(typeof(Place))
+                    .Add(Restrictions.Eq("RewritedName", url))
+                    .UniqueResult<Place>();
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                LogUtils.Log("Error loading place by name", ex);
+                throw ex;
+            }
+            finally
+            {
+
             }
         }
 
@@ -114,9 +141,10 @@ namespace OpenSignals.Framework.Places
             {
                 OpenSession();
                 OpenTransaction();
+                p.RewritedName = PlacesUtils.RewritePlaceName(p.Name);
                 Session.Save(p);
                 CommitTransaction();
-                 
+
             }
             catch (Exception ex)
             {
@@ -162,6 +190,28 @@ namespace OpenSignals.Framework.Places
             }
 
             return null;
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class PlacesUtils
+    {
+        /// <summary>
+        /// Rewrites the name of the place.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        public static string RewritePlaceName(string name)
+        {
+            string str = name.ToLower();
+            str = Regex.Replace(str, @"[^a-z0-9\s-]", ""); 
+            str = Regex.Replace(str, @"[\s-]+", " ").Trim();
+            str = Regex.Replace(str, @"'", "-");
+            str = str.Substring(0, str.Length <= 20 ? str.Length : 20).Trim();
+            str = Regex.Replace(str, @"\s", "-");
+            return str;
         }
     }
 }

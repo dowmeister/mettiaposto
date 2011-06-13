@@ -450,7 +450,7 @@ namespace OpenSignals.Framework.Core.Base
             if (QueryStringContains("city"))
                 defaultCity = GetFromQueryString("city");
 
-            _currentCity = pm.LoadPlace(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
+            _currentCity = pm.LoadPlaceByRewritedName(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(defaultCity));
 
             if (_currentCity != null)
             {

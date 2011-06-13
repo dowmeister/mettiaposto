@@ -8,6 +8,7 @@
     <property name="Open311URL" column="p_open311_url" type="String"></property>
     <property name="Open311ApiKey" column="p_open311_api_key" type="String"></property>
     <property name="Open311CityID" column="p_open311_city_id" type="String"></property>
+    <property name="RewritedName" column="p_url" type="String"></property>
     <property name="MapZoom" column="p_zoom" type="int"></property>
     <property name="GeolocationInfo" column="p_geo" type="OpenSignals.Framework.API.Google.Geometry, OpenSignals.Framework"></property>
   </class>

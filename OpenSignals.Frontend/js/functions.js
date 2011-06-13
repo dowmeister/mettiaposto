@@ -55,10 +55,10 @@ function checkPlace() {
         $("#searchCity").val(place.name);
 
         if (place.status == 1)
-            window.location.href = '/' + place.name.toLowerCase() + '/index.aspx';
+            window.location.href = place.link + 'index.aspx';
         else
         {
-            $('#alreadyRequestedCityLabel').html(placeName);
+            $('#alreadyRequestedCityLabel').html(place.name);
             $('#alreadyRequestedCity').dialog({
                 title: 'Città richiesta ma non attiva', draggable: false, resizable: false,
                 buttons: {

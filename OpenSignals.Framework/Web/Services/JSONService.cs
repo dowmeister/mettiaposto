@@ -226,6 +226,10 @@ namespace OpenSignals.Framework.Web.Services
             return p;
         }
 
+        /// <summary>
+        /// Subscribes to newsletter.
+        /// </summary>
+        /// <param name="param">The param.</param>
         [JsonRpcMethod("subscribeToNewsletter")]
         public void SubscribeToNewsletter(JsonObject param)
         {
@@ -237,6 +241,10 @@ namespace OpenSignals.Framework.Web.Services
             mg.SubscribeUser(user);
         }
 
+        /// <summary>
+        /// Sends the feedback.
+        /// </summary>
+        /// <param name="param">The param.</param>
         [JsonRpcMethod("sendFeedback")]
         public void SendFeedback(JsonObject param)
         {
@@ -246,15 +254,33 @@ namespace OpenSignals.Framework.Web.Services
             f.Send(param["name"].ToString(), param["email"].ToString(), param["message"].ToString());
         }
 
+        /// <summary>
+        /// Checks the place.
+        /// </summary>
+        /// <param name="placeName">Name of the place.</param>
+        /// <param name="sessionKey">The session key.</param>
+        /// <returns></returns>
         [JsonRpcMethod("checkPlace")]
-        public Place CheckPlace(string placeName, string sessionKey)
+        public JsonObject CheckPlace(string placeName, string sessionKey)
         {
             CheckRequest(sessionKey);
 
             PlaceManager pm = new PlaceManager();
-            return pm.CheckPlace(placeName);
+            Place p = pm.CheckPlace(placeName);
+            JsonObject o = new JsonObject();
+            o["name"] = p.Name;
+            o["link"] = p.Link;
+            o["status"] = p.Status;
+            return o;
         }
 
+        /// <summary>
+        /// Changes the signal status.
+        /// </summary>
+        /// <param name="signalID">The signal ID.</param>
+        /// <param name="newStatus">The new status.</param>
+        /// <param name="description">The description.</param>
+        /// <param name="sessionKey">The session key.</param>
         [JsonRpcMethod("changeSignalStatus")]
         public void ChangeSignalStatus(int signalID, int newStatus, string description, string sessionKey)
         {
@@ -282,6 +308,11 @@ namespace OpenSignals.Framework.Web.Services
             email.Send(signalID);
         }
 
+        /// <summary>
+        /// Reports the abuse.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="ajaxSessionKey">The ajax session key.</param>
         [JsonRpcMethod("reportAbuse")]
         public void ReportAbuse(string message, string ajaxSessionKey)
         {

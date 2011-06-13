@@ -69,7 +69,7 @@ namespace OpenSignals.Framework.Places
         /// </summary>
         public virtual string Link
         {
-            get { return "/" + this.Name.ToLower() + "/"; }
+            get { return "/" + this.RewritedName.ToLower() + "/"; }
         }
 
         /// <summary>
@@ -101,5 +101,13 @@ namespace OpenSignals.Framework.Places
         /// The geolocation info.
         /// </value>
         public virtual Geometry GeolocationInfo { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the rewrited.
+        /// </summary>
+        /// <value>
+        /// The name of the rewrited.
+        /// </value>
+        public virtual string RewritedName { get; set; }
     }
 }

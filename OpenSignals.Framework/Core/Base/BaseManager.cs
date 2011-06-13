@@ -35,6 +35,10 @@ namespace OpenSignals.Framework.Core.Base
     /// </summary>
     public class BaseApplication : HttpApplication
     {
+        /// <summary>
+        /// Logs the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         protected void Log(Exception ex)
         {
             ErrorSignal.FromCurrentContext().Raise(ex);
