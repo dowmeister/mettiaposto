@@ -1,5 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SignalsList.ascx.cs"
-    Inherits="OpenSignals.Frontend.Includes.SignalsList" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="OpenSignals.Framework.Web.Controls.SignalsList" %>
 <asp:Repeater ID="rptList" runat="server" OnItemDataBound="rptList_ItemDataBound">
     <ItemTemplate>
         <div class="item">
@@ -17,12 +16,11 @@
     </ItemTemplate>
     <AlternatingItemTemplate>
         <div class="alt-item">
-             <div class="status">
+            <div class="status">
                 <asp:Image ID="status" runat="server" /></div>
             <div class="title">
                 <a runat="server" id="title"></a>
             </div>
-           
             <div class="legend">
                 in
                 <asp:Label ID="category" runat="server"></asp:Label>, inviato

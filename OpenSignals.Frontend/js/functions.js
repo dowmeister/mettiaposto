@@ -224,3 +224,8 @@ window.alert = function (msg)
     });
     return false;
 }
+
+function composeAjaxUploadUrl()
+{
+    return "/Ajax/Upload.ashx?token=" + ajaxSessionKey;
+}

@@ -129,7 +129,12 @@ function addSignal()
     s.name = $('#txtName').val();
     s.longitude = mapManager.getMarker('geoLocatedMarker0').obj.getPosition().lng();
     s.address = $('#txtAddress').val();
-    s.zip = mapManager.getAddressComponent(completeAddress, 'postal_code').long_name;
+    
+    if (mapManager.getAddressComponent(completeAddress, 'postal_code').long_name == '')
+        s.zip = 0;
+    else
+        s.zip = mapManager.getAddressComponent(completeAddress, 'postal_code').long_name;
+
     s.city = currentCity.name;
     s.zoom = mapManager.getZoom('map');
     s.attachment = '';
@@ -141,14 +146,26 @@ function addSignal()
         $.ajaxFileUpload
         (
             {
-                url: '/Ajax/Upload.aspx',
+                url: composeAjaxUploadUrl(),
                 secureuri: false,
                 fileElementId: 'fuFile',
                 dataType: 'json',
                 success: function (data, status)
                 {
                     if (data.error)
-                        alert(data.error);
+                    {
+                        if (data.error == 'ERROR')
+                            alert(data.errorMessage);
+                        else if (data.error = 'WRONG_EXT')
+                            alert('Il file caricato non è di tipo immagine');
+                        else if (data.error == 'NO_FILE')
+                            alert('Il file selezionato non è stato inviato correttamente');
+                        else if (data.error == 'TOO_MUCH')
+                            alert('Il file selezionato è troppo grande: dimensione massima 10MB');
+
+                        hideAjax('#messages');
+                        $('#submitForm').show();
+                    }
                     else
                     {
                         s.attachment = data.fileName;
@@ -167,7 +184,9 @@ function addSignal()
 
 function geolocateByAddress()
 {
-    var options =
+    if ($('#txtAddress').val() != '')
+    {
+        var options =
     mapManager.geolocate(
         { address: $('#txtAddress').val() + ", " + currentCity.name,
             mapID: 'map',
@@ -176,6 +195,7 @@ function geolocateByAddress()
                 geolocationByAddress_callback(response, status, { map: 'map' });
             }
         });
+    }
 }
 
 function geolocationByAddress_callback(r, status, options)
@@ -195,7 +215,6 @@ function geolocationByAddress_callback(r, status, options)
                     mapManager.setZoom({ mapID: 'map', zoom: 14 });
                     break;
                 case 'sublocality':
-                    //mapManager.setZoom({ mapID: 'map', zoom: 13 });
                     alert("L'indirizzo inserito non è molto preciso, prova a riscriverlo indicando precisamente il tipo di indirizzo (via, viale, piazza) o il numero civico");
                     return;
                     break;
@@ -203,7 +222,6 @@ function geolocationByAddress_callback(r, status, options)
                     mapManager.setZoom({ mapID: 'map', zoom: 15 });
                     break;
                 case 'locality':
-                    //mapManager.setZoom({ mapID: 'map', zoom: 7 });
                     alert("L'indirizzo inserito non è molto preciso, prova a riscriverlo indicando precisamente il tipo di indirizzo (via, viale, piazza) o il numero civico");
                     return;
                     break;
@@ -215,12 +233,12 @@ function geolocationByAddress_callback(r, status, options)
             {
                 case 'street_address':
                 case 'route':
+                case 'postal_code':
                     mapManager.addMarker({
                         managerInstance: mapManager,
                         id: 'geoLocatedMarker0', position: data.geometry.location, draggable: true, mapID: 'map',
                         image: MARKERIMAGE_ALERT, center: true, localize: true,
-                        goelocalizationCallback:
-                        function (response, status) { geoLocationByLatLng_callback(response, status); },
+                        goelocalizationCallback: function (response, status) { geoLocationByLatLng_callback(response, status); },
                         dragEnd: function (event)
                         {
                             mapManager.geolocate({ mapID: 'map', position: event.latLng, callback:
@@ -234,6 +252,8 @@ function geolocationByAddress_callback(r, status, options)
         else
             alert("L'indirizzo che hai inserito non è a " + currentCity.name);
     }
+    else
+        alert("L'indirizzo inserito non è molto preciso, prova a riscriverlo indicando precisamente il tipo di indirizzo (via, viale, piazza) o il numero civico");
 
     currentMap = null;
 }
@@ -276,6 +296,7 @@ function addSignal_callback(r)
     {
         var text = 'La segnalazione è stata salvata correttamente.<br/><a href="/' + r.result.city.toLowerCase() + '/' + r.result.signalID + '/segnalazione.aspx">Clicca qui</a> per visualizzare la pagina di dettaglio.';
 
+        goTo('#message');
         writeMessage('Segnalazione salvata correttamente', text, '#messages');
     }
 }

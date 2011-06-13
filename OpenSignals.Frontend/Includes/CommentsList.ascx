@@ -1,5 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CommentsList.ascx.cs"
-    Inherits="OpenSignals.Frontend.Includes.CommentsList" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="OpenSignals.Framework.Web.Controls.CommentsList" %>
 <asp:Repeater ID="rptList" runat="server" OnItemDataBound="rptList_ItemDataBound">
     <ItemTemplate>
         <div class="item">

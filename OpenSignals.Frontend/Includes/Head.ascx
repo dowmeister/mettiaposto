@@ -18,6 +18,4 @@
     <os:StaticFile Url="/js/validation.js" Type="Javascript" />
     <os:StaticFile Url="/js/json.js" Type="Javascript" />
     <os:StaticFile Url="/js/jquery/plugins/tabSlideOut.js" />
-    <os:StaticFile Url="/js/jquery/plugins/hoverIntent.js" Type="Javascript" />
-    <os:StaticFile Url="/js/jquery/plugins/superfish/superfish.js" Type="Javascript" />
 </os:StaticFileManager>

@@ -5,10 +5,12 @@
   <xsl:template match="/">
     <html>
       <xsl:call-template name="HtmlStyles"></xsl:call-template>
-      <body style="font-size: 12px; font-family: verdana,arial,sans-serif; color: #333333; background-color: #F4F4F4;">
+      <body>
         <span style="font-size: 10px; color: #666666;">Mettiaposto.it</span>
-        <h1 style="font-size: 14px;">Segnalazione aggiornata</h1>
-        <div style="padding: 20px; width: 300px; background-color: #FFFFFF; border: 1px solid #DDDDDD;">
+        <h1 style="font-size: 14px; background-color: #44A2D8; padding: 10px">
+          Segnalazione aggiornata
+        </h1>
+        <div style="padding: 20px; background-color: #FFFFFF; border: 1px solid #44A2D8;">
           <b>La segnalazione che stai controllando o che hai creato è stata aggiornata.</b>
           <xsl:if test="/SignalProxy/Status = '2'">
             <br/>
@@ -16,17 +18,19 @@
             <b>La segnalazione è stata risolta.</b>
             <br/>
             <br/>
-            Clicca sul link sopra per visualizzare la segnalazione e il messaggio di risoluzione.
+            Clicca sul link sotto per visualizzare la segnalazione e il messaggio di risoluzione.
           </xsl:if>
           <xsl:if test="/SignalProxy/Status = '4'">
             <br/>
             <br/>
             <b>La segnalazione è stata riaperta.</b>
             <br/>
-            Clicca sul link sopra per visualizzare la segnalazione e il messaggio di risoluzione.
+            <br/>
+            Clicca sul link sotto per visualizzare la segnalazione e il messaggio di risoluzione.
           </xsl:if>
-          <br/><br/>
-          Puoi trovare la segnalazione all'indirizzo:
+          <br/>
+          <br/>
+          Puoi trovare la segnalazione qui: 
           <xsl:element name="a">
             <xsl:attribute name="href">
               http://www.mettiaposto.it/<xsl:value-of select="/SignalProxy/City"/>/<xsl:value-of select="/SignalProxy/SignalID"/>/segnalazione.aspx

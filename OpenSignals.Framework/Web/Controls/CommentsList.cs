@@ -7,10 +7,28 @@ using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Core.Utility;
 using OpenSignals.Framework.Signals;
 
-namespace OpenSignals.Frontend.Includes
+namespace OpenSignals.Framework.Web.Controls
 {
     public partial class CommentsList : System.Web.UI.UserControl
     {
+        /// <summary>
+        /// rptList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptList;
+
+        /// <summary>
+        /// pagination control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -42,7 +60,7 @@ namespace OpenSignals.Frontend.Includes
                     //if (c.AuthorReferenceType == Comment.AuthorType.Facebook)
                     //    ((Literal)e.Item.FindControl("ltAuthor")).Text = "<fb:name uid=\"" + c.AuthorReferenceKey + "\" use-you=\"no\"></fb:name>";
                     //else
-                        ((Literal)e.Item.FindControl("ltAuthor")).Text = c.AuthorName;
+                    ((Literal)e.Item.FindControl("ltAuthor")).Text = c.AuthorName;
                 }
                 else
                     ((Literal)e.Item.FindControl("ltAuthor")).Text = "Anonimo";
@@ -51,11 +69,11 @@ namespace OpenSignals.Frontend.Includes
                 {
                     ((HtmlGenericControl)e.Item.FindControl("divPhoto")).Visible = true;
                     ((HtmlAnchor)e.Item.FindControl("lnkPhoto")).HRef = WebUtils.GetImageUrl(UploadPaths.Big, c.Attachment);
-                    ((Image)e.Item.FindControl("imgPhoto")).ImageUrl = WebUtils.GetImageUrl(UploadPaths.Comments, c.Attachment);
+                    ((System.Web.UI.WebControls.Image)e.Item.FindControl("imgPhoto")).ImageUrl = WebUtils.GetImageUrl(UploadPaths.Comments, c.Attachment);
                 }
 
                 if (c.AuthorReferenceType == Comment.AuthorType.Facebook)
-                    ((Image)e.Item.FindControl("avatar")).ImageUrl = "http://graph.facebook.com/" + c.AuthorReferenceKey + "/picture?type=square";
+                    ((System.Web.UI.WebControls.Image)e.Item.FindControl("avatar")).ImageUrl = "http://graph.facebook.com/" + c.AuthorReferenceKey + "/picture?type=square";
             }
         }
     }

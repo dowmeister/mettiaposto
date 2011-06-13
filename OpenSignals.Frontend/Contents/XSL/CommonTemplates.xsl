@@ -11,7 +11,6 @@
         font-size: 12px;
         font-family: verdana,arial,sans-serif;
         color: #333333;
-        background-color: #F4F4F4;
         }
         .container
         {
@@ -39,9 +38,12 @@
     </head>
   </xsl:template>
   <xsl:template name="Footer">
-    <div style="border-top: border: 1px solid #DDDDDD; font-size: 10px; margin-top:10px;">
-      Questa comunicazione è stata inviata da <a href="http://www.mettiaposto.it">www.mettiaposto.it</a> .
-      Per informazioni, lamentele e brutte parole scrivi a <a href="mailto:info@mettiaposto.it">info@mettiaposto.it</a>
+    <div style="border-top: border: 1px solid #DDDDDD; font-size: 10px; margin-top: 10px;">
+      Questa comunicazione è stata inviata tramite <a href="http://www.mettiaposto.it">www.mettiaposto.it</a>
+      poichè hai inserito, sottoscritto o commentato una segnalazione. Per visualizzare
+      la Privacy Policy <a href="http://www.mettiaposto.it/pages/privacy.aspx">clicca qui</a>
+      <br />
+      Puoi scriverci anche all'indirizzo <a href="mailto:info@mettiaposto.it">info@mettiaposto.it</a>
     </div>
   </xsl:template>
 </xsl:stylesheet>

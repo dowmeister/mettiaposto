@@ -1,5 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SignalDetail.ascx.cs"
-    Inherits="OpenSignals.Frontend.Includes.SignalDetail" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="OpenSignals.Framework.Web.Controls.SignalDetail" %>
 <div id="infoWindowContainer">
     <h2 runat="server" id="title">
     </h2>

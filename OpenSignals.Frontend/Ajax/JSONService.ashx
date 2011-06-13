@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="JSONService.ashx.cs" Class="OpenSignals.Frontend.Ajax.JSONService" %>
+﻿<%@ WebHandler Language="C#" Class="OpenSignals.Framework.Web.Services.JSONService" %>

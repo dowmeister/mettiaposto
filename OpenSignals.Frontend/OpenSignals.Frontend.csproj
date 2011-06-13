@@ -76,8 +76,8 @@
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\Signals\Edit.aspx" />
     <Content Include="Admin\Signals\List.aspx" />
-    <Content Include="Ajax\Upload.aspx" />
     <Content Include="Content.aspx" />
+    <Content Include="Contents\emailtemplate.html" />
     <Content Include="Contents\info.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -306,17 +306,6 @@
     <Compile Include="Admin\Signals\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Ajax\JSONService.ashx.cs">
-      <DependentUpon>JSONService.ashx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Ajax\Upload.aspx.cs">
-      <DependentUpon>Upload.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Ajax\Upload.aspx.designer.cs">
-      <DependentUpon>Upload.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Content.aspx.cs">
       <DependentUpon>Content.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,13 +327,6 @@
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Includes\CommentsList.ascx.cs">
-      <DependentUpon>CommentsList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Includes\CommentsList.ascx.designer.cs">
-      <DependentUpon>CommentsList.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Includes\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -365,20 +347,6 @@
     </Compile>
     <Compile Include="Includes\Header.ascx.designer.cs">
       <DependentUpon>Header.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Includes\SignalDetail.ascx.cs">
-      <DependentUpon>SignalDetail.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Includes\SignalDetail.ascx.designer.cs">
-      <DependentUpon>SignalDetail.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Includes\SignalsList.ascx.cs">
-      <DependentUpon>SignalsList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Includes\SignalsList.ascx.designer.cs">
-      <DependentUpon>SignalsList.ascx</DependentUpon>
     </Compile>
     <Compile Include="m\Content.aspx.cs">
       <DependentUpon>Content.aspx</DependentUpon>
@@ -438,6 +406,9 @@
     </Content>
     <Content Include="Rss.ashx" />
     <Content Include="js\StaticFileHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ajax\Upload.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

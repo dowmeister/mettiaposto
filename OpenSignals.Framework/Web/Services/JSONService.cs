@@ -9,34 +9,24 @@ using OpenSignals.Framework.Communications.Messages;
 using OpenSignals.Framework.Core.Base;
 using OpenSignals.Framework.Core.Utility;
 using OpenSignals.Framework.Signals;
-using OpenSignals.Frontend.Includes;
+using OpenSignals.Framework.Web.Controls;
 using OpenSignals.Framework.Places;
 using OpenSignals.Framework.Core;
 using OpenSignals.Framework.Newsletter;
 
-namespace OpenSignals.Frontend.Ajax
+namespace OpenSignals.Framework.Web.Services
 {
     /// <summary>
     /// Summary description for JSON
     /// </summary>
     public class JSONService : BaseJSONHandler
     {
-        private void CheckRequest(string key)
-        {
-            if (HttpContext.Current.Request.UrlReferrer.Host.Equals(HttpContext.Current.Request.Url.Host))
-            {
-                if (HttpContext.Current.Session["AjaxSessionKey"] != null)
-                {
-                    if (!key.Equals(HttpContext.Current.Session["AjaxSessionKey"].ToString()))
-                        throw new Exception("Richiesta AJAX non autorizzata");
-                }
-                else
-                    throw new Exception("Richiesta AJAX non autorizzata");
-            }
-            else
-                throw new Exception("Richiesta AJAX negata");
-        }
-
+        /// <summary>
+        /// Adds the signal.
+        /// </summary>
+        /// <param name="s">The s.</param>
+        /// <param name="ajaxSessionKey">The ajax session key.</param>
+        /// <returns></returns>
         [JsonRpcMethod("addSignal")]
         public Signal AddSignal(Signal s, string ajaxSessionKey)
         {
@@ -64,6 +54,11 @@ namespace OpenSignals.Frontend.Ajax
             return s;
         }
 
+        /// <summary>
+        /// Gets the signals nearby.
+        /// </summary>
+        /// <param name="param">The param.</param>
+        /// <returns></returns>
         [JsonRpcMethod("getSignalsNearby")]
         public JsonArray GetSignalsNearby(JsonObject param)
         {
@@ -87,12 +82,17 @@ namespace OpenSignals.Frontend.Ajax
             return ar;
         }
 
+        /// <summary>
+        /// Searches the signals.
+        /// </summary>
+        /// <param name="searchParams">The search params.</param>
+        /// <returns></returns>
         [JsonRpcMethod("searchSignals")]
         public JsonObject SearchSignals(JsonObject searchParams)
         {
             JsonArray ar = new JsonArray();
             JsonObject container = new JsonObject();
- 
+
             int totalRecords = 0;
 
             SignalManager sm = new SignalManager();
@@ -102,7 +102,7 @@ namespace OpenSignals.Frontend.Ajax
             SignalsList s = (SignalsList)new UserControl().LoadControl("/Includes/SignalsList.ascx");
             s.Populate(ret, totalRecords, 10);
             container["html"] = WebUtils.RenderControlToString(s);
-            
+
             for (int i = 0; i < ret.Count; i++)
             {
                 ret[i].Email = string.Empty;
@@ -120,11 +120,16 @@ namespace OpenSignals.Frontend.Ajax
 
         private string GetSignalDescription(Signal s)
         {
-            Includes.SignalDetail sd = (Includes.SignalDetail)new UserControl().LoadControl("/Includes/SignalDetail.ascx");
+            SignalDetail sd = (SignalDetail)new UserControl().LoadControl("/Includes/SignalDetail.ascx");
             sd.BuildSignalDescription(s);
             return WebUtils.RenderControlToString(sd);
         }
 
+        /// <summary>
+        /// Gets the comments.
+        /// </summary>
+        /// <param name="pars">The pars.</param>
+        /// <returns></returns>
         [JsonRpcMethod("getComments")]
         public JsonObject GetComments(JsonObject pars)
         {
@@ -149,6 +154,12 @@ namespace OpenSignals.Frontend.Ajax
             return ret;
         }
 
+        /// <summary>
+        /// Adds the comment.
+        /// </summary>
+        /// <param name="c">The c.</param>
+        /// <param name="ajaxSessionKey">The ajax session key.</param>
+        /// <returns></returns>
         [JsonRpcMethod("addComment")]
         public int AddComment(Comment c, string ajaxSessionKey)
         {
@@ -162,10 +173,14 @@ namespace OpenSignals.Frontend.Ajax
 
             SignalAlertEmail sae = new SignalAlertEmail();
             sae.Send(c, c.SignalID);
-            
+
             return ret;
         }
 
+        /// <summary>
+        /// Subscribes the signal.
+        /// </summary>
+        /// <param name="param">The param.</param>
         [JsonRpcMethod("subscribeSignal")]
         public void SubscribeSignal(JsonObject param)
         {
@@ -182,6 +197,11 @@ namespace OpenSignals.Frontend.Ajax
                 throw new Exception("Sei già iscritto a questa segnalazione");
         }
 
+        /// <summary>
+        /// Adds the place.
+        /// </summary>
+        /// <param name="param">The param.</param>
+        /// <returns></returns>
         [JsonRpcMethod("addPlace")]
         public Place AddPlace(JsonObject param)
         {

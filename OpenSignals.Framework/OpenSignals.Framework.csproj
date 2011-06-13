@@ -123,11 +123,24 @@
     <Compile Include="Signals\Signal.cs" />
     <Compile Include="Signals\SignalManager.cs" />
     <Compile Include="Signals\SignalUtils.cs" />
+    <Compile Include="Web\Controls\CommentsList.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\SignalDetail.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\SignalsList.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Web\Global.cs" />
     <Compile Include="Web\RSS\GeoRSS.cs" />
     <Compile Include="Web\RSS\Items.cs" />
     <Compile Include="Web\RSS\RssGenerator.cs" />
     <Compile Include="Web\Controls\StaticFileManager.cs" />
+    <Compile Include="Web\Services\JSONService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Web\Services\UploadService.cs" />
     <Compile Include="Web\WhitespaceHttpFilter.cs" />
   </ItemGroup>
   <ItemGroup>

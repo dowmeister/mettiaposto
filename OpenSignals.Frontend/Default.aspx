@@ -11,7 +11,7 @@
     </title>
     <uc2:Head ID="ucHead" runat="server" />
     <meta property="og:title" content="Mettiaposto.it" />
-    <meta property="og:description" content="Segnala disservizi, problemi e malfunzionamenti della tua città" />
+    <meta property="og:description" content="Segnala disservizi, problemi e disservizi della tua città" />
     <meta property="og:image" content="http://www.mettiaposto.it/images/logo.png" />
     <uc4:Analytics ID="Analytics1" runat="server" />
     <os:StaticFileManager ID="staticFileManager" ContextKey="index" runat="server">

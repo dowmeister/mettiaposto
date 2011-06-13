@@ -225,7 +225,7 @@ function addSignal()
         $.ajaxFileUpload
         (
             {
-                url: '/Ajax/Upload.aspx',
+                url: composeAjaxUploadUrl(),
                 secureuri: false,
                 fileElementId: 'fuFile',
                 dataType: 'json',

@@ -97,14 +97,26 @@ function _addComment()
         $.ajaxFileUpload
         (
             {
-                url: '/Ajax/Upload.aspx',
+                url: composeAjaxUploadUrl(),
                 secureuri: false,
                 fileElementId: 'fuFile',
                 dataType: 'json',
                 success: function (data, status)
                 {
                     if (data.error)
-                        alert(data.error);
+                    {
+                        if (data.error == 'ERROR')
+                            alert(data.errorMessage);
+                        else if (data.error = 'WRONG_EXT')
+                            alert('Il file caricato non è di tipo immagine');
+                        else if (data.error == 'NO_FILE')
+                            alert('Il file selezionato non è stato inviato correttamente');
+                        else if (data.error == 'TOO_MUCH')
+                            alert('Il file selezionato è troppo grande: dimensione massima 10MB');
+
+                        hideAjax('#commentsMessages');
+                        $('#commentForm').show();
+                    }
                     else
                     {
                         c.attachment = data.fileName;

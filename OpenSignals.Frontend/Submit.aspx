@@ -27,6 +27,7 @@
             <div class="left">
                 <h1 class="title">
                     Segnala un problema</h1>
+                                <a name="message"></a>
                 <div id="submitForm" class="submitForm">
                     <div class="success message" style="display: block">
                         Se hai qualche dubbio, prima di inviare la tua segnalazione leggi le <a href="/pages/info.aspx">

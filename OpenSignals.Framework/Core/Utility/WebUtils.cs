@@ -148,6 +148,11 @@ namespace OpenSignals.Framework.Core.Utility
                 Directory.CreateDirectory(Path.Combine(path, UploadPaths.Comments));
         }
 
+        /// <summary>
+        /// Formats the HTML.
+        /// </summary>
+        /// <param name="s">The s.</param>
+        /// <returns></returns>
         public static string FormatHtml(string s)
         {
             return s.Replace("\n", "<br/>");
