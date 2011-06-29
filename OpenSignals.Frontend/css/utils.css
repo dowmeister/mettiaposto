@@ -296,6 +296,7 @@ input[type=button], input[type=reset]
     background: url("/images/searchcity.png") no-repeat scroll 0 0 transparent;
     height: 40px;
     opacity: 0.6;
+    width: 205px;
 }
 
 #search input

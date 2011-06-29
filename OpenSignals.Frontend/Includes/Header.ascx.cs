@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Web.UI.HtmlControls;
 using OpenSignals.Framework.Core.Base;
 using OpenSignals.Framework.Places;
-using System.Web.Routing;
 
 namespace OpenSignals.Frontend.Includes
 {
@@ -60,19 +59,19 @@ namespace OpenSignals.Frontend.Includes
                 //currentCityAnchor.InnerHtml = currentCity.Name;
                 //currentCityAnchor.HRef = currentCity.Link + "index.aspx";
 
-                //linkSearch.HRef = currentCity.Link + "cerca.aspx";
-                //linkHome.HRef = currentCity.Link + "index.aspx";
-                //linkSignal.HRef = currentCity.Link + "invia.aspx";
-                //linkRss.HRef = currentCity.Link + "rss.aspx";
-                //geoRSSLink.HRef = currentCity.Link + "georss.aspx";
-                //linkLogo.HRef = currentCity.Link + "index.aspx";
-
-                linkSearch.HRef = ((BasePage)Page).GetRouteUrl("search", new { place = ((BasePage)Page).RouteData.Values["place"] }); // currentCity.Link + "cerca.aspx";
+                linkSearch.HRef = currentCity.Link + "cerca.aspx";
                 linkHome.HRef = currentCity.Link + "index.aspx";
                 linkSignal.HRef = currentCity.Link + "invia.aspx";
                 linkRss.HRef = currentCity.Link + "rss.aspx";
                 geoRSSLink.HRef = currentCity.Link + "georss.aspx";
                 linkLogo.HRef = currentCity.Link + "index.aspx";
+
+                //linkSearch.HRef = ((BasePage)Page).GetRouteUrl("search", new { place = ((BasePage)Page).RouteData.Values["place"] }); // currentCity.Link + "cerca.aspx";
+                //linkHome.HRef = currentCity.Link + "index.aspx";
+                //linkSignal.HRef = currentCity.Link + "invia.aspx";
+                //linkRss.HRef = currentCity.Link + "rss.aspx";
+                //geoRSSLink.HRef = currentCity.Link + "georss.aspx";
+                //linkLogo.HRef = currentCity.Link + "index.aspx";
 
                 ltCurrentCity.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(currentCity.Name);
 
