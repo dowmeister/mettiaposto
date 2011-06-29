@@ -131,6 +131,7 @@
     <Content Include="images\minitab-selected2_long.png" />
     <Content Include="images\minitab2.png" />
     <Content Include="images\minitab2_long.png" />
+    <Content Include="images\poll_button.png" />
     <Content Include="images\searchcity.png" />
     <Content Include="images\searchicon.png" />
     <Content Include="images\socialbox.png" />
