@@ -1,4 +1,7 @@
-﻿* { font-family: 'Lucida Grande', 'Lucida Sans Unicode', Lucida, Verdana, Arial, sans-serif; }
+﻿*
+{
+    font-family: 'Lucida Grande' , 'Lucida Sans Unicode' , Lucida, Verdana, Arial, sans-serif;
+}
 
 body
 {
@@ -18,7 +21,7 @@ h2
 #logo
 {
     text-align: center;
-	margin-top:-10px;
+    margin-top: -10px;
 }
 
 .subscribe
@@ -29,7 +32,7 @@ h2
     width: 684px;
     padding: 10px;
     margin: auto;
-	margin-top:10px;
+    margin-top: 10px;
 }
 
 #message
@@ -85,7 +88,7 @@ input[type=button], input[type=reset]
     font-weight: bold;
 }
 
-input[type=text] 
+input[type=text]
 {
     width: 250px;
     border: 1px solid #3299d4;
@@ -126,6 +129,25 @@ input[type=text]
 
 #lrcontent
 {
-	border-radius: 12px;
-	margin-top: 40px;
+    border-radius: 12px;
+}
+
+.poll
+{
+    margin-top: 20px;
+    background: url(/images/poll_button.png);
+    width: 382px;
+    height: 62px;
+    display: block;
+}
+
+.poll span
+{
+    display: none;
+}
+
+#wrapper
+{
+    width: 400px;
+    margin: 0 auto 0 auto;
 }
